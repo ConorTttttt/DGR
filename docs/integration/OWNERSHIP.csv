@@ -1,5 +1,5 @@
 owner,branch,allowed_prefixes,existing_pr,gate
-Agent0,lead/adr2025-contracts-v1,contracts/v1/|docs/integration/|tests/integration/,new,Lead integration review
+Agent0,lead/adr2025-contracts-v1,contracts/v1/|docs/integration/|tests/integration/|.github/workflows/adr2025-contract-ownership.yml,new,Lead integration review
 Class1,class1/adr2025-explosives-v1,agents/class1_explosives/,new,Class1 expert review
 Existing TableA,agent1/adr2025-table-a-ingestion,regulations/adr/2025/table_a_*|scripts/ingest_adr2025_table_a.py|tests/test_adr2025_table_a.py,5,TableA/SP source review
 Agent2,agent2/adr2025-input-model-v0-1,engine/input_model/adr2025/,3,Lead adapter review
