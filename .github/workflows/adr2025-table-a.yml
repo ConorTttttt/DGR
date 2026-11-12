@@ -1,0 +1,57 @@
+name: ADR 2025 Table A provisional ingestion
+
+on:
+  push:
+    branches: [agent1/adr2025-table-a-ingestion]
+    paths:
+      - 'scripts/ingest_adr2025_table_a.py'
+      - '.github/workflows/adr2025-table-a.yml'
+      - 'regulations/adr/2025/dgl_table_a_columns.json'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF extraction dependencies
+        run: python -m pip install 'PyMuPDF==1.26.4' 'pdfplumber==0.11.7' 'requests==2.32.5'
+      - name: Synthetic tests (parser and corrigendum)
+        run: python scripts/ingest_adr2025_table_a.py --self-test
+      - name: Extract from primary UNECE PDF
+        id: extract
+        continue-on-error: true
+        run: python scripts/ingest_adr2025_table_a.py --download
+      - name: Preserve extraction diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: adr2025-table-a-extraction
+          path: regulations/adr/2025/generated/
+          if-no-files-found: warn
+      - name: Stop if any quality gate failed
+        if: steps.extract.outcome != 'success'
+        run: |
+          echo "Extraction incomplete; no provisional Table A will be committed."
+          exit 1
+      - name: Commit provisional rows with explicit unreviewed flags
+        if: steps.extract.outcome == 'success'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add regulations/adr/2025/generated/
+          if git diff --cached --quiet; then
+            echo "No changes to provisional extraction"
+          else
+            git commit -m "data: extract provisional ADR 2025 Table A rows [skip ci]"
+            git push
+          fi
