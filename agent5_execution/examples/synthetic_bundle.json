@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1.0",
+  "bundle_id": "synthetic-example-adr",
+  "bundle_version": "0.1.0",
+  "regime": "ADR",
+  "edition": "SYNTHETIC-TEST-NOT-ADR",
+  "effective_from": "2025-01-01",
+  "effective_until": "2027-12-31",
+  "approval": {
+    "status": "approved",
+    "reviewer": "SYNTHETIC-TEST-FIXTURE",
+    "reviewed_on": "2026-01-01",
+    "approval_reference": "TEST-ONLY-NOT-A-REAL-APPROVAL"
+  },
+  "required_fields_for_regulated": ["un_number", "proper_shipping_name", "transport_hazard_class"],
+  "sources": [
+    {
+      "source_id": "TEST-NON-AUTHORITY",
+      "edition": "SYNTHETIC-TEST-NOT-ADR",
+      "uri": "urn:synthetic:test-only",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "authority_kind": "synthetic_test"
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "TEST-EXPLICIT-NEGATIVE",
+      "when": {"op": "eq", "fact": "mock_negative_case", "expected": {"type": "boolean", "value": true}},
+      "citations": [{"source_id": "TEST-NON-AUTHORITY", "clause": "TEST.1"}],
+      "exhaustive_scope": true,
+      "exhaustive_scope_rationale": "Only for controlled code-path tests; no real-world legal meaning.",
+      "effects": [{"field": "transport_status", "value": "not_regulated_for_transport"}]
+    }
+  ]
+}

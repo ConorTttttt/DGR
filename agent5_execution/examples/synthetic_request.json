@@ -1,0 +1,14 @@
+{
+  "input_id": "TEST-001",
+  "regime": "ADR",
+  "bundle_id": "synthetic-example-adr",
+  "bundle_version": "0.1.0",
+  "on_date": "2026-11-12",
+  "facts": {
+    "mock_negative_case": {
+      "type": "boolean",
+      "value": true,
+      "evidence": [{"ref": "TEST-MOCK-EVIDENCE", "locator": "synthetic fixture only"}]
+    }
+  }
+}

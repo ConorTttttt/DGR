@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sds-section14:execution-result:0.1.0",
+  "title": "Provisional SDS Section 14 rule-engine execution result",
+  "description": "Execution-layer result only. DECIDED does not constitute regulatory approval or permission to publish an SDS.",
+  "type": "object",
+  "required": ["result_schema_version", "engine_version", "decision_status", "section14", "issues", "trace", "bundle_sha256", "request_sha256"],
+  "properties": {
+    "result_schema_version": {"const": "0.1.0"},
+    "engine_version": {"type": "string"},
+    "decision_status": {"enum": ["DECIDED", "INDETERMINATE", "BLOCKED"]},
+    "transport_status": {"type": ["string", "null"], "enum": ["regulated", "not_regulated_for_transport", null]},
+    "section14": {
+      "type": "object",
+      "properties": {
+        "transport_status": {"enum": ["regulated", "not_regulated_for_transport"]},
+        "un_number": {}, "proper_shipping_name": {}, "transport_hazard_class": {},
+        "subsidiary_risks": {}, "packing_group": {}, "environmental_hazards": {},
+        "special_precautions": {}, "maritime_bulk_transport": {}
+      },
+      "additionalProperties": false
+    },
+    "provisional_effects": {"type": "object"},
+    "issues": {"type": "array", "items": {"type": "object", "required": ["code", "message"], "properties": {"code": {"type": "string"}, "message": {"type": "string"}}}},
+    "trace": {"type": "array", "items": {"type": "object"}},
+    "matched_rule_ids": {"type": "array", "items": {"type": "string"}},
+    "field_citations": {"type": "object"},
+    "bundle_id": {"type": "string"}, "bundle_version": {"type": "string"},
+    "regime": {"type": "string"}, "edition": {"type": "string"}, "on_date": {"type": "string", "format": "date"},
+    "bundle_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+    "request_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"}
+  },
+  "allOf": [
+    {"if": {"properties": {"decision_status": {"const": "DECIDED"}}}, "then": {
+      "required": ["transport_status"],
+      "properties": {"issues": {"maxItems": 0}, "section14": {"required": ["transport_status"]}}
+    }},
+    {"if": {"properties": {"decision_status": {"enum": ["INDETERMINATE", "BLOCKED"]}}}, "then": {
+      "properties": {"section14": {"maxProperties": 0}}
+    }}
+  ]
+}
