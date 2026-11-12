@@ -63,7 +63,7 @@ Statuses: `criteria_met`, `criteria_not_met` (pathway-only), `indeterminate`, `n
 
 Local command: `cd agents/class41 && python -m unittest -v test_class41`.
 
-Result (local Python 3): **10 test methods, 77 scenario checks, 0 failures, 0 errors**. Tested: N.1 time 44.999/45, rate 2.2/2.21, wetted-zone branches, metal 5/5.0001/10/10.0001, negative screening, contradiction, missing values, invalid method, no CLP shortcut, heat 299.999/300/300.001, SADT 55/55.01 and 75/75.01, polymer SAPT 45/45.01/50/50.001/75/75.001, PG guards, diluent bp/flash boundaries, self-reactive A/G/B–F, oxidizing mixture 4.99/5%, authority gate, sample 10 kg boundary, listed/unlisted desensitized explosives and competing hazards.
+Result (local Python 3): **10 test methods, 80 scenario checks, 0 failures, 0 errors**. Tested: N.1 time 44.999/45, rate 2.2/2.21, wetted-zone branches, metal 5/5.0001/10/10.0001, negative screening, contradiction, missing values, invalid method, no CLP shortcut, heat 299.999/300/300.001, SADT 55/55.01 and 75/75.01, polymer SAPT 45/45.01/50/50.001/75/75.001, PG guards, diluent bp/flash boundaries, self-reactive A/G/B–F, oxidizing mixture 4.99/5%, authority gate, sample 10 kg boundary, listed/unlisted desensitized explosives and competing hazards.
 
 These are **synthetic threshold regressions**, not empirical validation. They have not been run as repository CI or independently audited.
 
