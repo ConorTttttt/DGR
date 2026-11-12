@@ -5,6 +5,7 @@ on:
     branches: [agent1/adr2025-table-a-ingestion]
     paths:
       - 'scripts/ingest_adr2025_table_a.py'
+      - 'scripts/validate_adr2025_table_a_output.py'
       - '.github/workflows/adr2025-table-a.yml'
   pull_request:
     branches: [main]
@@ -29,6 +30,8 @@ jobs:
         run: python -m py_compile scripts/ingest_adr2025_table_a.py
       - name: Synthetic parser/corrigendum tests
         run: python scripts/ingest_adr2025_table_a.py --self-test
+      - name: Compile extracted-output QA script
+        run: python -m py_compile scripts/validate_adr2025_table_a_output.py
       - name: Extractor regression tests
         run: python -m unittest discover -s tests -p 'test_adr2025_table_a.py' -v
       - name: Existing clause register consistency
@@ -48,6 +51,9 @@ jobs:
         run: python -m pip install 'PyMuPDF==1.26.4' 'pdfplumber==0.11.7' 'requests==2.32.5'
       - name: Extract source and produce provisional, NOT approved outputs
         run: python scripts/ingest_adr2025_table_a.py --download
+      - name: Independently check generated row and SP-link structure
+        if: success()
+        run: python scripts/validate_adr2025_table_a_output.py
       - name: Upload local-review files (not a Git commit)
         if: always()
         uses: actions/upload-artifact@v4
