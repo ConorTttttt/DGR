@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0.0",
+  "regulation": "ADR",
+  "edition": "2025",
+  "source_id": "adr2025_vol1_en",
+  "source_document": "ECE/TRANS/352 (Vol.I)",
+  "source_clause": "3.2.1",
+  "source_url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+  "table": "Table A",
+  "primary_lookup_key": [
+    "un_number"
+  ],
+  "row_key_note": "A UN number may correspond to multiple table rows. Real identity must preserve row attributes (class, classification code, PG, description) and NOT key solely by UN number.",
+  "ingestion_status": "field_schema_only_no_un_rows_ingested",
+  "column_count": 23,
+  "columns": [
+    {
+      "column": "1",
+      "field": "un_number",
+      "adr_column_heading": "UN number",
+      "engine_stage": "identifier",
+      "cross_reference": "3.2.1",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "2",
+      "field": "proper_shipping_name_description",
+      "adr_column_heading": "Name and description",
+      "engine_stage": "naming",
+      "cross_reference": "3.1.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "3a",
+      "field": "hazard_class",
+      "adr_column_heading": "Class",
+      "engine_stage": "classification",
+      "cross_reference": "2.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "3b",
+      "field": "classification_code",
+      "adr_column_heading": "Classification code",
+      "engine_stage": "classification",
+      "cross_reference": "2.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "4",
+      "field": "packing_group",
+      "adr_column_heading": "Packing group",
+      "engine_stage": "classification",
+      "cross_reference": "2.1.1.3",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "5",
+      "field": "labels",
+      "adr_column_heading": "Labels",
+      "engine_stage": "transport_labelling",
+      "cross_reference": "5.2.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "6",
+      "field": "special_provisions",
+      "adr_column_heading": "Special provisions",
+      "engine_stage": "conditional_override",
+      "cross_reference": "3.3.1",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "7a",
+      "field": "limited_quantities",
+      "adr_column_heading": "Limited quantities",
+      "engine_stage": "quantity_exception",
+      "cross_reference": "3.4",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "7b",
+      "field": "excepted_quantities",
+      "adr_column_heading": "Excepted quantities",
+      "engine_stage": "quantity_exception",
+      "cross_reference": "3.5",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "8",
+      "field": "packing_instructions",
+      "adr_column_heading": "Packing instructions",
+      "engine_stage": "packing",
+      "cross_reference": "4.1",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "9a",
+      "field": "special_packing_provisions",
+      "adr_column_heading": "Special packing provisions",
+      "engine_stage": "packing",
+      "cross_reference": "4.1",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "9b",
+      "field": "mixed_packing_provisions",
+      "adr_column_heading": "Mixed packing provisions",
+      "engine_stage": "packing",
+      "cross_reference": "4.1.10",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "10",
+      "field": "portable_tank_bulk_container_instructions",
+      "adr_column_heading": "Portable tank and bulk container instructions",
+      "engine_stage": "tank",
+      "cross_reference": "4.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "11",
+      "field": "portable_tank_bulk_container_special_provisions",
+      "adr_column_heading": "Portable tank and bulk container special provisions",
+      "engine_stage": "tank",
+      "cross_reference": "4.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "12",
+      "field": "adr_tank_code",
+      "adr_column_heading": "Tank code for ADR tanks",
+      "engine_stage": "tank",
+      "cross_reference": "4.3",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "13",
+      "field": "adr_tank_special_provisions",
+      "adr_column_heading": "Special provisions for ADR tanks",
+      "engine_stage": "tank",
+      "cross_reference": "4.3.5;6.8.4",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "14",
+      "field": "tank_vehicle",
+      "adr_column_heading": "Vehicle for tank carriage",
+      "engine_stage": "vehicle",
+      "cross_reference": "7.4.2;9.1",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "15",
+      "field": "transport_category_tunnel_restriction_code",
+      "adr_column_heading": "Transport category / (Tunnel restriction code)",
+      "engine_stage": "transport",
+      "cross_reference": "1.1.3.6;8.6",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "16",
+      "field": "packages_transport_provisions",
+      "adr_column_heading": "Special provisions for carriage — packages",
+      "engine_stage": "transport",
+      "cross_reference": "7.2",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "17",
+      "field": "bulk_transport_provisions",
+      "adr_column_heading": "Special provisions for carriage — bulk",
+      "engine_stage": "transport",
+      "cross_reference": "7.3",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "18",
+      "field": "loading_unloading_handling_provisions",
+      "adr_column_heading": "Special provisions for carriage — loading, unloading and handling",
+      "engine_stage": "transport",
+      "cross_reference": "7.5",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "19",
+      "field": "carriage_operation_provisions",
+      "adr_column_heading": "Special provisions for carriage — operation",
+      "engine_stage": "transport",
+      "cross_reference": "8.5",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    },
+    {
+      "column": "20",
+      "field": "hazard_identification_number",
+      "adr_column_heading": "Hazard identification number",
+      "engine_stage": "transport",
+      "cross_reference": "5.3.2.3",
+      "allow_null": true,
+      "extracted_value_status": "not_ingested"
+    }
+  ],
+  "normalization_guidance": [
+    "Preserve exact Table A text and raw codes before deriving normalized values.",
+    "Column 6 references provision numbers; each provision's requirements must be applied only to its assigned UN rows.",
+    "Column 7a uses limited-quantity per-inner-packaging maximums, including 0 where not permitted; not a classification exemption.",
+    "Column 7b uses E0 through E5 excepted quantity codes; do not assume eligibility from package size alone.",
+    "Column 15 is composite: store transport_category separately from tunnel_restriction_code with original raw text retained.",
+    "Split multivalued code cells losslessly, preserving ordered raw codes and source row position.",
+    "Never use alphabetic Table B as an authoritative row source.",
+    "A blank or missing field must be distinguished from a dash or a regulatory 'not applicable' notation.",
+    "Populate page or row citation when actual source rows are ingested.",
+    "No automatic Section 14 classification can be issued from this column schema alone."
+  ]
+}
