@@ -1,0 +1,190 @@
+{
+  "module": "ADR25_CLASS41",
+  "edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev8 and Amend1",
+  "reviewed": false,
+  "description": "Unsupported-case, legal prohibition, exception and human-review register. All entries must be passed to integrator; no global non-dangerous output.",
+  "items": [
+    {
+      "id": "E01",
+      "case_description": "self-reactive Type A",
+      "handling": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3; MTC II 20.4.2(a)",
+      "required_action": "No packaging permission or UN assignment"
+    },
+    {
+      "id": "E02",
+      "case_description": "self-reactive Type G",
+      "handling": "criteria_not_met_pathway_only",
+      "clause": "2.2.41.1.11; MTC II 20.4.2(g)",
+      "required_action": "Check other transport hazards; oxidizing mixture Note 2 routes to 5.1"
+    },
+    {
+      "id": "E03",
+      "case_description": "self-reactive unlisted substance/formulation without origin-country approval",
+      "handling": "requires_authority",
+      "clause": "2.2.41.1.13",
+      "required_action": "Competent-authority classification/test report and carriage conditions required"
+    },
+    {
+      "id": "E04",
+      "case_description": "listed self-reactive different concentration, activator or formulation",
+      "handling": "indeterminate",
+      "clause": "2.2.41.1.12, 2.2.41.1.14; 2.2.41.4 note",
+      "required_action": "Re-evaluate type, SADT, packing and authorizations; cannot reuse list row blindly"
+    },
+    {
+      "id": "E05",
+      "case_description": "self-reactive sample with incomplete test series",
+      "handling": "requires_expert_decision",
+      "clause": "2.2.41.1.15",
+      "required_action": "OP2, <=10 kg/transport unit, no more danger than type B and temperature data required"
+    },
+    {
+      "id": "E06",
+      "case_description": "self-reactive diluent causing concentration on leakage or incompatibility",
+      "handling": "not_accepted_or_indeterminate",
+      "clause": "2.2.41.1.16",
+      "required_action": "Full diluent/stability checks; numeric checks on liquid temperature-controlled diluent"
+    },
+    {
+      "id": "E07",
+      "case_description": "missing offered-package SADT, 50 kg SADT or decomposition calorimetry",
+      "handling": "indeterminate",
+      "clause": "2.2.41.1.9, 2.2.41.1.17",
+      "required_action": "Do not treat absent SADT as high/low; no automatic temperature-control release"
+    },
+    {
+      "id": "E08",
+      "case_description": "oxidizing mixture with >=5% combustible organic",
+      "handling": "external_class_review",
+      "clause": "2.2.41.1.9 Note 2",
+      "required_action": "Type B–F Class 4.1 vs Type G consideration for 5.1; integrator precedence"
+    },
+    {
+      "id": "E09",
+      "case_description": "solid desensitized explosive absent Table A entry",
+      "handling": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3",
+      "required_action": "No invented n.o.s. UN assignment"
+    },
+    {
+      "id": "E10",
+      "case_description": "frictional ignition material without verified named-entry analogy/SP",
+      "handling": "indeterminate",
+      "clause": "2.2.41.1.5, 2.2.41.1.8",
+      "required_action": "No generic N.1 PG algorithm for friction"
+    },
+    {
+      "id": "E11",
+      "case_description": "metal powders liable to spontaneous combustion or water-reactive gas emission",
+      "handling": "external_class_review",
+      "clause": "2.2.41.3 footnotes (a)-(c)",
+      "required_action": "Route to Class 4.2/4.3 specialists; resolve precedence"
+    },
+    {
+      "id": "E12",
+      "case_description": "inorganic flammable substance in molten form, not sulphur molten",
+      "handling": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3",
+      "required_action": "Named exception UN2448 must be verified, not guessed"
+    },
+    {
+      "id": "E13",
+      "case_description": "phosphorus sulphides contaminated with yellow/white phosphorus",
+      "handling": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3",
+      "required_action": "No transport acceptance"
+    },
+    {
+      "id": "E14",
+      "case_description": "flammable solid oxidizing UN3097 without Class 1 requirement verification",
+      "handling": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.2; 2.1.3.7",
+      "required_action": "Class 1 requirements and multiple hazard route require review"
+    },
+    {
+      "id": "E15",
+      "case_description": "chemically unstable material with dangerous reaction not prevented in carriage",
+      "handling": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.1",
+      "required_action": "Stabilization and contamination review mandatory"
+    },
+    {
+      "id": "E16",
+      "case_description": "polymerizing material meeting another class 1–8 criterion",
+      "handling": "external_class_review",
+      "clause": "2.2.41.1.20(c), 2.2.41.1.21 Note; SP386",
+      "required_action": "Do not automatically allocate 4.1; SP386 and integrator"
+    },
+    {
+      "id": "E17",
+      "case_description": "SAPT missing or not measured for actual container/as-offered state",
+      "handling": "indeterminate",
+      "clause": "2.2.41.1.20–2.2.41.1.21; MTC II 20.4.4",
+      "required_action": "Separate packaging/IBC <=50C and tank <=45C"
+    },
+    {
+      "id": "E18",
+      "case_description": "nonmetal positive rate criterion without under-45-second time/wetted-zone result",
+      "handling": "criteria_met_pg_unresolved",
+      "clause": "2.2.41.1.5(a); 2.2.41.1.8(a)",
+      "required_action": "Cannot infer PG from >2.2 mm/s alone"
+    },
+    {
+      "id": "E19",
+      "case_description": "contradictory preliminary N.1 and full-burning test evidence",
+      "handling": "indeterminate",
+      "clause": "MTC III 33.2.4.3–33.2.4.4",
+      "required_action": "Require original test report/method review"
+    },
+    {
+      "id": "E20",
+      "case_description": "substance named in Table A claimed to be nonflammable via tests",
+      "handling": "requires_expert_decision",
+      "clause": "2.2.41.1.6; 2.1.2.2",
+      "required_action": "Exact named entry, evidence and reviewer decision, no automatic named-entry override"
+    },
+    {
+      "id": "E21",
+      "case_description": "physically untestable or inapplicable N.1 sample",
+      "handling": "requires_expert_decision",
+      "clause": "MTC III 33.2.2.1; 2.2.41.1.5",
+      "required_action": "Analogy and special provisions; do not fabricate burn time"
+    },
+    {
+      "id": "E22",
+      "case_description": "MTC Rev8 Amendment1 Appendix6 calorimetric screening used to exclude self-reactivity",
+      "handling": "not_implemented",
+      "clause": "MTC Rev8/Amend1 A6.5.1",
+      "required_action": "Fresh/aged samples and autocatalytic limitations; requires expert assessment"
+    },
+    {
+      "id": "E23",
+      "case_description": "unresolved ADR 2025 corrigenda or Table A discrepancies",
+      "handling": "release_blocker",
+      "clause": "ECE/TRANS/352 Corr.1, Corr.2; 3.2 Table A",
+      "required_action": "No independent reconciliation of text, row IDs and special provisions"
+    },
+    {
+      "id": "E24",
+      "case_description": "PG candidate conflicts with verified Table A column 4 or named-entry conditions",
+      "handling": "release_blocker",
+      "clause": "2.1.1.3; 2.1.2.2; Chapter 3.2",
+      "required_action": "Final PG blocked pending table row and special provision reconciliation"
+    },
+    {
+      "id": "E25",
+      "case_description": "unverified CLP/GHS label or missing negative evidence",
+      "handling": "indeterminate",
+      "clause": "2.1.2; 2.2.41.1",
+      "required_action": "CLP/GHS not a transport evidence substitute"
+    },
+    {
+      "id": "E26",
+      "case_description": "other listed self-reactive IBC/tank temperature/control/emergency conditions",
+      "handling": "not_implemented",
+      "clause": "2.2.41.4; 4.1.4.2 IBC520; 4.2.5.2.6 T23; 7.1.7",
+      "required_action": "Need authoritative list, transport mode, detailed quantity and temperature conditions"
+    }
+  ]
+}
