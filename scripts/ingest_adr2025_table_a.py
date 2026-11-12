@@ -213,7 +213,8 @@ def compile_table(pdf_path: Path, retrieved_from: str, output_dir: Path) -> dict
         raise RuntimeError("Cannot identify Table A start")
     start = boundaries[0]
     end = next((i for i in range(start + 1, len(doc))
-                if "CHAPTER 3.3" in text_per_page[i].upper()), len(doc))
+                if re.search(r"3\.2\.2\s+Table B", text_per_page[i][:1000], re.I)
+                or "CHAPTER 3.3" in text_per_page[i][:1000].upper()), len(doc))
     doc.close()
 
     indexed_pages: list[dict] = []
