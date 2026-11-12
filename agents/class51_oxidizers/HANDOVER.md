@@ -15,8 +15,8 @@
 | Evidence and reference metadata | \`rule_register.json\` | 28 typed/conditional fields, measurement units, manuals, trial conditions |
 | PG logic | \`classify.js\` | O.1/O.2/O.3 **candidates only**, reference-comparator strictness preserved |
 | Unsupported/prohibited register | \`exceptions.json\` | 39 cases plus explicit implementation boundaries |
-| Test suite | \`classify.test.js\` | 24 independent synthetic test blocks with multiple subcases |
-| Results | \`test_results.json\` | 24/24 blocks passed in V8 compatibility harness, zero failures |
+| Test suite | \`classify.test.js\` | 25 independent synthetic test blocks with multiple subcases |
+| Results | \`test_results.json\` | 25/25 blocks passed in V8 compatibility harness, zero failures |
 | Contributor/API explanation | \`README.md\` | Usage, provenance, source hashes and blockers |
 | Lead handover | this file | Review and integration requirements |
 
@@ -41,7 +41,7 @@ O.2 only. Require 1:1 cellulose mixture, five-run pressure-rise data from **690 
 
 **Do not** reuse O.1/O.3 for fertilizers. Require composition/compatibility analysis, audited terminal exit box from **Figure 39.1(a)-(c)**, record identifier, and prior Class 1 screening. Valid terminal outcomes are constrained:
 - Potential Class 5.1/UN2067 dependency: exit boxes **9, 18, 19, 36, 42**, plus no-explosive-properties Series 2 report under MTC 39.4.2.
-- Class 9 candidate: exit **25**, requiring S.1 trough test per 38.2.4 and specialist handoff.
+- Class 9 candidate: exit **25**, requiring **verified S.1 trough-test result and report ID** per 38.2.4 before method-limited negative Class 5.1 status, followed by specialist handoff.
 - Flowchart not classified: exits **26, 35, 43, 44, 45** (does not clear other hazard classes).
 - ADR prohibited pending Class 1 route: **4, 6, 8, 15, 31, 33**.
 - ADR prohibited unless Class 1 or demonstrated/competent-authority-approved alternative Class 5.1 (not UN2067): **20, 23, 39**.
