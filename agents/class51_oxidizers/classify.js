@@ -285,6 +285,14 @@ function evaluateFertilizer(i,r,issue,missing,stop) {
     return stop("requires_expert_review");
   }
   if (f.outcome === "class9" || f.outcome === "not_classified") {
+    if (f.outcome === "class9" && (f.s1SelfSustainingDecompositionVerified !== true
+        || typeof f.s1ReportId !== "string" || !f.s1ReportId.trim())) {
+      missing("fertilizerRoute.s1SelfSustainingDecompositionVerified",
+        "fertilizerRoute.s1ReportId");
+      issue("FERTILIZER_S1_REQUIRED","MTC 39.4.7; 38.2.4; 39.5.1",
+        "Class 9 self-sustaining-decomposition exit requires documented S.1 trough-test evidence.");
+      return stop("insufficient_evidence");
+    }
     issue("FERTILIZER_NON_51_ROUTE","MTC 39.4.7; 39.5.1",
       "Class 9/self-sustaining decomposition and other hazards must be evaluated independently.");
     return stop("criteria_not_met");
