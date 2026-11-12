@@ -1,0 +1,1450 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ConorTttttt/DGR/agents/class2_gases/evidence.schema.json",
+  "title": "PROVISIONAL ADR 2025 Class 2 input, Agent 2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "route",
+    "evidence"
+  ],
+  "properties": {
+    "route": {
+      "enum": [
+        "gas",
+        "cartridge",
+        "aerosol",
+        "chemical_under_pressure",
+        "article",
+        "gas_sample"
+      ]
+    },
+    "form": {
+      "enum": [
+        "compressed",
+        "liquefied",
+        "refrigerated_liquefied",
+        "dissolved",
+        "adsorbed",
+        "cartridge"
+      ]
+    },
+    "preexisting_named_un": {
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "Supplied named-identity hint only; never used as final assignment"
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "vapour_pressure_50_kpa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "kPa"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "LAB"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.1",
+          "x-evidence-notes": ">300; equality is not positive"
+        },
+        "fully_gaseous_20c_101_3kpa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "LAB"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.1",
+          "x-evidence-notes": "true is alternative gas definition"
+        },
+        "critical_temperature_c": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "degC"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "LAB"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2",
+          "x-evidence-notes": "compressed <=-50 inclusion; liquefied >-50; high <=65"
+        },
+        "entirely_gaseous_at_minus50": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "PACKING_RECORD"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(1)",
+          "x-evidence-notes": "physical phase in packaging at -50C"
+        },
+        "partially_liquid_above_minus50": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "PACKING_RECORD"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(2)",
+          "x-evidence-notes": "phase in transport packaging"
+        },
+        "partially_liquid_due_to_low_temperature": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "PACKING_RECORD",
+                "MEASURED"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(3)",
+          "x-evidence-notes": "cryogenic liquid state"
+        },
+        "dissolved_in_liquid_solvent_under_pressure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "PACKING_RECORD",
+                "MEASURED"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(4)",
+          "x-evidence-notes": "solvent and pressure"
+        },
+        "adsorbed_on_solid_porous_material": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "PACKING_RECORD",
+                "MEASURED"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(9)",
+          "x-evidence-notes": "porous solid adsorbent"
+        },
+        "internal_pressure_20_kpa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "kPa"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "LAB"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(9)",
+          "x-evidence-notes": "strictly <101.3"
+        },
+        "internal_pressure_50_kpa": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "kPa"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MEASURED",
+                "LAB"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.2(9)",
+          "x-evidence-notes": "strictly <300"
+        },
+        "lowest_ignitable_concentration_vol_pct": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "vol_pct"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ISO_10156_2017",
+                "AUTHORITY_EQUIVALENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "positive if <=13 at 20C,101.3kPa"
+        },
+        "flammable_range_percentage_points": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "percentage_points"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ISO_10156_2017",
+                "AUTHORITY_EQUIVALENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "positive if >=12"
+        },
+        "oxidizing_power_pct": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "percent"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ISO_10156_2017",
+                "AUTHORITY_EQUIVALENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "positive if >23.5"
+        },
+        "known_toxic_to_humans": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "HUMAN_EXPERIENCE",
+                "EVALUATED_LITERATURE"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "human toxic evidence, false requires substantiated assessment"
+        },
+        "known_corrosive_to_humans": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "HUMAN_EXPERIENCE",
+                "EVALUATED_LITERATURE"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "human corrosivity affecting toxicity"
+        },
+        "inhalation_lc50_ppm": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "ppm"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ADR_2.2.61.1",
+                "P200_MIXTURE_CALC"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "positive when <=5000"
+        },
+        "human_skin_eye_mucosal_destruction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "HUMAN_EXPERIENCE",
+                "EVALUATED_LITERATURE"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "corrosive gas or mixture hazard"
+        },
+        "toxic_solely_due_to_corrosivity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "HUMAN_EXPERIENCE",
+                "EVALUATED_LITERATURE"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "C subsidiary gate"
+        },
+        "dilutes_or_replaces_atmospheric_oxygen": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "PHYSICAL_ASSESSMENT",
+                "EVALUATED_LITERATURE"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.5",
+          "x-evidence-notes": "A only after excluding O F T"
+        },
+        "chemically_unstable": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "STABILITY_ASSESSMENT",
+                "EVALUATED_LITERATURE"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.2.1",
+          "x-evidence-notes": "prohibition guard"
+        },
+        "decomposition_precautions_satisfactory": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "DOCUMENTED_PACKING_CONTROL",
+                "COMPETENT_AUTHORITY"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.2.1",
+          "x-evidence-notes": "stabilization documentation"
+        },
+        "p200_10_r_applicable_and_satisfied": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "P200_RECORD",
+                "COMPETENT_AUTHORITY"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.2.1",
+          "x-evidence-notes": "conditional packing alternative"
+        },
+        "propellant_toxic_gas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ADR_CLASS2_ASSESSMENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6/7",
+          "x-evidence-notes": "prohibited propellant"
+        },
+        "propellant_pyrophoric_P200": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "P200_TABLE2_NOTE_C"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6/7",
+          "x-evidence-notes": "prohibited propellant or cartridge"
+        },
+        "propellant_oxidizing_gas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ISO_10156_2017"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.7",
+          "x-evidence-notes": "chemical under pressure disallowed"
+        },
+        "contents_nonpropellant_toxic_pg": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "none",
+                "I",
+                "II",
+                "III"
+              ]
+            },
+            "unit": {
+              "const": "category"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ADR_CLASS61_ASSESSMENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6/7",
+          "x-evidence-notes": "none,I,II,III; content PG not Class2 PG"
+        },
+        "contents_nonpropellant_corrosive_pg": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "none",
+                "I",
+                "II",
+                "III"
+              ]
+            },
+            "unit": {
+              "const": "category"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ADR_CLASS8_ASSESSMENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6/7",
+          "x-evidence-notes": "none,I,II,III; content PG not Class2 PG"
+        },
+        "aerosol_contains_oxidizing_gas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ISO_10156_2017"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6",
+          "x-evidence-notes": "O property"
+        },
+        "aerosol_flammable_mass_pct": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "mass_pct"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "COMPOSITION_ASSESSMENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6(c)",
+          "x-evidence-notes": "85 inclusive positive with 30kJ/g; 1 inclusive negative with <20"
+        },
+        "aerosol_heat_combustion_kj_g": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "const": "kJ/g"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "ASTM_D240",
+                "ISO_FDIS_13943_1999",
+                "NFPA_30B"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6(c)",
+          "x-evidence-notes": "ADR listed heat method; MTC amendment separate review"
+        },
+        "mtc31_aerosol_result": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "flammable",
+                "extremely_flammable",
+                "non_flammable"
+              ]
+            },
+            "unit": {
+              "const": "category"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "MTC_REV8_SECTION31"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.6(c)",
+          "x-evidence-notes": "value flammable,extremely_flammable,non_flammable; test report required"
+        },
+        "contents_eligible_flam_form": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "CLASS2_2.2.2.1.7b_EVALUATION"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.7(b)",
+          "x-evidence-notes": "liquid flash <=93 C, solid 2.2.41.1 or gas 2.2.2.1.5"
+        },
+        "prohibited_other_class_component": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "COMPONENT_TRANSPORT_ASSESSMENT"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authority_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_document": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.7 Note 3",
+          "x-evidence-notes": "all listed excluded classes checked"
+        }
+      },
+      "additionalProperties": false
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mole_fraction",
+          "toxicity_index_ppm",
+          "toxicity_index_source",
+          "evidence_id",
+          "corrosive"
+        ],
+        "properties": {
+          "mole_fraction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "toxicity_index_ppm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "toxicity_index_source": {
+            "enum": [
+              "P200",
+              "SCIENTIFIC_LITERATURE",
+              "ANALOGUE",
+              "TEST"
+            ]
+          },
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "corrosive": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "x-dynamic-requiredness": "Engine's missing_evidence contains condition-dependent requirements; JSON schema intentionally does not substitute for ADR proof.",
+  "x-negative-evidence": "Explicit false with provenance is distinct from absent; no automatic not-regulated conclusion.",
+  "x-method-gate": "AUTHORITY_EQUIVALENT also needs authority_reference, with origin/first ADR Contracting Party recognition; external verification required.",
+  "x-note": "This is agent-isolated interim schema. Lead canonical interface and status mapping pending."
+}
