@@ -29,7 +29,8 @@
       "scope": [
         "packaging and carriage dependencies"
       ],
-      "status": "not analyzed for route permissions"
+      "status": "not analyzed for route permissions",
+      "sha256": "702d0ae5737d3bd228e0b332352deda626018ac9841339c0eca67e4209953f4b"
     },
     {
       "id": "UNMTC_REV8",
