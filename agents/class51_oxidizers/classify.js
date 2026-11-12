@@ -143,6 +143,26 @@ function evaluateClass51(input) {
     issue("AMMONIUM_NITRATE_GT_0_2","2.2.51.2.2","Exception only where constituent of Class 1 substance/article.");
     return stop(input.class1ConstituentVerified === true ? "requires_expert_review" : "not_accepted_for_carriage");
   }
+  // Material-specific evidence cannot be silently replaced by an absent prohibition flag.
+  if (["hydrogen_peroxide","hydrogen_peroxide_aqueous"].includes(id)
+      && typeof p.stabilized !== "boolean") missing("composition.stabilized");
+  if (id === "hydrogen_peroxide_aqueous" && !isNumber(p.massPercent))
+    missing("composition.massPercent: hydrogen peroxide aqueous");
+  if (["perchloric_acid_solution","chloric_acid_solution"].includes(id)) {
+    if (!isNumber(p.massPercent)) missing("composition.massPercent: acid solution");
+    if (typeof p.otherLiquidThanWater !== "boolean")
+      missing("composition.otherLiquidThanWater");
+  }
+  if (p.isAmmoniumNitrate === true && p.isSolidAmmoniumNitrateFertilizer !== true
+      && !isNumber(p.combustibleMassPercent))
+    missing("composition.combustibleMassPercent");
+  if (p.isSolidAmmoniumNitrateFertilizer === true && input.physicalState !== "solid")
+    missing("physicalState:solid for MTC Section 39 route");
+  if (result.missingEvidence.length) {
+    issue("IDENTITY_SPECIFIC_DATA_MISSING","2.2.51.2.2; MTC 39.2",
+      "Missing composition/stabilization evidence cannot clear a specific transport prohibition.");
+    return stop("insufficient_evidence");
+  }
   if (p.isHalogenatedFluorCompound === true
       && !FLUOR_EXCEPTION_UN.has(String(p.verifiedNamedUN || ""))) {
     issue("HALOGENATED_FLUOR_RESTRICTED","2.2.51.2.2",
