@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lead canonical deterministic rule envelope, no ADR thresholds prescribed",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "rule_id",
+    "version",
+    "owner",
+    "regime",
+    "edition_id",
+    "rule_kind",
+    "when",
+    "if_unknown",
+    "effects",
+    "references",
+    "review_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "rule_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "regime": {
+      "const": "ADR"
+    },
+    "edition_id": {
+      "const": "ADR-2025-EN"
+    },
+    "rule_kind": {
+      "enum": [
+        "class_criterion",
+        "exception",
+        "packing_group_candidate",
+        "precedence",
+        "assignment",
+        "special_provision",
+        "integration_policy"
+      ]
+    },
+    "hazard_class": {
+      "$ref": "#/$defs/hazard_class"
+    },
+    "when": {
+      "$ref": "#/$defs/predicate"
+    },
+    "if_unknown": {
+      "const": "indeterminate"
+    },
+    "effects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target",
+          "value"
+        ],
+        "properties": {
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": [
+              "string",
+              "boolean",
+              "number",
+              "object",
+              "array",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/citation"
+      }
+    },
+    "review_status": {
+      "enum": [
+        "draft",
+        "pending_independent_review",
+        "independently_approved"
+      ]
+    },
+    "test_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exceptions_checked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "hazard_class": {
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4.1",
+        "4.2",
+        "4.3",
+        "5.1",
+        "5.2",
+        "6.1",
+        "6.2",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "clause"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "clause": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "predicate": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "conditions"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "all",
+                "any"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/predicate"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "condition"
+          ],
+          "properties": {
+            "op": {
+              "const": "not"
+            },
+            "condition": {
+              "$ref": "#/$defs/predicate"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "fact_id",
+            "expected"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "eq",
+                "ne",
+                "lt",
+                "lte",
+                "gt",
+                "gte"
+              ]
+            },
+            "fact_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "expected": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "value"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "boolean",
+                    "text",
+                    "decimal"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "boolean"
+                  ]
+                },
+                "unit": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

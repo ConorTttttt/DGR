@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Provisional orchestration route, NEVER a publishable SDS classification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "state",
+    "next_stage",
+    "publishable",
+    "blocking_issues",
+    "trace"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "0.1.0"
+    },
+    "state": {
+      "enum": [
+        "BLOCKED",
+        "READY_FOR_PRECEDENCE",
+        "READY_FOR_ASSIGNMENT",
+        "READY_FOR_SPECIAL_PROVISIONS",
+        "READY_FOR_RELEASE_REVIEW"
+      ]
+    },
+    "next_stage": {
+      "enum": [
+        "none",
+        "precedence",
+        "assignment",
+        "special_provisions",
+        "external_review"
+      ]
+    },
+    "publishable": {
+      "const": false
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "detail"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step",
+          "state"
+        ],
+        "properties": {
+          "step": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
