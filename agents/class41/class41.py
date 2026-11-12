@@ -85,9 +85,17 @@ def evaluate(evidence: Dict[str, Any]):
     if evidence.get('inorganic_flammable_molten') is True:
         if evidence.get('verified_un2448_sulphur_molten') is not True:
             return refuse('inorganic_molten_not_verified_exception', '2.2.41.2.3')
+        r['status'] = 'requires_expert_decision'
+        r['blockers'].append('UN2448 named-entry exception; verify Table A conditions')
+        r['clauses'].append('2.2.41.2.3')
+        return r
     if evidence.get('flammable_solid_oxidizing_un3097') is True:
         if evidence.get('verified_class1_requirements') is not True:
             return refuse('un3097_class1_requirements_unverified', '2.2.41.2.2')
+        r['status'] = 'external_class_review'
+        r['blockers'].append('UN3097 Class 1 requirements route; integrator to resolve')
+        r['clauses'].extend(['2.2.41.2.2', '2.1.3.7'])
+        return r
 
     if path in ('combustible_solid', 'metal_powder'):
         r['clauses'].extend(['2.2.41.1.3', '2.2.41.1.4', '2.2.41.1.5',
@@ -220,13 +228,6 @@ def evaluate(evidence: Dict[str, Any]):
             if not (evidence.get('is_mixture') is True and pct >= 5):
                 return negative('2.2.41.1.9(b)')
             r['notes'].append('5.1 oxidizing-mixture >=5% combustible organic exception: route type B-F vs G with integrator')
-        heat, sadt = _num(evidence, 'heat_of_decomposition_j_g'), _num(evidence, 'sadt_50kg_c')
-        if (heat is not None and heat < 300) or (sadt is not None and sadt > 75):
-            return negative('2.2.41.1.9(d),(e)')
-        if heat is None or sadt is None:
-            return missing(*[k for k,v in [('heat_of_decomposition_j_g',heat),('sadt_50kg_c',sadt)] if v is None])
-        if evidence.get('decomposes_strongly_exothermically_without_oxygen') is not True:
-            return missing('decomposes_strongly_exothermically_without_oxygen')
         if evidence.get('sample_for_further_testing') is True:
             sample_kg = _num(evidence, 'sample_quantity_per_transport_unit_kg')
             conditions = (evidence.get('sample_no_more_dangerous_than_type_B') is True
@@ -240,6 +241,13 @@ def evaluate(evidence: Dict[str, Any]):
             r['clauses'].append('2.2.41.1.15')
             r['blockers'].append('sample type C entry and carriage conditions require independent ADR verification')
             return r
+        heat, sadt = _num(evidence, 'heat_of_decomposition_j_g'), _num(evidence, 'sadt_50kg_c')
+        if (heat is not None and heat < 300) or (sadt is not None and sadt > 75):
+            return negative('2.2.41.1.9(d),(e)')
+        if heat is None or sadt is None:
+            return missing(*[k for k,v in [('heat_of_decomposition_j_g',heat),('sadt_50kg_c',sadt)] if v is None])
+        if evidence.get('decomposes_strongly_exothermically_without_oxygen') is not True:
+            return missing('decomposes_strongly_exothermically_without_oxygen')
         typ = evidence.get('self_reactive_type')
         if typ not in ('A','B','C','D','E','F','G'):
             return missing('self_reactive_type_proven_by_Part_II')
