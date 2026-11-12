@@ -213,6 +213,16 @@
       "path": "composition.combustibleMassPercent",
       "type": "% by mass including organic carbon equivalence",
       "mandatory": "ammonium nitrate (non-Section39 fertilizer route)"
+    },
+    {
+      "path": "fertilizerRoute.s1SelfSustainingDecompositionVerified",
+      "type": "boolean backed by S.1 trough test",
+      "mandatory": "solid fertilizer Class 9 terminal exit box 25"
+    },
+    {
+      "path": "fertilizerRoute.s1ReportId",
+      "type": "non-empty string",
+      "mandatory": "solid fertilizer Class9 terminal exit box 25"
     }
   ],
   "manual_protocol_constraints": [
