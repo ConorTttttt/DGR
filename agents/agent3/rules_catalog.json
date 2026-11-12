@@ -1,0 +1,453 @@
+{
+  "module_version": "0.1.0-dev",
+  "edition": "ADR 2025",
+  "document": "ECE/TRANS/352 (Vol.I)",
+  "edition_effective": "2025-01-01",
+  "publication_year": 2024,
+  "authority": "UNECE",
+  "regulatory_url": "https://unece.org/adr-2025-files",
+  "corrigenda_review_status": "not_completed",
+  "independent_validation_status": "not_validated",
+  "interpretation_policy": "source requirements are distinct from conservative implementation gates",
+  "rules": [
+    {
+      "id": "ADR25-C3-001",
+      "class_": "3",
+      "scope": "Standard flammable liquid; provisional packing-group logic",
+      "required_inputs": [
+        "physical_state",
+        "liquid_desensitized_explosive",
+        "diesel_gasoil_light_heating_oil",
+        "flash_point_c",
+        "initial_boiling_point_c",
+        "vapour_pressure_kpa_50c",
+        "completely_gaseous_at_20c",
+        "carried_at_or_above_flash_point",
+        "other_hazards_assessed",
+        "named_entry_checked",
+        "viscosity_concessions_assessed"
+      ],
+      "decision_thresholds": [
+        "Physical state liquid; vapour pressure at 50 °C ≤300 kPa, not completely gaseous at 20 °C, 101.3 kPa",
+        "Closed-cup FP ≤60 °C",
+        "PG I if IBP ≤35 °C; otherwise PG II if FP<23 °C, PG III if FP≥23 °C"
+      ],
+      "exceptions": [
+        "Specific entry and mixed hazard prevalence override; viscosity concessions and Class 6.1 hazards need separate checks"
+      ],
+      "indeterminate_if": [
+        "Missing measurements; no verified liquid status; named entry/viscosity/other class incomplete"
+      ],
+      "possible_outputs": [
+        "criteria_met with candidate PG I/II/III",
+        "criteria_not_met for standard FP pathway only",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.3.1.1",
+          "2.2.3.1.3",
+          "2.1.3.10"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C3-002",
+      "class_": "3",
+      "scope": "Carriage at or above flash point for liquid with FP>60 °C",
+      "required_inputs": [
+        "flash_point_c",
+        "carried_at_or_above_flash_point",
+        "physical_state"
+      ],
+      "decision_thresholds": [
+        "FP>60 °C AND carried at/above FP: preliminary Class 3 heated-liquid indicator, candidate UN 3256"
+      ],
+      "exceptions": [
+        "Named entries, material state and carriage conditions must be independently verified"
+      ],
+      "indeterminate_if": [
+        "Uncertain elevated temperature or FP, material is not suitable for this pathway"
+      ],
+      "possible_outputs": [
+        "criteria_met with UN candidate only",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.3.1.1"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C3-003",
+      "class_": "3",
+      "scope": "Diesel fuel/gasoil/light heating oil exception",
+      "required_inputs": [
+        "diesel_gasoil_light_heating_oil",
+        "flash_point_c"
+      ],
+      "decision_thresholds": [
+        "Named products with 60<FP≤100 °C are included in Class 3, UN 1202"
+      ],
+      "exceptions": [
+        "Verify material identity and UN 1202 entry"
+      ],
+      "indeterminate_if": [
+        "Named-product evidence missing or not matched"
+      ],
+      "possible_outputs": [
+        "criteria_met with UN 1202 candidate only",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.3.1.1 NOTE 2",
+          "3.2.1 Table A UN 1202"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C3-004",
+      "class_": "3",
+      "scope": "Liquid-desensitized explosives",
+      "required_inputs": [
+        "liquid_desensitized_explosive"
+      ],
+      "decision_thresholds": [
+        "Liquid desensitized explosive explicitly included within Class 3"
+      ],
+      "exceptions": [
+        "Entry-specific rules and prohibitions must be checked"
+      ],
+      "indeterminate_if": [
+        "Ambiguous identity or not independently assessed"
+      ],
+      "possible_outputs": [
+        "criteria_met only",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.3.1.1",
+          "3.2.1 Table A"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C3-005",
+      "class_": "3",
+      "scope": "Liquid with FP>35 °C that does not sustain combustion",
+      "required_inputs": [
+        "flash_point_c",
+        "sustains_combustion",
+        "carried_at_or_above_flash_point",
+        "sustained_combustion_test_method",
+        "sustained_combustion_evidence_id"
+      ],
+      "decision_thresholds": [
+        "FP>35 °C; documented UN MTC §32.2.5 no sustained combustion; not carried at/above FP"
+      ],
+      "exceptions": [
+        "Not applicable if heated to at/above FP; other classes still apply"
+      ],
+      "indeterminate_if": [
+        "Test method/provenance not provided or uncertain"
+      ],
+      "possible_outputs": [
+        "criteria_not_met for Class 3 FP pathway only",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.3.1.1 NOTE 1"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C61-001",
+      "class_": "6.1",
+      "scope": "Direct oral, dermal, dust or mist toxic evidence, candidate PG",
+      "required_inputs": [
+        "material_scope",
+        "human_experience_reviewed",
+        "human_evidence_requires_expert_classification",
+        "oral_ld50_mg_kg OR dermal_ld50_mg_kg OR dust_mist_lc50_mg_l",
+        "dust_mist_exposure_hours if inhalation",
+        "class8_priority_checked",
+        "other_hazards_assessed",
+        "named_entry_checked",
+        "exposure_route_evidence_complete for PG II/III"
+      ],
+      "decision_thresholds": [
+        "Oral LD50 mg/kg: PG I ≤5, II >5–50, III >50–300",
+        "Dermal LD50 mg/kg: PG I ≤50, II >50–200, III >200–1000",
+        "Dust/mist 1h LC50 mg/L: PG I ≤0.2, II >0.2–2, III >2–4",
+        "Dust/mist 4h LC50 ×4 for comparison to 1h criteria; most severe relevant route determines PG"
+      ],
+      "exceptions": [
+        "Tear gas PG II floor where otherwise PG III; Class 8 and 2.1.3.10 precedence and named entries"
+      ],
+      "indeterminate_if": [
+        "Missing toxicity route completeness or human-experience review, untested mixtures, unresolved priority"
+      ],
+      "possible_outputs": [
+        "criteria_met with PG I/II/III",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.61.1.6",
+          "2.2.61.1.7",
+          "2.2.61.1.7.1",
+          "2.2.61.1.7.2",
+          "2.2.61.1.7.3"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C61-002",
+      "class_": "6.1",
+      "scope": "Acute vapour inhalation thresholds",
+      "required_inputs": [
+        "vapour_lc50_ppm",
+        "vapour_exposure_hours (1 or 4)",
+        "saturated_vapour_concentration_ppm_20c"
+      ],
+      "decision_thresholds": [
+        "LC50 for 4h exposure ×2 to obtain 1h comparator",
+        "PG I: V≥10×LC50 and LC50≤1000ppm; PG II: V≥LC50 and LC50≤3000ppm (if not PG I); PG III: V≥0.2×LC50 and LC50≤5000ppm (if not PG I/II)"
+      ],
+      "exceptions": [
+        "Use Class 6.1 human review, mixture, priority and named-entry gates"
+      ],
+      "indeterminate_if": [
+        "V or exposure duration unknown; vapour form/class not established"
+      ],
+      "possible_outputs": [
+        "candidate inhalation PG I/II/III",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.61.1.8"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C8-001",
+      "class_": "8",
+      "scope": "Direct skin corrosion evidence / PG",
+      "required_inputs": [
+        "material_scope",
+        "human_experience_reviewed",
+        "human_evidence_requires_expert_classification",
+        "valid_skin_test_result",
+        "skin_exposure_min",
+        "irreversible_damage_observed_after_min",
+        "other_hazards_assessed",
+        "named_entry_checked"
+      ],
+      "decision_thresholds": [
+        "PG I: exposure ≤3min with observed skin damage ≤60min",
+        "PG II: >3–≤60min, observed skin damage ≤14 days (20,160min)",
+        "PG III: >60–≤240min, damage observed ≤14 days",
+        "Valid non-discriminating tier data can conservatively assign PG I or II per §2.2.8.1.5.2"
+      ],
+      "exceptions": [
+        "Skin data/human evidence precede metal and mixtures methodology differs"
+      ],
+      "indeterminate_if": [
+        "Study unsuitable, duration/observation unknown, other hazards or Table A unresolved"
+      ],
+      "possible_outputs": [
+        "criteria_met with PG I/II/III",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.8.1.5.1",
+          "2.2.8.1.5.2",
+          "2.2.8.1.5.3"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C8-002",
+      "class_": "8",
+      "scope": "Metal corrosion when not corrosive to skin",
+      "required_inputs": [
+        "valid_skin_test_result=non_corrosive",
+        "steel_corrosion_mm_year_55c",
+        "aluminium_corrosion_mm_year_55c"
+      ],
+      "decision_thresholds": [
+        "Corrosion rate >6.25 mm/year at 55°C on steel OR aluminium -> PG III"
+      ],
+      "exceptions": [
+        "Actual UN MTC §37 test conditions/materials must be confirmed"
+      ],
+      "indeterminate_if": [
+        "One untested metal without positive result; tests not substantiated"
+      ],
+      "possible_outputs": [
+        "criteria_met PG III",
+        "criteria_not_met only if both metals tested ≤6.25 AND skin non-corrosive",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.8.1.5.3(c)(ii)"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C9-AQ-001",
+      "class_": "9",
+      "scope": "Aquatic substance environmental hazard, selected transport entry candidate",
+      "required_inputs": [
+        "material_scope=substance",
+        "lowest_valid_aquatic_acute_l_ec50_mg_l OR lowest_valid_chronic_noec_ecx_mg_l",
+        "rapidly_degradable for chronic",
+        "chronic_data_adequate if chronic absent",
+        "bcf/log_kow as applicable",
+        "physical_state",
+        "all_other_hazard_classes_excluded",
+        "named_entry_checked"
+      ],
+      "decision_thresholds": [
+        "Acute 1: valid acute L/EC50 ≤1mg/L",
+        "Adequate chronic, nonrapid: Chronic 1 NOEC/ECx ≤0.1, Chronic 2 >0.1–≤1mg/L",
+        "Adequate chronic, rapid: Chronic 1 ≤0.01, Chronic 2 >0.01–≤0.1mg/L",
+        "Absent adequate chronic, use acute + nonrapid degradation or bioaccumulation (BCF≥500 / logKow≥4) per table",
+        "If no other class and no more specific entry: PG III; UN 3077 (solid)/3082 (liquid) candidate"
+      ],
+      "exceptions": [
+        "Mixture M factors/summation, chronic reliability, metals, special provisions not implemented; secondary environment mark may apply when other class"
+      ],
+      "indeterminate_if": [
+        "Mixture or incomplete data; other class not excluded; named entries not checked"
+      ],
+      "possible_outputs": [
+        "criteria_met candidate PG III and UN entry",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.9.1.10.3.1",
+          "Table 2.2.9.1.10.3.1",
+          "2.2.9.1.10.4",
+          "2.2.9.1.10.6"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C9-TEMP-001",
+      "class_": "9",
+      "scope": "Elevated-temperature substance without another hazard class",
+      "required_inputs": [
+        "physical_state",
+        "carriage_temperature_c",
+        "flash_point_c or verified no flash point for liquid",
+        "all_other_hazard_classes_excluded",
+        "named_entry_checked"
+      ],
+      "decision_thresholds": [
+        "Liquid ≥100 °C and below flash point (if any) => UN 3257 candidate",
+        "Solid ≥240 °C => UN 3258 candidate",
+        "Only if not classifiable in other classes"
+      ],
+      "exceptions": [
+        "If liquid carried at/above flash point, refer to Class 3 heated carriage; named entries may supersede"
+      ],
+      "indeterminate_if": [
+        "Other class not excluded, FP unknown, unsupported state/temperature"
+      ],
+      "possible_outputs": [
+        "criteria_met UN candidate",
+        "criteria_not_met this pathway only",
+        "indeterminate"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.9.1.13",
+          "2.2.9.3"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    },
+    {
+      "id": "ADR25-C9-GATE",
+      "class_": "9",
+      "scope": "Unsupported miscellaneous Class 9 pathways",
+      "required_inputs": [
+        "pathway"
+      ],
+      "decision_thresholds": [
+        "Unsupported battery/articles/PCB/asbestos/substance types do not enter this limited rule set"
+      ],
+      "exceptions": [
+        "Further Class 9 modules and DGL needed"
+      ],
+      "indeterminate_if": [
+        "Any unsupported or missing pathway"
+      ],
+      "possible_outputs": [
+        "indeterminate only"
+      ],
+      "source": {
+        "edition": "ADR 2025",
+        "document": "ECE/TRANS/352 (Vol.I)",
+        "clauses": [
+          "2.2.9.1.1",
+          "2.2.9.1.2"
+        ],
+        "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+      },
+      "implementation_status": "prototype_unvalidated"
+    }
+  ]
+}
