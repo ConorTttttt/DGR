@@ -40,7 +40,33 @@ function evaluateClass43(input) {
     rule_ids: []
   };
   const issue = (field_id, reason, detail) => out.unresolved_evidence.push({ field_id, reason, detail });
-  const mark = rule => { if (!out.rule_ids.includes(rule)) out.rule_ids.push(rule); };
+  const implementationToRegisteredRule = {
+    ADR43_ARTICLE_GATE:"ADR43-001",
+    ADR43_BOUNDARY_STRICT_GT_1:"ADR43-007",
+    ADR43_ELIGIBILITY:"ADR43-001",
+    ADR43_EXPERIENCE:"ADR43-005",
+    ADR43_HOURLY_GT_1:"ADR43-007",
+    ADR43_MIXTURE_ACTUAL_DANGER:"ADR43-008",
+    ADR43_NEGATIVE_TEST:"MTC43-028",
+    ADR43_ORGANOMETALLIC_ROUTE:"ADR43-016",
+    ADR43_PG_III_HOURLY_STRICT_GT_1:"ADR43-013",
+    ADR43_PG_II_HOURLY_INCLUSIVE:"ADR43-012",
+    ADR43_PG_I_MINUTE_INCLUSIVE:"ADR43-011",
+    ADR43_PG_I_VIGOROUS:"ADR43-010",
+    ADR43_PYROPHORIC_PROHIBITION:"ADR43-003",
+    ADR43_SPONTANEOUS_GAS_IGNITION:"ADR43-006",
+    ADR43_UN3133_CARRIAGE_PROHIBITION_GATE:"ADR43-014",
+    MTC_N5_COMPLETE_REPEATS:"MTC43-025",
+    MTC_N5_KNOWN_NONVIOLENT_ROUTE:"MTC43-023"
+  };
+  const mark = name => {
+    const id=implementationToRegisteredRule[name];
+    if (!id) {
+      issue("rule_register", "other", "Unregistered implementation rule: " + name);
+      return;
+    }
+    if (!out.rule_ids.includes(id)) out.rule_ids.push(id);
+  };
   const report = input && input.test_report;
   if (!input || typeof input !== "object" || Array.isArray(input)) {
     issue("input", "missing", "Structured input object is required"); return out;
