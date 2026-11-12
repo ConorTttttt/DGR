@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent 6 Class 4.3 provisional N.5 transport-evidence input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sample_id",
+    "test_report",
+    "material",
+    "test"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "test_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_id",
+        "locator",
+        "sha256",
+        "issuer",
+        "sample_id"
+      ],
+      "properties": {
+        "document_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "issuer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sample_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authenticated": {
+          "type": "boolean"
+        },
+        "review_state": {
+          "enum": [
+            "unreviewed",
+            "reviewed",
+            "rejected"
+          ]
+        },
+        "report_date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "form",
+        "pyrophoric"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "substance",
+            "mixture",
+            "article"
+          ]
+        },
+        "form": {
+          "enum": [
+            "solid",
+            "liquid"
+          ]
+        },
+        "pyrophoric": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown"
+          ]
+        },
+        "organometallic": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown"
+          ]
+        },
+        "named_entry_status": {
+          "enum": [
+            "named",
+            "unnamed",
+            "unknown"
+          ]
+        },
+        "whole_mixture_tested": {
+          "type": "boolean"
+        },
+        "commercial_mixture_confirmed": {
+          "type": "boolean"
+        },
+        "is_waste": {
+          "type": "boolean"
+        }
+      }
+    },
+    "conflicting_evidence": {
+      "type": "boolean"
+    },
+    "experience_more_stringent": {
+      "type": "boolean"
+    },
+    "other_class_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "hazard_class",
+          "status",
+          "evidence_id"
+        ],
+        "properties": {
+          "hazard_class": {
+            "enum": [
+              "3",
+              "4.1",
+              "4.2",
+              "5.1",
+              "6.1",
+              "8"
+            ]
+          },
+          "status": {
+            "enum": [
+              "criteria_met",
+              "criteria_not_met",
+              "indeterminate"
+            ]
+          },
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "sample_commercial_form",
+        "temperature_c",
+        "atmospheric_pressure",
+        "distilled_water",
+        "atmosphere",
+        "preliminary"
+      ],
+      "properties": {
+        "method": {
+          "const": "MTC_REV8_N5"
+        },
+        "sample_commercial_form": {
+          "type": "boolean"
+        },
+        "temperature_c": {
+          "type": "number",
+          "description": "°C; N.5 distilled-water conditions 20°C"
+        },
+        "atmospheric_pressure": {
+          "type": "boolean"
+        },
+        "distilled_water": {
+          "type": "boolean"
+        },
+        "atmosphere": {
+          "enum": [
+            "air",
+            "nitrogen",
+            "other"
+          ]
+        },
+        "preliminary": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "stage",
+              "gas_evolved",
+              "spontaneous_gas_ignition"
+            ],
+            "properties": {
+              "stage": {
+                "enum": [
+                  "trough",
+                  "filter_paper",
+                  "pile"
+                ]
+              },
+              "gas_evolved": {
+                "enum": [
+                  "yes",
+                  "no"
+                ]
+              },
+              "spontaneous_gas_ignition": {
+                "enum": [
+                  "yes",
+                  "no"
+                ]
+              }
+            }
+          }
+        },
+        "skip_preliminary": {
+          "type": "boolean"
+        },
+        "known_not_violent_documented": {
+          "type": "boolean"
+        },
+        "fines_under_500um_mass_percent": {
+          "$ref": "#/$defs/decimal",
+          "description": "mass-% of solid particles below 500 micrometres"
+        },
+        "friable": {
+          "type": "boolean"
+        },
+        "ground_before_terminal": {
+          "type": "boolean"
+        },
+        "reacts_vigorously_at_ambient": {
+          "type": "boolean"
+        },
+        "general_spontaneous_ignition_tendency": {
+          "type": "boolean"
+        },
+        "terminal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "gas_flammability",
+            "runs"
+          ],
+          "properties": {
+            "gas_flammability": {
+              "enum": [
+                "flammable",
+                "nonflammable",
+                "no_gas",
+                "unknown"
+              ]
+            },
+            "reactivity_behavior": {
+              "enum": [
+                "vigorous",
+                "readily",
+                "slowly",
+                "unknown"
+              ]
+            },
+            "pg_I_absence_documented": {
+              "type": "boolean"
+            },
+            "pg_II_absence_documented": {
+              "type": "boolean"
+            },
+            "runs": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "sample_mass_g",
+                  "gas_volume_ml",
+                  "observed_hours",
+                  "trend_at_7h",
+                  "hourly_rates_l_kg_h",
+                  "one_minute_volumes_l_kg"
+                ],
+                "properties": {
+                  "sample_mass_g": {
+                    "$ref": "#/$defs/decimal",
+                    "description": "g, maximum 25"
+                  },
+                  "gas_volume_ml": {
+                    "$ref": "#/$defs/decimal",
+                    "description": "ml, target 100-250 when evolution occurs"
+                  },
+                  "observed_hours": {
+                    "$ref": "#/$defs/decimal",
+                    "description": "h; 7h baseline; maximum 120h if extended"
+                  },
+                  "trend_at_7h": {
+                    "enum": [
+                      "steady",
+                      "decreasing",
+                      "erratic",
+                      "increasing"
+                    ]
+                  },
+                  "extension_resolved_steady_or_decreasing": {
+                    "type": "boolean"
+                  },
+                  "sufficient_data_for_group": {
+                    "type": "boolean"
+                  },
+                  "hourly_rates_l_kg_h": {
+                    "type": "array",
+                    "minItems": 7,
+                    "maxItems": 7,
+                    "items": {
+                      "$ref": "#/$defs/decimal"
+                    },
+                    "description": "L/kg/h hourly rates over first 7h"
+                  },
+                  "one_minute_volumes_l_kg": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/decimal"
+                    },
+                    "description": "L/kg evolved over observed one-minute interval; never confuse with per-hour rate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "decimal": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+      "description": "Nonnegative arbitrary-precision fixed-point decimal string; no NaN, exponent, implicit unit conversions"
+    }
+  }
+}
