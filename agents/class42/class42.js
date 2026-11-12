@@ -46,6 +46,8 @@ function evaluateClass42(e) {
      (e.pathway==="pyrophoric_liquid"&&e.physical_state!=="liquid"))
     return fail("conflict","state_mismatch","Pyrophoric N.2/N.3 sample physical state mismatches pathway.");
   if(e.is_article===true)return fail("unsupported","article","Article classification needs named-entry and special-provision assessment.",["2.2.42.1.2"]);
+  if(e.pathway==="self_heating"&&e.physical_state==="liquid")
+    return fail("unsupported","N4_liquid_sample","N.4 powder/granular cube protocol is not directly validated for liquid samples; obtain qualified alternate evidence or named-entry decision.",["MTC 33.4.6.3","2.2.42.1.4"]);
   for(const key of ["assessment_id","evidence_id","report_id","sample_id"])
     if(typeof e[key]!=="string"||!e[key].trim())return fail("indeterminate",key,"Missing unique report and sample provenance.");
   r.evidence_refs.push(e.evidence_id);
