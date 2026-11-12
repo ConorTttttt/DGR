@@ -39,7 +39,12 @@ function o2(seconds=25,pressure=2070) {
 }
 const check=(inp,status,pg=null,cls=null)=>{
  const r=evaluateClass51(inp);
- assert.equal(r.status,status,JSON.stringify(r.issues));
+ assert.equal(r.specialistStatus,status,JSON.stringify(r.issues));
+ assert.ok(["criteria_met","criteria_not_met","indeterminate","authority_required",
+   "conflict","unsupported","prohibited_for_carriage"].includes(r.status));
+ assert.equal(r.assignment_permitted,false);
+ assert.equal(r.requires_independent_review,true);
+ assert.equal(r.class,"5.1");
  assert.equal(r.pgCandidate,pg);
  assert.equal(r.classCandidate,cls);
  assert.equal(r.finalPackingGroup,null);
