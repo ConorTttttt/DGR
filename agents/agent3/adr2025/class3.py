@@ -134,7 +134,7 @@ def _restrictions(e):
                        note='Chemically unstable Class 3 may not be accepted unless adequate precautions proven.')
     return None
 
-def _nitrocellulose(e):
+def _nitrocellulose(e, fp):
     if e.get('contains_nitrocellulose') is not True:
         if e.get('contains_nitrocellulose') is False:
             return None
@@ -144,6 +144,10 @@ def _nitrocellulose(e):
     if not num(pct,0,100) or not num(nitrogen,0,100):
         return failure('ADR25-C3-NITRO',['2.2.3.1.4 NOTE'],
                        'nitrocellulose_mass_pct_and_nitrogen_dry_mass_pct')
+    if fp>=23 and pct>20:
+        return failure('ADR25-C3-NITRO',['2.2.3.1.4 NOTE','2.2.3.1.6'],
+                       'nitrocellulose_mixture_named_entry_review',
+                       note='The named nitrocellulose routing in 2.2.3.1.4 NOTE applies to mixtures with flash point below 23 C; do not extrapolate.')
     if pct>55 or nitrogen>12.6:
         return failure('ADR25-C3-NITRO',['2.2.3.1.4 NOTE'],
                        'class1_or_class4.1_nitrocellulose_classification',
@@ -282,8 +286,13 @@ def evaluate(e):
     if e['material_scope']=='whole_tested_mixture' and e.get('mixture_actual_hazard_reviewed') is not True:
         return failure('ADR25-C3-MIX',['2.2.3.1.6','2.1.3'],
                        'actual_mixture_hazards_and_named_entry_review')
-    nc_err=_nitrocellulose(e)
+    nc_err=_nitrocellulose(e,fp)
     if nc_err: return nc_err
+    if e.get('toxic_by_inhalation_high') is True or (fp>=23 and e.get('toxic_pesticide') is True):
+        return failure('ADR25-C3-PRECEDENCE',['2.2.3.1.1 NOTE 3','2.2.3.1.1 NOTE 4'],
+                       'Class_6.1_primary_hazard_and_entry_review',
+                       data={'possible_primary_class':'6.1'},
+                       note='Class 6.1 priority is reviewed before any viscosity concession.')
     non_sustain,err=_non_sustaining(e,fp)
     if err: return err
     if non_sustain and not heated:
