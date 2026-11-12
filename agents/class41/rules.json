@@ -151,18 +151,32 @@
       "id": "F01",
       "pathway": "combustible_solid",
       "predicate": {
-        "any": [
+        "all": [
           {
-            "field": "burning_time_100mm_s",
-            "op": "<",
-            "value": 45,
-            "unit": "s"
+            "field": "test_method",
+            "op": "=",
+            "value": "UN_MTC_N1"
           },
           {
-            "field": "burning_rate_mm_s",
-            "op": ">",
-            "value": 2.2,
-            "unit": "mm/s"
+            "field": "screening_propagates_200mm",
+            "op": "=",
+            "value": true
+          },
+          {
+            "any": [
+              {
+                "field": "burning_time_100mm_s",
+                "op": "<",
+                "value": 45,
+                "unit": "s"
+              },
+              {
+                "field": "burning_rate_mm_s",
+                "op": ">",
+                "value": 2.2,
+                "unit": "mm/s"
+              }
+            ]
           }
         ]
       },
@@ -277,6 +291,16 @@
       "pathway": "metal_powder",
       "predicate": {
         "all": [
+          {
+            "field": "test_method",
+            "op": "=",
+            "value": "UN_MTC_N1"
+          },
+          {
+            "field": "screening_propagates_200mm",
+            "op": "=",
+            "value": true
+          },
           {
             "field": "ignited",
             "op": "=",
@@ -528,6 +552,11 @@
       "predicate": {
         "all": [
           {
+            "field": "sample_for_further_testing",
+            "op": "=",
+            "value": true
+          },
+          {
             "field": "sample_no_more_dangerous_than_type_B",
             "op": "=",
             "value": true
@@ -687,6 +716,16 @@
             "field": "other_classes_1_to_8",
             "op": "=",
             "value": "cleared"
+          },
+          {
+            "field": "polymerizes_exothermically_without_stabilization",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "sapt_applies_to_offered_form_and_container",
+            "op": "=",
+            "value": true
           }
         ]
       },
