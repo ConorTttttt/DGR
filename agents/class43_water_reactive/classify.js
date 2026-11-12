@@ -5,7 +5,7 @@ function evaluateClass43(input) {
   "use strict";
   // Exact fixed-point comparison: no binary-float rounding at ADR cut-offs.
   function compareDecimal(a,b) {
-    const x=String(a), y=String(b), valid=/^(0|[1-9]\\d*)(\\.\\d+)?$/;
+    const x=String(a), y=String(b), valid=/^(0|[1-9]\d*)(\.\d+)?$/;
     if (!valid.test(x)||!valid.test(y)) return NaN;
     const xf=(x.split(".")[1]||"").length, yf=(y.split(".")[1]||"").length;
     const dp=Math.max(xf,yf);
