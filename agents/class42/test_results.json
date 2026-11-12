@@ -1,0 +1,36 @@
+{
+  "module": "ADR25_CLASS42",
+  "branch": "agent5/class42-adr2025-evidence-rules",
+  "classification_status": "provisional_not_regulatory_validated",
+  "tests_file": "agents/class42/class42.test.js",
+  "execution": {
+    "environment": "JavaScript V8 sandbox (replayed exact GitHub-fetched source and node:test-compatible shims)",
+    "tests": 59,
+    "passed": 59,
+    "failed": 0,
+    "errors": 0
+  },
+  "coverage": [
+    "N.2 300-second boundary, 1/2 mL, 6 negative repetitions",
+    "N.3 two-stage six/three repetition, 300-second ignition/charring, 23/27°C, RH 45/55%",
+    "N.4 25/100 mm, 140/120/100°C, 200/180/160°C strict boundaries, oven tolerance",
+    "package volumes 450/450.001 L and 3000/3000.001 L",
+    "missing negative durations, method/sample/mixture, contradictory runs and physical-state conflicts",
+    "named entry, prohibitions, Class1 exception, organometallic and Class4.3 referral"
+  ],
+  "source_blob_shas": {
+    "agents/class42/class42.js": "485c1eb47c87b94ab32f8b4fd1d5712a59d1078a",
+    "agents/class42/class42.test.js": "44d01b99848aef55b4188903fe6bdee58a2a0fc8",
+    "agents/class42/rules.json": "46d6a68fcc7b1dbbdb5c06548d522343bae4ee36",
+    "agents/class42/evidence.schema.json": "83cab069a8e51fb0df93fb5a24d4b6348b4ceb2a"
+  },
+  "not_run": [
+    "Node CLI node --test",
+    "GitHub Actions CI",
+    "JSON Schema external validator",
+    "independent regulatory review",
+    "real-world UN test reports",
+    "2025 corrigenda comparison"
+  ],
+  "warning": "V8 synthetic successes are not regulatory validation. Outputs are class/PG candidates only; no final SDS Section 14."
+}
