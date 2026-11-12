@@ -218,6 +218,16 @@ function evaluateClass43(input) {
     out.criteria_status = "criteria_not_met"; out.coverage_status="evaluated";
     mark("ADR43_BOUNDARY_STRICT_GT_1"); return out;
   }
+  // Distinct PG I limb: vigorous ambient reaction and GENERAL tendency for gas ignition.
+  // It requires independent affirmative evidence; a single test ignition is not silently
+  // treated as a general tendency, and absent evidence is never treated as false.
+  if (terminal.gas_flammability === "flammable" &&
+      compareDecimal(maxHour, "1") > 0 &&
+      test.reacts_vigorously_at_ambient === true &&
+      test.general_spontaneous_ignition_tendency === true) {
+    mark("ADR43_PG_I_VIGOROUS");
+    classified(); appendSubsidiary(); pg("I", "2.2.43.1.8(a)", "33.5.4.4.2"); return out;
+  }
   // Any >=10 L/kg during one minute qualifies for Class 4.3 and the highest intrinsic PG.
   if (compareDecimal(maxMinute, "10") >= 0) {
     mark("ADR43_PG_I_MINUTE_INCLUSIVE");
