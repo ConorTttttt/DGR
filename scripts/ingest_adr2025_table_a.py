@@ -121,7 +121,6 @@ def read_page_table(page, index: int) -> tuple[str, list[list[str]]] | None:
             "snap_tolerance": 3,
             "join_tolerance": 3,
             "intersection_tolerance": 4,
-            "text_tolerance": 2,
         }
         for table in page.extract_tables(table_settings=settings):
             result = identify_numbered_table(table)
@@ -209,7 +208,7 @@ def compile_table(pdf_path: Path, retrieved_from: str, output_dir: Path) -> dict
     pdf_sha = hashlib.sha256(pdf_path.read_bytes()).hexdigest()
     text_per_page = [p.get_text("text") for p in doc]
     boundaries = [i for i, t in enumerate(text_per_page)
-                  if "TABLE A" in t.upper() and TABLE_KW in t.upper() and i > 100]
+                  if re.search(r"\bTABLE A\s+DANGEROUS GOODS LIST\b", t[:700].upper()) and i > 100]
     if not boundaries:
         raise RuntimeError("Cannot identify Table A start")
     start = boundaries[0]
