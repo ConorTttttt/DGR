@@ -1,0 +1,149 @@
+{
+  "schema_version": "0.1.0-provisional",
+  "module": "ADR25_CLASS41",
+  "author_role": "Agent 4 - Class 4.1 specialist",
+  "reviewed": false,
+  "execution_semantics": "AND/OR/eq/ne/lt/lte/gt/gte/one_of/contains; evaluator class41.py is executable reference, not a generic JSON interpreter",
+  "sources": [
+    {
+      "id": "ADR25",
+      "title": "ADR 2025 English",
+      "symbol": "ECE/TRANS/352 Vol. I",
+      "clauses": [
+        "2.1.1.3",
+        "2.1.2",
+        "2.2.41.1.1–2.2.41.1.21",
+        "2.2.41.2",
+        "2.2.41.3",
+        "2.2.41.4",
+        "3.2 Table A",
+        "3.3.1 SP386"
+      ],
+      "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+      "edition": "2025"
+    },
+    {
+      "id": "MTC8",
+      "title": "UN Manual of Tests and Criteria Revision 8",
+      "symbol": "ST/SG/AC.10/11/Rev.8",
+      "clauses": [
+        "Part I test series 1,2,6",
+        "Part II 20.4.2–20.4.6",
+        "Part II test series A–H",
+        "Part III 33.2.4, 33.3"
+      ],
+      "file": "ST_SG_AC.10_11_Rev.8e_WEB.pdf",
+      "edition": "Rev.8 (2023)"
+    },
+    {
+      "id": "MTC8A1",
+      "title": "Amendment 1 to UN MTC Rev 8",
+      "symbol": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "clauses": [
+        "28.4.2.2.2.3",
+        "33.3.1",
+        "Appendix 6 A6.5.1"
+      ],
+      "file": "ST-SG-AC10-11-Rev8-Amend1e(1).pdf",
+      "edition": "Amendment 1 (2025)",
+      "note": "Amendment checked; Appendix 6 accelerated screening not encoded because autocatalytic caveat requires assessment"
+    }
+  ],
+  "status_values": [
+    "criteria_met",
+    "criteria_not_met",
+    "indeterminate",
+    "not_accepted_for_carriage",
+    "requires_authority",
+    "requires_expert_decision",
+    "external_class_review"
+  ],
+  "paths": [
+    "combustible_solid",
+    "metal_powder",
+    "friction_solid",
+    "self_reactive",
+    "solid_desensitized_explosive",
+    "polymerizing",
+    "related_self_reactive"
+  ],
+  "required_evidence": {
+    "combustible_solid": [
+      "UN_MTC_N1 test report or documented organic-substance experience",
+      "screening_propagates_200mm (boolean)",
+      "burning_time_100mm_s (s)",
+      "burning_rate_mm_s (mm/s)",
+      "wetted_zone: passes|stops_at_least_4min for PG"
+    ],
+    "metal_powder": [
+      "UN_MTC_N1",
+      "screening_propagates_200mm",
+      "ignited",
+      "full_length_reaction_min (min)",
+      "Class 4.2/4.3 exclusion evidence"
+    ],
+    "friction_solid": [
+      "friction_fire_hazard_confirmed",
+      "analogy_or_special_provision_verified; external PG resolution"
+    ],
+    "self_reactive": [
+      "negative Class 1, 5.1, 5.2 findings or documented 5.1 combustible-organic mixture exception",
+      "heat_of_decomposition_j_g (J/g; DSC or adiabatic calorimetry)",
+      "sadt_50kg_c (°C for exclusion)",
+      "sadt_offered_package_c (°C for carriage control)",
+      "Part II A-H type report or verified listed formulation",
+      "exact listed formulation/concentration or competent authority approval",
+      "activator/diluent and transport safety review"
+    ],
+    "solid_desensitized_explosive": [
+      "physical_state=solid",
+      "desensitized_to_suppress_explosive_properties",
+      "exact_table_a_entry_verified"
+    ],
+    "polymerizing": [
+      "polymerizes_exothermically_without_stabilization",
+      "heat_of_reaction_j_g (J/g)",
+      "sapt_c (°C for offered package/IBC/tank)",
+      "other_classes_1_to_8:cleared|meets|unknown",
+      "container_kind:packaging|IBC|tank",
+      "sapt_applies_to_offered_form_and_container"
+    ],
+    "related_self_reactive": [
+      "Part I series 1/2 provisional Class 1, series 6 exemption",
+      "documented not Class 4.1 self-reactive, 5.1, 5.2"
+    ]
+  },
+  "pg_policy": {
+    "numeric_candidate_only_for": [
+      "combustible_solid",
+      "metal_powder"
+    ],
+    "no_universal_pg": [
+      "self_reactive",
+      "polymerizing",
+      "solid_desensitized_explosive",
+      "related_self_reactive",
+      "friction_solid"
+    ],
+    "final_pg": null,
+    "required_downstream": [
+      "verified exact Table A row",
+      "column 4 PG",
+      "named entry conditions",
+      "special provisions and exceptions",
+      "Lead Agent precedence and release approval"
+    ]
+  },
+  "named_and_special_dependencies": [
+    "2.2.41.3 collective-entry subdivisions F/FO/FT/FC/D/DT/SR/PM",
+    "2.2.41.4 self-reactive listed formulations (concentration, OP method, temperatures, remarks)",
+    "4.1.4.1 P520 and 4.1.7.1",
+    "4.1.4.2 IBC520",
+    "4.2.5.2.6 T23",
+    "3.2 Table A and 3.3 SPs",
+    "3.3.1 SP386",
+    "7.1.7 temperature control",
+    "2.1.3 multiple hazards"
+  ],
+  "corrigenda_review": "ADR 2025 Corr.1/Corr.2 not reconciled by this specialist; independent review required before regulatory release"
+}
