@@ -1,0 +1,29 @@
+{
+  "module": "ADR2025_CLASS_5_1",
+  "date_utc": "2026-11-12",
+  "branch": "agent7/adr2025-class51-oxidizers",
+  "source_of_truth": "agents/class51_oxidizers/classify.test.js",
+  "test_groups": 25,
+  "passed": 25,
+  "failed": 0,
+  "execution_environment": "V8 sandbox; node:test/node:assert/strict compatibility shim run against exact GitHub-fetched class51 source and test file",
+  "limitations": [
+    "NOT executed using node --test in actual Node runtime",
+    "NOT repository CI",
+    "synthetic data only; cannot be used as actual reference oxidizer timings or rates",
+    "no independently authenticated laboratory reports",
+    "no independent regulatory, amendment/corrigenda or Table A validation"
+  ],
+  "scope": [
+    "O.1 strict PGI and inclusive PGII/III with 4:1 and 1:1 ratios",
+    "O.3 strict PGI and inclusive PGII/III, non-ignition and 0.90 R2/20% variability gates",
+    "O.2 2070 kPa gauge boundary, spontaneous ignition, three calibrators",
+    "chemical incompatibility/prohibited identity and concentration boundaries",
+    "solid AN fertilizer Section39 exits including terminal-vs-connector and mismatch",
+    "mixture formulation evidence, missingness, GHS shortcut and explosive/class1 referral",
+    "Lead-style status/candidate scaffolding and perpetual assignment blockade",
+    "identity-specific absent stabilization, acid concentration, nitrate combustible fraction and nonsolid fertilizer guards",
+    "Class 9 ammonium-nitrate fertilizer S.1 positive and missing-report gates"
+  ],
+  "independent_review": false
+}

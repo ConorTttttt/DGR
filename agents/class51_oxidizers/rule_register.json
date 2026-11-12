@@ -1,0 +1,794 @@
+{
+  "schema_version": "agent7.class51.register.v0.1",
+  "module": "agents/class51_oxidizers",
+  "edition_metadata": {
+    "ADR": {
+      "document": "ECE/TRANS/352",
+      "edition": "ADR 2025",
+      "language": "en",
+      "volume": "I"
+    },
+    "manual": {
+      "document": "ST/SG/AC.10/11/Rev.8",
+      "edition": "Rev.8",
+      "language": "en",
+      "part": "III"
+    },
+    "manual_amendment": {
+      "document": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "edition": "Rev.8 Amendment 1",
+      "applicability": "no section 34 or 39 replacement identified in supplied amendment; independently recheck"
+    },
+    "corrigenda": "ADR 2025 English Corr.1 and Corr.2 not reconciled",
+    "regulatory_status": "provisional_unreviewed"
+  },
+  "units": {
+    "solid_O1": "seconds mean burning time (smaller is more severe)",
+    "solid_O3": "g/s mean gravimetric burning rate (larger is more severe)",
+    "liquid_O2": "seconds mean rise time from 690 to 2070 kPa gauge",
+    "liquid_peak": "kPa gauge",
+    "particle": "micrometres",
+    "temperature": "degrees Celsius",
+    "humidity": "% RH",
+    "water": "% dry mass",
+    "composition": "% mass",
+    "mass": "g"
+  },
+  "evidence_fields": [
+    {
+      "path": "physicalState",
+      "allowed": [
+        "solid",
+        "liquid"
+      ],
+      "mandatory": "yes for ordinary pathway"
+    },
+    {
+      "path": "isMixture",
+      "type": "boolean",
+      "mandatory": "yes for mixture review"
+    },
+    {
+      "path": "formulationAsPresentedTested",
+      "type": "boolean",
+      "mandatory": "if mixture; no component interpolation"
+    },
+    {
+      "path": "explosiveScreening",
+      "allowed": [
+        "negative",
+        "positive",
+        "unknown"
+      ],
+      "mandatory": "conservative pretest gate; preliminary screen not Class 1 exclusion"
+    },
+    {
+      "path": "knownExperienceConflict",
+      "type": "boolean",
+      "mandatory": "if known; positive forces review"
+    },
+    {
+      "path": "test.method",
+      "allowed": [
+        "O.1",
+        "O.2",
+        "O.3"
+      ],
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.reportId",
+      "type": "string",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.sampleId",
+      "type": "string",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.laboratory",
+      "type": "string",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.manualEdition",
+      "allowed": [
+        "Rev.8",
+        "Rev.8+Amend.1"
+      ],
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.protocolConformant",
+      "type": "boolean attestation with audit trail",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.referencesConformant",
+      "type": "boolean attestation with audit trail",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.testConditionsConformant",
+      "type": "boolean attestation with audit trail",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.sampleRepresentative",
+      "type": "boolean attestation with audit trail",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.uncertaintyResolved",
+      "type": "boolean attestation with audit trail",
+      "mandatory": "ordinary route"
+    },
+    {
+      "path": "test.sampleRatios.4:1 / 1:1",
+      "type": "five-run data and ignition flags",
+      "mandatory": "O.1 and O.3"
+    },
+    {
+      "path": "test.references.pgI / pgII / pgIII",
+      "type": "five independent reference runs each",
+      "mandatory": "O.1 and O.3 (conservative complete-set requirement)"
+    },
+    {
+      "path": "test.sampleTimesSeconds",
+      "type": "five positive time values",
+      "mandatory": "O.2 when no spontaneous ignition and >=2070 kPa"
+    },
+    {
+      "path": "test.referenceTimesSeconds.pgI / pgII / pgIII",
+      "type": "five positive values each",
+      "mandatory": "O.2 unless spontaneous ignition"
+    },
+    {
+      "path": "test.peakPressureRiseKpaGauge",
+      "type": "number >=0",
+      "mandatory": "O.2 absent spontaneous ignition"
+    },
+    {
+      "path": "test.spontaneousIgnition",
+      "type": "boolean",
+      "mandatory": "O.2"
+    },
+    {
+      "path": "test.sampleRatios.*.rSquared",
+      "type": "five values each >=0.90",
+      "mandatory": "O.3 ignited runs"
+    },
+    {
+      "path": "test.sampleRatios.*.relativeStdDevPercent",
+      "type": "0..20 percent",
+      "mandatory": "O.3 ignited runs"
+    },
+    {
+      "path": "test.sampleRatios.*.massLossTraceVerified",
+      "type": "boolean attestation",
+      "mandatory": "O.3 ignited runs"
+    },
+    {
+      "path": "fertilizerRoute.exitBox",
+      "type": "integer from Figure 39.1",
+      "mandatory": "solid AN fertilizer"
+    },
+    {
+      "path": "fertilizerRoute.compositionVerified",
+      "type": "boolean",
+      "mandatory": "solid AN fertilizer"
+    },
+    {
+      "path": "fertilizerRoute.flowchartAudited",
+      "type": "boolean",
+      "mandatory": "solid AN fertilizer"
+    },
+    {
+      "path": "fertilizerRoute.series2NoExplosiveProperties",
+      "type": "boolean backed by test series 2",
+      "mandatory": "potential UN2067 pathway"
+    },
+    {
+      "path": "composition.chemicalIdentity",
+      "type": "normalized verified chemical identity",
+      "mandatory": "when material matches specific prohibited identity"
+    },
+    {
+      "path": "composition.stabilized",
+      "type": "boolean",
+      "mandatory": "hydrogen peroxide neat/aqueous"
+    },
+    {
+      "path": "composition.massPercent",
+      "type": "% by mass nonnegative number",
+      "mandatory": "aqueous hydrogen peroxide and perchloric/chloric acid solutions"
+    },
+    {
+      "path": "composition.otherLiquidThanWater",
+      "type": "boolean",
+      "mandatory": "perchloric/chloric acid solution"
+    },
+    {
+      "path": "composition.combustibleMassPercent",
+      "type": "% by mass including organic carbon equivalence",
+      "mandatory": "ammonium nitrate (non-Section39 fertilizer route)"
+    },
+    {
+      "path": "fertilizerRoute.s1SelfSustainingDecompositionVerified",
+      "type": "boolean backed by S.1 trough test",
+      "mandatory": "solid fertilizer Class 9 terminal exit box 25"
+    },
+    {
+      "path": "fertilizerRoute.s1ReportId",
+      "type": "non-empty string",
+      "mandatory": "solid fertilizer Class9 terminal exit box 25"
+    }
+  ],
+  "manual_protocol_constraints": [
+    {
+      "method": "O.1",
+      "clauses": [
+        "34.4.1.2.1",
+        "34.4.1.2.2",
+        "34.4.1.2.6",
+        "34.4.1.3.1-34.4.1.3.3"
+      ],
+      "reference": "potassium bromate, 0.15-0.30 mm dried 65 C >=12 h; cellulose dried 105 C >=4 h, <0.5% moisture",
+      "conditions": "30.0 +/-0.1 g mixtures, 20 +/-5 C, five runs per mixture/reference; 4:1 and 1:1 sample:cellulose; >10% particles <500 um/friable and coated-sieved protocol."
+    },
+    {
+      "method": "O.2",
+      "clauses": [
+        "34.4.2.2.5-34.4.2.2.7",
+        "34.4.2.3.1-34.4.2.3.2"
+      ],
+      "reference": "50% perchloric acid, 40% aqueous sodium chlorate, 65% aqueous nitric acid",
+      "conditions": "2.50 +/-0.01 g liquid + 2.50 +/-0.01 g dried cellulose; mixture 1:1 mass; five pressure trials; 690-to-2070 kPa gauge; saturated solutions prepared at 20 C; document concentration."
+    },
+    {
+      "method": "O.3",
+      "clauses": [
+        "34.4.3.2.1-34.4.3.2.3",
+        "34.4.3.4",
+        "34.4.3.5.2-34.4.3.5.6"
+      ],
+      "reference": "calcium peroxide concentration 75 +/-1.0%, specified purity/particle distribution; cellulose dried and <0.5% moisture",
+      "conditions": "30.0 +/-0.1 g mixtures, 20 +/-5 C, RH <60%, mass-loss 20-80%, BR=0.6*m(cellulose)/t(20-80), five valid runs, each R^2 >=0.90, relative std dev <=20%; suspect false positives need inert controls."
+    }
+  ],
+  "rules": [
+    {
+      "id": "51-001",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.1",
+      "kind": "decision",
+      "summary": "Class definition",
+      "logic": "Substance may yield oxygen and cause/contribute combustion; no CLP auto-conversion.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-002",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.2",
+      "kind": "decision",
+      "summary": "Classification codes",
+      "logic": "O1 O2 O3 OF OS OW OT1 OT2 OC1 OC2 OTC; refer precedence/entry resolution.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-003",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.3",
+      "kind": "decision",
+      "summary": "Unnamed entry, tests, experience",
+      "logic": "Test O.1/O.3/O.2 or MTC 39; known experience supersedes divergent tests.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-004",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.4",
+      "kind": "decision",
+      "summary": "Mixtures and solutions",
+      "logic": "Use mixture's actual hazard; require representative formulation evidence and 2.1.3 resolution.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-005",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.5",
+      "kind": "decision",
+      "summary": "Named substance test exemption possibility",
+      "logic": "Named entries not negated automatically; integrator must confirm classification applicability.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-006",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.6(a)",
+      "kind": "decision",
+      "summary": "O.1 solid class criterion",
+      "logic": "At 4:1 OR 1:1 sample-to-cellulose: ignites/burns OR mean time <= KBrO3/cellulose 3:7.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-007",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.6(b)",
+      "kind": "decision",
+      "summary": "O.3 solid class criterion",
+      "logic": "At 4:1 OR 1:1 mean rate >= CaO2/cellulose 1:2.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-008",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.7",
+      "kind": "decision",
+      "summary": "AN fertilizer exception",
+      "logic": "Use MTC Part III 39; never use O.1/O.3 negative to exclude.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-009",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.8(a)(i)",
+      "kind": "decision",
+      "summary": "O.1 PG I",
+      "logic": "4:1 OR 1:1 mean time strictly < KBrO3/cellulose 3:2.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-010",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.8(a)(ii)",
+      "kind": "decision",
+      "summary": "O.1 PG II",
+      "logic": "Not PG I; mean time <= KBrO3/cellulose 2:3.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-011",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.8(a)(iii)",
+      "kind": "decision",
+      "summary": "O.1 PG III",
+      "logic": "Not PG I/II; mean time <= KBrO3/cellulose 3:7.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-012",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.8(b)(i)",
+      "kind": "decision",
+      "summary": "O.3 PG I",
+      "logic": "4:1 OR 1:1 mean rate strictly > CaO2/cellulose 3:1.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-013",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.8(b)(ii)",
+      "kind": "decision",
+      "summary": "O.3 PG II",
+      "logic": "Not PG I; mean rate >= CaO2/cellulose 1:1.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-014",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.8(b)(iii)",
+      "kind": "decision",
+      "summary": "O.3 PG III",
+      "logic": "Not PG I/II; mean rate >= CaO2/cellulose 1:2.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-015",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.9",
+      "kind": "decision",
+      "summary": "O.2 liquid class gate",
+      "logic": "1:1 liquid:cellulose, peak pressure rise >=2070 kPa gauge and mean rise time <= 65% nitric acid comparator; spontaneous-ignition PG I separately.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-016",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.10(a)",
+      "kind": "decision",
+      "summary": "O.2 PG I",
+      "logic": "Spontaneous ignition OR mean rise time strictly < 50% perchloric acid comparator.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-017",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.10(b)",
+      "kind": "decision",
+      "summary": "O.2 PG II",
+      "logic": "Not PG I and mean rise time <= 40% aqueous sodium chlorate comparator.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-018",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.1.10(c)",
+      "kind": "decision",
+      "summary": "O.2 PG III",
+      "logic": "Not PG I/II and mean rise time <= 65% aqueous nitric acid comparator.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-019",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.2.1",
+      "kind": "decision",
+      "summary": "Chemically unstable gate",
+      "logic": "Do not accept unless preventing decomposition/polymerization and incompatible receptacle materials.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-020",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.2.2 first indent",
+      "kind": "decision",
+      "summary": "O+4.1/4.2/4.3 solid prohibitions",
+      "logic": "UN 3137/3100/3121 collective pathways not accepted unless Class 1 requirements.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-021",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.2.2 indents 2-11",
+      "kind": "decision",
+      "summary": "Specific identities/formulations",
+      "logic": "Hydrogen peroxide, tetranitromethane, perchloric/chloric solutions, halogenated fluor, ammonium oxidizer salt mixtures.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-022",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.2.2 ammonium nitrate indent",
+      "kind": "decision",
+      "summary": "Ammonium nitrate >0.2% combustibles",
+      "logic": "Not accepted unless constituent of Class 1 substance/article; do not conflate with fertilizer 39 pathway.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-023",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.2.2 fertilizer indents 13-14",
+      "kind": "decision",
+      "summary": "AN fertilizer restricted exit boxes",
+      "logic": "4/6/8/15/31/33 require suitable Class1; 20/23/39 require Class1 or demonstrated/approved alternative Class5.1 other than UN2067.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-024",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.2.51.3",
+      "kind": "decision",
+      "summary": "Collective entry list",
+      "logic": "Entries depend on subclass and subsidiary hazards; neither names nor UN IDs assigned by this module.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-025",
+      "source": {
+        "document": "ECE/TRANS/352",
+        "edition": "ADR 2025",
+        "language": "en",
+        "volume": "I"
+      },
+      "clause": "2.1.3.10",
+      "kind": "decision",
+      "summary": "Multiple hazards",
+      "logic": "Refer precedence and Table A to Lead/integration agent.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-026",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "34.4.1.3",
+      "kind": "method",
+      "summary": "O.1 protocol",
+      "logic": "Five independent trials, reference materials and particle-size instructions; explicit reference series.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-027",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "34.4.1.4.2(d)",
+      "kind": "method",
+      "summary": "O.1 negative",
+      "logic": "Both ratios non-igniting/non-burning or slower than III reference; ignition/time conflict escalated.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-028",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "34.4.2.3",
+      "kind": "method",
+      "summary": "O.2 protocol",
+      "logic": "Five runs, positive pressure time 690->2070 kPa gauge; spontaneous ignition may preclude testing.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-029",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "34.4.2.4.2(d)",
+      "kind": "method",
+      "summary": "O.2 negative",
+      "logic": "Rise <2070 kPa or mean time greater than nitric-acid III reference.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-030",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "34.4.3.2.1-34.4.3.5.6",
+      "kind": "method",
+      "summary": "O.3 protocol",
+      "logic": "CaO2 purity, particle size, R2>=0.90, five runs, rate regression/false positive check.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-031",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "34.4.3.5.4(d)",
+      "kind": "method",
+      "summary": "O.3 negative",
+      "logic": "Both ratios non-burning or lower mean rates than III reference.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-032",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "39.2-39.4",
+      "kind": "method",
+      "summary": "AN fertilizer special pathway",
+      "logic": "Use verified composition and expert-reviewed 39.5.1 flowchart; testing O.1/O.3 insufficient.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-033",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "39.4.2",
+      "kind": "method",
+      "summary": "UN2067 test series 2",
+      "logic": "Potential UN2067 fertilizer requires no explosive behaviour under test series 2; final entry external.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-034",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "39.4.4-39.4.5",
+      "kind": "method",
+      "summary": "Fertilizer explosive/oxidizing exclusions",
+      "logic": "Class1 composition exits remain Class1 irrespective of test series 2; no O.1/O.3 declassification.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-035",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "39.4.6",
+      "kind": "method",
+      "summary": "AN sulphate exception",
+      "logic": "Fertilizers >=70% AN cannot contain AS nutrient except compound <90% AN and >=10% other inorganics.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-036",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "39.4.7",
+      "kind": "method",
+      "summary": "Self-sustaining decomposition",
+      "logic": "Compound fertilizer class9 route requires test S.1 per 38.2.4.",
+      "status": "provisional_expert_review_required"
+    },
+    {
+      "id": "51-037",
+      "source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "edition": "Rev.8",
+        "language": "en",
+        "part": "III"
+      },
+      "clause": "39.5.1",
+      "kind": "method",
+      "summary": "Fertilizer flowchart",
+      "logic": "Exit-box-dependent branch; no automatic inference solely from AN mass fraction.",
+      "status": "provisional_expert_review_required"
+    }
+  ],
+  "downstream_gates": {
+    "can_assign_final_un": false,
+    "can_assign_final_pg": false,
+    "can_publish_sds14": false,
+    "requires": [
+      "Lead status/schema mapping",
+      "ADR Table A row identity and PG column (4)",
+      "full 3.3.1 SP checks",
+      "multi-hazard precedence",
+      "expert review",
+      "independent source validation"
+    ]
+  },
+  "source_verification": "manual extract inspected; human independent clause/figure review pending"
+}
