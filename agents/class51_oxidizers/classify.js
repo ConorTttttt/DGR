@@ -171,7 +171,17 @@ function evaluateFertilizer(i,r,issue,missing,stop) {
       "fertilizerRoute.flowchartAudited");
     return stop("insufficient_evidence");
   }
-  r.evidenceUsed.push({type:"SECTION39_FLOWCHART",exitBox:f.exitBox,recordId:f.recordId||null});
+  if (typeof f.recordId !== "string" || !f.recordId.trim()) {
+    missing("fertilizerRoute.recordId: audited composition/flowchart report");
+    return stop("insufficient_evidence");
+  }
+  r.evidenceUsed.push({type:"SECTION39_FLOWCHART",exitBox:f.exitBox,recordId:f.recordId});
+  const validExit = new Set([4,6,8,9,15,18,19,20,23,25,26,31,33,35,36,39,42,43,44,45]);
+  if (!validExit.has(f.exitBox)) {
+    issue("FERTILIZER_NONTERMINAL_OR_UNKNOWN_BOX","MTC 39.5.1",
+      "Exit must be a terminal box in Figure 39.1(a)-(c), not a decision or connector node.");
+    return stop("requires_expert_review");
+  }
   if (AMMONIUM_FERTILIZER_FORBIDDEN.has(f.exitBox)) {
     issue("FERTILIZER_PROHIBITED_EXIT","2.2.51.2.2; MTC 39.5.1",
       "Exit boxes 4/6/8/15/31/33 not accepted unless suitable Class 1 entry.");
@@ -189,6 +199,16 @@ function evaluateFertilizer(i,r,issue,missing,stop) {
     issue("FERTILIZER_AUTHORITY_EXIT","2.2.51.2.2; MTC 39.5.1",
       "Exit boxes 20/23/39 need Class 1 route or approved alternative Class 5.1 (not UN 2067).");
     return stop("not_accepted_for_carriage");
+  }
+  const outcomes = {
+    oxidizing_solid: new Set([9,18,19,36,42]),
+    class9: new Set([25]),
+    not_classified: new Set([26,35,43,44,45])
+  };
+  if (!outcomes[f.outcome] || !outcomes[f.outcome].has(f.exitBox)) {
+    issue("FERTILIZER_EXIT_OUTCOME_MISMATCH","MTC 39.5.1",
+      "Terminal box and claimed outcome disagree; use signed source review, not fabricated result.");
+    return stop("requires_expert_review");
   }
   if (f.outcome === "class1") {
     issue("FERTILIZER_CLASS1_ROUTE","MTC 39.4.4; 39.5.1","Refer Class 1 even if series 2 is negative.");
