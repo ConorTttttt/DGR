@@ -72,7 +72,7 @@ check("N4 >450L positive 120C >180",{...heat(),package_volume_l:450.001,runs:[..
 check("N4 3000L negative 120C exempt",{...heat(),package_volume_l:3000,runs:[...heat().runs,run(100,120,false)]},"excluded_from_class");
 check("N4 3000.001L PGIII without low-temp test",{...heat(),package_volume_l:3000.001},"criteria_met","III");
 check("N4 missing package volume",{...heat(),package_volume_l:undefined},"indeterminate");
-check("N4 140C oven 142C valid",{...heat(),runs:[run(100,140,false),{...run(25,140,false),oven_actual_c:142,max_sample_c:202}]},"indeterminate");
+check("N4 140C oven 142C valid",{...heat(),runs:[run(100,140,true),{...run(25,140,false),oven_actual_c:142,max_sample_c:200}]},"indeterminate");
 check("N4 140C oven >142 rejected",{...heat(),runs:[{...run(100,140,true),oven_actual_c:142.001}]},"indeterminate");
 check("N4 nominal/actual temperature conflict",{...heat(),runs:[{...run(100,140,false),oven_actual_c:139,max_sample_c:200}]},"conflict");
 check("N4 duplicated contradictory runs",{...heat(),runs:[run(100,140,true),run(100,140,false)]},"conflict");
