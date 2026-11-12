@@ -1,0 +1,26 @@
+{
+  "suite": "Class1 synthetic contract review cases",
+  "version": "1.0.0-rc1",
+  "positive_coverage": "All 26 collective class codes ADR 2.2.1.3, six divisions, additional synthetic H/J named-entry group controls; no claims about real source row",
+  "required_negative_cases": [
+    "suspected_or_missing_test",
+    "unverified_or_expired_authority",
+    "authority_scope_mismatch",
+    "authority_code_or_row_conflict",
+    "unduly_sensitive",
+    "spontaneous_reaction",
+    "group_K",
+    "no_table_a_entry",
+    "provisional_table_a_row",
+    "incomplete_special_provision",
+    "prohibited_special_provision",
+    "fireworks_analogy_missing_agreement_or_packaging",
+    "UN0190_conditions_missing",
+    "division_1_5_missing_series_5",
+    "division_1_6_missing_series_7",
+    "no_Class1_packing_group",
+    "no_negative_result_becomes_global_non_DG"
+  ],
+  "expected_release": "always false",
+  "validation": "synthetic only, independent regulation review pending"
+}
