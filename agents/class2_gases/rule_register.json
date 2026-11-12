@@ -498,6 +498,58 @@
         "dilutes_or_replaces_atmospheric_oxygen"
       ],
       "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-037",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "fixed_code_5",
+      "deterministic_condition": "aerosol or gas cartridge has code 5 (not 5 plus hazard-group letters)",
+      "outcome": "5_candidate",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-038",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "fixed_code_4",
+      "deterministic_condition": "dissolved-gas carriage under named Table A only; fixed code 4",
+      "outcome": "4_candidate",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-039",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "chemicals_code_8",
+      "deterministic_condition": "chemicals under pressure have code 8 plus A/F/T/C/TF/FC (not direct UN mapping)",
+      "outcome": "8_group_candidate",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-040",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.7 Note 4",
+      "key": "chemical_in_aerosol_dispenser",
+      "deterministic_condition": "chemicals under pressure in aerosol dispensers shall be carried under aerosol route",
+      "outcome": "requires_aerosol_route",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
     }
   ]
 }
