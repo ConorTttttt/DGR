@@ -7,10 +7,17 @@ from adr2025 import evaluate_class
 class EvidenceFixtures:
     C3 = dict(physical_state='liquid', liquid_desensitized_explosive=False,
               diesel_gasoil_light_heating_oil=False, flash_point_c=22.9,
-              carried_at_or_above_flash_point=False,
+              flash_point_method='ISO 2719', flash_point_method_kind='equilibrium',
+              flash_point_evidence_id='fp-001', carried_at_or_above_flash_point=False,
+              liquid_definition_basis='melting_point', melting_point_c=-10,
               vapour_pressure_kpa_50c=10, completely_gaseous_at_20c=False,
-              initial_boiling_point_c=70, other_hazards_assessed=True,
-              named_entry_checked=True, viscosity_concessions_assessed=True)
+              initial_boiling_point_c=70, initial_boiling_point_method='ISO 3405',
+              initial_boiling_point_evidence_id='bp-001', other_hazards_assessed=True,
+              named_entry_checked=True, viscosity_concession_claimed=False,
+              sustains_combustion=True, material_scope='substance',
+              peroxide_forming=False, chemically_unstable=False,
+              contains_nitrocellulose=False, toxic=False, corrosive=False,
+              environmentally_hazardous=False)
     C61 = dict(material_scope='substance',human_experience_reviewed=True,
                human_evidence_requires_expert_classification=False,
                exposure_route_evidence_complete=True, class8_priority_checked=True,
@@ -47,7 +54,7 @@ class TestClass3(unittest.TestCase):
         r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=85,diesel_gasoil_light_heating_oil=True))
         self.assertEqual(r['candidate_data']['named_un_candidate'],'1202')
     def test_heated(self):
-        r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=100,carried_at_or_above_flash_point=True))
+        r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=100,carried_at_or_above_flash_point=True,carriage_temperature_c=100))
         self.assertEqual(r['candidate_data']['named_un_candidate'],'3256')
     def test_sustained_combustion_exception(self):
         r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=40,sustains_combustion=False,
@@ -76,7 +83,7 @@ class TestClass3(unittest.TestCase):
             self.assertEqual(r['status'],expected)
 
     def test_missing_gates_never_pass(self):
-        for k in ('liquid_desensitized_explosive','diesel_gasoil_light_heating_oil','carried_at_or_above_flash_point','named_entry_checked','viscosity_concessions_assessed'):
+        for k in ('liquid_desensitized_explosive','diesel_gasoil_light_heating_oil','carried_at_or_above_flash_point','named_entry_checked','viscosity_concession_claimed'):
             v=dict(EvidenceFixtures.C3);del v[k]
             with self.subTest(missing=k): self.assertEqual(evaluate_class('3',v)['status'],'indeterminate')
     def test_gas_state_gate(self):

@@ -1,0 +1,409 @@
+{
+  "schema_version": "agent3-class3-rule-register-1.0-provisional",
+  "regulatory_baseline": {
+    "edition": "ADR 2025",
+    "symbol": "ECE/TRANS/352",
+    "volume": "I",
+    "source_pdf": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+    "supporting_manual": "ST/SG/AC.10/11/Rev.8 (2023)",
+    "supporting_amendment": "ST/SG/AC.10/11/Rev.8/Amend.1",
+    "corrigenda_review": "pending",
+    "review_state": "not independently validated"
+  },
+  "rule_order": [
+    "STATE",
+    "EVID-FP",
+    "RESTRICT",
+    "DIESEL/HEATED/DESENS",
+    "MIX",
+    "NITRO",
+    "COMBUST",
+    "VISC-PG/VISC-EXEMPT",
+    "BASE",
+    "PRECEDENCE"
+  ],
+  "allowed_statuses": [
+    "criteria_met",
+    "criteria_not_met",
+    "indeterminate"
+  ],
+  "global_not_regulated_output_allowed": false,
+  "final_table_a_pg_allowed": false,
+  "rules": [
+    {
+      "id": "ADR25-C3-STATE",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "1.2.1 (definition of liquid)",
+            "2.2.3.1.1",
+            "2.3.4"
+          ]
+        }
+      ],
+      "requires": [
+        "physical_state",
+        "vapour_pressure_kpa_50c",
+        "completely_gaseous_at_20c",
+        "liquid_definition_basis",
+        "melting_point_c OR ASTM D4359-90 OR ADR 2.3.4 confirmed"
+      ],
+      "tests": [
+        "vapour_pressure_50c <= 300 kPa",
+        "not completely gaseous at 20 C / 101.3 kPa",
+        "melting point <=20 C OR fluidity test proves liquid"
+      ],
+      "failure": "indeterminate; refer Class 2 or physical-state assessment"
+    },
+    {
+      "id": "ADR25-C3-EVID-FP",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.3.3.1.1",
+            "2.3.3.1.2",
+            "2.3.3.1.3",
+            "2.3.3.1.4",
+            "2.3.3.1.5"
+          ]
+        }
+      ],
+      "requires": [
+        "flash_point_c",
+        "flash_point_method",
+        "flash_point_method_kind",
+        "flash_point_evidence_id",
+        "equilibrium confirmation near 23 and 60 C if non-equilibrium"
+      ],
+      "tests": [
+        "all measurements finite degrees C",
+        "approved closed cup apparatus and applicable method range",
+        "non-equilibrium 21..25 or 58..62 C inclusive confirmed by equilibrium method",
+        "contradictory measurements require documented dispute resolution"
+      ],
+      "failure": "indeterminate; never choose a flash point silently"
+    },
+    {
+      "id": "ADR25-C3-BASE",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.1",
+            "2.2.3.1.3 (packing group table)",
+            "2.3.3.2"
+          ]
+        }
+      ],
+      "requires": [
+        "eligible liquid state",
+        "closed cup flash_point_c",
+        "initial_boiling_point_c",
+        "initial_boiling_point_method",
+        "initial_boiling_point_evidence_id"
+      ],
+      "tests": [
+        "ordinary Class 3 flash_point <=60 C",
+        "PG I initial boiling point <=35 C",
+        "PG II IBP >35 C and flash_point <23 C",
+        "PG III IBP >35 C and 23 C <= flash point <=60 C"
+      ],
+      "output": "criteria_met and candidate flammability PG only; Table A PG=null"
+    },
+    {
+      "id": "ADR25-C3-COMBUST",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.1 NOTE 1"
+          ]
+        },
+        {
+          "source": "UN Manual of Tests and Criteria ST/SG/AC.10/11/Rev.8 (2023)",
+          "clauses": [
+            "32.2.5",
+            "32.5.2"
+          ]
+        }
+      ],
+      "requires": [
+        "flash_point_c >35",
+        "sustains_combustion",
+        "non_sustained_combustion_basis",
+        "sustained_combustion_evidence_id"
+      ],
+      "tests": [
+        "L.2 negative OR ISO 2592 fire_point >100 C OR miscible solution water >90% by mass",
+        "if heated at/above flash point exception not applicable"
+      ],
+      "output": "pathway criteria_not_met only"
+    },
+    {
+      "id": "ADR25-C3-DIESEL",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.1 NOTE 2"
+          ]
+        }
+      ],
+      "requires": [
+        "specific diesel/gasoil/light heating-oil identity proven",
+        "flash_point_c"
+      ],
+      "tests": [
+        "60 C < flash point <=100 C"
+      ],
+      "output": "Class 3 candidate, UN 1202 named entry dependency; PG unassigned"
+    },
+    {
+      "id": "ADR25-C3-HEATED",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.1 (elevated temperature)"
+          ]
+        }
+      ],
+      "requires": [
+        "flash_point_c",
+        "carried_at_or_above_flash_point",
+        "physical_state"
+      ],
+      "tests": [
+        "flash_point >60 C and carriage at or above flash point"
+      ],
+      "output": "Class 3 and UN 3256 candidate; Table A check required"
+    },
+    {
+      "id": "ADR25-C3-DESENS",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.1 (liquid desensitized explosives)",
+            "2.2.3.2.3"
+          ]
+        },
+        {
+          "source": "UN Manual of Tests and Criteria ST/SG/AC.10/11/Rev.8 (2023)",
+          "clauses": [
+            "32.1",
+            "32.2.1",
+            "32.3.2.1"
+          ]
+        },
+        {
+          "source": "UN MTC Rev.8 Amendment 1 ST/SG/AC.10/11/Rev.8/Amend.1",
+          "clauses": [
+            "32.3.2.1"
+          ]
+        }
+      ],
+      "requires": [
+        "homogeneous liquid desensitized explosive",
+        "approved Table A entry"
+      ],
+      "tests": [
+        "only potential UN 1204,2059,3064,3343,3357,3379,3555",
+        "unlisted liquid desensitized explosive not accepted for carriage as Class 3"
+      ],
+      "output": "named-entry candidate or indeterminate prohibition; PG unassigned"
+    },
+    {
+      "id": "ADR25-C3-VISC-PG",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.4 (six-row viscosity table and conditions (a)–(d))"
+          ]
+        },
+        {
+          "source": "UN Manual of Tests and Criteria ST/SG/AC.10/11/Rev.8 (2023)",
+          "clauses": [
+            "32.4.2",
+            "32.4.3",
+            "32.5.1"
+          ]
+        }
+      ],
+      "requires": [
+        "flash_point_c <23",
+        "flow time seconds at 23 C",
+        "jet diameter 4 or 6 mm",
+        "ISO 2431:1984 / MTC 32.4.3 evidence ID",
+        "L.1 solvent separation % and evidence ID",
+        "no Class 6.1/8 hazard for mixture or separated solvent",
+        "receptacle capacity litres"
+      ],
+      "tests": [
+        "4 mm: 20<t<=60 requires FP>17; 60<t<=100 requires FP>10",
+        "6 mm: 20<t<=32 FP>5; 32<t<=44 FP>-1; 44<t<=100 FP>-5; t>100 no FP limit",
+        "solvent layer <3%; capacity <=450 L",
+        "PG I downgrade deliberately blocked pending review"
+      ],
+      "output": "PG III candidate where all conditions satisfied, else ordinary PG or indeterminate"
+    },
+    {
+      "id": "ADR25-C3-VISC-EXEMPT",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.5.1"
+          ]
+        },
+        {
+          "source": "UN Manual of Tests and Criteria ST/SG/AC.10/11/Rev.8 (2023)",
+          "clauses": [
+            "32.4.3",
+            "32.5.1"
+          ]
+        }
+      ],
+      "requires": [
+        "23 <= FP <=60 C",
+        "no toxicity, corrosivity, environmental hazard",
+        "nitrocellulose <=20% and its nitrogen <=12.6% dry mass",
+        "receptacle <=450 L",
+        "L.1 solvent separation <3%",
+        "6 mm flow time >=60 s OR >=40 s if Class 3 substances <=60%"
+      ],
+      "tests": [
+        "all bounds inclusive except solvent separation <3%",
+        "evidence IDs and approved methods required"
+      ],
+      "output": "criteria_not_met for scoped 2.2.3.1.5.1 ADR concession only"
+    },
+    {
+      "id": "ADR25-C3-VISC-EXEMPT-ENV",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.5.2",
+            "4.1.1.1",
+            "4.1.1.2",
+            "4.1.1.4",
+            "4.1.1.5",
+            "4.1.1.6",
+            "4.1.1.7",
+            "4.1.1.8"
+          ]
+        }
+      ],
+      "requires": [
+        "meet all 2.2.3.1.5.1 criteria except environmental hazard",
+        "single or combination packaging",
+        "net quantity per single/inner <=5 litres",
+        "compliant general packing provisions"
+      ],
+      "tests": [
+        "<=5 L inclusive, not <=5 L total outer package"
+      ],
+      "output": "conditional packaging-specific relief only, no Section 14 exemption"
+    },
+    {
+      "id": "ADR25-C3-NITRO",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.4 NOTE",
+            "2.2.3.1.5.1"
+          ]
+        }
+      ],
+      "requires": [
+        "nitrocellulose present",
+        "nitrocellulose_mass_pct",
+        "nitrocellulose_nitrogen_dry_mass_pct"
+      ],
+      "tests": [
+        "<=20% with <=12.6% dry nitrogen eligible for viscosity concessions",
+        "20% < nitrocellulose <=55% with <=12.6% nitrogen refers UN 2059",
+        "nitrocellulose >55% or <=55% with nitrogen >12.6% requires Class 1/4.1 review"
+      ],
+      "output": "Class 1/4.1 / UN 2059 blocker, not a final assignment"
+    },
+    {
+      "id": "ADR25-C3-MIX",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.6",
+            "2.2.3.1.7",
+            "2.1.3"
+          ]
+        }
+      ],
+      "requires": [
+        "material_scope",
+        "whole tested mixture with proven actual properties",
+        "mixture_actual_hazard_reviewed"
+      ],
+      "tests": [
+        "no constituent-based interpolation/CLP mapping",
+        "mixture whose degree of hazard differs from named material requires appropriate entries"
+      ],
+      "output": "untested/insufficient mixture evidence indeterminate"
+    },
+    {
+      "id": "ADR25-C3-RESTRICT",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.2.1",
+            "2.2.3.2.2",
+            "2.3.3.3",
+            "3.3 special provision 386"
+          ]
+        }
+      ],
+      "requires": [
+        "peroxide_forming assessment",
+        "peroxide_h2o2_mass_pct when relevant",
+        "chemical stability assessment",
+        "stabilization precautions when unstable"
+      ],
+      "tests": [
+        "peroxide content >0.3% calculated as H2O2 not accepted for carriage",
+        "unstable material not accepted without documented protective precautions"
+      ],
+      "output": "indeterminate with carriage-prohibition candidate, never an acceptable classification"
+    },
+    {
+      "id": "ADR25-C3-PRECEDENCE",
+      "refs": [
+        {
+          "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+          "clauses": [
+            "2.2.3.1.1 NOTES 3 and 4",
+            "2.2.3.1.3 (final paragraph)",
+            "2.1.3.10",
+            "3.2 Table A",
+            "3.3"
+          ]
+        }
+      ],
+      "requires": [
+        "other hazards assessment",
+        "named entry/special provision resolution",
+        "Class 6.1, 8, environmental candidates"
+      ],
+      "tests": [
+        "highly toxic inhalation liquids and toxic pesticides with FP>=23 C may be Class 6.1 primary",
+        "other subsidiary hazard PG/precedence must go to integration agent"
+      ],
+      "output": "indeterminate if multiple-hazard, named-entry, SP or Table A PG unresolved"
+    }
+  ]
+}
