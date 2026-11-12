@@ -100,12 +100,15 @@ def evaluate(evidence: Dict[str, Any]):
             return missing('test_method:UN_MTC_N1')
         screening = evidence.get('screening_propagates_200mm')
         if screening is False:
+            if any(evidence.get(k) is not None for k in
+                   ('burning_time_100mm_s', 'burning_rate_mm_s', 'full_length_reaction_min')):
+                return missing('contradictory_negative_screening_and_full_test')
             return negative('MTC III 33.2.4.3.1')
         if screening is not True:
             return missing('screening_propagates_200mm')
         if path == 'metal_powder':
             if evidence.get('ignited') is not True:
-                return missing('ignited') if evidence.get('ignited') is None else negative('2.2.41.1.5(b)')
+                return missing('ignited_or_contradictory_screening')
             minutes = _num(evidence, 'full_length_reaction_min')
             if minutes is None or minutes < 0:
                 return missing('full_length_reaction_min')
@@ -212,6 +215,8 @@ def evaluate(evidence: Dict[str, Any]):
             pct = _num(evidence, 'combustible_organic_mass_pct')
             if pct is None:
                 return missing('combustible_organic_mass_pct_for_oxidizing_mixture_exception')
+            if not isinstance(evidence.get('is_mixture'), bool):
+                return missing('is_mixture')
             if not (evidence.get('is_mixture') is True and pct >= 5):
                 return negative('2.2.41.1.9(b)')
             r['notes'].append('5.1 oxidizing-mixture >=5% combustible organic exception: route type B-F vs G with integrator')
@@ -223,7 +228,7 @@ def evaluate(evidence: Dict[str, Any]):
         if evidence.get('decomposes_strongly_exothermically_without_oxygen') is not True:
             return missing('decomposes_strongly_exothermically_without_oxygen')
         if evidence.get('sample_for_further_testing') is True:
-            sample_kg = _num(evidence, 'sample_quantity_kg')
+            sample_kg = _num(evidence, 'sample_quantity_per_transport_unit_kg')
             conditions = (evidence.get('sample_no_more_dangerous_than_type_B') is True
                           and evidence.get('sample_packing_method') == 'OP2'
                           and sample_kg is not None and 0 <= sample_kg <= 10
