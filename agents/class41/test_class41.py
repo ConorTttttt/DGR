@@ -159,6 +159,16 @@ class Class41Test(unittest.TestCase):
         self.check(dict(pathway='related_self_reactive',**keys),'criteria_met')
         self.check(dict(pathway='related_self_reactive',**dict(keys,not_class_5_2=False)),'indeterminate')
 
+    def test_subsidiary_handoffs(self):
+        r=self.check(nonmetal(competing_transport_hazard_classes=['6.1','8'],
+                              competing_class_evidence_verified=True),'criteria_met','II')
+        self.assertEqual(r['subsidiary_hazard_candidates'],['6.1','8'])
+        self.check(nonmetal(competing_transport_hazard_classes=['6.1']),'indeterminate')
+        r=self.check(metal(full_length_reaction_min=4,
+                    competing_transport_hazard_classes=['4.3'],
+                    competing_class_evidence_verified=True),'external_class_review')
+        self.assertEqual(r['subsidiary_hazard_candidates'],['4.3'])
+
     def test_vetoes_and_non_regulated_safety(self):
         self.check(pm(dangerous_instability=True,prevented_during_carriage=False),'not_accepted_for_carriage')
         self.check(pm(dangerous_instability=True),'indeterminate')
