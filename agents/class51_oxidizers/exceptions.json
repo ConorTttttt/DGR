@@ -1,0 +1,328 @@
+{
+  "module": "ADR2025_CLASS_5_1",
+  "status": "provisional",
+  "release_authorized": false,
+  "exception_and_unsupported_cases": [
+    {
+      "id": "X01",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.3",
+      "trigger": "experience contradicts O test",
+      "disposition": "requires_expert_review",
+      "reason": "known experience has precedence"
+    },
+    {
+      "id": "X02",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.4; 2.1.3",
+      "trigger": "mixture not tested as presented",
+      "disposition": "insufficient_evidence",
+      "reason": "component GHS labels are not a mixture transport test"
+    },
+    {
+      "id": "X03",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.5",
+      "trigger": "named substance appears nonoxidizing in test",
+      "disposition": "named_table_a_review",
+      "reason": "test alone cannot complete Table A/SP disposition"
+    },
+    {
+      "id": "X04",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.1.2.6; 34.4.3.2.3",
+      "trigger": "unrepresentative particle distribution or grinding/sieving",
+      "disposition": "insufficient_evidence",
+      "reason": "results may change with particles/form and coatings"
+    },
+    {
+      "id": "X05",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.1.2.6; 34.4.3.2.3",
+      "trigger": "coated solid with >10% below 500 micrometres",
+      "disposition": "requires_expert_review",
+      "reason": "as-presented and sieved split-fraction testing, most stringent result"
+    },
+    {
+      "id": "X06",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.3.1",
+      "trigger": "solid may be explosive/flammable or organic peroxide",
+      "disposition": "requires_expert_review",
+      "reason": "O.3 inapplicable to excluded groups; route Class1/4.1/5.2"
+    },
+    {
+      "id": "X07",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.6(a)",
+      "trigger": "O.1 ignites or burns but PG thresholds not met",
+      "disposition": "requires_expert_review",
+      "reason": "ADR positive class ignition vs no calculable PG; experience review"
+    },
+    {
+      "id": "X08",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.1.3.3",
+      "trigger": "O.1 fewer than five valid runs at sample/reference",
+      "disposition": "insufficient_evidence",
+      "reason": "mean unsupported"
+    },
+    {
+      "id": "X09",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.3.5.3",
+      "trigger": "O.3 R squared below 0.90 in any igniting run",
+      "disposition": "insufficient_evidence",
+      "reason": "run invalid and must be repeated"
+    },
+    {
+      "id": "X10",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.3.5.3",
+      "trigger": "O.3 five-run rate relative SD over 20%",
+      "disposition": "insufficient_evidence",
+      "reason": "method variability unresolved"
+    },
+    {
+      "id": "X11",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.3.5.5-34.4.3.5.6",
+      "trigger": "O.3 false positive or mass-loss curve suspected",
+      "disposition": "requires_expert_review",
+      "reason": "consider inert substance/atmosphere and mixing setup"
+    },
+    {
+      "id": "X12",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.2.3.1-34.4.2.3.2",
+      "trigger": "O.2 concentration or 1:1 mix invalid",
+      "disposition": "insufficient_evidence",
+      "reason": "method and mass mixing not verified"
+    },
+    {
+      "id": "X13",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.4.2.2 footnote 2",
+      "trigger": "non-oxidizing pressure-generation mechanism suspected",
+      "disposition": "requires_expert_review",
+      "reason": "inert control e.g. diatomite may be necessary"
+    },
+    {
+      "id": "X14",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.9; 34.4.2.4.2(d)",
+      "trigger": "liquid peak below 2070 kPa gauge",
+      "disposition": "criteria_not_met_by_O2_only",
+      "reason": "not globally non-dangerous"
+    },
+    {
+      "id": "X15",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.8-2.2.51.1.10",
+      "trigger": "PG candidate numerical but Table A unresolved",
+      "disposition": "blocked_for_assignment",
+      "reason": "actual PG may be row-constrained"
+    },
+    {
+      "id": "X16",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.1",
+      "trigger": "chemically unstable with no prevention verified",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "decomposition/polymerization hazard"
+    },
+    {
+      "id": "X17",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "OF, OS, OW oxidizing solid combined-hazard route",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "unless qualifies for Class 1; refer Class1"
+    },
+    {
+      "id": "X18",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "hydrogen peroxide unstabilized or aqueous unstabilized >60%",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "specific identity prohibition"
+    },
+    {
+      "id": "X19",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "tetranitromethane with combustible impurities",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "specific identity prohibition"
+    },
+    {
+      "id": "X20",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "perchloric acid >72% mass or mixed with non-water liquid",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "concentration/mixture prohibition"
+    },
+    {
+      "id": "X21",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "chloric acid >10% or mixed with non-water liquid",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "concentration/mixture prohibition"
+    },
+    {
+      "id": "X22",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "halogenated fluor compound other than listed exceptions",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "named UN exception 1745, 1746, 2495, 1749, 2548 must be verified"
+    },
+    {
+      "id": "X23",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "ammonium chlorate/chlorite/bromate/permanganate/nitrite and specified salt mixtures",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "explicit incompatibility combinations"
+    },
+    {
+      "id": "X24",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "ammonium nitrate with combustibles >0.2%",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "Class1 constituent exception requires separate proof"
+    },
+    {
+      "id": "X25",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.7; MTC 39.4.5",
+      "trigger": "AN fertilizer O.1/O.3 suggests negative",
+      "disposition": "route_to_MTC39",
+      "reason": "O tests cannot exempt fertilizer"
+    },
+    {
+      "id": "X26",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2; MTC 39.5.1",
+      "trigger": "AN fertilizer exit boxes 4,6,8,15,31,33",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "unless suitable Class 1, refer other agent"
+    },
+    {
+      "id": "X27",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2; MTC 39.5.1",
+      "trigger": "AN fertilizer exit boxes 20,23,39",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "unless Class1 or approved demonstrated Class5.1 other than UN2067"
+    },
+    {
+      "id": "X28",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 39.5.1",
+      "trigger": "AN fertilizer intermediate connector box or inconsistent outcome",
+      "disposition": "requires_expert_review",
+      "reason": "only terminal outcomes 9,18,19,25,26,35,36,42-45 etc"
+    },
+    {
+      "id": "X29",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 39.4.2",
+      "trigger": "AN fertilizer possible UN2067 without Series2 no-explosive results",
+      "disposition": "insufficient_evidence",
+      "reason": "no entry candidate may proceed"
+    },
+    {
+      "id": "X30",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 39.4.4",
+      "trigger": "AN fertilizer composition requires Class1 regardless negative series2",
+      "disposition": "requires_expert_review",
+      "reason": "Class1 referral, no transport PG"
+    },
+    {
+      "id": "X31",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 39.4.6",
+      "trigger": "AN fertilizer >=70% AN with AS nutrient",
+      "disposition": "requires_expert_review",
+      "reason": "except compound <90% AN with >=10% other inorganic; external flowchart review"
+    },
+    {
+      "id": "X32",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 39.4.7; 38.2.4",
+      "trigger": "AN fertilizer potential Class9, self sustaining decomposition",
+      "disposition": "requires_expert_review",
+      "reason": "S.1 trough method and Class9 handoff"
+    },
+    {
+      "id": "X33",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.1.2-2.2.51.3",
+      "trigger": "oxidizing article e.g. generator or UN3544 category",
+      "disposition": "requires_expert_review",
+      "reason": "O tests alone do not determine article entry"
+    },
+    {
+      "id": "X34",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.3; 2.1.3.10",
+      "trigger": "oxidizer also toxic/corrosive",
+      "disposition": "precedence_review",
+      "reason": "subsidiary candidates only; OTC has no direct collective entry"
+    },
+    {
+      "id": "X35",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 3.2.1; 3.3.1",
+      "trigger": "specific named UN and SP unknown",
+      "disposition": "blocked_for_assignment",
+      "reason": "never guess final row or PG"
+    },
+    {
+      "id": "X36",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2025 Corr.1/Corr.2; MTC Rev8/Amend1",
+      "trigger": "source amendment/edition or method version divergent",
+      "disposition": "requires_expert_review",
+      "reason": "regulatory change-control unresolved"
+    },
+    {
+      "id": "X37",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "MTC 34.2.1",
+      "trigger": "untestable physical properties or methods outside O.1/O.2/O.3",
+      "disposition": "requires_expert_review",
+      "reason": "analogy with existing entries, not unsupported numerical extrapolation"
+    },
+    {
+      "id": "X38",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.1.3",
+      "trigger": "competing primary hazard or table precedence not resolved",
+      "disposition": "blocked_for_assignment",
+      "reason": "Lead Agent integration required"
+    },
+    {
+      "id": "X39",
+      "source": "ADR 2025 ECE/TRANS/352 Vol.I or MTC Rev.8 as cited",
+      "clause": "ADR 2.2.51.2.2",
+      "trigger": "potassium nitrate/sodium nitrite/ammonium salt mixture",
+      "disposition": "not_accepted_for_carriage",
+      "reason": "explicit list prohibition"
+    }
+  ],
+  "design_limits": [
+    "No final UN assignment and no final PG, even when the candidate PG is numeric.",
+    "O.1/O.3 require all three comparator sets as conservative simplifying evidence condition; if partial comparators are available, return insufficient evidence rather than infer an unverified weaker PG.",
+    "Fertilizer Figure 39.1 full composition-to-exit computation is not implemented; requires audited external flowchart record and exit/outcome consistency checks.",
+    "No machine authentication of reports, laboratory competence, source images, test setup or competent-authority signatures.",
+    "Generic prohibitedIdentity flag is a manually attested fallback; no exhaustive substance identity ontology implemented.",
+    "No complete chemical-incompatibility engine, package compatibility, stabilization recipes or ADR 2025 Table A rows.",
+    "No inferred negative competing hazards from absent SDS data; all results blocked for assignment."
+  ]
+}
