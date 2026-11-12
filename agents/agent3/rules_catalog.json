@@ -158,17 +158,19 @@
         "flash_point_c",
         "sustains_combustion",
         "carried_at_or_above_flash_point",
-        "sustained_combustion_test_method",
-        "sustained_combustion_evidence_id"
+        "non_sustained_combustion_basis",
+        "sustained_combustion_evidence_id",
+        "basis-specific numeric measurements/test results"
       ],
       "decision_thresholds": [
-        "FP>35 °C; documented UN MTC §32.2.5 no sustained combustion; not carried at/above FP"
+        "FP>35 °C; not carried at/above FP; evidenced lack of sustained combustion",
+        "UN MTC Rev.8 §32.2.5: negative L.2 test per §32.5.2 OR ISO 2592 fire point >100 °C OR miscible solution water content >90 % by mass"
       ],
       "exceptions": [
         "Not applicable if heated to at/above FP; other classes still apply"
       ],
       "indeterminate_if": [
-        "Test method/provenance not provided or uncertain"
+        "Evidence provenance absent, negative L.2 result absent, fire point ≤100 °C or invalid, or miscible-water content ≤90 % / unsubstantiated"
       ],
       "possible_outputs": [
         "criteria_not_met for Class 3 FP pathway only",
@@ -182,7 +184,14 @@
         ],
         "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
       },
-      "implementation_status": "prototype_unvalidated"
+      "implementation_status": "prototype_unvalidated",
+      "supporting_test_source": {
+        "document": "ST/SG/AC.10/11/Rev.8",
+        "sections": [
+          "32.2.5",
+          "32.5.2"
+        ]
+      }
     },
     {
       "id": "ADR25-C61-001",
