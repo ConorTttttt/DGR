@@ -1,0 +1,186 @@
+{
+  "schema_id": "agent8.source-requirements.v0",
+  "created_as_of": "2026-11-12",
+  "status": "research_only_unapproved_nonexecutable",
+  "field_semantics": "All clause refs candidates except EU SDS14 references; never infer applicability from presence in this manifest.",
+  "safety_invariant": "Missing evidence, source, data rights, or rule coverage MUST NOT yield Not regulated for transport.",
+  "source_records": [
+    {
+      "key": "ADR-2025",
+      "mode": "road",
+      "publisher": "UNECE / United Nations",
+      "instrument": "ADR",
+      "edition_id": "ECE/TRANS/352 (Vol.I–II), 2025",
+      "effective_from": "2025-01-01",
+      "effective_to": null,
+      "legal_clause_candidates": [
+        "2.1",
+        "3.2.1 Table A",
+        "3.3.1"
+      ],
+      "official_url": "https://unece.org/adr-2025-files",
+      "access": "official public PDF download",
+      "rights_status": "clearance_required_for_corpus_use",
+      "relevant_gates": [
+        "automated_extraction",
+        "derived_dgl_database",
+        "commercial_embedding",
+        "redistribution",
+        "update_monitoring"
+      ]
+    },
+    {
+      "key": "RID-2025",
+      "mode": "rail",
+      "publisher": "OTIF",
+      "instrument": "RID / COTIF Appendix C",
+      "edition_id": "RID 2025",
+      "effective_from": "2025-01-01",
+      "effective_to": null,
+      "legal_clause_candidates": [
+        "2.1",
+        "3.2",
+        "3.3"
+      ],
+      "official_url": "https://otif.org/test/en/?page_id=1105",
+      "access": "official publicly linked text",
+      "rights_status": "licence_not_verified",
+      "relevant_gates": [
+        "automated_extraction",
+        "derived_dgl_database",
+        "commercial_embedding",
+        "redistribution",
+        "update_monitoring"
+      ]
+    },
+    {
+      "key": "ADN-2025",
+      "mode": "inland_waterways",
+      "publisher": "UNECE / United Nations",
+      "instrument": "ADN",
+      "edition_id": "ECE/TRANS/351, 2025",
+      "effective_from": "2025-01-01",
+      "effective_to": null,
+      "legal_clause_candidates": [
+        "3.2 Table A",
+        "3.2 Table C",
+        "3.2.3.1"
+      ],
+      "official_url": "https://unece.org/transport/dangerous-goods/adn-2025",
+      "access": "official public PDF (information purposes)",
+      "rights_status": "clearance_required_for_corpus_use",
+      "relevant_gates": [
+        "automated_extraction",
+        "derived_dgl_database",
+        "commercial_embedding",
+        "redistribution",
+        "update_monitoring"
+      ]
+    },
+    {
+      "key": "IMDG-42-24",
+      "mode": "sea_packaged",
+      "publisher": "IMO",
+      "instrument": "IMDG Code",
+      "edition_id": "2024 edition / amendment 42-24",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "legal_clause_candidates": [
+        "2.10",
+        "3.2",
+        "3.3",
+        "5.4",
+        "7.2"
+      ],
+      "official_url": "https://www.imo.org/en/publications/pages/imdg%20code.aspx",
+      "access": "paid publication and publicly accessible updates",
+      "rights_status": "permission_and_royalties_required_for_reproduced_text",
+      "relevant_gates": [
+        "commercial_publication_purchase",
+        "automated_extraction",
+        "derived_dgl_database",
+        "commercial_embedding",
+        "redistribution",
+        "update_monitoring"
+      ]
+    },
+    {
+      "key": "ICAO-9284-2025-26",
+      "mode": "air",
+      "publisher": "ICAO",
+      "instrument": "Technical Instructions, Doc 9284",
+      "edition_id": "2025-2026",
+      "effective_from": "2025-01-01",
+      "effective_to": "2026-12-31",
+      "legal_clause_candidates": [
+        "Part 2",
+        "Part 3",
+        "Part 4",
+        "Part 5"
+      ],
+      "official_url": "https://www.icao.int/Dangerous-Goods/Technical-Instructions",
+      "access": "paid single-user digital licence",
+      "rights_status": "software_and_multiuser_licence_required",
+      "relevant_gates": [
+        "purchase",
+        "licence_access_and_expiry",
+        "automated_extraction",
+        "derived_dgl_database",
+        "commercial_embedding",
+        "redistribution",
+        "updates_and_variations"
+      ]
+    },
+    {
+      "key": "IATA-DGR-67",
+      "mode": "air_industry",
+      "publisher": "IATA",
+      "instrument": "Dangerous Goods Regulations",
+      "edition_id": "67th edition (2026)",
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-12-31",
+      "legal_clause_candidates": [],
+      "official_url": "https://www.iata.org/dgr",
+      "access": "paid annual publication; addenda publicly referenced",
+      "rights_status": "data_use_licence_unverified",
+      "relevant_gates": [
+        "purchase",
+        "automated_extraction",
+        "derived_dgl_database",
+        "commercial_embedding",
+        "redistribution",
+        "state_and_operator_variations"
+      ]
+    },
+    {
+      "key": "IMO-BULK",
+      "mode": "sea_bulk",
+      "publisher": "IMO",
+      "instrument": "SOLAS/MARPOL + IBC/IMSBC/IGC as applicable",
+      "edition_id": "to_be_selected_per_instrument",
+      "effective_from": null,
+      "effective_to": null,
+      "legal_clause_candidates": [
+        "EU SDS 14.7",
+        "IBC Code chapters 17/18 when applicable"
+      ],
+      "official_url": "https://www.imo.org/en/publications/pages/currentpublications.aspx",
+      "access": "instrument-specific publications",
+      "rights_status": "instrument_specific_permission_required",
+      "relevant_gates": [
+        "instrument_selection",
+        "purchase",
+        "automated_extraction",
+        "commercial_embedding",
+        "redistribution"
+      ]
+    }
+  ],
+  "critical_sources": {
+    "sds": "https://eur-lex.europa.eu/eli/reg/2020/878/oj",
+    "imo_permissions": "https://www.imo.org/en/publications/pages/permissionrequests.aspx",
+    "icao_store": "https://store.icao.int/en/technical-instructions-for-the-safe-transport-of-dangerous-goods-by-air-doc-9284",
+    "imdg_new_edition_status": "https://www.imo.org/en/mediacentre/meetingsummaries/pages/ccc-12-meeting-summary.aspx",
+    "icao_updates": "https://www.icao.int/publications/doc-series/doc-9284"
+  }
+}
