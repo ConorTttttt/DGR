@@ -29,11 +29,13 @@ jobs:
         run: python -m py_compile scripts/ingest_adr2025_table_a.py
       - name: Synthetic parser/corrigendum tests
         run: python scripts/ingest_adr2025_table_a.py --self-test
+      - name: Extractor regression tests
+        run: python -m unittest discover -s tests -p 'test_adr2025_table_a.py' -v
       - name: Existing clause register consistency
         run: python scripts/validate_adr2025_kb.py
 
-  extract-operator-invoked:
-    if: github.event_name == 'workflow_dispatch'
+  extract-for-review:
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
     needs: validate-code
     runs-on: ubuntu-latest
     timeout-minutes: 25
