@@ -97,3 +97,14 @@ check("Orgmet referral does not invent UN",{...solid(),organometallic:true,trial
 check("Verified Class 4.3 candidate referred",{...solid(),competing_evidence:[{class:"4.3",evidence_id:"N5",verified:true}],trials:[{...negativeSolid(),ignites_during_fall:true}]},"criteria_met","I");
 check("Unverified Class 4.3 candidate blocked",{...solid(),competing_evidence:[{class:"4.3",evidence_id:"N5",verified:false}]},"indeterminate");
 check("Article N4 not automated",{...heat(),is_article:true},"unsupported");
+
+// Further adversarial checks for classification safety
+check("N4 negative at 140 but positive at 120 conflicts",
+ {...heat(),runs:[run(100,140,false),run(100,120,true)]},"conflict");
+check("N4 liquid cannot use powder-cube procedure",
+ {...heat(),physical_state:"liquid"},"unsupported");
+test("N4 positive carries scale-up exclusion handoff",()=>{
+ const a=evaluate({...heat(),runs:[run(25,140,true)]});
+ assert.equal(a.status,"criteria_met");
+ assert.ok(a.unresolved_evidence.some(x=>x.id==="N4_scaleup_exceptions"&&x.blocks_assignment===true));
+});
