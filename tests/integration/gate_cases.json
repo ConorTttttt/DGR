@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0.0-rc1",
+  "synthetic_only": true,
+  "cases": [
+    {
+      "id": "positive_review_gate",
+      "all": true,
+      "expected": "eligible_for_assignment_review_not_release"
+    },
+    {
+      "id": "missing_class_screen",
+      "all": false,
+      "expected": "blocked"
+    },
+    {
+      "id": "missing_authority",
+      "unset": "authority_document_external_verification",
+      "expected": "blocked"
+    },
+    {
+      "id": "unverified_table_a_row",
+      "unset": "exact_verified_table_a_row_id",
+      "expected": "blocked"
+    },
+    {
+      "id": "unreviewed_sp",
+      "unset": "all_sp_outcomes_resolved",
+      "expected": "blocked"
+    },
+    {
+      "id": "class1_pg_ii",
+      "class": "1",
+      "packing_group": "II",
+      "expected": "blocked"
+    },
+    {
+      "id": "group_k",
+      "status": "prohibited_for_carriage",
+      "expected": "blocked"
+    },
+    {
+      "id": "unknown_not_non_dg",
+      "status": "indeterminate",
+      "expected": "blocked"
+    },
+    {
+      "id": "single_class_negative",
+      "status": "criteria_not_met",
+      "expected": "continue_other_classes_no_assignment"
+    }
+  ],
+  "notes": "Full executable schema and synthetic reference suite is retained in the deliverable bundle; this compact register is a PR review manifest, not runnable CI."
+}

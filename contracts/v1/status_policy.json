@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0-rc1",
+  "class_statuses": [
+    "criteria_met",
+    "criteria_not_met",
+    "not_applicable",
+    "excluded_from_class",
+    "indeterminate",
+    "authority_required",
+    "prohibited_for_carriage",
+    "conflict",
+    "unsupported"
+  ],
+  "class_assignment_permitted": false,
+  "block_statuses": [
+    "indeterminate",
+    "authority_required",
+    "prohibited_for_carriage",
+    "conflict",
+    "unsupported"
+  ],
+  "continue_other_classes": [
+    "criteria_not_met",
+    "not_applicable",
+    "excluded_from_class"
+  ],
+  "candidate_only": [
+    "criteria_met"
+  ],
+  "assignment_preconditions": [
+    "all_relevant_screens_closed",
+    "precedence_resolved",
+    "authority_document_external_verification",
+    "exact_verified_table_a_row_id",
+    "all_sp_outcomes_resolved",
+    "no_prohibitions_or_conflicts"
+  ],
+  "release_preconditions": [
+    "independent_regulatory_approval",
+    "source_and_corrigenda_digests",
+    "authenticated_signoff",
+    "complete_sds14",
+    "rollback_ready"
+  ],
+  "class1_packing_group": null,
+  "safety": "unknown is never not_regulated",
+  "validation": "pending independent review"
+}
