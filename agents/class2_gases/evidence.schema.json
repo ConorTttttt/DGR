@@ -1397,6 +1397,33 @@
           },
           "x-adr2025-clause": "2.2.2.1.7 Note 3",
           "x-evidence-notes": "all listed excluded classes checked"
+        },
+        "in_aerosol_dispenser": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit",
+            "method",
+            "id"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "unit": {
+              "const": "boolean"
+            },
+            "method": {
+              "const": "PACKAGING_RECORD"
+            },
+            "id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "x-adr2025-clause": "2.2.2.1.7 Note 4",
+          "x-evidence-notes": "True forces UN1950 aerosol pathway; chemical-under-pressure route is not accepted without reroute."
         }
       },
       "additionalProperties": false
