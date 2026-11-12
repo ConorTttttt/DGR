@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "jurisdiction": "ADR",
+  "edition": "2025",
+  "edition_language": "en",
+  "effective_from": "2025-01-01",
+  "publication_year": 2024,
+  "parent_document": "ECE/TRANS/352",
+  "publisher": "United Nations Economic Commission for Europe",
+  "primary_sources": [
+    {
+      "id": "adr2025_vol1_en",
+      "symbol": "ECE/TRANS/352 (Vol.I)",
+      "title": "ADR 2025 Volume I",
+      "part_range": [
+        1,
+        2,
+        3
+      ],
+      "language": "en",
+      "source_url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+      "catalogue_url": "https://unece.org/transport/documents/2025/01/standards/adr-2025-volume-1",
+      "rights": "Copyright United Nations 2024; link only; no republication of full text",
+      "retrieval": "online_read_only",
+      "local_binary_available": false
+    },
+    {
+      "id": "adr2025_vol2_en",
+      "symbol": "ECE/TRANS/352 (Vol.II)",
+      "title": "ADR 2025 Volume II",
+      "part_range": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "language": "en",
+      "source_url": "https://unece.org/transport/documents/2025/01/standards/adr-2025-volume-2",
+      "catalogue_url": "https://unece.org/transport/documents/2025/01/standards/adr-2025-volume-2",
+      "rights": "Copyright United Nations 2024",
+      "retrieval": "user_supplied_pdf",
+      "local_filename": "2412010_E_ECE_TRANS_352_Vol.II_WEB.pdf",
+      "local_binary_available": true
+    }
+  ],
+  "corrections": [
+    {
+      "id": "adr2025_corr1_en",
+      "symbol": "ECE/TRANS/352/Corr.1",
+      "published": "2024-10-17",
+      "language": "en",
+      "url": "https://unece.org/transport/documents/2024/10/standards/adr-2025-corrigendum-1",
+      "review_status": "not_reconciled",
+      "note": "Listed in official UNECE ADR 2025 catalogue; identify affected clause references before certifying rules."
+    },
+    {
+      "id": "adr2025_corr2_en",
+      "symbol": "ECE/TRANS/352/Corr.2",
+      "published": "2025-10-17",
+      "language": "en",
+      "url": "https://unece.org/transport/documents/2025/10/post-session-documents/adr-2025-corrigendum-2",
+      "review_status": "not_reconciled",
+      "note": "Published after initial ADR 2025 publication; no assumption that it is already merged into PDF."
+    }
+  ],
+  "related_sources": [
+    {
+      "id": "un_mtc_rev8_en",
+      "symbol": "ST/SG/AC.10/11/Rev.8",
+      "title": "UN Manual of Tests and Criteria Revision 8",
+      "published": "2023-11-27",
+      "language": "en",
+      "url": "https://unece.org/transport/documents/2023/11/standards/manual-tests-and-criteria-revision-8",
+      "role": "supporting_classification_test_methods",
+      "local_filename": "ST_SG_AC.10_11_Rev.8e_WEB.pdf",
+      "local_binary_available": true
+    },
+    {
+      "id": "un_mtc_rev8_amend1_en",
+      "symbol": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "title": "Amendment 1 to Manual of Tests and Criteria Revision 8",
+      "published": "2025-09-12",
+      "language": "en",
+      "url": "https://unece.org/transport/dangerous-goods/rev8-files",
+      "role": "separate_amendment_check_required",
+      "review_status": "not_reconciled"
+    }
+  ],
+  "edition_notes": [
+    "ADR 2025 applies from 2025-01-01; 1.6.1.1 permits ADR 2023 transitional use through 2025-06-30 under stated conditions.",
+    "Part 3 Table A is the UN-number ordered regulatory list. Table B is only an informal alphabetical index, not an official part of ADR.",
+    "Indexing is not the same as binding special provisions to UN numbers or extracting all Table A entries.",
+    "Corrigenda have been recorded as linked sources but have not been diffed into these index records."
+  ]
+}
