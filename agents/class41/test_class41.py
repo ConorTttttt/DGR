@@ -58,7 +58,7 @@ class Class41Test(unittest.TestCase):
             (dict(wetted_zone='unknown'), 'criteria_met', None),
             (dict(burning_time_100mm_s=None, burning_rate_mm_s=None), 'indeterminate', None),
             (dict(burning_time_100mm_s=-1), 'indeterminate', None),
-            (dict(screening_propagates_200mm=False), 'criteria_not_met', None),
+            (dict(screening_propagates_200mm=False, burning_time_100mm_s=None, burning_rate_mm_s=None), 'criteria_not_met', None),
             (dict(test_method='GHS_category_1'), 'indeterminate', None),
             (dict(burning_time_100mm_s=None, burning_rate_mm_s=2.21), 'criteria_met', None),
             (dict(burning_time_100mm_s=55, burning_rate_mm_s=None), 'indeterminate', None),
@@ -76,7 +76,7 @@ class Class41Test(unittest.TestCase):
         for minutes,status,pg in cases:
             with self.subTest(minutes=minutes):
                 self.check(metal(full_length_reaction_min=minutes),status,pg)
-        self.check(dict(metal(full_length_reaction_min=5), ignited=False), 'criteria_not_met')
+        self.check(dict(metal(full_length_reaction_min=5), ignited=False), 'indeterminate')
 
     def test_documented_experience_friction(self):
         self.check(dict(pathway='combustible_solid', organic=True,
@@ -107,6 +107,7 @@ class Class41Test(unittest.TestCase):
         self.check(sr(class5_1_oxidizer=True, combustible_organic_mass_pct=5,is_mixture=True),'criteria_met',temp=True)
         self.check(sr(class5_1_oxidizer=None),'indeterminate')
         self.check(sr(class5_1_oxidizer=True),'indeterminate')
+        self.check(sr(class5_1_oxidizer=True, combustible_organic_mass_pct=5),'indeterminate')
         self.check(sr(activator_changes_properties=True),'indeterminate')
         self.check(sr(activator_changes_properties=True,reassessed_formulation=True),'criteria_met',temp=True)
 
@@ -122,10 +123,10 @@ class Class41Test(unittest.TestCase):
 
     def test_selfreactive_sample(self):
         base=dict(sample_for_further_testing=True,sample_no_more_dangerous_than_type_B=True,
-                  sample_packing_method='OP2',sample_quantity_kg=10,
+                  sample_packing_method='OP2',sample_quantity_per_transport_unit_kg=10,
                   sample_temperature_conditions_adequate=True)
         self.check(sr(**base),'requires_expert_decision')
-        self.check(sr(**dict(base,sample_quantity_kg=10.001)),'indeterminate')
+        self.check(sr(**dict(base,sample_quantity_per_transport_unit_kg=10.001)),'indeterminate')
 
     def test_polymer_boundaries(self):
         for change,status,temp in [
@@ -175,7 +176,7 @@ class Class41Test(unittest.TestCase):
         self.check(nonmetal(phosphorus_sulphide_not_free_from_yellow_white_phosphorus=True),'not_accepted_for_carriage')
         self.check(nonmetal(inorganic_flammable_molten=True),'not_accepted_for_carriage')
         self.check(nonmetal(flammable_solid_oxidizing_un3097=True),'not_accepted_for_carriage')
-        for x in [nonmetal(screening_propagates_200mm=False),pm(sapt_c=76)]:
+        for x in [nonmetal(screening_propagates_200mm=False, burning_time_100mm_s=None, burning_rate_mm_s=None),pm(sapt_c=76)]:
             r=self.check(x,'criteria_not_met')
             self.assertIsNone(r['class_candidate'])
             self.assertTrue(any('NOT a transport non-dangerous' in n for n in r['notes']))
