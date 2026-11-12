@@ -1,0 +1,69 @@
+{
+  "module": "ADR25_CLASS42",
+  "module_version": "0.1.0-draft",
+  "status": "provisional_unreviewed",
+  "regulatory_baseline": "ADR 2025 ECE/TRANS/352 (English), Volume I; Volume II dependency, exact Table A/SP not yet joined",
+  "supporting_test_method": "UN MTC ST/SG/AC.10/11/Rev.8, Part III 33.4",
+  "sources": [
+    {
+      "id": "ADR2025_VOL1",
+      "title": "ADR 2025 Volume I",
+      "edition": "ECE/TRANS/352",
+      "language": "English",
+      "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+      "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+      "scope": [
+        "2.2.42.1.1–2.2.42.3",
+        "2.3.5",
+        "2.1.3",
+        "3.2.1",
+        "3.3.1"
+      ]
+    },
+    {
+      "id": "ADR2025_VOL2",
+      "title": "ADR 2025 Volume II",
+      "edition": "ECE/TRANS/352",
+      "language": "English",
+      "file": "2412010_E_ECE_TRANS_352_Vol.II_WEB.pdf",
+      "scope": [
+        "packaging and carriage dependencies"
+      ],
+      "status": "not analyzed for route permissions"
+    },
+    {
+      "id": "UNMTC_REV8",
+      "title": "UN Manual of Tests and Criteria, Revision 8",
+      "edition": "ST/SG/AC.10/11/Rev.8",
+      "language": "English",
+      "sha256": "d892df851727dd1cd06cf87ff02811f5b66e1f2133524e51a7c9873e65c6d533",
+      "file": "ST_SG_AC.10_11_Rev.8e_WEB.pdf",
+      "scope": [
+        "33.4.1–33.4.6",
+        "N.2",
+        "N.3",
+        "N.4"
+      ]
+    },
+    {
+      "id": "UNMTC_REV8_AM1",
+      "title": "UN Manual of Tests and Criteria Rev.8 Amendment 1",
+      "edition": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "language": "English",
+      "sha256": "534abc4b5ecdd56d615e0fa16fb38bccfc580129772f71443a2a2c892188a0db",
+      "file": "ST-SG-AC10-11-Rev8-Amend1e(1).pdf",
+      "scope": [
+        "check for amendments to 33.4"
+      ],
+      "status": "no literal 33.4/N.2/N.3/N.4 references found in supplied amendment; verify independently"
+    }
+  ],
+  "open_edition_checks": [
+    "ADR 2025 English Corrigendum 1",
+    "ADR 2025 English Corrigendum 2",
+    "exact Table A row and SP alignment",
+    "UN MTC Rev.8 Amend.1 independent diff review"
+  ],
+  "rule_count": 36,
+  "release_permitted": false
+}
