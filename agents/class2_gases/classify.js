@@ -1,7 +1,7 @@
 "use strict";
 /* ADR 2025 ECE/TRANS/352 Vol.I: PROVISIONAL Class 2 evaluator.
    No final UN, Table A row, packing group, or SDS Section 14 decision. */
-function state() { return {missing:new Set(), blockers:[], trace:[], clauses:new Set(), flags:[], hazards:new Set(), override:null}; }
+function state() { return {missing:new Set(), blockers:[], trace:[], clauses:new Set(), flags:[], hazards:new Set(), negative:new Set(), override:null}; }
 function clause(s,id,why) {s.clauses.add("ADR2025:"+id);if(why)s.trace.push({clause:id,decision:why});}
 function read(d,k,unit,methods,s) {
   const x=(d.evidence||{})[k];if(x==null)return undefined;
@@ -132,7 +132,10 @@ function gasProperties(d,s){
     else if(A===false)s.blockers.push("no_asphyxiant_or_other_hazard_group");
     else need(s,"dilutes_or_replaces_atmospheric_oxygen");
   }
-  for(const [k,v] of Object.entries({flammable:F,oxidizing:O,toxic:T,corrosive:C,asphyxiant:A}))if(v===true)s.hazards.add(k);
+  for(const [k,v] of Object.entries({flammable:F,oxidizing:O,toxic:T,corrosive:C,asphyxiant:A})){
+    if(v===true)s.hazards.add(k);
+    else if(v===false)s.negative.add(k);
+  }
   if(group)clause(s,"2.2.2.1.3","group candidate "+group);
   return {group,lc50:LC};
 }
@@ -207,7 +210,10 @@ function pressurized(d,s,chemical) {
       s.flags.push("MTC_Rev8_Amend1_section31_reconciliation");
     }
   }
-  for(const [k,v] of Object.entries({flammable:F,oxidizing:O,toxic:T,corrosive:C}))if(v===true)s.hazards.add(k);
+  for(const [k,v] of Object.entries({flammable:F,oxidizing:O,toxic:T,corrosive:C})){
+    if(v===true)s.hazards.add(k);
+    else if(v===false)s.negative.add(k);
+  }
   if(F===null||F===undefined||O===undefined||tp===undefined||cp===undefined)return null;
   if(chemical){
     if(!F&&!T&&!C)return "A";
@@ -265,7 +271,7 @@ function evaluateClass2(data) {
   return {module:"adr2025_class2",edition:"ADR2025 ECE/TRANS/352 Vol.I English",
     review_status:"PROVISIONAL",status,route:d.route||null,physical_form:form,
     hazard_group_candidate:group,classification_code_candidate:status==="class2_group_candidate"&&form.code_prefix?(form.code_format==="fixed"?form.code_prefix:form.code_prefix+group):null,
-    hazard_candidates:[...s.hazards].sort(),division_hint:group?(group.includes("T")?"2.3":group.includes("F")?"2.1":"2.2"):null,
+    hazard_candidates:[...s.hazards].sort(),negative_findings:[...s.negative].sort(),division_hint:group?(group.includes("T")?"2.3":group.includes("F")?"2.1":"2.2"):null,
     packing_group:null,un_number:null,table_a_row_id:null,special_provisions_resolved:false,
     missing_evidence:[...s.missing].sort(),blockers:s.blockers,exceptions:s.flags,decision_trace:s.trace,
     regulatory_references:[...s.clauses].sort(),requires_independent_review:true,final_sds_section14_permitted:false};
