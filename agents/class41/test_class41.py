@@ -126,6 +126,7 @@ class Class41Test(unittest.TestCase):
                   sample_packing_method='OP2',sample_quantity_per_transport_unit_kg=10,
                   sample_temperature_conditions_adequate=True)
         self.check(sr(**base),'requires_expert_decision')
+        self.check(sr(**dict(base, heat_of_decomposition_j_g=None, sadt_50kg_c=None)),'requires_expert_decision')
         self.check(sr(**dict(base,sample_quantity_per_transport_unit_kg=10.001)),'indeterminate')
 
     def test_polymer_boundaries(self):
@@ -176,6 +177,8 @@ class Class41Test(unittest.TestCase):
         self.check(nonmetal(phosphorus_sulphide_not_free_from_yellow_white_phosphorus=True),'not_accepted_for_carriage')
         self.check(nonmetal(inorganic_flammable_molten=True),'not_accepted_for_carriage')
         self.check(nonmetal(flammable_solid_oxidizing_un3097=True),'not_accepted_for_carriage')
+        self.check(nonmetal(flammable_solid_oxidizing_un3097=True,verified_class1_requirements=True),'external_class_review')
+        self.check(nonmetal(inorganic_flammable_molten=True,verified_un2448_sulphur_molten=True),'requires_expert_decision')
         for x in [nonmetal(screening_propagates_200mm=False, burning_time_100mm_s=None, burning_rate_mm_s=None),pm(sapt_c=76)]:
             r=self.check(x,'criteria_not_met')
             self.assertIsNone(r['class_candidate'])
