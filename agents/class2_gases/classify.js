@@ -78,7 +78,7 @@ function physical(d,s){
     if(x===false)s.blockers.push("dissolved_unsubstantiated");
     if(!["1001","1043","2073","3318"].includes(String(d.preexisting_named_un||"")))s.blockers.push("dissolved_requires_permitted_named_entry");
     s.flags.push("SP642_UN1043_check");
-    return x===true?{name:f,code_prefix:"4"}:null;
+    return x===true?{name:f,code_prefix:"4",code_format:"fixed"}:null;
   }
   if(f==="adsorbed"){
     const a=read(d,"adsorbed_on_solid_porous_material","boolean",null,s);
@@ -90,7 +90,7 @@ function physical(d,s){
     if(a===false||p20!==undefined&&p20>=101.3||p50!==undefined&&p50>=300)s.blockers.push("adsorbed_category_limits_failed");
     return a===true&&p20<101.3&&p50<300?{name:f,code_prefix:"9"}:null;
   }
-  if(f==="cartridge")return {name:f,code_prefix:null};
+  if(f==="cartridge")return {name:f,code_prefix:"5",code_format:"fixed"};
   s.blockers.push("unsupported_transport_form:"+String(f));
   return null;
 }
@@ -156,6 +156,11 @@ function restrictions(d,s){
 }
 function pressurized(d,s,chemical) {
   clause(s,chemical?"2.2.2.1.7":"2.2.2.1.6","entry-specific composition and group rules");
+  if(chemical){
+    const inAerosol=read(d,"in_aerosol_dispenser","boolean",["PACKAGING_RECORD"],s);
+    if(inAerosol===undefined)need(s,"in_aerosol_dispenser");
+    if(inAerosol===true){s.override="requires_aerosol_route";s.flags.push("ADR_2.2.2.1.7_Note4_UN1950_route");}
+  }
   const t=read(d,"propellant_toxic_gas","boolean",["ADR_CLASS2_ASSESSMENT"],s);
   const py=read(d,"propellant_pyrophoric_P200","boolean",["P200_TABLE2_NOTE_C"],s);
   const ox=chemical?read(d,"propellant_oxidizing_gas","boolean",["ISO_10156_2017"],s):false;
@@ -245,7 +250,7 @@ function evaluateClass2(data) {
   }else if(d.route==="aerosol"||d.route==="chemical_under_pressure"){
     const chemical=d.route==="chemical_under_pressure";
     group=pressurized(d,s,chemical);
-    form={name:d.route,code_prefix:null};
+    form={name:d.route,code_prefix:chemical?"8":"5",code_format:chemical?"prefix":"fixed"};
     s.flags.push(chemical?"UN3500_3505_Table_A_gate":"UN1950_Table_A_gate");
   }else if(d.route==="article"||d.route==="gas_sample"){
     clause(s,"2.2.2.1.2","special article/sample routes");
@@ -259,7 +264,7 @@ function evaluateClass2(data) {
   let status=s.override|| (s.blockers.length?"blocked_unsupported":s.missing.size||!form||!group?"blocked_missing_evidence":"class2_group_candidate");
   return {module:"adr2025_class2",edition:"ADR2025 ECE/TRANS/352 Vol.I English",
     review_status:"PROVISIONAL",status,route:d.route||null,physical_form:form,
-    hazard_group_candidate:group,classification_code_candidate:status==="class2_group_candidate"&&form.code_prefix?form.code_prefix+group:null,
+    hazard_group_candidate:group,classification_code_candidate:status==="class2_group_candidate"&&form.code_prefix?(form.code_format==="fixed"?form.code_prefix:form.code_prefix+group):null,
     hazard_candidates:[...s.hazards].sort(),division_hint:group?(group.includes("T")?"2.3":group.includes("F")?"2.1":"2.2"):null,
     packing_group:null,un_number:null,table_a_row_id:null,special_provisions_resolved:false,
     missing_evidence:[...s.missing].sort(),blockers:s.blockers,exceptions:s.flags,decision_trace:s.trace,
