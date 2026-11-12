@@ -91,3 +91,6 @@ test("chemical under pressure uses ADR code 8FC",()=>{const d=chemical();d.evide
 test("chemical packaged in aerosol dispenser is rerouted",()=>{const d=chemical();d.evidence.in_aerosol_dispenser.value=true;check(d,"requires_aerosol_route");});
 test("gas cartridge uses fixed ADR classification code 5 when eligible",()=>{const d=gas();d.route="cartridge";d.evidence.propellant_pyrophoric_P200=e(false,"boolean","P200_TABLE2_NOTE_C");assert.equal(check(d,"class2_group_candidate","F").classification_code_candidate,"5");});
 test("dissolved gas code is 4, not 4F",()=>{const d=gas();d.form="dissolved";d.preexisting_named_un="1001";d.evidence.dissolved_in_liquid_solvent_under_pressure=e(true,"boolean");assert.equal(check(d,"class2_group_candidate","F").classification_code_candidate,"4");});
+
+test("explicitly negative oxidation and toxicity preserved as negative findings",()=>{const r=check(gas(),"class2_group_candidate","F");assert.ok(r.negative_findings.includes("oxidizing"));assert.ok(r.negative_findings.includes("toxic"));});
+test("missing oxidation is not recorded as a negative finding",()=>{const d=gas();delete d.evidence.oxidizing_power_pct;const r=check(d,"blocked_missing_evidence");assert.equal(r.negative_findings.includes("oxidizing"),false);});
