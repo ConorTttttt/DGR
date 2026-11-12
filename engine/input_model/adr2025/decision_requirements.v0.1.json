@@ -1,0 +1,665 @@
+{
+  "schema_version": "0.1.0-draft",
+  "regulation": "ADR",
+  "edition": "2025",
+  "document": "ECE/TRANS/352 (Vol.I)",
+  "status": "NOT VALIDATED: evidence catalogue not an executable rule set",
+  "citation_convention": "ADR2025:clause; MTC8:Part/section; SDS2020:14.x",
+  "global_prerequisites": [
+    "product.identifier",
+    "product.item_kind",
+    "product.physical_form",
+    "transport.mode",
+    "transport.regulatory_edition",
+    "transport.jurisdiction",
+    "transport.shipment_date"
+  ],
+  "global_prerequisites_note": "Composition is conditional: named substances, articles, radioactive materials and wastes may use different paths. Candidate evidence fields are alternatives, never globally AND.",
+  "final_state_contract": {
+    "default": "UNRESOLVED",
+    "not_regulated_from_missing_data": false,
+    "exempt_separate_from_non_dg": true,
+    "conservative_project_gate": "All relevant hazard pathways resolved with cited evidence AND named-entry/SP/edition checks AND independent review. This is an engineering safety constraint, not an ADR citation."
+  },
+  "hazard_pathways": [
+    {
+      "pathway_id": "1",
+      "title": "Explosives",
+      "regulatory_basis": [
+        "ADR2025:2.2.1",
+        "MTC8:Part I"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "explosive.explosive_properties",
+        "explosive.energetic_components",
+        "explosive.un_test_series_results"
+      ],
+      "conditional_follow_up_fields": [
+        "explosive.explosive_division",
+        "explosive.compatibility_group",
+        "explosive.explosive_authority_approval",
+        "explosive.pyrotechnic_function",
+        "explosive.fireworks_default_classification_basis",
+        "explosive.desensitization_details"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "2",
+      "title": "Gases and aerosols",
+      "regulatory_basis": [
+        "ADR2025:2.2.2",
+        "MTC8:Part III 31"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "physical.fully_gaseous_at_20c",
+        "physical.vapour_pressure_50c_kpa",
+        "gas.gas_type",
+        "gas.gas_mixture_composition"
+      ],
+      "conditional_follow_up_fields": [
+        "gas.gas_flammability_test",
+        "gas.gas_oxidizing_power",
+        "gas.gas_inhalation_lc50",
+        "gas.gas_corrosivity",
+        "gas.aerosol_contents_hazards",
+        "gas.chemical_instability"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "3",
+      "title": "Flammable liquids",
+      "regulatory_basis": [
+        "ADR2025:2.2.3",
+        "ADR2025:2.3.3",
+        "ADR2025:2.3.4",
+        "ADR2025:2.3.3"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "product.physical_form",
+        "physical.flash_point_c",
+        "physical.flash_point_method",
+        "physical.initial_boiling_point_c"
+      ],
+      "conditional_follow_up_fields": [
+        "physical.sustained_combustibility",
+        "physical.kinematic_viscosity_mm2_s",
+        "physical.viscosity_test_temperature_c",
+        "physical.flash_point_conditions",
+        "transport.transport_temperature_c"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "4.1",
+      "title": "Flammable solids, self-reactive substances, polymerizing substances and desensitized explosives",
+      "regulatory_basis": [
+        "ADR2025:2.2.41",
+        "MTC8:Part II",
+        "MTC8:Part III 33.2"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "product.physical_form",
+        "flammable_solid.solid_burning_test",
+        "flammable_solid.metal_powder_test",
+        "flammable_solid.self_reactive_test_series",
+        "flammable_solid.polymerizing_potential"
+      ],
+      "conditional_follow_up_fields": [
+        "flammable_solid.friction_ignition_evidence",
+        "flammable_solid.self_reactive_type",
+        "physical.heat_of_reaction_j_g",
+        "physical.sapt_c",
+        "physical.sadt_c",
+        "flammable_solid.self_reactive_authority_approval",
+        "flammable_solid.solid_desensitized_explosive"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "4.2",
+      "title": "Spontaneously combustible substances",
+      "regulatory_basis": [
+        "ADR2025:2.2.42",
+        "MTC8:Part III 33.3"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "spontaneous_combustion.pyrophoric_solid_test",
+        "spontaneous_combustion.pyrophoric_liquid_test",
+        "spontaneous_combustion.self_heating_test"
+      ],
+      "conditional_follow_up_fields": [
+        "spontaneous_combustion.self_heating_packaging_volume",
+        "physical.particle_size_distribution"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "4.3",
+      "title": "Water-reactive substances",
+      "regulatory_basis": [
+        "ADR2025:2.2.43",
+        "MTC8:Part III 33.4"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "water_reactive.reaction_test",
+        "water_reactive.evolved_gas_flammability"
+      ],
+      "conditional_follow_up_fields": [
+        "water_reactive.gas_evolution_rate_l_kg_h",
+        "water_reactive.reaction_temperature_conditions"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "5.1",
+      "title": "Oxidizing substances",
+      "regulatory_basis": [
+        "ADR2025:2.2.51",
+        "MTC8:Part III 34"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "oxidizer.oxidizing_solid_test",
+        "oxidizer.oxidizing_liquid_test"
+      ],
+      "conditional_follow_up_fields": [
+        "oxidizer.oxidizer_concentration_pct",
+        "oxidizer.oxidizer_mixture_behavior"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "5.2",
+      "title": "Organic peroxides",
+      "regulatory_basis": [
+        "ADR2025:2.2.52",
+        "MTC8:Part II"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "organic_peroxide.peroxide_structure_or_identity",
+        "organic_peroxide.active_oxygen_pct",
+        "organic_peroxide.hydrogen_peroxide_pct"
+      ],
+      "conditional_follow_up_fields": [
+        "organic_peroxide.organic_peroxide_type",
+        "organic_peroxide.organic_peroxide_sadt_c",
+        "organic_peroxide.heating_under_confinement_effect",
+        "organic_peroxide.listed_formulation_reference",
+        "organic_peroxide.diluent_type_and_pct",
+        "organic_peroxide.competent_authority_approval"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "6.1",
+      "title": "Toxic substances",
+      "regulatory_basis": [
+        "ADR2025:2.2.61",
+        "ADR2025:2.2.61"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "toxicity.oral_ld50_mg_kg",
+        "toxicity.skin_ld50_mg_kg",
+        "toxicity.inhalation_lc50_mg_l",
+        "toxicity.inhalation_lc50_ppm"
+      ],
+      "conditional_follow_up_fields": [
+        "toxicity.inhalation_form",
+        "toxicity.inhalation_duration_h",
+        "toxicity.vapour_saturation_concentration",
+        "toxicity.mixture_toxicity_calculation",
+        "toxicity.pesticide_active_ingredient"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "6.2",
+      "title": "Infectious substances",
+      "regulatory_basis": [
+        "ADR2025:2.2.62",
+        "ADR2025:2.2.62"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "infectious.contains_pathogens",
+        "infectious.pathogen_identity",
+        "infectious.infectious_category"
+      ],
+      "conditional_follow_up_fields": [
+        "infectious.infectious_species_affected",
+        "infectious.clinical_sample_status",
+        "infectious.clinical_waste_status",
+        "infectious.biological_product_status",
+        "infectious.infected_animal_or_tissue",
+        "infectious.microorganism_genetic_modification"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "7",
+      "title": "Radioactive material",
+      "regulatory_basis": [
+        "ADR2025:2.2.7",
+        "ADR2025:1.7",
+        "ADR2025:2.2.7"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "radioactive.radionuclide_inventory",
+        "radioactive.individual_activity_bq",
+        "radioactive.activity_concentration_bq_g"
+      ],
+      "conditional_follow_up_fields": [
+        "radioactive.exempt_activity_limits_basis",
+        "radioactive.fissile_status",
+        "radioactive.special_form_status",
+        "radioactive.lsa_sco_category",
+        "radioactive.package_type",
+        "radioactive.competent_authority_certificates"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "8",
+      "title": "Corrosive substances",
+      "regulatory_basis": [
+        "ADR2025:2.2.8",
+        "ADR2025:2.2.8"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "corrosion.skin_corrosion_test",
+        "corrosion.in_vitro_skin_corrosion",
+        "corrosion.metal_corrosion_rate_mm_y"
+      ],
+      "conditional_follow_up_fields": [
+        "corrosion.skin_exposure_time_min",
+        "corrosion.skin_observation_period_days",
+        "corrosion.metal_corrosion_test_details",
+        "corrosion.mixture_corrosion_bridging",
+        "physical.ph"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    },
+    {
+      "pathway_id": "9",
+      "title": "Miscellaneous dangerous goods",
+      "regulatory_basis": [
+        "ADR2025:2.2.9",
+        "ADR2025:2.2.9"
+      ],
+      "screen_statuses": [
+        "not_assessed",
+        "suspected",
+        "positive_evidence",
+        "negative_supported",
+        "unresolved",
+        "not_applicable_by_clause",
+        "authority_required"
+      ],
+      "candidate_evidence_fields": [
+        "environment.aquatic_acute_test_data",
+        "environment.aquatic_chronic_test_data",
+        "battery.battery_chemistry",
+        "special.elevated_temperature_carriage",
+        "special.asbestos_content",
+        "special.gmo_gmmo"
+      ],
+      "conditional_follow_up_fields": [
+        "environment.rapid_degradability",
+        "environment.bioaccumulation_bcf",
+        "environment.constituent_aquatic_classification",
+        "environment.constituent_m_factors",
+        "battery.un38_3_test_summary",
+        "battery.battery_condition",
+        "battery.battery_configuration",
+        "special.articles_containing_dg"
+      ],
+      "applicability_logic": {
+        "missing": "A missing field blocks only its active decision path. Blank does not imply no hazard.",
+        "negative_supported": "Requires independent credible evidence and the exact applicable regulatory clause.",
+        "not_applicable_by_clause": "Requires positive explanation, explicit reference and source evidence.",
+        "suspected_or_positive": "Request applicable method/results or approved named-entry/competent-authority alternative; do not require all candidate fields simultaneously.",
+        "not_assessed_or_unresolved": "Blocks an unsupported global NOT_DANGEROUS_GOODS assertion."
+      },
+      "status": "input_catalogue_only_not_rule_validated"
+    }
+  ],
+  "cross_cutting_decisions": [
+    {
+      "decision_id": "multiple_hazard_precedence",
+      "evidence_fields": [
+        "composition.constituent_transport_hazards",
+        "product.candidate_un_number"
+      ],
+      "regulatory_refs": [
+        "ADR2025:2.1.3.5",
+        "ADR2025:2.1.3.10"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "named_entry_mixtures",
+      "evidence_fields": [
+        "product.named_substance_candidate",
+        "composition.named_dangerous_component",
+        "composition.ingredients"
+      ],
+      "regulatory_refs": [
+        "ADR2025:2.1.2",
+        "ADR2025:2.1.3",
+        "ADR2025:3.1.3"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "shipping_names_nos",
+      "evidence_fields": [
+        "product.candidate_shipping_name",
+        "composition.ingredients"
+      ],
+      "regulatory_refs": [
+        "ADR2025:3.1.2",
+        "ADR2025:3.1.2.8"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "tableA_special_provisions",
+      "evidence_fields": [
+        "product.candidate_un_number",
+        "special.special_provision_candidates"
+      ],
+      "regulatory_refs": [
+        "ADR2025:3.2.1",
+        "ADR2025:3.3.1"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "waste_samples_articles",
+      "evidence_fields": [
+        "product.waste_status",
+        "product.sample_status",
+        "special.articles_containing_dg"
+      ],
+      "regulatory_refs": [
+        "ADR2025:2.1.3.5.5",
+        "ADR2025:2.1.4",
+        "ADR2025:2.1.5",
+        "ADR2025:2.1.6"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "exemption_scope",
+      "evidence_fields": [
+        "transport.transport_activity",
+        "transport.shipment_configuration",
+        "transport.transport_unit_load"
+      ],
+      "regulatory_refs": [
+        "ADR2025:1.1.3",
+        "ADR2025:3.4",
+        "ADR2025:3.5"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "lithium_sodium_batteries",
+      "evidence_fields": [
+        "battery.battery_chemistry",
+        "battery.un38_3_test_summary",
+        "battery.battery_configuration",
+        "battery.battery_condition"
+      ],
+      "regulatory_refs": [
+        "ADR2025:2.2.9.1.7.1",
+        "ADR2025:2.2.9.1.7.2"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "adr_aquatic_environment",
+      "evidence_fields": [
+        "environment.aquatic_acute_test_data",
+        "environment.aquatic_chronic_test_data",
+        "environment.constituent_aquatic_classification"
+      ],
+      "regulatory_refs": [
+        "ADR2025:2.2.9.1.10",
+        "ADR2025:2.1.3.8"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "reactive_temperature_control",
+      "evidence_fields": [
+        "physical.sadt_c",
+        "physical.sapt_c",
+        "transport.transport_temperature_c"
+      ],
+      "regulatory_refs": [
+        "ADR2025:2.2.41",
+        "ADR2025:2.2.52"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    },
+    {
+      "decision_id": "maritime_marine_bulk",
+      "evidence_fields": [
+        "transport.transport_in_bulk_imo",
+        "environment.imdg_marine_pollutant_result",
+        "section14.maritime_bulk_data"
+      ],
+      "regulatory_refs": [
+        "SDS2020:14.5",
+        "SDS2020:14.7"
+      ],
+      "missing_effect": "Conditionally blocks only this decision. Exemption/operational decisions do not negate intrinsic transport hazards."
+    }
+  ],
+  "separate_mode_requirements": {
+    "RID": "needs_relevant_RID_edition",
+    "ADN": "needs_relevant_ADN_edition",
+    "IMDG": "needs_relevant_IMDG_edition",
+    "ICAO_TI": "needs_relevant_ICAO_TI_edition"
+  },
+  "review_pending": [
+    "Lead Agent adapter",
+    "ADR 2025 corrigenda 1 and 2",
+    "Manual Rev 8 amendment 1",
+    "All threshold/test algorithm implementations",
+    "Independent legal review"
+  ]
+}
