@@ -16,7 +16,7 @@
 | [dgl_table_a_columns.json](dgl_table_a_columns.json) | All 23 distinct column/subcolumn fields of the Table A schema (columns 1–20, split 3a/3b, 7a/7b, 9a/9b), source linkage, and normalization requirements | **Schema only**, no UN-number rows yet |
 | [excepted_quantity_codes.csv](excepted_quantity_codes.csv) | The E0–E5 table from 3.5.1.2 | Six codes and quantitative thresholds, subject to other EQ conditions |
 | [sources.json](sources.json) | Source URLs, document symbols, applicability, corrigenda and related test manual | English source metadata; corrigenda not reconciled |
-| [../../../../scripts/validate_adr2025_kb.py](../../../../scripts/validate_adr2025_kb.py) | Structural integrity checks | Format and key checks only, not legal verification |
+| [../../../scripts/validate_adr2025_kb.py](../../../scripts/validate_adr2025_kb.py) | Structural integrity checks | Format and key checks only, not legal verification |
 
 Each row is a **lookup/index record**, not itself a complete legal rule. A label of `clause_spot_checked` indicates that the reference was reviewed against retrieved ADR 2025 clause text for a preliminary mapping, not legal certification. A label of `reference_indexed` indicates a candidate index reference still requiring clause-by-clause validation. Do not turn either state into executable rules without confirming full text, cross-references, footnotes, exceptions and changes.
 
