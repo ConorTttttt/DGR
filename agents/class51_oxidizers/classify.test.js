@@ -186,6 +186,10 @@ function fertilizer(exitBox,outcome="oxidizing_solid") {
  const x=base("O.1");x.composition={isSolidAmmoniumNitrateFertilizer:true};
  x.fertilizerRoute={exitBox,flowchartAudited:true,compositionVerified:true,
    series2NoExplosiveProperties:true,outcome,recordId:"synthetic"};
+ if(outcome==="class9"){
+   x.fertilizerRoute.s1SelfSustainingDecompositionVerified=true;
+   x.fertilizerRoute.s1ReportId="synthetic-S1";
+ }
  return x;
 }
 test("Section39 forbidden fertilizer exits cannot be overridden by O.1",()=>{
@@ -213,6 +217,15 @@ test("Section39 fertilizer 5.1 / Class9 / Class1 and missing series2",()=>{
  check(missingRecord,"insufficient_evidence");
 });
 
+test("Section39 Class 9 terminal exit requires S.1 trough-test evidence",()=>{
+ const x=fertilizer(25,"class9");
+ check(x,"criteria_not_met");
+ x.fertilizerRoute.s1SelfSustainingDecompositionVerified=false;
+ check(x,"insufficient_evidence");
+ x.fertilizerRoute.s1SelfSustainingDecompositionVerified=true;
+ delete x.fertilizerRoute.s1ReportId;
+ check(x,"insufficient_evidence");
+});
 test("specific chemical identity with unknown concentration/stabilization fails closed",()=>{
  const a=o2();a.composition={chemicalIdentity:"perchloric_acid_solution",
    otherLiquidThanWater:false};check(a,"insufficient_evidence");
