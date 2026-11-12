@@ -79,15 +79,11 @@ def _flash_point(e):
                 return None, failure('ADR25-C3-EVID-FP',refs,'documented_flash_point_measurements')
             values.append(m['value_c'])
         if any(v != fp for v in values):
-            # ADR §2.3.3.1.5 requires a dispute-specific checking protocol.
-            # General 'take the lowest' would be legally unsupported.
-            if not (e.get('flash_point_dispute_resolved') is True and
-                    num(e.get('flash_point_adjudicated_c')) and
-                    e['flash_point_adjudicated_c']==fp and
-                    nonempty(e.get('flash_point_adjudication_evidence_id'))):
-                return None, failure('ADR25-C3-EVID-FP',['2.3.3.1.5'],
-                                     'flash_point_dispute_check_tests_and_resolution',
-                                     note='Contradictory values cannot be selected automatically.')
+            # ADR §2.3.3.1.5 is a dispute-specific two-stage check-test protocol.
+            # No generic low-value or caller-booleans may silently override conflict.
+            return None, failure('ADR25-C3-EVID-FP',['2.3.3.1.5'],
+                                 'flash_point_dispute_check_tests_and_expert_resolution',
+                                 note='Contradictory flash points require independently assessed check-test evidence.')
     return fp, None
 
 def _liquid_state(e, *, molten_heated=False):
