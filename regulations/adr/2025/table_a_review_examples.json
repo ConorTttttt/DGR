@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "edition": "ADR 2025",
+  "document": "ECE/TRANS/352 (Vol.I)",
+  "clause": "3.2.1",
+  "source_url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+  "basis": "Opening facing pages of Table A; independent regression spot checks from rendered table text; not comprehensive legal verification",
+  "examples": [
+    {
+      "un_number": "0004",
+      "row_variant": 1,
+      "classification_code": "1.1D",
+      "special_provision_codes": [],
+      "limited_quantities": "0",
+      "excepted_quantities": "E0",
+      "transport_category_tunnel": "1 (B1000C)",
+      "carriage_prohibited": false
+    },
+    {
+      "un_number": "0012",
+      "row_variant": 1,
+      "classification_code": "1.4S",
+      "special_provision_codes": [
+        "364"
+      ],
+      "limited_quantities": "5 kg",
+      "excepted_quantities": "E0",
+      "transport_category_tunnel": "4 (E)",
+      "carriage_prohibited": false
+    },
+    {
+      "un_number": "0014",
+      "row_variant": 1,
+      "classification_code": "1.4S",
+      "special_provision_codes": [
+        "364"
+      ],
+      "limited_quantities": "5 kg",
+      "excepted_quantities": "E0",
+      "transport_category_tunnel": "4 (E)",
+      "carriage_prohibited": false
+    },
+    {
+      "un_number": "0015",
+      "row_variant": 1,
+      "classification_code": "1.2G",
+      "labels": "1",
+      "special_provision_codes": [],
+      "limited_quantities": "0",
+      "excepted_quantities": "E0",
+      "transport_category_tunnel": "1 (B1000C)",
+      "carriage_prohibited": false
+    },
+    {
+      "un_number": "0015",
+      "row_variant": 2,
+      "classification_code": "1.2G",
+      "labels": "1 +8",
+      "special_provision_codes": [],
+      "limited_quantities": "0",
+      "excepted_quantities": "E0",
+      "transport_category_tunnel": "1 (B1000C)",
+      "carriage_prohibited": false
+    },
+    {
+      "un_number": "0015",
+      "row_variant": 3,
+      "classification_code": "1.2G",
+      "labels": "1 +6.1",
+      "special_provision_codes": [],
+      "limited_quantities": "0",
+      "excepted_quantities": "E0",
+      "transport_category_tunnel": "1 (B1000C)",
+      "carriage_prohibited": false
+    },
+    {
+      "un_number": "0020",
+      "row_variant": 1,
+      "classification_code": "1.2K",
+      "special_provision_codes": [],
+      "limited_quantities": null,
+      "excepted_quantities": null,
+      "transport_category_tunnel": null,
+      "carriage_prohibited": true
+    }
+  ],
+  "critical_properties": [
+    "UN number is zero-padded text",
+    "multiple rows may share UN number",
+    "prohibited row is not a regular shipping entry",
+    "special provisions are per-row not per-UN-only",
+    "no classification emitted from mere UN presence"
+  ]
+}
