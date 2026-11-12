@@ -1,0 +1,555 @@
+{
+  "schema_version": "agent2.class2.rule_register.v0.1",
+  "owner": "Agent 2 Class 2 gases",
+  "class": "2",
+  "review": "not_regulatorily_validated",
+  "sources": [
+    {
+      "id": "ADR2025",
+      "edition": "ECE/TRANS/352 Vol.I",
+      "language": "English",
+      "url": "https://unece.org/adr-2025-files"
+    },
+    {
+      "id": "MTC8",
+      "edition": "ST/SG/AC.10/11/Rev.8",
+      "section": "Part III section 31",
+      "url": "https://unece.org/transport/dangerous-goods/rev8-files"
+    },
+    {
+      "id": "MTC8A1",
+      "edition": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "section": "31.1.3,31.3.3",
+      "date": "2025-09-12",
+      "url": "https://unece.org/transport/dangerous-goods/rev8-files"
+    },
+    {
+      "id": "ISO10156",
+      "edition": "ISO 10156:2017",
+      "section": "flammability and oxidizing power",
+      "incorporation": "ADR 2.2.2.1.5"
+    }
+  ],
+  "special_method_notes": [
+    {
+      "clause": "2.2.2.1.5",
+      "note": "For toxic-gas mixtures, component Ti uses P200 value first, otherwise defensible literature, analogue or testing."
+    },
+    {
+      "clause": "2.2.2.1.6(c)",
+      "note": "ADR prescribes specific heat-of-combustion methods. MTC Rev.8 Amend.1 broadens 31.3.3; do not silently substitute amended MTC method for ADR wording."
+    },
+    {
+      "clause": "2.2.2.1.3 Note 1",
+      "note": "2.1/2.2/2.3 is informational division_hint (Model Regulations/IMDG/ICAO); ADR result remains Class 2 and group."
+    },
+    {
+      "clause": "3.2.1 Table A",
+      "note": "No final UN/packing group/subsidiary label without selected row, all special provisions and review."
+    }
+  ],
+  "rules": [
+    {
+      "id": "C2-001",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.1",
+      "key": "gas_definition_vapour",
+      "deterministic_condition": "vapour pressure at 50 C > 300 kPa",
+      "outcome": "gas_definition_positive",
+      "required_evidence": [
+        "vapour_pressure_50_kpa"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-002",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.1",
+      "key": "gas_definition_state",
+      "deterministic_condition": "entirely gaseous at 20 C, 101.3 kPa",
+      "outcome": "gas_definition_positive",
+      "required_evidence": [
+        "fully_gaseous_20c_101_3kpa"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-003",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.1 Note 1",
+      "key": "hydrogen_fluoride",
+      "deterministic_condition": "named UN1052 is Class 8 despite gas definition",
+      "outcome": "named_exception_outside_class2",
+      "required_evidence": [
+        "preexisting_named_un"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-004",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(1)",
+      "key": "compressed",
+      "deterministic_condition": "entirely gaseous at -50 C; critical temperature <= -50 C within category",
+      "outcome": "physical_form_1",
+      "required_evidence": [
+        "critical_temperature_c"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-005",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(2)",
+      "key": "liquefied_high_pressure",
+      "deterministic_condition": "partially liquid above -50 C and critical temp >-50 <=65 C",
+      "outcome": "physical_form_2_high",
+      "required_evidence": [
+        "critical_temperature_c",
+        "partially_liquid_above_minus50"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-006",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(2)",
+      "key": "liquefied_low_pressure",
+      "deterministic_condition": "partially liquid above -50 C and critical temp >65 C",
+      "outcome": "physical_form_2_low",
+      "required_evidence": [
+        "critical_temperature_c",
+        "partially_liquid_above_minus50"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-007",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(3)",
+      "key": "refrigerated_liquefied",
+      "deterministic_condition": "made partially liquid because of low transport temperature",
+      "outcome": "physical_form_3",
+      "required_evidence": [
+        "partially_liquid_due_to_low_temperature"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-008",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(4)",
+      "key": "dissolved",
+      "deterministic_condition": "dissolved in a liquid-phase solvent under pressure",
+      "outcome": "physical_form_4",
+      "required_evidence": [
+        "dissolved_in_liquid_solvent_under_pressure"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-009",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(5)-(8)",
+      "key": "special_routes",
+      "deterministic_condition": "aerosols, small receptacles, other articles, gas samples and chemicals under pressure require distinct entry gates",
+      "outcome": "entry_specific_gate",
+      "required_evidence": [
+        "route"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-010",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.2(9)",
+      "key": "adsorbed",
+      "deterministic_condition": "solid porous adsorbent and receptacle p(20 C) <101.3 kPa and p(50 C)<300 kPa",
+      "outcome": "physical_form_9",
+      "required_evidence": [
+        "internal_pressure_20_kpa",
+        "internal_pressure_50_kpa"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-011",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.3",
+      "key": "ordinary_groups",
+      "deterministic_condition": "A,O,F,T,TF,TC,TO,TFC,TOC; toxic takes priority, flammable over A/O",
+      "outcome": "hazard_group_candidate",
+      "required_evidence": [
+        "hazard_properties"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-012",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.3 Note 3",
+      "key": "corrosive_gas",
+      "deterministic_condition": "corrosive gases treated as toxic, TC/TFC/TOC candidates",
+      "outcome": "toxic_plus_corrosive",
+      "required_evidence": [
+        "corrosivity"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-013",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.4",
+      "key": "named_mixture_different",
+      "deterministic_condition": "named mixture with different criteria rerouted to suitable n.o.s. entry",
+      "outcome": "requires_table_a_reselection",
+      "required_evidence": [
+        "named_entry",
+        "composition"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-014",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Flammable gases (a)",
+      "key": "gas_flammable_low",
+      "deterministic_condition": "at 20 C, 101.3 kPa ignitable in air <=13 vol%",
+      "outcome": "flammable_positive",
+      "required_evidence": [
+        "lowest_ignitable_concentration_vol_pct"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-015",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Flammable gases (b)",
+      "key": "gas_flammable_span",
+      "deterministic_condition": "flammable range with air >=12 percentage points",
+      "outcome": "flammable_positive",
+      "required_evidence": [
+        "flammable_range_percentage_points"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-016",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Flammable gases",
+      "key": "gas_flammable_methods",
+      "deterministic_condition": "ISO 10156:2017 determination; authority-recognized comparable method if insufficient data, with authority conditions",
+      "outcome": "evidence_method_gate",
+      "required_evidence": [
+        "ISO_10156_2017",
+        "AUTHORITY_EQUIVALENT"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-017",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Oxidizing gases",
+      "key": "oxidizing",
+      "deterministic_condition": "oxidizing power >23.5 percent under ISO 10156:2017",
+      "outcome": "oxidizing_positive",
+      "required_evidence": [
+        "oxidizing_power_pct"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-018",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Toxic gases (a)-(b)",
+      "key": "toxic",
+      "deterministic_condition": "known dangerous human toxicity/corrosivity OR acute inhalation LC50 <=5000 ml/m3 ppm",
+      "outcome": "toxic_positive",
+      "required_evidence": [
+        "known_toxic_to_humans",
+        "known_corrosive_to_humans",
+        "inhalation_lc50_ppm"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-019",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Toxic gases",
+      "key": "mixture_toxicity",
+      "deterministic_condition": "LC50 mixture harmonic reciprocal of sum mole-fraction/Ti, Ti from P200 or defensible source",
+      "outcome": "candidate_mixture_toxicity",
+      "required_evidence": [
+        "components[].mole_fraction",
+        "components[].toxicity_index_ppm"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-020",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Corrosive gases",
+      "key": "corrosivity",
+      "deterministic_condition": "skin/eyes/mucosal destruction or corrosive mixture LC50 <=5000 ppm, or toxic wholly due to corrosivity",
+      "outcome": "corrosive_subsidiary_candidate",
+      "required_evidence": [
+        "human_skin_eye_mucosal_destruction",
+        "toxic_solely_due_to_corrosivity",
+        "components"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-021",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.6(a)-(f)",
+      "key": "aerosol_group",
+      "deterministic_condition": "A,O,F,T,C,CO,FC,TF,TC,TO,TFC,TOC allowed; content determines group",
+      "outcome": "aerosol_group_candidate",
+      "required_evidence": [
+        "aerosol_propellant_and_contents"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-022",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.6(c)",
+      "key": "aerosol_mass_heat_positive",
+      "deterministic_condition": ">=85% flammable mass AND >=30 kJ/g chemical heat",
+      "outcome": "aerosol_F_positive",
+      "required_evidence": [
+        "aerosol_flammable_mass_pct",
+        "aerosol_heat_combustion_kj_g"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-023",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.6(c)",
+      "key": "aerosol_mass_heat_negative",
+      "deterministic_condition": "<=1% flammable mass AND heat <20 kJ/g",
+      "outcome": "aerosol_F_negative",
+      "required_evidence": [
+        "aerosol_flammable_mass_pct",
+        "aerosol_heat_combustion_kj_g"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-024",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.6(c)",
+      "key": "aerosol_intermediate_test",
+      "deterministic_condition": "otherwise Part III UN MTC section 31 flammability results",
+      "outcome": "aerosol_MTC31_gate",
+      "required_evidence": [
+        "mtc31_aerosol_result"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-025",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.6(d)-(e)",
+      "key": "aerosol_T_C",
+      "deterministic_condition": "non-propellant contents Class 6.1 or 8 PG II/III drive T/C group properties",
+      "outcome": "aerosol_content_property",
+      "required_evidence": [
+        "contents_nonpropellant_toxic_pg",
+        "contents_nonpropellant_corrosive_pg"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-026",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.7(b)(i)-(iii)",
+      "key": "chemical_flammable",
+      "deterministic_condition": "component flammable liquid flash point <=93 C or solid per 2.2.41.1 or gas per 2.2.2.1.5",
+      "outcome": "chemical_F_candidate",
+      "required_evidence": [
+        "contents_eligible_flam_form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-027",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.7(c)-(e)",
+      "key": "chemical_content_groups",
+      "deterministic_condition": "non-propellant Class 6.1/8 PG II/III; only A,F,T,C,FC,TF groups",
+      "outcome": "chemical_group_candidate",
+      "required_evidence": [
+        "contents_nonpropellant_toxic_pg",
+        "contents_nonpropellant_corrosive_pg"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-028",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.7 Notes 1-4",
+      "key": "chemical_prohibited_components",
+      "deterministic_condition": "toxic/oxidizing/pyrophoric propellant, PG I contents, combined T+C PG II/III or prohibited classes excluded from UN3500-3505; aerosol dispenser UN1950 route",
+      "outcome": "not_accepted_or_re_route",
+      "required_evidence": [
+        "propellant_*;contents_*;prohibited_other_class_component"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-029",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.2.1",
+      "key": "unstable",
+      "deterministic_condition": "unstable Class 2 prohibited unless adequate precautions or P200(10)(r) applicable/satisfied; SP386",
+      "outcome": "carriage_gate",
+      "required_evidence": [
+        "chemically_unstable",
+        "decomposition_precautions_satisfactory",
+        "p200_10_r_applicable_and_satisfied"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-030",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.2.2",
+      "key": "express_prohibitions",
+      "deterministic_condition": "UN2186, UN2421, UN2455; refrigerated gases other than 3A/3O/3F; restrictions on dissolved gases",
+      "outcome": "not_accepted",
+      "required_evidence": [
+        "preexisting_named_un",
+        "group"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-031",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.2.2",
+      "key": "cartridge_prohibitions",
+      "deterministic_condition": "UN2037 small receptacles cannot contain very toxic LC50 <200 ppm or pyrophoric gas",
+      "outcome": "not_accepted",
+      "required_evidence": [
+        "inhalation_lc50_ppm",
+        "propellant_pyrophoric_P200"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-032",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "collective_entries",
+      "deterministic_condition": "collective entries are potential candidates only after named-entry check; Table A and SP resolution external",
+      "outcome": "entry_resolution_dependency",
+      "required_evidence": [
+        "classification_code_candidate"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-033",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "3.2.1 Table A column (4)",
+      "key": "packing_group_gate",
+      "deterministic_condition": "No generic Class 2 PG I/II/III calculated; Table A row PG field must be checked; contents PG used only by aerosol/chemical rules",
+      "outcome": "packing_group_null",
+      "required_evidence": [
+        "table_a_row_id"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-034",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "4.1.4.1 P200 Tables 1-3",
+      "key": "P200_parameters",
+      "deterministic_condition": "P200 toxicity index, pyrophoric notes, storage/filling/packing controls require row-specific external lookup",
+      "outcome": "P200_dependency",
+      "required_evidence": [
+        "P200_token"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-035",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "3.3.1 SP386;4.1.4.1 P200(10)(r)",
+      "key": "polymerization",
+      "deterministic_condition": "stabilization/packing authorizations require external checking",
+      "outcome": "special_provision_dependency",
+      "required_evidence": [
+        "authority_record"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-036",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.5 Asphyxiant gases",
+      "key": "asphyxiant",
+      "deterministic_condition": "non-oxidizing, non-flammable, non-toxic gas diluting/replacing oxygen",
+      "outcome": "A_candidate",
+      "required_evidence": [
+        "dilutes_or_replaces_atmospheric_oxygen"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-037",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "fixed_code_5",
+      "deterministic_condition": "aerosol or gas cartridge has code 5 (not 5 plus hazard-group letters)",
+      "outcome": "5_candidate",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-038",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "fixed_code_4",
+      "deterministic_condition": "dissolved-gas carriage under named Table A only; fixed code 4",
+      "outcome": "4_candidate",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-039",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.3",
+      "key": "chemicals_code_8",
+      "deterministic_condition": "chemicals under pressure have code 8 plus A/F/T/C/TF/FC (not direct UN mapping)",
+      "outcome": "8_group_candidate",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    },
+    {
+      "id": "C2-040",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol.I English",
+      "clause": "2.2.2.1.7 Note 4",
+      "key": "chemical_in_aerosol_dispenser",
+      "deterministic_condition": "chemicals under pressure in aerosol dispensers shall be carried under aerosol route",
+      "outcome": "requires_aerosol_route",
+      "required_evidence": [
+        "route",
+        "form"
+      ],
+      "status": "PROVISIONAL_REVIEW_REQUIRED"
+    }
+  ]
+}
