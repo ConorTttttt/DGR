@@ -38,7 +38,7 @@ def evaluate(req):
     if auth.get("decision_id"):
         result["expert_decisions"].append({
             "id": auth["decision_id"], "decision_type": "class1_classification_or_exclusion",
-            "status": auth.get("status", "pending"),
+            "status": auth.get("status") if auth.get("status") in {"approved","pending","rejected","expired"} else "pending",
             "authority_reference": auth.get("document_ref"),
             "verification": auth.get("verification", "unverified"),
         })
