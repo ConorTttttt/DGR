@@ -1,4 +1,4 @@
-name: ADR 2025 Table A provisional ingestion
+name: ADR 2025 Table A ingestion tests
 
 on:
   push:
@@ -6,52 +6,52 @@ on:
     paths:
       - 'scripts/ingest_adr2025_table_a.py'
       - '.github/workflows/adr2025-table-a.yml'
-      - 'regulations/adr/2025/dgl_table_a_columns.json'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/ingest_adr2025_table_a.py'
+      - '.github/workflows/adr2025-table-a.yml'
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  extract:
+  validate-code:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Python syntax
+        run: python -m py_compile scripts/ingest_adr2025_table_a.py
+      - name: Synthetic parser/corrigendum tests
+        run: python scripts/ingest_adr2025_table_a.py --self-test
+      - name: Existing clause register consistency
+        run: python scripts/validate_adr2025_kb.py
+
+  extract-operator-invoked:
+    if: github.event_name == 'workflow_dispatch'
+    needs: validate-code
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install PDF extraction dependencies
         run: python -m pip install 'PyMuPDF==1.26.4' 'pdfplumber==0.11.7' 'requests==2.32.5'
-      - name: Synthetic tests (parser and corrigendum)
-        run: python scripts/ingest_adr2025_table_a.py --self-test
-      - name: Extract from primary UNECE PDF
-        id: extract
-        continue-on-error: true
+      - name: Extract source and produce provisional, NOT approved outputs
         run: python scripts/ingest_adr2025_table_a.py --download
-      - name: Preserve extraction diagnostics
+      - name: Upload local-review files (not a Git commit)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: adr2025-table-a-extraction
+          name: adr2025-table-a-provisional-review
           path: regulations/adr/2025/generated/
           if-no-files-found: warn
-      - name: Stop if any quality gate failed
-        if: steps.extract.outcome != 'success'
-        run: |
-          echo "Extraction incomplete; no provisional Table A will be committed."
-          exit 1
-      - name: Commit provisional rows with explicit unreviewed flags
-        if: steps.extract.outcome == 'success'
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add regulations/adr/2025/generated/
-          if git diff --cached --quiet; then
-            echo "No changes to provisional extraction"
-          else
-            git commit -m "data: extract provisional ADR 2025 Table A rows [skip ci]"
-            git push
-          fi
+      # Intentionally NO automatic commit of copyrighted UN Table A content
+      # into this publicly visible repository. Check redistribution rights.
