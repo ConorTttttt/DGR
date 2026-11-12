@@ -314,6 +314,14 @@
       "trigger": "potassium nitrate/sodium nitrite/ammonium salt mixture",
       "disposition": "not_accepted_for_carriage",
       "reason": "explicit list prohibition"
+    },
+    {
+      "id": "X40",
+      "source": "ADR 2025 ECE/TRANS/352 Vol. I",
+      "clause": "2.2.51.2.2",
+      "trigger": "stabilization/acid percent/other solvent or ammonium nitrate combustible fraction is unknown for named prohibited-identity screening",
+      "disposition": "insufficient_evidence",
+      "reason": "identity-specific uncertainty must block instead of treating absent input as absence of prohibition"
     }
   ],
   "design_limits": [
