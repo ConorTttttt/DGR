@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "edition": "ADR 2025",
+  "language": "en",
+  "document": "ECE/TRANS/352",
+  "reconciliation_state": "mapped_not_fully_applied",
+  "source_listing": "https://unece.org/adr-2025-files",
+  "corrigenda": [
+    {
+      "document": "ECE/TRANS/352/Corr.1",
+      "publication_date": "2024-10-17",
+      "official_pdf": "https://shop.un.org/sites/default/files/2024-09/ECE-TRANS-352c1E.pdf",
+      "impacts": [
+        {
+          "volume": "I",
+          "item": 1,
+          "clause": "1.9.4",
+          "target": "footnote 2 link",
+          "operation": "replace_url",
+          "new_url": "https://transport.ec.europa.eu/transport-themes/transport-dangerous-goods/risk-management-framework_en",
+          "impact_on_dgl": "none",
+          "status": "documented_not_machine_applied"
+        },
+        {
+          "volume": "II",
+          "item": 2,
+          "clause": "9.2.1.1",
+          "target": "table row 9.2.4.4",
+          "operation": "replace_row",
+          "replacement": "9.2.4.4 Electric power train",
+          "impact_on_dgl": "none",
+          "status": "out_of_current_part_scope"
+        }
+      ]
+    },
+    {
+      "document": "ECE/TRANS/352/Corr.2",
+      "publication_date": "2025-10-17",
+      "official_landing": "https://unece.org/transport/documents/2025/10/post-session-documents/adr-2025-corrigendum-2",
+      "impacts": [
+        {
+          "volume": "I",
+          "item": 1,
+          "clause": "1.2.1",
+          "target": "note after Animal material definition",
+          "operation": "delete",
+          "impact_on_dgl": "none",
+          "status": "documented_not_machine_applied"
+        },
+        {
+          "volume": "I",
+          "item": 2,
+          "clause": "1.8.8.1.4",
+          "target": "cross-reference",
+          "operation": "replace_text",
+          "old": "1.8.7.7.1 (d)",
+          "new": "1.8.7.7.1 (b) (ii)",
+          "impact_on_dgl": "none",
+          "status": "documented_not_machine_applied"
+        },
+        {
+          "volume": "I",
+          "item": 3,
+          "clause": "2.1.3.10",
+          "target": "Note 2 last example for UN 1921",
+          "operation": "replace_text",
+          "old": "UN No. 1921 PROPYLENEIMINE, INHIBITED",
+          "new": "UN No. 1921 PROPYLENEIMINE, STABILIZED",
+          "impact_on_dgl": "none",
+          "status": "example_text_change_not_table_a_row"
+        },
+        {
+          "volume": "I",
+          "item": 4,
+          "clause": "3.2.1",
+          "target": "Table A UN 3423 column 20 hazard identification number",
+          "operation": "replace_cell",
+          "un_number": "3423",
+          "column": "20",
+          "old": "688",
+          "new": "668",
+          "impact_on_dgl": "yes",
+          "status": "patch_implemented_in_unverified_importer",
+          "review_status": "not_independently_validated"
+        },
+        {
+          "volume": "I",
+          "item": 5,
+          "clause": "3.2.2",
+          "target": "Table B omega-Bromoacetone class",
+          "operation": "replace_cell",
+          "old": "6.4",
+          "new": "6.1",
+          "impact_on_dgl": "none_table_b_not_official",
+          "status": "documented_not_machine_applied"
+        },
+        {
+          "volume": "II",
+          "item": 6,
+          "clause": "4.3.4.1.2",
+          "target": "Rationalized approach Table tank code L4BN class 3 classification code F1 packing group",
+          "operation": "insert",
+          "new": "I",
+          "impact_on_dgl": "none",
+          "status": "out_of_current_part_scope"
+        },
+        {
+          "volume": "II",
+          "item": 7,
+          "clause": "7.3.3.2.6",
+          "target": "AP8 indentation",
+          "operation": "typesetting",
+          "impact_on_dgl": "none",
+          "status": "out_of_current_part_scope"
+        },
+        {
+          "volume": "II",
+          "item": 8,
+          "clause": "9.2.2.2.2",
+          "target": "second figure number",
+          "operation": "replace_label",
+          "old": "9.2.2.2.2.3",
+          "new": "9.2.2.2.2.4",
+          "impact_on_dgl": "none",
+          "status": "out_of_current_part_scope"
+        }
+      ]
+    }
+  ],
+  "edition_language_note": "UNECE lists a Corr.3 in French only; not treated as an English corrigendum. No 2027 draft changes imported.",
+  "safety_note": "This register is a mapping of published editorial corrections, not proof of independently verified current-legal applicability or of all affected downstream data."
+}
