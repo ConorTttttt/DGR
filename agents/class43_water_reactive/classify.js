@@ -208,8 +208,8 @@ function evaluateClass43(input) {
   }
   if (!fullValid) return out;
   mark("MTC_N5_COMPLETE_REPEATS");
-  if (terminal.gas_flammability === "no_gas" && compareDecimal(maxHour, "0") !== 0) {
-    issue("test.terminal.gas_flammability", "conflicting", "No-gas finding contradicts positive gas evolution"); return out;
+  if (terminal.gas_flammability === "no_gas" && (compareDecimal(maxHour, "0") !== 0 || terminal.runs.some(r => compareDecimal(r.gas_volume_ml, "0") > 0))) {
+    issue("test.terminal.gas_flammability", "conflicting", "No-gas finding contradicts a positive measured gas volume or rate"); return out;
   }
   if (terminal.gas_flammability === "nonflammable" || (terminal.gas_flammability === "no_gas" && compareDecimal(maxHour, "0") === 0)) {
     out.criteria_status = "criteria_not_met"; out.coverage_status="evaluated"; mark("ADR43_NEGATIVE_TEST"); return out;
