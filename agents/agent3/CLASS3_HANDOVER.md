@@ -43,7 +43,7 @@ The existing temporary Agent 3 `evaluate_class('3', evidence)` output is retaine
 
 ## Tests and reproducibility
 
-- Developmental local Class 3 suite: **31 test methods passed** with extensive boundary subcases using the tested evaluator before minor final defensive guards were added. This verifies software logic only.
+- Developmental local Class 3 suite: **31/31 test methods passed** with extensive boundary subcases against the updated evaluator **including** the final defensive heated-temperature, Class 6.1 priority, named-nitrocellulose and flash-point-conflict checks. `python -m compileall -q adr2025 tests` passed. These verify software behaviour only.
 - Submitted `tests/test_class3_expanded.py`: **15 unittest methods** covering threshold values, named exceptions, toxicity priority, disputed FP evidence, full viscosity rows, 40/60s and 5-L thresholds, restrictions and missing evidence.
 - Legacy `tests/test_classes.py` Class 3 fixtures updated to the stricter documented measurement input contract while retaining non-Class-3 tests.
 - **GitHub CI run is not yet established**, the submitted branch head is not independently benchmarked, and the new test file has not been verified as a GitHub workflow success. Do not claim a passing repository CI suite from these local results.
