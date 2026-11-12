@@ -3,6 +3,16 @@
 // Pure, deterministic; no CLP/GHS mapping, UN assignment, release or automatic evidence authentication.
 function evaluateClass43(input) {
   "use strict";
+  // Exact fixed-point comparison: no binary-float rounding at ADR cut-offs.
+  function compareDecimal(a,b) {
+    const x=String(a), y=String(b), valid=/^(0|[1-9]\\d*)(\\.\\d+)?$/;
+    if (!valid.test(x)||!valid.test(y)) return NaN;
+    const xf=(x.split(".")[1]||"").length, yf=(y.split(".")[1]||"").length;
+    const dp=Math.max(xf,yf);
+    const xi=BigInt(x.replace(".",""))*10n**BigInt(dp-xf);
+    const yi=BigInt(y.replace(".",""))*10n**BigInt(dp-yf);
+    return xi>yi?1:xi<yi?-1:0;
+  }
   const ADR = "ADR2025_ECE_TRANS_352_VOL_I";
   const MTC = "UN_MTC_REV8_PART_III";
   const cite = (clause, source_id = ADR) => ({ source_id, clause });
@@ -103,7 +113,7 @@ function evaluateClass43(input) {
     if (test.fines_under_500um_mass_percent === undefined ||
         !Number.isFinite(fines) || fines < 0 || fines > 100 || typeof test.friable !== "boolean") {
       issue("test.solid_particle_preparation", "missing", "Record <500 μm fraction (%) and friability (N.5 §33.5.4.3.5)");
-    } else if ((fines > 1 || test.friable === true) && test.ground_before_terminal !== true) {
+    } else if ((compareDecimal(test.fines_under_500um_mass_percent, "1") > 0 || test.friable === true) && test.ground_before_terminal !== true) {
       issue("test.ground_before_terminal", "method_invalid", "Grind entire sample when fraction <500 μm exceeds 1% mass or material is friable");
     }
   }
@@ -168,24 +178,24 @@ function evaluateClass43(input) {
     if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(String(v))) return NaN;
     return Number(v);
   };
-  let maxHour = 0, maxMinute = 0, fullValid = true;
+  let maxHour = "0", maxMinute = "0", fullValid = true;
   for (const [i,run] of terminal.runs.entries()) {
     if (!run || !Array.isArray(run.hourly_rates_l_kg_h) || run.hourly_rates_l_kg_h.length !== 7 ||
         !Array.isArray(run.one_minute_volumes_l_kg) || run.one_minute_volumes_l_kg.length === 0) {
       fullValid = false; issue("test.terminal.runs["+i+"]", "missing", "Seven 1-hour rates and one-minute window evidence required for PG completeness"); continue;
     }
     const mass = decimal(run.sample_mass_g), volume = decimal(run.gas_volume_ml), hours = decimal(run.observed_hours);
-    if (!Number.isFinite(mass) || mass <= 0 || mass > 25 ||
-        !Number.isFinite(volume) || volume < 0 ||
-        (volume > 0 && (volume < 100 || volume > 250)) ||
-        !Number.isFinite(hours) || hours < 7 || hours > 120) {
+    if (!Number.isFinite(mass) || compareDecimal(run.sample_mass_g, "0") <= 0 || compareDecimal(run.sample_mass_g, "25") > 0 ||
+        !Number.isFinite(volume) || compareDecimal(run.gas_volume_ml, "0") < 0 ||
+        (compareDecimal(run.gas_volume_ml, "0") > 0 && (compareDecimal(run.gas_volume_ml, "100") < 0 || compareDecimal(run.gas_volume_ml, "250") > 0)) ||
+        !Number.isFinite(hours) || compareDecimal(run.observed_hours, "7") < 0 || compareDecimal(run.observed_hours, "120") > 0) {
       fullValid = false; issue("test.terminal.runs["+i+"].setup", "method_invalid", "Mass (0,25] g, target gas volume 100–250 ml if evolved, observed 7–120 h"); continue;
     }
     if (!["steady","decreasing","erratic","increasing"].includes(run.trend_at_7h)) {
       fullValid = false; issue("test.terminal.runs["+i+"].trend", "missing", "Record 7-hour trend"); continue;
     }
     if (["erratic","increasing"].includes(run.trend_at_7h) &&
-        !(hours === 120 || (hours > 7 && run.extension_resolved_steady_or_decreasing === true && run.sufficient_data_for_group === true))) {
+        !(compareDecimal(run.observed_hours,"120") === 0 || (compareDecimal(run.observed_hours,"7") > 0 && run.extension_resolved_steady_or_decreasing === true && run.sufficient_data_for_group === true))) {
       fullValid = false; issue("test.terminal.runs["+i+"].extension", "method_invalid", "Erratic/increasing 7-hour trend requires extension up to five days or documented early resolution with sufficient evidence");
     }
     const hoursArray = run.hourly_rates_l_kg_h.map(decimal);
@@ -193,33 +203,33 @@ function evaluateClass43(input) {
     if ([...hoursArray, ...minuteArray].some(n=>!Number.isFinite(n) || n<0)) {
       fullValid = false; issue("test.terminal.runs["+i+"].measurements", "method_invalid", "Rates must be finite, nonnegative measured base-10 values"); continue;
     }
-    maxHour = Math.max(maxHour,...hoursArray);
-    maxMinute = Math.max(maxMinute,...minuteArray);
+    for (const v of run.hourly_rates_l_kg_h) if (compareDecimal(v,maxHour)>0) maxHour=String(v);
+    for (const v of run.one_minute_volumes_l_kg) if (compareDecimal(v,maxMinute)>0) maxMinute=String(v);
   }
   if (!fullValid) return out;
   mark("MTC_N5_COMPLETE_REPEATS");
-  if (terminal.gas_flammability === "no_gas" && maxHour !== 0) {
+  if (terminal.gas_flammability === "no_gas" && compareDecimal(maxHour, "0") !== 0) {
     issue("test.terminal.gas_flammability", "conflicting", "No-gas finding contradicts positive gas evolution"); return out;
   }
-  if (terminal.gas_flammability === "nonflammable" || (terminal.gas_flammability === "no_gas" && maxHour === 0)) {
+  if (terminal.gas_flammability === "nonflammable" || (terminal.gas_flammability === "no_gas" && compareDecimal(maxHour, "0") === 0)) {
     out.criteria_status = "criteria_not_met"; out.coverage_status="evaluated"; mark("ADR43_NEGATIVE_TEST"); return out;
   }
-  if (maxHour <= 1 && maxMinute < 10) {
+  if (compareDecimal(maxHour, "1") <= 0 && compareDecimal(maxMinute, "10") < 0) {
     out.criteria_status = "criteria_not_met"; out.coverage_status="evaluated";
     mark("ADR43_BOUNDARY_STRICT_GT_1"); return out;
   }
   // Any >=10 L/kg during one minute qualifies for Class 4.3 and the highest intrinsic PG.
-  if (maxMinute >= 10) {
+  if (compareDecimal(maxMinute, "10") >= 0) {
     mark("ADR43_PG_I_MINUTE_INCLUSIVE");
     classified(); appendSubsidiary(); pg("I", "2.2.43.1.8(a)", "33.5.4.4.2"); return out;
   }
-  if (maxHour <= 1) {
+  if (compareDecimal(maxHour, "1") <= 0) {
     issue("test.terminal.measurement_consistency", "conflicting", "One-minute gas volume indicates class-positive rate but all hourly rates <=1; request expert review");
     return out;
   }
   mark("ADR43_HOURLY_GT_1");
   classified(); appendSubsidiary();
-  if (maxHour >= 20) {
+  if (compareDecimal(maxHour, "20") >= 0) {
     mark("ADR43_PG_II_HOURLY_INCLUSIVE");
     if (terminal.reactivity_behavior === "readily" && terminal.pg_I_absence_documented === true) {
       pg("II","2.2.43.1.8(b)","33.5.4.4.3");
