@@ -22,7 +22,7 @@ Class1 MUST have packing_group=null and packing_group_candidates=[]. Division an
 Assignment review can occur only after ALL relevant class screens close, precedence/mixture and subsidiary hazards resolve, applicable authority documents are authenticated, candidate-set completeness is attested, exact Table A row is verified and all assigned SP outcomes are resolved. A class-module status alone NEVER unlocks assignment. SDS publication additionally requires independent regulatory, security and release sign-off; software DECIDED != legal approval. Exhaustive explicit review is mandatory for 'not regulated for transport'.
 
 ## File ownership
-Agent 0: contracts/v1/, docs/integration/, tests/integration/ only.
+Agent 0: contracts/v1/, docs/integration/, tests/integration/, and .github/workflows/adr2025-contract-ownership.yml only. Branch protection must require ownership CI after merging.
 New Agent 1 Class1: agents/class1_explosives/ only.
 Existing PR #5 Table A owner: regulations/adr/2025/table_a_* and its existing importer/validator paths.
 PR #3 Agent 2: engine/input_model/adr2025/.
