@@ -15,8 +15,8 @@
 | Evidence and reference metadata | \`rule_register.json\` | 28 typed/conditional fields, measurement units, manuals, trial conditions |
 | PG logic | \`classify.js\` | O.1/O.2/O.3 **candidates only**, reference-comparator strictness preserved |
 | Unsupported/prohibited register | \`exceptions.json\` | 39 cases plus explicit implementation boundaries |
-| Test suite | \`classify.test.js\` | 23 independent synthetic test blocks with multiple subcases |
-| Results | \`test_results.json\` | 23/23 blocks passed in V8 compatibility harness, zero failures |
+| Test suite | \`classify.test.js\` | 24 independent synthetic test blocks with multiple subcases |
+| Results | \`test_results.json\` | 24/24 blocks passed in V8 compatibility harness, zero failures |
 | Contributor/API explanation | \`README.md\` | Usage, provenance, source hashes and blockers |
 | Lead handover | this file | Review and integration requirements |
 
