@@ -31,6 +31,7 @@ function aerosol(){
 }
 function chemical(){
  return {route:"chemical_under_pressure",evidence:{
+ in_aerosol_dispenser:e(false,"boolean","PACKAGING_RECORD"),
  propellant_toxic_gas:e(false,"boolean","ADR_CLASS2_ASSESSMENT"),
  propellant_pyrophoric_P200:e(false,"boolean","P200_TABLE2_NOTE_C"),
  propellant_oxidizing_gas:e(false,"boolean","ISO_10156_2017"),
@@ -84,3 +85,9 @@ test("chemical under pressure toxin+corrosivity PG II excluded",()=>{const d=che
 test("chemical under pressure oxidizing propellant excluded",()=>{const d=chemical();d.evidence.propellant_oxidizing_gas.value=true;check(d,"not_accepted_for_carriage");});
 test("chemical under pressure prohibited other class component excluded",()=>{const d=chemical();d.evidence.prohibited_other_class_component.value=true;check(d,"not_accepted_for_carriage");});
 test("article route explicitly unsupported",()=>check({route:"article"},"blocked_unsupported",null));
+
+test("aerosol uses fixed ADR classification code 5",()=>{assert.equal(check(aerosol(),"class2_group_candidate","F").classification_code_candidate,"5");});
+test("chemical under pressure uses ADR code 8FC",()=>{const d=chemical();d.evidence.contents_eligible_flam_form.value=true;d.evidence.contents_nonpropellant_corrosive_pg.value="II";assert.equal(check(d,"class2_group_candidate","FC").classification_code_candidate,"8FC");});
+test("chemical packaged in aerosol dispenser is rerouted",()=>{const d=chemical();d.evidence.in_aerosol_dispenser.value=true;check(d,"requires_aerosol_route");});
+test("gas cartridge uses fixed ADR classification code 5 when eligible",()=>{const d=gas();d.route="cartridge";d.evidence.propellant_pyrophoric_P200=e(false,"boolean","P200_TABLE2_NOTE_C");assert.equal(check(d,"class2_group_candidate","F").classification_code_candidate,"5");});
+test("dissolved gas code is 4, not 4F",()=>{const d=gas();d.form="dissolved";d.preexisting_named_un="1001";d.evidence.dissolved_in_liquid_solvent_under_pressure=e(true,"boolean");assert.equal(check(d,"class2_group_candidate","F").classification_code_candidate,"4");});
