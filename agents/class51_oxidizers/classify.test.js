@@ -163,10 +163,10 @@ test("ammonium nitrate combustibles strict >0.2% ban",()=>{
  check(y,"requires_expert_review");
 });
 test("acid percent boundaries and ammonium salt mixture bans",()=>{
- const x=o2();x.composition={chemicalIdentity:"perchloric_acid_solution",massPercent:72};
+ const x=o2();x.composition={chemicalIdentity:"perchloric_acid_solution",massPercent:72,otherLiquidThanWater:false};
  check(x,"criteria_met","II","5.1");
  x.composition.massPercent=72.0001;check(x,"not_accepted_for_carriage");
- const y=o2();y.composition={chemicalIdentity:"chloric_acid_solution",massPercent:10};
+ const y=o2();y.composition={chemicalIdentity:"chloric_acid_solution",massPercent:10,otherLiquidThanWater:false};
  check(y,"criteria_met","II","5.1");
  y.composition.massPercent=10.01;check(y,"not_accepted_for_carriage");
  const z=o1();z.composition={ammoniumSaltMixedWith:"hypochlorite"};
@@ -212,6 +212,20 @@ test("Section39 fertilizer 5.1 / Class9 / Class1 and missing series2",()=>{
  const missingRecord=fertilizer(36);delete missingRecord.fertilizerRoute.recordId;
  check(missingRecord,"insufficient_evidence");
 });
+
+test("specific chemical identity with unknown concentration/stabilization fails closed",()=>{
+ const a=o2();a.composition={chemicalIdentity:"perchloric_acid_solution",
+   otherLiquidThanWater:false};check(a,"insufficient_evidence");
+ const b=o2();b.composition={chemicalIdentity:"chloric_acid_solution",
+   massPercent:9};check(b,"insufficient_evidence");
+ const c=o2();c.composition={chemicalIdentity:"hydrogen_peroxide_aqueous",
+   massPercent:50};check(c,"insufficient_evidence");
+ const d=o1();d.composition={isAmmoniumNitrate:true};
+ check(d,"insufficient_evidence");
+ const e=fertilizer(36);e.physicalState="liquid";
+ check(e,"insufficient_evidence");
+});
+
 test("articles and absence of evidence remain blocked, not harmless",()=>{
  const a=o1();a.isArticle=true;check(a,"requires_expert_review");
  const b={physicalState:"solid",explosiveScreening:"negative"};check(b,"insufficient_evidence");
