@@ -1,0 +1,683 @@
+[
+  {
+    "rule_id": "ADR25-C42-42-001",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.1",
+    "subject": "scope",
+    "pathway": [
+      "pyrophoric_solid",
+      "pyrophoric_liquid",
+      "self_heating"
+    ],
+    "required_fields": [
+      "physical_state",
+      "sample_form"
+    ],
+    "normative_effect": "Class 4.2 covers pyrophoric substances, mixtures/solutions, and self-heating substances/articles",
+    "implementation": "supported",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-002",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.2",
+    "subject": "entry_structure",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "classification_code"
+    ],
+    "normative_effect": "Codes S1–S6, SW1–SW2, SO, ST1–ST4 and SC1–SC4; external Table A mapping",
+    "implementation": "handoff",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-003",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.3",
+    "subject": "mechanism",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "oxygen_reaction"
+    ],
+    "normative_effect": "Oxidative reaction produces heat; induction time possible",
+    "implementation": "reference",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-004",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.4",
+    "subject": "named_entry_priority",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "named_entry_un",
+      "named_entry_verified"
+    ],
+    "normative_effect": "Named entries require verified Table A; general N.O.S. uses MTC 33.4 and more stringent experience",
+    "implementation": "gate",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-005",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(a)",
+    "subject": "positive_pyrophoric_solid",
+    "pathway": [
+      "pyrophoric_solid"
+    ],
+    "required_fields": [
+      "ignites_during_fall",
+      "ignition_seconds"
+    ],
+    "normative_effect": "N.2 ignition during 1 m fall or within 300 s => Class 4.2",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-006",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(b)(i)",
+    "subject": "positive_pyrophoric_liquid_carrier",
+    "pathway": [
+      "pyrophoric_liquid"
+    ],
+    "required_fields": [
+      "carrier_trials.ignition_seconds"
+    ],
+    "normative_effect": "N.3 inert-carrier ignition within 300 s => Class 4.2",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-007",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(b)(ii)",
+    "subject": "positive_pyrophoric_liquid_filter",
+    "pathway": [
+      "pyrophoric_liquid"
+    ],
+    "required_fields": [
+      "filter_trials.ignition_seconds",
+      "filter_trials.charring_seconds"
+    ],
+    "normative_effect": "After six negative carrier tests, filter-paper ignition OR charring within 300 s => Class 4.2",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-008",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(c)",
+    "subject": "positive_self_heating",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs[100@140]"
+    ],
+    "normative_effect": "100 mm cube, 140°C, ignition or sample >200°C within 24 h => 4.2 screen positive",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-009",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(c)",
+    "subject": "large_volume_reference",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "spontaneous_ignition_temperature_27m3_c"
+    ],
+    "normative_effect": "If temperature of spontaneous combustion >50°C for 27 m³, not Class 4.2",
+    "implementation": "external_expert",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-010",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(c) NOTE 1",
+    "subject": "package_exemption_3m3",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "package_volume_l",
+      "runs[100@120]"
+    ],
+    "normative_effect": "<=3000 L and negative 100 mm at 120°C (no ignition nor >180°C in 24 h) => class-scoped exemption",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-011",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(c) NOTE 2",
+    "subject": "package_exemption_450l",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "package_volume_l",
+      "runs[100@100]"
+    ],
+    "normative_effect": "<=450 L and negative 100 mm at 100°C (no ignition nor >160°C in 24 h) => class-scoped exemption",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-012",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.5(c) NOTE 3",
+    "subject": "organometallic_flow",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "organometallic"
+    ],
+    "normative_effect": "Apply 2.3.5 flowchart with competing 4.3/N.5, and N.1 if relevant",
+    "implementation": "handoff",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-013",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.6",
+    "subject": "mixtures",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "is_mixture",
+      "mixture_composition_verified",
+      "shipment_formulation_verified"
+    ],
+    "normative_effect": "Mixture actual hazard overrides named substance category, with 2.1.3 solutions/mixtures rules",
+    "implementation": "gate",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-014",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.7",
+    "subject": "named_negative_review",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "named_entry_un",
+      "named_entry_verified"
+    ],
+    "normative_effect": "Evidence may demonstrate named substance not subject to Class 4.2, but not automatic global declassification",
+    "implementation": "gate",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-015",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.8(a)",
+    "subject": "pg_pyrophoric",
+    "pathway": [
+      "pyrophoric_solid",
+      "pyrophoric_liquid"
+    ],
+    "required_fields": [
+      "N2_or_N3_positive"
+    ],
+    "normative_effect": "PG I candidate for pyrophoric, never final PG",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-016",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.8(b)",
+    "subject": "pg_self_heating_ii",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs[25@140]"
+    ],
+    "normative_effect": "25 mm cube 140°C ignition or temperature >200°C in 24 h => PG II candidate",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-017",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.8(b)",
+    "subject": "pg_ii_large_volume_reference",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "spontaneous_ignition_temperature_450l_c"
+    ],
+    "normative_effect": "If spontaneous combustion temperature >50°C for 450 L, not PG II",
+    "implementation": "external_expert",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-018",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.1.8(c)",
+    "subject": "pg_self_heating_iii",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs[100@140]",
+      "runs[25@140]",
+      "package_volume_l"
+    ],
+    "normative_effect": "100 mm 140°C positive and 25 mm 140°C negative => provisional PG III, subject to package exemptions",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-019",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.2",
+    "subject": "prohibition_3255",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "named_entry_un",
+      "named_entry_verified"
+    ],
+    "normative_effect": "UN 3255 tert-BUTYL HYPOCHLORITE not accepted for carriage",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-020",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.2",
+    "subject": "prohibition_3127",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "named_entry_un",
+      "oxidizing_confirmed",
+      "class1_requirements_met"
+    ],
+    "normative_effect": "Self-heating oxidizing solid at UN 3127 not accepted unless Class 1 requirements met (2.1.3.7)",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-021",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.2.42.3",
+    "subject": "collective_entries",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "organic_inorganic",
+      "physical_state",
+      "competing_evidence"
+    ],
+    "normative_effect": "S/SW/SO/ST/SC collective entries require Table A/precedence; never select a UN number here",
+    "implementation": "handoff",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-022",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.3.5 and Figure 2.3.5",
+    "subject": "organometallic_flowchart",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "organometallic",
+      "test_method"
+    ],
+    "normative_effect": "N.1–N.5 flowchart and 4.2/4.3/3 candidates deferred to integration",
+    "implementation": "handoff",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-023",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "2.1.3.10",
+    "subject": "multi_hazard_precedence",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "competing_evidence"
+    ],
+    "normative_effect": "Multiple hazard precedence decision belongs to Lead Agent, no local final class",
+    "implementation": "handoff",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-024",
+    "edition": "ADR 2025, ECE/TRANS/352, Vol. I (English, 2024 printing)",
+    "clause": "3.2.1 and 3.3.1",
+    "subject": "table_a_sp",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "table_a_candidates",
+      "special_provision_outcomes"
+    ],
+    "normative_effect": "Exact row, PG column 4, naming, SPs required before assignment",
+    "implementation": "handoff",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-025",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.1.1–33.4.2.1",
+    "subject": "mtc_scope",
+    "pathway": [
+      "all"
+    ],
+    "required_fields": [
+      "test_method",
+      "protocol_conformant"
+    ],
+    "normative_effect": "Test-method physical applicability; impracticability requires expert decision",
+    "implementation": "gate",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-026",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.4.1–33.4.4.3",
+    "subject": "n2_setup",
+    "pathway": [
+      "pyrophoric_solid"
+    ],
+    "required_fields": [
+      "trials.quantity_ml",
+      "trials.drop_about_1m_verified"
+    ],
+    "normative_effect": "N.2 1–2 mL powder from ~1 m on non-combustible surface; six runs unless earlier positive",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-027",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.4.4",
+    "subject": "n2_decision",
+    "pathway": [
+      "pyrophoric_solid"
+    ],
+    "required_fields": [
+      "trials.ignites_during_fall",
+      "trials.ignition_seconds"
+    ],
+    "normative_effect": "Any single ignition in six trials => pyrophoric solid, PG I",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-028",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.5.2–33.4.5.3.1",
+    "subject": "n3_carrier_setup",
+    "pathway": [
+      "pyrophoric_liquid"
+    ],
+    "required_fields": [
+      "carrier_trials"
+    ],
+    "normative_effect": "~100 mm cup; diatomaceous earth/silica gel ~5 mm; ~5 mL liquid at room temperature; 6 trials unless positive",
+    "implementation": "protocol_attestation",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-029",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.5.3.2",
+    "subject": "n3_filter_setup",
+    "pathway": [
+      "pyrophoric_liquid"
+    ],
+    "required_fields": [
+      "filter_trials"
+    ],
+    "normative_effect": "0.5 mL on new dry indented filter; 25±2°C, RH 50±5%; three trials unless earlier positive",
+    "implementation": "implemented_and_attested",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-030",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.5.4",
+    "subject": "n3_decision",
+    "pathway": [
+      "pyrophoric_liquid"
+    ],
+    "required_fields": [
+      "carrier_trials",
+      "filter_trials"
+    ],
+    "normative_effect": "Any carrier ignition or filter ignition/charring in <=5 min => pyrophoric liquid PG I",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-031",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.6.1–33.4.6.2",
+    "subject": "n4_hardware",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "protocol_conformant"
+    ],
+    "normative_effect": "Oven >9 L at setpoint ±2°C, 25/100 mm stainless 0.05 mm open-top mesh, 0.3 mm thermocouples, specified mesh covers",
+    "implementation": "protocol_attestation",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-032",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.6.3",
+    "subject": "n4_sample",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "sample_form",
+      "shipment_formulation_verified",
+      "runs"
+    ],
+    "normative_effect": "Powder/granular commercial form tapped to brim, continuously monitored at 140°C for 24 h; first 25 mm allowed",
+    "implementation": "implemented_and_attested",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-033",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.6.4.1",
+    "subject": "n4_cutoff",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs.oven_actual_c",
+      "runs.max_sample_c",
+      "runs.spontaneous_ignition"
+    ],
+    "normative_effect": "Positive if ignition or actual sample temperature exceeds oven by 60°C within 24 h; contradictory nominal ADR boundary blocks",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-034",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.6.4.2(a)-(c)",
+    "subject": "n4_negative",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs",
+      "package_volume_l"
+    ],
+    "normative_effect": "No self-heating on 100@140 negative; or package-based 100@120/100 negative with 25@140 negative",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-035",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.6.4.3 and footnote to 33.4.6.3",
+    "subject": "n4_pgii",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs[25@140]"
+    ],
+    "normative_effect": "Positive 25@140 PG II even when tested before 100@140",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  },
+  {
+    "rule_id": "ADR25-C42-42-036",
+    "edition": "UN Manual of Tests and Criteria, ST/SG/AC.10/11/Rev.8 (2023), Part III",
+    "clause": "33.4.6.4.4(a)-(c)",
+    "subject": "n4_pgiii",
+    "pathway": [
+      "self_heating"
+    ],
+    "required_fields": [
+      "runs[100@140]",
+      "runs[25@140]",
+      "runs[100@120]",
+      "runs[100@100]"
+    ],
+    "normative_effect": "PG III with 100@140 positive, 25@140 negative, and volume-specific positive/large-volume conditions",
+    "implementation": "implemented",
+    "class_candidate_only": true,
+    "source_authentication": "supplied official English edition",
+    "review_status": "unreviewed",
+    "requires_independent_review": true
+  }
+]
