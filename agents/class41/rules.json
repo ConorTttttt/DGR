@@ -538,7 +538,7 @@
             "value": "OP2"
           },
           {
-            "field": "sample_quantity_kg",
+            "field": "sample_quantity_per_transport_unit_kg",
             "op": "<=",
             "value": 10,
             "unit": "kg"
