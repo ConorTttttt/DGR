@@ -1,0 +1,362 @@
+{
+  "module_id": "agent6.adr2025.class43.v0.1.0",
+  "regulatory_baseline": "ADR 2025 ECE/TRANS/352 English",
+  "review_status": "provisional",
+  "source_documents": [
+    {
+      "id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "title": "ADR 2025 Volume I, English",
+      "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+      "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+      "primary_pages_pdf": [
+        185,
+        186,
+        187
+      ],
+      "printed_pages": [
+        165,
+        166,
+        167
+      ]
+    },
+    {
+      "id": "ADR2025_ECE_TRANS_352_VOL_II",
+      "title": "ADR 2025 Volume II, English (downstream packing/release dependencies)",
+      "file": "2412010_E_ECE_TRANS_352_Vol.II_WEB.pdf",
+      "sha256": "702d0ae5737d3bd228e0b332352deda626018ac9841339c0eca67e4209953f4b"
+    },
+    {
+      "id": "UN_MTC_REV8_PART_III",
+      "title": "UN Manual of Tests and Criteria, Revision 8, Part III, Section 33.5",
+      "file": "ST_SG_AC.10_11_Rev.8e_WEB.pdf",
+      "sha256": "d892df851727dd1cd06cf87ff02811f5b66e1f2133524e51a7c9873e65c6d533",
+      "primary_pages_pdf": [
+        391,
+        392,
+        393
+      ],
+      "printed_pages": [
+        383,
+        384,
+        385
+      ]
+    },
+    {
+      "id": "UN_MTC_REV8_AMEND1",
+      "title": "UN Manual of Tests and Criteria Rev.8 Amendment 1",
+      "file": "ST-SG-AC10-11-Rev8-Amend1e(1).pdf",
+      "sha256": "534abc4b5ecdd56d615e0fa16fb38bccfc580129772f71443a2a2c892188a0db",
+      "note": "Local full-text scan found no explicit §33.5/N.5 amendment; independent amendment review remains pending"
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "ADR43-001",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "eligibility",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.1",
+      "description": "Class scope: flammable gases on contact with water and articles containing such substances",
+      "effect": "candidate_only",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-002",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "classification_codes",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.2",
+      "description": "Codes W1,W2,W3,WF1,WF2,WS,WO,WT1,WT2,WC1,WC2,WFC; code selection deferred to Table A and precedence",
+      "effect": "defer",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-003",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "test_method_exclusion",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.3",
+      "description": "Test method shall not be applied to pyrophoric substances; fail closed",
+      "effect": "method_invalid",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-004",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "test_route",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.4",
+      "description": "Unnamed substances: Part III §33.5 test N.5; Table A and Ch2.1 needed",
+      "effect": "evaluate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-005",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "experience_override",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.4",
+      "description": "Experience producing more stringent assignment must be taken into account",
+      "effect": "expert_review",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-006",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "class_positive",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.5(a)",
+      "description": "Spontaneous ignition of gas at ANY procedure step makes Class 4.3 criterion met",
+      "effect": "positive",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-007",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "class_positive",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.5(b)",
+      "description": "Flammable gas >1 L/kg/h is Class 4.3; equality at 1 is NOT positive",
+      "effect": "positive",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-008",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "mixtures",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.6",
+      "description": "Mixture actual degree of danger; sample must represent whole commercial mixture; Chapter 2.1.3 review",
+      "effect": "conditional",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-009",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "named_entry_reassessment",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.7",
+      "description": "N.5 can show named substance not subject to THIS class; never infer global non-regulation",
+      "effect": "class_scope_only",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-010",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "pg_I",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.8(a)",
+      "description": "Vigorous ambient water reaction plus general spontaneous-ignition tendency qualifies candidate PG I",
+      "effect": "positive_candidate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-011",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "pg_I",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.8(a)",
+      "description": "One-minute flammable gas >=10 L/kg over ANY one-minute interval qualifies candidate PG I",
+      "effect": "positive_candidate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-012",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "pg_II",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.8(b)",
+      "description": "Readily reacts; max flammable gas rate >=20 L/kg/h; PG I demonstrably not met",
+      "effect": "positive_candidate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-013",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "pg_III",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.1.8(c)",
+      "description": "Slow reaction; max flammable gas rate >1 L/kg/h; PG I/II demonstrably not met",
+      "effect": "positive_candidate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-014",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "carriage_prohibition",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.2",
+      "description": "Water-reactive oxidizing solids actually assigned UN 3133 not accepted for carriage unless Class 1 requirements met",
+      "effect": "prohibition_gate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-015",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "collective_entries",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.2.43.3",
+      "description": "Potential named/generic entries and footnotes a/b/c; no standalone UN selection",
+      "effect": "defer",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-016",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "organometallic",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.3.5 and Figure 2.3.5",
+      "description": "Organometallic Class 4.2/4.3 depends on N.1-N.5 flow chart, co-hazards, form and diluent",
+      "effect": "expert_review",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-017",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "mixture_named",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.1.3.3(a)-(d)",
+      "description": "Predominant named substance mixture exceptions; assignment delegated",
+      "effect": "defer",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-018",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "mixture_multiple_hazards",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.1.3.5.3–2.1.3.5.4 and 2.1.3.10",
+      "description": "Precedence of hazards requires integration agent",
+      "effect": "defer",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-019",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "waste_exclusion",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.1.3.5.5",
+      "description": "Waste default PG II exception MUST NOT be used for substances of Class 4.3",
+      "effect": "prohibition_gate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "ADR43-020",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "oxidizing_mixture",
+      "source_id": "ADR2025_ECE_TRANS_352_VOL_I",
+      "clause": "2.1.3.7",
+      "description": "Oxidizing solutions/mixtures with explosive properties restricted; Class 1 consultation",
+      "effect": "expert_review",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-021",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "sample_conditions",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.3.1",
+      "description": "Solids/liquids, commercial form, 20°C; Manual nitrogen pathway for pyrophorics conflicts with ADR 2.2.43.1.3",
+      "effect": "conditional",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-022",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "preliminary_tests",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.3.1–33.5.4.3.4",
+      "description": "Trough, filter paper, 20 mm pile with distilled water; gas and spontaneous ignition observed; early stop on ignition",
+      "effect": "evaluate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-023",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "terminal_skip",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.3.1",
+      "description": "Known not violent with water permits moving directly to terminal stage; documentary support required",
+      "effect": "conditional",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-024",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "sample_preparation",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.3.5",
+      "description": "Solid fines <500 μm exceeding 1 mass-% OR friable: grind whole sample; equality 1% no grinding requirement",
+      "effect": "evaluate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-025",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "repetitions",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.3.5",
+      "description": "3 runs, atmospheric pressure, 20°C, <=25 g and target 100–250 ml gas; hourly readings",
+      "effect": "evaluate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-026",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "trend_extension",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.3.5",
+      "description": "Measure rate 7h in 1h intervals; extend erratic or increasing rate up to 5 days, stop earlier only with sufficient steady/decreasing data",
+      "effect": "conditional",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-027",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "flammability_unknown",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.3.5",
+      "description": "If gas chemical identity unknown, gas shall be tested for flammability; no unknown-as-negative shortcut",
+      "effect": "evidence_gate",
+      "validation": "provisional_not_independently_reviewed"
+    },
+    {
+      "rule_id": "MTC43-028",
+      "version": "0.1.0",
+      "owner": "Agent6",
+      "rule_kind": "criteria",
+      "source_id": "UN_MTC_REV8_PART_III",
+      "clause": "33.5.4.4.1–33.5.4.4.4",
+      "description": "Manual mirrors class and PG thresholds in ADR 2.2.43.1.5 and 2.2.43.1.8",
+      "effect": "verification",
+      "validation": "provisional_not_independently_reviewed"
+    }
+  ]
+}

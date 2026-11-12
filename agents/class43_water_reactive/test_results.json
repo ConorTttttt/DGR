@@ -1,0 +1,47 @@
+{
+  "module_id": "agent6.adr2025.class43.v0.1.0",
+  "test_framework": "node:test / node:assert",
+  "test_file": "agents/class43_water_reactive/classify.test.js",
+  "standalone_test_cases_written": 43,
+  "standalone_test_run": {
+    "executed": false,
+    "passed": null,
+    "failed": null,
+    "reason": "No authenticated Node CI or GitHub workflow execution was available in this session. Do NOT label this file's tests as passed."
+  },
+  "developmental_direct_checks": {
+    "execution_environment": "isolated V8 JavaScript function invocation through the assistant's connected tooling",
+    "result": {
+      "passed": 28,
+      "failed": 0,
+      "total": 28
+    },
+    "scope": "Earlier prototype implementation before later exact-decimal comparison, contradiction guard and independent PG-I limb changes. These are not passing results for the final committed source or the submitted Node suite."
+  },
+  "regulatory_independent_review": {
+    "completed": false
+  },
+  "fixtures": "All inputs are synthetic, not independently authenticated laboratory results. Placeholder synthetic:// locators and placeholder SHA-256 in tests are not actual evidence.",
+  "coverage_topics": [
+    "class >1 / =1 / below1 L/kg/h",
+    "PG I >=10 L/kg during one minute",
+    "PG II >=20 L/kg/h",
+    "PG III >1 L/kg/h",
+    "fixed-point arbitrary precision edge cases",
+    "gas flammability unknown/nonflammable/absent",
+    "spontaneous gas ignition vs PG I limb",
+    "pyrophoric ADR/MTC conflict",
+    "particle fines >1 mass % and friability",
+    "7h rates and extension to up to five days",
+    "three tests and 25g/100-250ml setup",
+    "whole-mixture route and article rejection",
+    "report provenance and contradictory evidence",
+    "carriage restriction/oxidizer referral"
+  ],
+  "next_required_commands": [
+    "node --test agents/class43_water_reactive/classify.test.js",
+    "node --check agents/class43_water_reactive/classify.js",
+    "node --check agents/class43_water_reactive/classify.test.js"
+  ],
+  "release_status": "BLOCKED; draft/provisional pending independent regulatory and software review"
+}
