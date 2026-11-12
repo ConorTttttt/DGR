@@ -14,7 +14,7 @@
 
 Run: `cd agents/class41 && python -m unittest -v test_class41`.
 
-Local baseline: **10 test methods / 77 scenario checks, passing**, prior to GitHub PR creation. All tests use fabricated input evidence; they are not independent chemical test validation.
+Local baseline: **10 test methods / 80 scenario checks, passing**, prior to GitHub PR creation. All tests use fabricated input evidence; they are not independent chemical test validation.
 
 ## Authority and edition
 
