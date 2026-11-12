@@ -3,8 +3,8 @@
   "date_utc": "2026-11-12",
   "branch": "agent7/adr2025-class51-oxidizers",
   "source_of_truth": "agents/class51_oxidizers/classify.test.js",
-  "test_groups": 23,
-  "passed": 23,
+  "test_groups": 24,
+  "passed": 24,
   "failed": 0,
   "execution_environment": "V8 sandbox; node:test/node:assert/strict compatibility shim run against exact GitHub-fetched class51 source and test file",
   "limitations": [
@@ -21,7 +21,8 @@
     "chemical incompatibility/prohibited identity and concentration boundaries",
     "solid AN fertilizer Section39 exits including terminal-vs-connector and mismatch",
     "mixture formulation evidence, missingness, GHS shortcut and explosive/class1 referral",
-    "Lead-style status/candidate scaffolding and perpetual assignment blockade"
+    "Lead-style status/candidate scaffolding and perpetual assignment blockade",
+    "identity-specific absent stabilization, acid concentration, nitrate combustible fraction and nonsolid fertilizer guards"
   ],
   "independent_review": false
 }
