@@ -9,7 +9,7 @@ This Agent 3 workstream implements narrowly scoped deterministic evidence-to-can
 - Regulatory edition: **ADR 2025**, applicable from 1 January 2025.
 - Document: **ECE/TRANS/352 (Vol. I)**, Parts 2–3, [UNECE official PDF](https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf); [UNECE ADR 2025 portal and corrigenda](https://unece.org/adr-2025-files).
 - Chapters: 2.2.3 (Class 3), 2.2.61 (Class 6.1), 2.2.8 (Class 8), 2.2.9 (Class 9); 2.1.3.10 (hazard precedence); 3.2 (named entries) and 3.3 (special provisions) are not implemented in this module.
-- Supporting test procedures: UN Manual of Tests and Criteria, Rev. 8, **ST/SG/AC.10/11/Rev.8** (2023), including §32.2.5 (sustained combustibility) and §37 (metal corrosion). These testing procedures do not replace ADR transport classification criteria.
+- Supporting test procedures: UN Manual of Tests and Criteria, Rev. 8, **ST/SG/AC.10/11/Rev.8** (2023), including §§32.2.5 and 32.5.2 (sustained combustibility, with L.2/ISO 2592/miscible-water alternatives) and §37 (metal corrosion). These testing procedures do not replace ADR transport classification criteria.
 - **Corrigendum review needed**: UNECE lists ECE/TRANS/352/Corr.1 and Corr.2. Individual reviewed rule source clauses are edition-pinned to 2025, but corrigenda impact assessment and independent legal QA remain a release gate.
 
 ## Temporary interface pending Lead Agent schema
