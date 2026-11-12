@@ -37,12 +37,31 @@ def evaluate(e):
         return decide(c, 'criteria_not_met', rule, ['2.2.3.1.1'],
                       notes=['Only standard Class 3 flammability criterion excluded; other ADR classes still require assessment.'])
     if fp > 35 and e.get('sustains_combustion') is False and not heated:
-        if e.get('sustained_combustion_test_method') != 'UN_MTC_32.2.5' or not e.get('sustained_combustion_evidence_id'):
+        # UN Manual of Tests and Criteria Rev.8, 32.2.5 provides alternative
+        # evidence bases. ADR 2.2.3.1.1 NOTE 1 is the governing exception.
+        basis=e.get('non_sustained_combustion_basis')
+        ref=e.get('sustained_combustion_evidence_id')
+        if not isinstance(ref,str) or not ref.strip():
             return blocked(c, 'ADR25-C3-005', ['2.2.3.1.1 NOTE 1'],
-                           'documented_sustained_combustion_test_UN_MTC_32.2.5')
+                           'documented_sustained_combustion_evidence_id')
+        if basis == 'UN_MTC_L2_negative':
+            proven=e.get('sustained_combustion_test_result') == 'negative'
+        elif basis == 'ISO_2592_fire_point':
+            proven=numeric(e.get('fire_point_c'),allow_zero=True) and e['fire_point_c'] > 100
+        elif basis == 'miscible_water_content':
+            proven=(e.get('miscible_solution') is True and
+                    numeric(e.get('water_content_mass_percent'),allow_zero=True) and
+                    90 < e['water_content_mass_percent'] <= 100)
+        else:
+            proven=False
+        if not proven:
+            return blocked(c, 'ADR25-C3-005', ['2.2.3.1.1 NOTE 1'],
+                           'supported_negative_combustibility_evidence_32.2.5')
         return decide(c, 'criteria_not_met', 'ADR25-C3-005',
                       ['2.2.3.1.1 NOTE 1'],
-                      notes=['Requires evidenced non-sustained-combustion determination according to MTC 32.2.5. Other classes remain open.'])
+                      notes=['Non-sustained combustibility evidenced under UN MTC Rev.8 32.2.5 '
+                             '(L.2 32.5.2, ISO 2592 fire point, or miscible water content). '
+                             'Other classes and named entries remain open.'])
     if e['physical_state'] != 'liquid':
         return blocked(c, rule, clauses, 'liquid_state_under_ADR_1.2.1',
                        notes=['Molten solids require separate heated carriage / Table A handling.'])
