@@ -54,7 +54,7 @@ class TestClass3(unittest.TestCase):
         r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=85,diesel_gasoil_light_heating_oil=True))
         self.assertEqual(r['candidate_data']['named_un_candidate'],'1202')
     def test_heated(self):
-        r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=100,carried_at_or_above_flash_point=True))
+        r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=100,carried_at_or_above_flash_point=True,carriage_temperature_c=100))
         self.assertEqual(r['candidate_data']['named_un_candidate'],'3256')
     def test_sustained_combustion_exception(self):
         r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=40,sustains_combustion=False,
