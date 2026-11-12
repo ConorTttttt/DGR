@@ -25,8 +25,8 @@ Official editions are available through the UNECE ADR and Tests and Criteria pag
 - \`classify.js\`: pure deterministic candidate evaluator, fail-closed exceptions and normalized Lead-style output.
 - \`rule_register.json\`: 37 individually referenced provisional rules, 28 evidence-field requirements, reference materials, method conditions and required downstream checks.
 - \`exceptions.json\`: 39 prohibited, special, incomplete and unsupported pathways.
-- \`classify.test.js\`: 23 synthetic test groups with boundary, contradiction, mixture, fertilizer and missing-evidence cases.
-- \`test_results.json\`: execution scope and 23/23 passing V8 fixture results, **not** independent Node/CI/regulatory validation.
+- \`classify.test.js\`: 24 synthetic test groups with boundary, contradiction, mixture, fertilizer and missing-evidence cases.
+- \`test_results.json\`: execution scope and 24/24 passing V8 fixture results, **not** independent Node/CI/regulatory validation.
 - \`HANDOVER.md\`: Lead Agent integration and review instructions.
 
 ## Entry point
