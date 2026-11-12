@@ -3,7 +3,7 @@
   "module": "ADR25_CLASS41",
   "author_role": "Agent 4 - Class 4.1 specialist",
   "reviewed": false,
-  "execution_semantics": "AND/OR/eq/ne/lt/lte/gt/gte/one_of/contains; evaluator class41.py is executable reference, not a generic JSON interpreter",
+  "execution_semantics": "predicates record executable comparator bounds and operator groupings; evaluation order and missingness are implemented in class41.py; this JSON is NOT an independently approved generic rules interpreter",
   "sources": [
     {
       "id": "ADR25",
@@ -145,5 +145,669 @@
     "7.1.7 temperature control",
     "2.1.3 multiple hazards"
   ],
-  "corrigenda_review": "ADR 2025 Corr.1/Corr.2 not reconciled by this specialist; independent review required before regulatory release"
+  "corrigenda_review": "ADR 2025 Corr.1/Corr.2 not reconciled by this specialist; independent review required before regulatory release",
+  "rules": [
+    {
+      "id": "F01",
+      "pathway": "combustible_solid",
+      "predicate": {
+        "any": [
+          {
+            "field": "burning_time_100mm_s",
+            "op": "<",
+            "value": 45,
+            "unit": "s"
+          },
+          {
+            "field": "burning_rate_mm_s",
+            "op": ">",
+            "value": 2.2,
+            "unit": "mm/s"
+          }
+        ]
+      },
+      "result": "criteria_met",
+      "clause": "2.2.41.1.5(a); MTC III 33.2.4.4.1",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "F02",
+      "pathway": "combustible_solid",
+      "predicate": {
+        "all": [
+          {
+            "field": "burning_time_100mm_s",
+            "op": "<",
+            "value": 45
+          },
+          {
+            "field": "wetted_zone",
+            "op": "=",
+            "value": "passes"
+          }
+        ]
+      },
+      "result": "PG_II_candidate",
+      "clause": "2.2.41.1.8(a); MTC 33.2.4.4.2",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "F03",
+      "pathway": "combustible_solid",
+      "predicate": {
+        "all": [
+          {
+            "field": "burning_time_100mm_s",
+            "op": "<",
+            "value": 45
+          },
+          {
+            "field": "wetted_zone",
+            "op": "=",
+            "value": "stops_at_least_4min"
+          }
+        ]
+      },
+      "result": "PG_III_candidate",
+      "clause": "2.2.41.1.8(a); MTC 33.2.4.4.3",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "F04",
+      "pathway": "combustible_solid",
+      "predicate": {
+        "field": "screening_propagates_200mm",
+        "op": "=",
+        "value": false
+      },
+      "result": "criteria_not_met_pathway_only",
+      "clause": "MTC III 33.2.4.3.1",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "F05",
+      "pathway": "combustible_solid",
+      "predicate": {
+        "all": [
+          {
+            "field": "organic",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "documented_experience_positive",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": "class_candidate_without_PG",
+      "clause": "2.2.41.1.4",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "F06",
+      "pathway": "friction_solid",
+      "predicate": {
+        "all": [
+          {
+            "field": "friction_fire_hazard_confirmed",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "analogy_or_special_provision_verified",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": "class_candidate_PG_via_external_analogy",
+      "clause": "2.2.41.1.5; 2.2.41.1.8",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "M01",
+      "pathway": "metal_powder",
+      "predicate": {
+        "all": [
+          {
+            "field": "ignited",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "full_length_reaction_min",
+            "op": "<=",
+            "value": 10,
+            "unit": "min"
+          }
+        ]
+      },
+      "result": "criteria_met",
+      "clause": "2.2.41.1.5(b); MTC III 33.2.4.4.1",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "M02",
+      "pathway": "metal_powder",
+      "predicate": {
+        "field": "full_length_reaction_min",
+        "op": "<=",
+        "value": 5,
+        "unit": "min"
+      },
+      "result": "PG_II_candidate",
+      "clause": "2.2.41.1.8(b); MTC III 33.2.4.4.2",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "M03",
+      "pathway": "metal_powder",
+      "predicate": {
+        "all": [
+          {
+            "field": "full_length_reaction_min",
+            "op": ">",
+            "value": 5
+          },
+          {
+            "field": "full_length_reaction_min",
+            "op": "<=",
+            "value": 10
+          }
+        ]
+      },
+      "result": "PG_III_candidate",
+      "clause": "2.2.41.1.8(b); MTC III 33.2.4.4.3",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "M04",
+      "pathway": "metal_powder",
+      "predicate": {
+        "field": "competing_transport_hazard_classes",
+        "op": "intersects",
+        "value": [
+          "4.2",
+          "4.3"
+        ]
+      },
+      "result": "external_class_review",
+      "clause": "2.2.41.3 footnotes (a)-(c)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S01",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "heat_of_decomposition_j_g",
+        "op": "<",
+        "value": 300,
+        "unit": "J/g"
+      },
+      "result": "criteria_not_met_pathway_only",
+      "clause": "2.2.41.1.9(d)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S02",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "sadt_50kg_c",
+        "op": ">",
+        "value": 75,
+        "unit": "°C"
+      },
+      "result": "criteria_not_met_pathway_only",
+      "clause": "2.2.41.1.9(e)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S03",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "class1_explosive",
+        "op": "=",
+        "value": true
+      },
+      "result": "excluded_Class1",
+      "clause": "2.2.41.1.9(a)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S04",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "class5_2_organic_peroxide",
+        "op": "=",
+        "value": true
+      },
+      "result": "excluded_Class5_2",
+      "clause": "2.2.41.1.9(c)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S05",
+      "pathway": "self_reactive",
+      "predicate": {
+        "all": [
+          {
+            "field": "class5_1_oxidizer",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "is_mixture",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "combustible_organic_mass_pct",
+            "op": ">=",
+            "value": 5,
+            "unit": "% by mass"
+          }
+        ]
+      },
+      "result": "class4_1_selfreactive_test_type_exception",
+      "clause": "2.2.41.1.9 note 2",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S06",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "self_reactive_type",
+        "op": "=",
+        "value": "A"
+      },
+      "result": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3; MTC II 20.4.2(a)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S07",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "self_reactive_type",
+        "op": "=",
+        "value": "G"
+      },
+      "result": "criteria_not_met_pathway_only",
+      "clause": "2.2.41.1.11; MTC II 20.4.2(g)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S08",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "self_reactive_type",
+        "op": "in",
+        "value": [
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "result": "type_class_candidate_without_PG",
+      "clause": "2.2.41.1.11–2.2.41.1.13; MTC II 20.4.2",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S09",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "sadt_offered_package_c",
+        "op": "<=",
+        "value": 55,
+        "unit": "°C"
+      },
+      "result": "SR2_temperature_control",
+      "clause": "2.2.41.1.17",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S10",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "sadt_offered_package_c",
+        "op": ">",
+        "value": 55,
+        "unit": "°C"
+      },
+      "result": "SR1",
+      "clause": "2.2.41.1.17",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S11",
+      "pathway": "self_reactive",
+      "predicate": {
+        "all": [
+          {
+            "field": "exact_listed_formulation_verified",
+            "op": "is_not_true"
+          },
+          {
+            "field": "competent_authority_approval_verified",
+            "op": "is_not_true"
+          }
+        ]
+      },
+      "result": "requires_authority",
+      "clause": "2.2.41.1.12–2.2.41.1.13",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S12",
+      "pathway": "self_reactive",
+      "predicate": {
+        "all": [
+          {
+            "field": "sample_no_more_dangerous_than_type_B",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "sample_packing_method",
+            "op": "=",
+            "value": "OP2"
+          },
+          {
+            "field": "sample_quantity_kg",
+            "op": "<=",
+            "value": 10,
+            "unit": "kg"
+          },
+          {
+            "field": "sample_temperature_conditions_adequate",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": "requires_expert_decision_typeC_sample",
+      "clause": "2.2.41.1.15",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S13",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "activator_changes_properties",
+        "op": "=",
+        "value": true
+      },
+      "result": "formulation_reassessment",
+      "clause": "2.2.41.1.14",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S14",
+      "pathway": "self_reactive",
+      "predicate": {
+        "field": "diluent_used",
+        "op": "=",
+        "value": true
+      },
+      "result": "test_as_shipped_and_verify_compatibility",
+      "clause": "2.2.41.1.16",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "S15",
+      "pathway": "self_reactive",
+      "predicate": {
+        "all": [
+          {
+            "field": "liquid_diluent",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "temperature_control_required",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": "boiling_gte_60C_flash_gte_5C_boiling_gte_control_plus_50C",
+      "clause": "2.2.41.1.16",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "D01",
+      "pathway": "solid_desensitized_explosive",
+      "predicate": {
+        "field": "exact_table_a_entry_verified",
+        "op": "=",
+        "value": false
+      },
+      "result": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "D02",
+      "pathway": "solid_desensitized_explosive",
+      "predicate": {
+        "field": "exact_table_a_entry_verified",
+        "op": "=",
+        "value": true
+      },
+      "result": "class_candidate_pg_from_table_A_only",
+      "clause": "2.2.41.1.18; MTC III 33.3",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "R01",
+      "pathway": "related_self_reactive",
+      "predicate": {
+        "all": [
+          {
+            "field": "series_1_2_provisionally_class1",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "series_6_exempted_class1",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "not_self_reactive",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "not_class_5_1",
+            "op": "=",
+            "value": true
+          },
+          {
+            "field": "not_class_5_2",
+            "op": "=",
+            "value": true
+          }
+        ]
+      },
+      "result": "class_candidate_pg_from_table_A_only",
+      "clause": "2.2.41.1.19; MTC I test series 1,2,6",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "P01",
+      "pathway": "polymerizing",
+      "predicate": {
+        "all": [
+          {
+            "field": "sapt_c",
+            "op": "<=",
+            "value": 75,
+            "unit": "°C"
+          },
+          {
+            "field": "heat_of_reaction_j_g",
+            "op": ">",
+            "value": 300,
+            "unit": "J/g"
+          },
+          {
+            "field": "other_classes_1_to_8",
+            "op": "=",
+            "value": "cleared"
+          }
+        ]
+      },
+      "result": "criteria_met",
+      "clause": "2.2.41.1.20; MTC II 20.4.4",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "P02",
+      "pathway": "polymerizing",
+      "predicate": {
+        "all": [
+          {
+            "field": "container_kind",
+            "op": "in",
+            "value": [
+              "packaging",
+              "IBC"
+            ]
+          },
+          {
+            "field": "sapt_c",
+            "op": "<=",
+            "value": 50,
+            "unit": "°C"
+          }
+        ]
+      },
+      "result": "PM2_temperature_control",
+      "clause": "2.2.41.1.21(a)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "P03",
+      "pathway": "polymerizing",
+      "predicate": {
+        "all": [
+          {
+            "field": "container_kind",
+            "op": "=",
+            "value": "tank"
+          },
+          {
+            "field": "sapt_c",
+            "op": "<=",
+            "value": 45,
+            "unit": "°C"
+          }
+        ]
+      },
+      "result": "PM2_temperature_control",
+      "clause": "2.2.41.1.21(b)",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "P04",
+      "pathway": "polymerizing",
+      "predicate": {
+        "field": "other_classes_1_to_8",
+        "op": "=",
+        "value": "meets"
+      },
+      "result": "external_class_review_SP386",
+      "clause": "2.2.41.1.21 note; 3.3.1 SP386",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "X01",
+      "pathway": "all",
+      "predicate": {
+        "field": "dangerous_instability",
+        "op": "=",
+        "value": true
+      },
+      "result": "must_prevent_dangerous_reaction",
+      "clause": "2.2.41.2.1",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "X02",
+      "pathway": "all",
+      "predicate": {
+        "field": "phosphorus_sulphide_not_free_from_yellow_white_phosphorus",
+        "op": "=",
+        "value": true
+      },
+      "result": "not_accepted_for_carriage",
+      "clause": "2.2.41.2.3",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "X03",
+      "pathway": "all",
+      "predicate": {
+        "field": "inorganic_flammable_molten",
+        "op": "=",
+        "value": true
+      },
+      "result": "not_accepted_unless_UN2448_exception_verified",
+      "clause": "2.2.41.2.3",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    },
+    {
+      "id": "X04",
+      "pathway": "all",
+      "predicate": {
+        "field": "flammable_solid_oxidizing_un3097",
+        "op": "=",
+        "value": true
+      },
+      "result": "not_accepted_unless_Class1_requirements_verified",
+      "clause": "2.2.41.2.2",
+      "source_edition": "ADR 2025 ECE/TRANS/352 Vol. I; MTC Rev.8 where cited",
+      "provisional": true
+    }
+  ]
 }
