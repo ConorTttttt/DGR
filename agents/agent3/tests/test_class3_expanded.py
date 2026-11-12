@@ -75,7 +75,7 @@ class TestClass3Expanded(unittest.TestCase):
             diesel_gasoil_light_heating_oil=True)['candidate_data']['named_un_candidate'],'1202')
         self.assertEqual(classify(flash_point_c=100.001,
             diesel_gasoil_light_heating_oil=True)['status'],'criteria_not_met')
-        self.assertEqual(classify(flash_point_c=105,carried_at_or_above_flash_point=True)
+        self.assertEqual(classify(flash_point_c=105,carried_at_or_above_flash_point=True,carriage_temperature_c=105)
             ['candidate_data']['named_un_candidate'],'3256')
 
     def test_peroxide_and_instability(self):
