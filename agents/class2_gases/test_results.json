@@ -3,11 +3,11 @@
   "execution_date_utc": "2026-11-12",
   "status": "SYNTHETIC_REGRESSION_ONLY_PROVISIONAL",
   "execution_environment": "Authenticated GitHub source loaded into isolated V8; Node built-in tests invoked with equivalent minimal assertion/test shims (NOT a Node.js process, NOT GitHub CI)",
-  "code_blob_sha": "1c34aa70115542e0edeced915b2ac825e22a908c",
-  "test_blob_sha": "fb2abe70376916a87b98c394ee52d11d9b6f5b60",
+  "code_blob_sha": "123617b7ff821afc91d810bb501b48399a436f6b",
+  "test_blob_sha": "0b0ca2453fd545b3420a0a047bc3ac099b54f36e",
   "counts": {
-    "executed": 48,
-    "passed": 48,
+    "executed": 50,
+    "passed": 50,
     "failed": 0
   },
   "passed_case_names": [
@@ -58,7 +58,9 @@
     "chemical under pressure uses ADR code 8FC",
     "chemical packaged in aerosol dispenser is rerouted",
     "gas cartridge uses fixed ADR classification code 5 when eligible",
-    "dissolved gas code is 4, not 4F"
+    "dissolved gas code is 4, not 4F",
+    "explicitly negative oxidation and toxicity preserved as negative findings",
+    "missing oxidation is not recorded as a negative finding"
   ],
   "failed_tests": [],
   "assertions": [
@@ -70,7 +72,8 @@
     "missing evidence blockers",
     "threshold boundary",
     "named exclusions",
-    "fixed Class 2 codes"
+    "fixed Class 2 codes",
+    "negative findings distinct from unknown"
   ],
   "limitations": [
     "Not independent regulatory validation",
