@@ -51,13 +51,29 @@ class TestClass3(unittest.TestCase):
         self.assertEqual(r['candidate_data']['named_un_candidate'],'3256')
     def test_sustained_combustion_exception(self):
         r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=40,sustains_combustion=False,
-                                     sustained_combustion_test_method='UN_MTC_32.2.5',
+                                     non_sustained_combustion_basis='UN_MTC_L2_negative',
+                                     sustained_combustion_test_result='negative',
                                      sustained_combustion_evidence_id='TEST-SC-001'))
         self.assertEqual(r['rule_id'],'ADR25-C3-005')
         self.assertEqual(r['status'],'criteria_not_met')
     def test_unsubstantiated_non_sustain_cannot_grant_exception(self):
         r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=40,sustains_combustion=False))
         self.assertEqual(r['status'],'indeterminate')
+
+    def test_non_sustain_iso_2592_fire_point_method(self):
+        for fire_point,expected in [(100,'indeterminate'),(100.001,'criteria_not_met')]:
+            r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=40,
+                            sustains_combustion=False,non_sustained_combustion_basis='ISO_2592_fire_point',
+                            fire_point_c=fire_point,sustained_combustion_evidence_id='ISO-001'))
+            self.assertEqual(r['status'],expected)
+
+    def test_non_sustain_misicible_water_method(self):
+        for pct,expected in [(90,'indeterminate'),(90.001,'criteria_not_met')]:
+            r=evaluate_class('3',case(EvidenceFixtures.C3,flash_point_c=40,
+                            sustains_combustion=False,non_sustained_combustion_basis='miscible_water_content',
+                            miscible_solution=True,water_content_mass_percent=pct,
+                            sustained_combustion_evidence_id='WATER-001'))
+            self.assertEqual(r['status'],expected)
 
     def test_missing_gates_never_pass(self):
         for k in ('liquid_desensitized_explosive','diesel_gasoil_light_heating_oil','carried_at_or_above_flash_point','named_entry_checked','viscosity_concessions_assessed'):
