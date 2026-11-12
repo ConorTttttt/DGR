@@ -1,0 +1,6 @@
+# Never automatically publish full third-party ADR text/extracted Table A data.
+.cache/
+regulations/adr/2025/generated/
+__pycache__/
+*.py[cod]
+.pytest_cache/
