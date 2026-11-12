@@ -1,0 +1,3585 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ConorTttttt/DGR/blob/agent2/adr2025-input-model-v0-1/engine/input_model/adr2025/input_schema.v0.1.json",
+  "title": "ADR 2025 input model v0.1 (proposed Lead Agent adapter)",
+  "description": "Input and provenance contract only. No regulatory thresholds, output classification defaults or assumed CLP->transport mappings.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "model_version",
+    "context",
+    "data",
+    "evidence",
+    "hazard_screens"
+  ],
+  "properties": {
+    "model_version": {
+      "const": "0.1.0-draft"
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product_id",
+        "mode",
+        "edition",
+        "effective_date"
+      ],
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "enum": [
+            "ADR",
+            "RID",
+            "ADN",
+            "IMDG",
+            "ICAO_TI"
+          ]
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_version": {
+          "type": "string"
+        },
+        "corrigenda_reconciled": {
+          "type": "boolean"
+        },
+        "governing_jurisdiction": {
+          "type": "string"
+        },
+        "lead_schema_adapter_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "product.identifier": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.product_name": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.item_kind": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.formulation_revision": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.physical_form": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.physical_form_basis": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.mixture_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.waste_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "product.sample_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "product.stability_during_transport": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.intended_use": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.named_substance_candidate": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.candidate_un_number": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.candidate_shipping_name": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "product.prior_transport_classification": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "product.clp_ghs_hazard_classes": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "transport.mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.regulatory_edition": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.jurisdiction": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.shipment_date": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "format": "date"
+                }
+              }
+            }
+          ]
+        },
+        "transport.shipment_configuration": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.package_capacity_l": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "transport.net_quantity_kg": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "transport.net_quantity_l": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_unit_load": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "transport.packaging_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.container_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_temperature_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_pressure_kpa": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_in_equipment": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_in_bulk_imo": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_by_inland_waterway_tank": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_contains_residues": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "transport.transport_activity": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.route_tunnel_category": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "transport.special_agreement": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "composition.ingredients": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "composition.known_mass_fraction_total_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "composition.unknown_fraction_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "composition.impurities": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "composition.stabilizer_identity": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "composition.stabilizer_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "composition.water_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "composition.solvent_or_diluent": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "composition.formulation_variability": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "composition.constituent_transport_hazards": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "composition.named_dangerous_component": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "composition.unknown_composition_waste": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "physical.melting_point_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.initial_boiling_point_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.flash_point_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.flash_point_method": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "physical.flash_point_conditions": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "physical.sustained_combustibility": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "physical.kinematic_viscosity_mm2_s": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.viscosity_test_temperature_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.vapour_pressure_50c_kpa": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.vapour_pressure_20c_kpa": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.critical_temperature_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.fully_gaseous_at_20c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "physical.transport_phase": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "physical.density_kg_l": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.particle_size_distribution": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "physical.sublimation_or_decomposition": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "physical.heat_of_reaction_j_g": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.sapt_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.sadt_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.ph": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "physical.acid_alkali_reserve": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.explosive_properties": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "explosive.energetic_components": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.un_test_series_results": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.explosive_division": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "explosive.compatibility_group": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "explosive.pyrotechnic_function": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.fireworks_default_classification_basis": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.net_explosive_mass_kg": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.explosive_authority_approval": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "explosive.desensitization_details": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_flammability_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_oxidizing_power": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_inhalation_lc50": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_corrosivity": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_pressure_at_50c_kpa": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "gas.gas_mixture_composition": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "gas.propellant_identification": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "gas.aerosol_contents_hazards": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "gas.chemical_instability": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "gas.refrigerated_temperature_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.solid_burning_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.metal_powder_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.friction_ignition_evidence": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.self_reactive_test_series": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.self_reactive_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.self_reactive_listed_formulation": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.self_reactive_authority_approval": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.polymerizing_potential": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.polymerizing_thermochemical_evidence": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "flammable_solid.solid_desensitized_explosive": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "spontaneous_combustion.pyrophoric_solid_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "spontaneous_combustion.pyrophoric_liquid_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "spontaneous_combustion.self_heating_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "spontaneous_combustion.self_heating_packaging_volume": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "water_reactive.reaction_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "water_reactive.gas_evolution_rate_l_kg_h": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "water_reactive.evolved_gas_flammability": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "water_reactive.reaction_temperature_conditions": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "oxidizer.oxidizing_solid_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "oxidizer.oxidizing_liquid_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "oxidizer.oxidizer_concentration_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "oxidizer.oxidizer_mixture_behavior": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.peroxide_structure_or_identity": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.active_oxygen_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.hydrogen_peroxide_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.organic_peroxide_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.organic_peroxide_sadt_c": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.organic_peroxide_test_series": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.heating_under_confinement_effect": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.listed_formulation_reference": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.diluent_type_and_pct": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "organic_peroxide.competent_authority_approval": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.oral_ld50_mg_kg": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.skin_ld50_mg_kg": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.inhalation_lc50_mg_l": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.inhalation_lc50_ppm": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.inhalation_form": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.inhalation_duration_h": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.vapour_saturation_concentration": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.mixture_toxicity_calculation": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "toxicity.pesticide_active_ingredient": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "infectious.contains_pathogens": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "infectious.pathogen_identity": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "infectious.infectious_category": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "infectious.infectious_species_affected": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "infectious.clinical_sample_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "infectious.clinical_waste_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "infectious.biological_product_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "infectious.infected_animal_or_tissue": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "infectious.microorganism_genetic_modification": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.radionuclide_inventory": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.individual_activity_bq": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.activity_concentration_bq_g": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.exempt_activity_limits_basis": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.fissile_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.special_form_status": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.lsa_sco_category": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.package_type": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.surface_contamination_bq_cm2": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.transport_index": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.criticality_safety_index": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "radioactive.competent_authority_certificates": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.skin_corrosion_test": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.skin_exposure_time_min": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.skin_observation_period_days": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.in_vitro_skin_corrosion": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.metal_corrosion_rate_mm_y": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.metal_corrosion_test_details": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "corrosion.mixture_corrosion_bridging": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "environment.aquatic_acute_test_data": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "environment.aquatic_chronic_test_data": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "environment.rapid_degradability": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "environment.bioaccumulation_bcf": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "environment.log_kow": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "environment.constituent_aquatic_classification": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "environment.constituent_m_factors": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "environment.adr_environmental_hazard_result": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "environment.imdg_marine_pollutant_result": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "environment.adn_tank_vessel_environmental": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "battery.battery_chemistry": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "battery.cell_or_battery": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "battery.lithium_metal_mass_g": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "battery.rated_energy_wh": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "battery.nominal_voltage_v": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "battery.un38_3_test_summary": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "battery.battery_condition": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "battery.prototype_or_small_production": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "battery.battery_configuration": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "battery.battery_count": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              }
+            }
+          ]
+        },
+        "battery.battery_short_circuit_protection": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.elevated_temperature_carriage": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.asbestos_content": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.lithium_or_sodium_battery_article": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.chemical_under_pressure": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.aerosol_article": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.gmo_gmmo": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.magnetized_material": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.solid_containing_liquid": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.articles_containing_dg": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.stabilized_reactive": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.empty_uncleaned_packaging": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.waste_uncertain_composition": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "special.multimodal_chain": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "special.special_provision_candidates": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "special.competent_authority_decisions": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        },
+        "section14.regulation_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.un_or_id_number_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.shipping_name_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.hazard_class_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.packing_group_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.environmental_hazard_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.special_precautions_per_mode": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.maritime_bulk_data": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "object"
+                }
+              }
+            }
+          ]
+        },
+        "section14.unresolved_issues": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/datum"
+            },
+            {
+              "properties": {
+                "value": {
+                  "type": "array"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "component_id",
+          "identity",
+          "mass_percent_range",
+          "evidence_ids"
+        ],
+        "properties": {
+          "component_id": {
+            "type": "string"
+          },
+          "identity": {
+            "type": "string"
+          },
+          "cas": {
+            "type": "string"
+          },
+          "ec_number": {
+            "type": "string"
+          },
+          "mass_percent_range": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "transport_hazards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "uniqueItems": true
+    },
+    "hazard_screens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/hazard_screen"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assumption_id",
+          "description",
+          "approval_status"
+        ],
+        "properties": {
+          "assumption_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "approval_status": {
+            "enum": [
+              "requires_approval",
+              "approved",
+              "rejected"
+            ]
+          }
+        }
+      }
+    },
+    "missing_evidence_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "field_id",
+          "reason"
+        ],
+        "properties": {
+          "decision_id": {
+            "type": "string"
+          },
+          "field_id": {
+            "enum": [
+              "product.identifier",
+              "product.product_name",
+              "product.item_kind",
+              "product.formulation_revision",
+              "product.physical_form",
+              "product.physical_form_basis",
+              "product.mixture_status",
+              "product.waste_status",
+              "product.sample_status",
+              "product.stability_during_transport",
+              "product.intended_use",
+              "product.named_substance_candidate",
+              "product.candidate_un_number",
+              "product.candidate_shipping_name",
+              "product.prior_transport_classification",
+              "product.clp_ghs_hazard_classes",
+              "transport.mode",
+              "transport.regulatory_edition",
+              "transport.jurisdiction",
+              "transport.shipment_date",
+              "transport.shipment_configuration",
+              "transport.package_capacity_l",
+              "transport.net_quantity_kg",
+              "transport.net_quantity_l",
+              "transport.transport_unit_load",
+              "transport.packaging_type",
+              "transport.container_type",
+              "transport.transport_temperature_c",
+              "transport.transport_pressure_kpa",
+              "transport.transport_in_equipment",
+              "transport.transport_in_bulk_imo",
+              "transport.transport_by_inland_waterway_tank",
+              "transport.transport_contains_residues",
+              "transport.transport_activity",
+              "transport.route_tunnel_category",
+              "transport.special_agreement",
+              "composition.ingredients",
+              "composition.known_mass_fraction_total_pct",
+              "composition.unknown_fraction_pct",
+              "composition.impurities",
+              "composition.stabilizer_identity",
+              "composition.stabilizer_pct",
+              "composition.water_pct",
+              "composition.solvent_or_diluent",
+              "composition.formulation_variability",
+              "composition.constituent_transport_hazards",
+              "composition.named_dangerous_component",
+              "composition.unknown_composition_waste",
+              "physical.melting_point_c",
+              "physical.initial_boiling_point_c",
+              "physical.flash_point_c",
+              "physical.flash_point_method",
+              "physical.flash_point_conditions",
+              "physical.sustained_combustibility",
+              "physical.kinematic_viscosity_mm2_s",
+              "physical.viscosity_test_temperature_c",
+              "physical.vapour_pressure_50c_kpa",
+              "physical.vapour_pressure_20c_kpa",
+              "physical.critical_temperature_c",
+              "physical.fully_gaseous_at_20c",
+              "physical.transport_phase",
+              "physical.density_kg_l",
+              "physical.particle_size_distribution",
+              "physical.sublimation_or_decomposition",
+              "physical.heat_of_reaction_j_g",
+              "physical.sapt_c",
+              "physical.sadt_c",
+              "physical.ph",
+              "physical.acid_alkali_reserve",
+              "explosive.explosive_properties",
+              "explosive.energetic_components",
+              "explosive.un_test_series_results",
+              "explosive.explosive_division",
+              "explosive.compatibility_group",
+              "explosive.pyrotechnic_function",
+              "explosive.fireworks_default_classification_basis",
+              "explosive.net_explosive_mass_kg",
+              "explosive.explosive_authority_approval",
+              "explosive.desensitization_details",
+              "gas.gas_type",
+              "gas.gas_flammability_test",
+              "gas.gas_oxidizing_power",
+              "gas.gas_inhalation_lc50",
+              "gas.gas_corrosivity",
+              "gas.gas_pressure_at_50c_kpa",
+              "gas.gas_mixture_composition",
+              "gas.propellant_identification",
+              "gas.aerosol_contents_hazards",
+              "gas.chemical_instability",
+              "gas.refrigerated_temperature_c",
+              "flammable_solid.solid_burning_test",
+              "flammable_solid.metal_powder_test",
+              "flammable_solid.friction_ignition_evidence",
+              "flammable_solid.self_reactive_test_series",
+              "flammable_solid.self_reactive_type",
+              "flammable_solid.self_reactive_listed_formulation",
+              "flammable_solid.self_reactive_authority_approval",
+              "flammable_solid.polymerizing_potential",
+              "flammable_solid.polymerizing_thermochemical_evidence",
+              "flammable_solid.solid_desensitized_explosive",
+              "spontaneous_combustion.pyrophoric_solid_test",
+              "spontaneous_combustion.pyrophoric_liquid_test",
+              "spontaneous_combustion.self_heating_test",
+              "spontaneous_combustion.self_heating_packaging_volume",
+              "water_reactive.reaction_test",
+              "water_reactive.gas_evolution_rate_l_kg_h",
+              "water_reactive.evolved_gas_flammability",
+              "water_reactive.reaction_temperature_conditions",
+              "oxidizer.oxidizing_solid_test",
+              "oxidizer.oxidizing_liquid_test",
+              "oxidizer.oxidizer_concentration_pct",
+              "oxidizer.oxidizer_mixture_behavior",
+              "organic_peroxide.peroxide_structure_or_identity",
+              "organic_peroxide.active_oxygen_pct",
+              "organic_peroxide.hydrogen_peroxide_pct",
+              "organic_peroxide.organic_peroxide_type",
+              "organic_peroxide.organic_peroxide_sadt_c",
+              "organic_peroxide.organic_peroxide_test_series",
+              "organic_peroxide.heating_under_confinement_effect",
+              "organic_peroxide.listed_formulation_reference",
+              "organic_peroxide.diluent_type_and_pct",
+              "organic_peroxide.competent_authority_approval",
+              "toxicity.oral_ld50_mg_kg",
+              "toxicity.skin_ld50_mg_kg",
+              "toxicity.inhalation_lc50_mg_l",
+              "toxicity.inhalation_lc50_ppm",
+              "toxicity.inhalation_form",
+              "toxicity.inhalation_duration_h",
+              "toxicity.vapour_saturation_concentration",
+              "toxicity.mixture_toxicity_calculation",
+              "toxicity.pesticide_active_ingredient",
+              "infectious.contains_pathogens",
+              "infectious.pathogen_identity",
+              "infectious.infectious_category",
+              "infectious.infectious_species_affected",
+              "infectious.clinical_sample_status",
+              "infectious.clinical_waste_status",
+              "infectious.biological_product_status",
+              "infectious.infected_animal_or_tissue",
+              "infectious.microorganism_genetic_modification",
+              "radioactive.radionuclide_inventory",
+              "radioactive.individual_activity_bq",
+              "radioactive.activity_concentration_bq_g",
+              "radioactive.exempt_activity_limits_basis",
+              "radioactive.fissile_status",
+              "radioactive.special_form_status",
+              "radioactive.lsa_sco_category",
+              "radioactive.package_type",
+              "radioactive.surface_contamination_bq_cm2",
+              "radioactive.transport_index",
+              "radioactive.criticality_safety_index",
+              "radioactive.competent_authority_certificates",
+              "corrosion.skin_corrosion_test",
+              "corrosion.skin_exposure_time_min",
+              "corrosion.skin_observation_period_days",
+              "corrosion.in_vitro_skin_corrosion",
+              "corrosion.metal_corrosion_rate_mm_y",
+              "corrosion.metal_corrosion_test_details",
+              "corrosion.mixture_corrosion_bridging",
+              "environment.aquatic_acute_test_data",
+              "environment.aquatic_chronic_test_data",
+              "environment.rapid_degradability",
+              "environment.bioaccumulation_bcf",
+              "environment.log_kow",
+              "environment.constituent_aquatic_classification",
+              "environment.constituent_m_factors",
+              "environment.adr_environmental_hazard_result",
+              "environment.imdg_marine_pollutant_result",
+              "environment.adn_tank_vessel_environmental",
+              "battery.battery_chemistry",
+              "battery.cell_or_battery",
+              "battery.lithium_metal_mass_g",
+              "battery.rated_energy_wh",
+              "battery.nominal_voltage_v",
+              "battery.un38_3_test_summary",
+              "battery.battery_condition",
+              "battery.prototype_or_small_production",
+              "battery.battery_configuration",
+              "battery.battery_count",
+              "battery.battery_short_circuit_protection",
+              "special.elevated_temperature_carriage",
+              "special.asbestos_content",
+              "special.lithium_or_sodium_battery_article",
+              "special.chemical_under_pressure",
+              "special.aerosol_article",
+              "special.gmo_gmmo",
+              "special.magnetized_material",
+              "special.solid_containing_liquid",
+              "special.articles_containing_dg",
+              "special.stabilized_reactive",
+              "special.empty_uncleaned_packaging",
+              "special.waste_uncertain_composition",
+              "special.multimodal_chain",
+              "special.special_provision_candidates",
+              "special.competent_authority_decisions",
+              "section14.regulation_per_mode",
+              "section14.un_or_id_number_per_mode",
+              "section14.shipping_name_per_mode",
+              "section14.hazard_class_per_mode",
+              "section14.packing_group_per_mode",
+              "section14.environmental_hazard_per_mode",
+              "section14.special_precautions_per_mode",
+              "section14.maritime_bulk_data",
+              "section14.unresolved_issues"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "datum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "known",
+            "unknown",
+            "not_measured",
+            "conflicting",
+            "not_applicable"
+          ]
+        },
+        "value": {},
+        "unit": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "sample_id": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "reason": {
+          "type": "string"
+        },
+        "non_applicability_clause_ref": {
+          "type": "string"
+        },
+        "reported_at": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "known"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "value",
+              "evidence_ids"
+            ],
+            "properties": {
+              "evidence_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "not_applicable"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason",
+              "non_applicability_clause_ref",
+              "evidence_ids"
+            ],
+            "properties": {
+              "reason": {
+                "minLength": 1
+              },
+              "non_applicability_clause_ref": {
+                "minLength": 1
+              },
+              "evidence_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "unknown",
+                  "not_measured",
+                  "conflicting"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason"
+            ],
+            "properties": {
+              "reason": {
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "source_type",
+        "source_identifier",
+        "issued_or_tested_on",
+        "scope",
+        "review_state"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "test_report",
+            "laboratory_result",
+            "composition_disclosure",
+            "manufacturer_declaration",
+            "sds",
+            "competent_authority",
+            "official_dangerous_goods_list",
+            "literature",
+            "other"
+          ]
+        },
+        "source_identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "issued_or_tested_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "method_and_conditions": {
+          "type": "string"
+        },
+        "sample_id": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string"
+        },
+        "clause_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "review_state": {
+          "enum": [
+            "unreviewed",
+            "source_verified",
+            "independently_reviewed",
+            "rejected"
+          ]
+        }
+      }
+    },
+    "hazard_screen": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pathway_id",
+        "status"
+      ],
+      "properties": {
+        "pathway_id": {
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4.1",
+            "4.2",
+            "4.3",
+            "5.1",
+            "5.2",
+            "6.1",
+            "6.2",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        "status": {
+          "enum": [
+            "not_assessed",
+            "suspected",
+            "positive_evidence",
+            "negative_supported",
+            "unresolved",
+            "not_applicable_by_clause",
+            "authority_required"
+          ]
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "clause_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "review_state": {
+          "enum": [
+            "unreviewed",
+            "pending",
+            "independently_reviewed"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "positive_evidence",
+                  "negative_supported",
+                  "not_applicable_by_clause"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "evidence_ids",
+              "clause_refs",
+              "rationale"
+            ],
+            "properties": {
+              "evidence_ids": {
+                "minItems": 1
+              },
+              "clause_refs": {
+                "minItems": 1
+              },
+              "rationale": {
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
