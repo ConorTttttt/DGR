@@ -188,6 +188,31 @@
       "path": "fertilizerRoute.series2NoExplosiveProperties",
       "type": "boolean backed by test series 2",
       "mandatory": "potential UN2067 pathway"
+    },
+    {
+      "path": "composition.chemicalIdentity",
+      "type": "normalized verified chemical identity",
+      "mandatory": "when material matches specific prohibited identity"
+    },
+    {
+      "path": "composition.stabilized",
+      "type": "boolean",
+      "mandatory": "hydrogen peroxide neat/aqueous"
+    },
+    {
+      "path": "composition.massPercent",
+      "type": "% by mass nonnegative number",
+      "mandatory": "aqueous hydrogen peroxide and perchloric/chloric acid solutions"
+    },
+    {
+      "path": "composition.otherLiquidThanWater",
+      "type": "boolean",
+      "mandatory": "perchloric/chloric acid solution"
+    },
+    {
+      "path": "composition.combustibleMassPercent",
+      "type": "% by mass including organic carbon equivalence",
+      "mandatory": "ammonium nitrate (non-Section39 fertilizer route)"
     }
   ],
   "manual_protocol_constraints": [
