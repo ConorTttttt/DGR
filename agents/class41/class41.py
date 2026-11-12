@@ -58,6 +58,21 @@ def evaluate(evidence: Dict[str, Any]):
         r['clauses'].extend(clauses)
         return r
 
+    # Subsidiary/competing hazards require independently verified ADR-class evidence;
+    # multiple-hazard precedence remains outside this specialist module.
+    competing = evidence.get('competing_transport_hazard_classes')
+    if competing is not None:
+        if not isinstance(competing, list) or any(x not in ('4.2', '4.3', '5.1', '6.1', '8') for x in competing):
+            return missing('competing_transport_hazard_classes')
+        if competing and evidence.get('competing_class_evidence_verified') is not True:
+            return missing('competing_class_evidence_verified')
+        r['subsidiary_hazard_candidates'] = sorted(set(competing))
+        if path == 'metal_powder' and any(x in ('4.2', '4.3') for x in competing):
+            r['status'] = 'external_class_review'
+            r['clauses'].append('2.2.41.3 footnotes (a)-(c)')
+            r['blockers'].append('metal powder Class 4.2/4.3 candidate: resolve precedence externally')
+            return r
+
     # A Class 4.1 chemical instability veto precedes positive class/PG results.
     if evidence.get('dangerous_instability') is True:
         safe = evidence.get('prevented_during_carriage')
