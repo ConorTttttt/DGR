@@ -73,6 +73,8 @@ function evaluateClass42(e) {
     return fail("unsupported","N2_form","N.2 pouring method is for powdery solid samples.",["MTC 33.4.4.3"]);
   if(e.pathway==="self_heating"&&!["powder","granular"].includes(e.sample_form))
     return fail("unsupported","N4_form","N.4 method specifies powder/granular material in commercial form.",["MTC 33.4.6.3"]);
+  if(e.pathway==="self_heating")r.unresolved_evidence.push({
+    id:"N4_scaleup_exceptions",reason:"ADR 2.2.42.1.5(c): 27 m³ / 50°C general exclusion; ADR 2.2.42.1.8(b): 450 L / 50°C PG-II exclusion. Cannot derive these from N.4 cubes; external qualified review required.",blocks_assignment:true});
   if(e.competing_evidence!==undefined){
     if(!Array.isArray(e.competing_evidence)||e.competing_evidence.some(x=>!x||
       !["1","3","4.1","4.3","5.1","6.1","8"].includes(x.class)||typeof x.evidence_id!=="string"||
@@ -152,7 +154,7 @@ function evaluateClass42(e) {
   }
   const get=key=>key in recorded?recorded[key]:null;
   const a=get("100@140"),b=get("25@140"),c=get("100@120"),d=get("100@100");
-  if(a===false&&b===true)return fail("conflict","N4_cube_inversion","25 mm positive but 100 mm negative @140°C requires review.");
+  if(a===false&&(b===true||c===true||d===true))return fail("conflict","N4_temperature_or_cube_inversion","Low-temperature or 25 mm positive conflicts with 100 mm negative @140°C; qualified review required.",["MTC 33.4.6.4.1"]);
   if(a===false)return no("ADR25-42-N4-NEG",["2.2.42.1.5(c)","MTC 33.4.6.4.2(a)"]);
   if(a!==true&&b!==true)return fail("indeterminate","N4_large_140","100 mm positive at 140°C, or 25 mm positive, required.");
   if(b===true)return yes("II","ADR25-42-N4-PGII",["2.2.42.1.8(b)","MTC 33.4.6.4.3"]);
