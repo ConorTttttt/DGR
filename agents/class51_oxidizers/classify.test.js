@@ -195,12 +195,17 @@ test("Section39 authority-limited exits and verified exception are non-final",()
 });
 test("Section39 fertilizer 5.1 / Class9 / Class1 and missing series2",()=>{
  const a=fertilizer(36);check(a,"criteria_met",null,"5.1");
- const b=fertilizer(27,"class9");check(b,"criteria_not_met");
- const c=fertilizer(10,"class1");check(c,"requires_expert_review");
+ const b=fertilizer(25,"class9");check(b,"criteria_not_met");
+ const c=fertilizer(6,"class1");check(c,"not_accepted_for_carriage");
  const d=fertilizer(36);delete d.fertilizerRoute.series2NoExplosiveProperties;
  check(d,"insufficient_evidence");
  const e=fertilizer(36);delete e.fertilizerRoute.flowchartAudited;
  check(e,"insufficient_evidence");
+ const invalid=fertilizer(27,"class9");check(invalid,"requires_expert_review");
+ const mismatch=fertilizer(25,"oxidizing_solid");check(mismatch,"requires_expert_review");
+ const connector=fertilizer(10,"oxidizing_solid");check(connector,"requires_expert_review");
+ const missingRecord=fertilizer(36);delete missingRecord.fertilizerRoute.recordId;
+ check(missingRecord,"insufficient_evidence");
 });
 test("articles and absence of evidence remain blocked, not harmless",()=>{
  const a=o1();a.isArticle=true;check(a,"requires_expert_review");
