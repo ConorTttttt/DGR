@@ -2,6 +2,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {evaluateClass43}=require('./classify');
+const registeredRuleIds=new Set(require('./rule_register.json').rules.map(r=>r.rule_id));
 const fixture=()=>({
  sample_id:'SYN-43',test_report:{document_id:'SYNTHETIC-ONLY',locator:'synthetic://N5',
  sha256:'a'.repeat(64),issuer:'SYNTHETIC',sample_id:'SYN-43'},
@@ -65,6 +66,7 @@ for(const [name,mutate,status,candidate=null,reason=null] of cases) test(name,()
  assert.equal(o.criteria_status,status);
  assert.deepEqual(o.packing_group_candidates.map(c=>c.value),candidate?[candidate]:[]);
  if(reason)assert.ok(o.unresolved_evidence.some(e=>e.reason===reason),JSON.stringify(o.unresolved_evidence));
+ for(const rule_id of o.rule_ids) assert.ok(registeredRuleIds.has(rule_id),'unregistered emitted rule '+rule_id);
  assert.equal(o.hazard_class,'4.3');
  assert.equal(Object.hasOwn(o,'un_number'),false);
  assert.equal(Object.hasOwn(o,'final_packing_group'),false);
