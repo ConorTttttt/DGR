@@ -322,6 +322,14 @@
       "trigger": "stabilization/acid percent/other solvent or ammonium nitrate combustible fraction is unknown for named prohibited-identity screening",
       "disposition": "insufficient_evidence",
       "reason": "identity-specific uncertainty must block instead of treating absent input as absence of prohibition"
+    },
+    {
+      "id": "X41",
+      "source": "UN Manual of Tests and Criteria Rev.8",
+      "clause": "39.4.7; 38.2.4; 39.5.1",
+      "trigger": "fertilizer exit 25 with missing positive S.1 trough-test evidence or report ID",
+      "disposition": "insufficient_evidence",
+      "reason": "Class9/self-sustaining decomposition route cannot be treated as established without method-specific evidence"
     }
   ],
   "design_limits": [
