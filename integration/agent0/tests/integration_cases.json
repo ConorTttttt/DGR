@@ -1,0 +1,1359 @@
+{
+  "fixture_version": "0.1.0",
+  "disclaimer": "SYNTHETIC-ONLY NO REAL CLASSIFICATION NO ACTUAL UN/SPECIAL PROVISION ASSIGNMENT",
+  "base_packet": {
+    "contract_version": "0.1.0",
+    "regulatory_context": {
+      "regime": "ADR",
+      "edition_id": "ADR-2025-EN",
+      "language": "en",
+      "evaluation_date": "2026-11-12",
+      "source_set_id": "adr2025-en-provisional-v1"
+    },
+    "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+    "evidence": [
+      {
+        "evidence_id": "E-1",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_1",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-1",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-2",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_2",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-2",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-3",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_3",
+        "state": "known",
+        "value": true,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-3",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-4.1",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_4.1",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-4.1",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-4.2",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_4.2",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-4.2",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-4.3",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_4.3",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-4.3",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-5.1",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_5.1",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-5.1",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-5.2",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_5.2",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-5.2",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-6.1",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_6.1",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-6.1",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-6.2",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_6.2",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-6.2",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-7",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_7",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-7",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-8",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_8",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-8",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      },
+      {
+        "evidence_id": "E-9",
+        "field_id": "SYNTHETIC_CLASS_SCREEN_9",
+        "state": "known",
+        "value": false,
+        "sample_id": "SYNTHETIC-NO-REAL-SUBSTANCE",
+        "source_documents": [
+          {
+            "document_id": "SYNTHETIC-DOC-9",
+            "kind": "test_result",
+            "locator": "SYNTHETIC-ONLY",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "issuer": "Synthetic test fixture, not legal evidence",
+            "authenticated": false
+          }
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "review_state": "unreviewed"
+      }
+    ],
+    "class_evaluations": [
+      {
+        "module_id": "SYNTHETIC-CLASS-1",
+        "hazard_class": "1",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-1"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-1"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-2",
+        "hazard_class": "2",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-2"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-2"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-3",
+        "hazard_class": "3",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_met",
+        "evidence_ids": [
+          "E-3"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [
+          {
+            "candidate_id": "C3",
+            "hazard_class": "3",
+            "classification_code": null,
+            "evidence_ids": [
+              "E-3"
+            ],
+            "references": [
+              {
+                "source_id": "adr2025_vol1_en",
+                "clause": "2.1.2.1"
+              }
+            ]
+          }
+        ],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [
+          {
+            "candidate_id": "PG3",
+            "value": "II",
+            "evidence_ids": [
+              "E-3"
+            ],
+            "references": [
+              {
+                "source_id": "adr2025_vol1_en",
+                "clause": "2.1.2.1"
+              }
+            ]
+          }
+        ],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-3"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-4.1",
+        "hazard_class": "4.1",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-4.1"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-4.1"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-4.2",
+        "hazard_class": "4.2",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-4.2"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-4.2"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-4.3",
+        "hazard_class": "4.3",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-4.3"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-4.3"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-5.1",
+        "hazard_class": "5.1",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-5.1"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-5.1"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-5.2",
+        "hazard_class": "5.2",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-5.2"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-5.2"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-6.1",
+        "hazard_class": "6.1",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-6.1"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-6.1"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-6.2",
+        "hazard_class": "6.2",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-6.2"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-6.2"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-7",
+        "hazard_class": "7",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-7"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-7"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-8",
+        "hazard_class": "8",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-8"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-8"
+        ]
+      },
+      {
+        "module_id": "SYNTHETIC-CLASS-9",
+        "hazard_class": "9",
+        "coverage_status": "evaluated",
+        "criteria_status": "criteria_not_met",
+        "evidence_ids": [
+          "E-9"
+        ],
+        "references": [
+          {
+            "source_id": "adr2025_vol1_en",
+            "clause": "2.1.2.1"
+          }
+        ],
+        "primary_class_candidates": [],
+        "subsidiary_risk_candidates": [],
+        "packing_group_candidates": [],
+        "exclusions": [],
+        "unresolved_evidence": [],
+        "expert_decision_ids": [],
+        "rule_ids": [
+          "SYNTHETIC-RULE-9"
+        ]
+      }
+    ],
+    "precedence": {
+      "state": "not_started",
+      "primary_candidate_id": null,
+      "references": []
+    },
+    "assignment": {
+      "state": "not_started",
+      "candidate_set_complete": false,
+      "special_provision_assessment": "not_started",
+      "special_provision_outcomes": [],
+      "packing_group_consistency": "unchecked"
+    },
+    "negative_scope": {
+      "state": "not_started",
+      "all_pathways_accounted_for": false,
+      "named_entries_checked": false,
+      "evidence_ids": [],
+      "references": []
+    },
+    "expert_decisions": [],
+    "release_checks": {
+      "regulatory_review": "pending",
+      "source_authenticity": "pending",
+      "corrigenda_reconciled": "pending",
+      "security_attestation": "pending"
+    }
+  },
+  "cases": [
+    {
+      "id": "positive_to_precedence",
+      "patches": [],
+      "expect": "READY_FOR_PRECEDENCE"
+    },
+    {
+      "id": "precedence_to_assignment",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        }
+      ],
+      "expect": "READY_FOR_ASSIGNMENT"
+    },
+    {
+      "id": "table_a_to_special_provisions",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment",
+          "value": {
+            "state": "table_a_verified",
+            "candidate_set_complete": true,
+            "table_a_row_id": "SYNTHETIC-ROW-1",
+            "un_number": "0000",
+            "proper_shipping_name": "SYNTHETIC PLACEHOLDER, NOT REAL DANGEROUS GOODS",
+            "assigned_class": "3",
+            "row_source_reference": {
+              "source_id": "adr2025_vol1_en",
+              "clause": "3.2.1"
+            },
+            "packing_group_consistency": "matched",
+            "selected_packing_group": "II",
+            "special_provision_assessment": "incomplete",
+            "special_provision_outcomes": [
+              {
+                "sp_id": "SYNTHETIC-SP",
+                "state": "unresolved",
+                "references": [
+                  {
+                    "source_id": "adr2025_vol1_en",
+                    "clause": "3.3.1"
+                  }
+                ]
+              }
+            ],
+            "named_entry_screening": "complete"
+          }
+        }
+      ],
+      "expect": "READY_FOR_SPECIAL_PROVISIONS"
+    },
+    {
+      "id": "complete_to_external_review",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment",
+          "value": {
+            "state": "table_a_verified",
+            "candidate_set_complete": true,
+            "table_a_row_id": "SYNTHETIC-ROW-1",
+            "un_number": "0000",
+            "proper_shipping_name": "SYNTHETIC PLACEHOLDER, NOT REAL DANGEROUS GOODS",
+            "assigned_class": "3",
+            "row_source_reference": {
+              "source_id": "adr2025_vol1_en",
+              "clause": "3.2.1"
+            },
+            "packing_group_consistency": "matched",
+            "selected_packing_group": "II",
+            "special_provision_assessment": "incomplete",
+            "special_provision_outcomes": [
+              {
+                "sp_id": "SYNTHETIC-SP",
+                "state": "unresolved",
+                "references": [
+                  {
+                    "source_id": "adr2025_vol1_en",
+                    "clause": "3.3.1"
+                  }
+                ]
+              }
+            ],
+            "named_entry_screening": "complete"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/special_provision_assessment",
+          "value": "complete"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/special_provision_outcomes/0/state",
+          "value": "does_not_apply"
+        }
+      ],
+      "expect": "READY_FOR_RELEASE_REVIEW"
+    },
+    {
+      "id": "missing_class",
+      "patches": [
+        {
+          "op": "remove",
+          "path": "/class_evaluations/12"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "UNASSESSED_CLASS"
+    },
+    {
+      "id": "not_assessed_class",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/class_evaluations/0/coverage_status",
+          "value": "not_assessed"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "CLASS_UNRESOLVED"
+    },
+    {
+      "id": "missing_measurement_is_not_negative",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/evidence/1/state",
+          "value": "not_measured"
+        },
+        {
+          "op": "remove",
+          "path": "/evidence/1/value"
+        },
+        {
+          "op": "remove",
+          "path": "/evidence/1/source_documents"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "UNRELIABLE_EVIDENCE"
+    },
+    {
+      "id": "known_without_primary_doc",
+      "patches": [
+        {
+          "op": "remove",
+          "path": "/evidence/2/source_documents"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "INVALID_PACKET"
+    },
+    {
+      "id": "all_negative_without_review",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/criteria_status",
+          "value": "criteria_not_met"
+        },
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/primary_class_candidates",
+          "value": []
+        },
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/packing_group_candidates",
+          "value": []
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "NEGATIVE_SCOPE_UNPROVEN"
+    },
+    {
+      "id": "all_negative_reviewed_still_not_published",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/criteria_status",
+          "value": "criteria_not_met"
+        },
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/primary_class_candidates",
+          "value": []
+        },
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/packing_group_candidates",
+          "value": []
+        },
+        {
+          "op": "replace",
+          "path": "/negative_scope",
+          "value": {
+            "state": "independently_reviewed",
+            "all_pathways_accounted_for": true,
+            "named_entries_checked": true,
+            "evidence_ids": [],
+            "references": [
+              {
+                "source_id": "adr2025_vol1_en",
+                "clause": "2.1.2.1"
+              }
+            ],
+            "expert_decision_id": "D-NEG"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/expert_decisions",
+          "value": [
+            {
+              "decision_id": "D-NEG",
+              "state": "approved",
+              "authority": "Synthetic independent reviewer",
+              "scope": "All-class negative screening (synthetic)",
+              "references": [
+                {
+                  "source_id": "adr2025_vol1_en",
+                  "clause": "2.1.2.1"
+                }
+              ],
+              "verification_state": "externally_verified",
+              "approval_id": "SYNTHETIC-ONLY"
+            }
+          ]
+        }
+      ],
+      "expect": "READY_FOR_RELEASE_REVIEW"
+    },
+    {
+      "id": "multiple_positives_need_precedence",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/class_evaluations/1/criteria_status",
+          "value": "criteria_met"
+        },
+        {
+          "op": "replace",
+          "path": "/class_evaluations/1/primary_class_candidates",
+          "value": [
+            {
+              "candidate_id": "C2",
+              "hazard_class": "2",
+              "evidence_ids": [
+                "E-2"
+              ],
+              "references": [
+                {
+                  "source_id": "adr2025_vol1_en",
+                  "clause": "2.1.2.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "PRECEDENCE_REQUIRED"
+    },
+    {
+      "id": "invalid_precedence_selection",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "resolved"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C42"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/references",
+          "value": [
+            {
+              "source_id": "adr2025_vol1_en",
+              "clause": "2.1.2.1"
+            }
+          ]
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "PRECEDENCE_SELECTION_INVALID"
+    },
+    {
+      "id": "precedence_resolved_no_clause",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "resolved"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "PRECEDENCE_BASIS_MISSING"
+    },
+    {
+      "id": "pg_mismatch",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment",
+          "value": {
+            "state": "table_a_verified",
+            "candidate_set_complete": true,
+            "table_a_row_id": "SYNTHETIC-ROW-1",
+            "un_number": "0000",
+            "proper_shipping_name": "SYNTHETIC PLACEHOLDER, NOT REAL DANGEROUS GOODS",
+            "assigned_class": "3",
+            "row_source_reference": {
+              "source_id": "adr2025_vol1_en",
+              "clause": "3.2.1"
+            },
+            "packing_group_consistency": "matched",
+            "selected_packing_group": "II",
+            "special_provision_assessment": "incomplete",
+            "special_provision_outcomes": [
+              {
+                "sp_id": "SYNTHETIC-SP",
+                "state": "unresolved",
+                "references": [
+                  {
+                    "source_id": "adr2025_vol1_en",
+                    "clause": "3.3.1"
+                  }
+                ]
+              }
+            ],
+            "named_entry_screening": "complete"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/packing_group_consistency",
+          "value": "mismatch"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "PG_TABLE_A_UNRESOLVED"
+    },
+    {
+      "id": "pg_unsupported_value",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment",
+          "value": {
+            "state": "table_a_verified",
+            "candidate_set_complete": true,
+            "table_a_row_id": "SYNTHETIC-ROW-1",
+            "un_number": "0000",
+            "proper_shipping_name": "SYNTHETIC PLACEHOLDER, NOT REAL DANGEROUS GOODS",
+            "assigned_class": "3",
+            "row_source_reference": {
+              "source_id": "adr2025_vol1_en",
+              "clause": "3.2.1"
+            },
+            "packing_group_consistency": "matched",
+            "selected_packing_group": "II",
+            "special_provision_assessment": "incomplete",
+            "special_provision_outcomes": [
+              {
+                "sp_id": "SYNTHETIC-SP",
+                "state": "unresolved",
+                "references": [
+                  {
+                    "source_id": "adr2025_vol1_en",
+                    "clause": "3.3.1"
+                  }
+                ]
+              }
+            ],
+            "named_entry_screening": "complete"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/selected_packing_group",
+          "value": "I"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "PG_CANDIDATE_CONFLICT"
+    },
+    {
+      "id": "special_provision_conflict",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment",
+          "value": {
+            "state": "table_a_verified",
+            "candidate_set_complete": true,
+            "table_a_row_id": "SYNTHETIC-ROW-1",
+            "un_number": "0000",
+            "proper_shipping_name": "SYNTHETIC PLACEHOLDER, NOT REAL DANGEROUS GOODS",
+            "assigned_class": "3",
+            "row_source_reference": {
+              "source_id": "adr2025_vol1_en",
+              "clause": "3.2.1"
+            },
+            "packing_group_consistency": "matched",
+            "selected_packing_group": "II",
+            "special_provision_assessment": "incomplete",
+            "special_provision_outcomes": [
+              {
+                "sp_id": "SYNTHETIC-SP",
+                "state": "unresolved",
+                "references": [
+                  {
+                    "source_id": "adr2025_vol1_en",
+                    "clause": "3.3.1"
+                  }
+                ]
+              }
+            ],
+            "named_entry_screening": "complete"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/special_provision_outcomes/0/state",
+          "value": "conflict"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "SP_CONFLICT"
+    },
+    {
+      "id": "unknown_clause_source",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/class_evaluations/2/references/0/source_id",
+          "value": "fake-source"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "UNKNOWN_SOURCE"
+    },
+    {
+      "id": "unsupported_exception_without_basis",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/class_evaluations/1/criteria_status",
+          "value": "exception_applies"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "EXCEPTION_WITHOUT_BASIS"
+    },
+    {
+      "id": "pending_expert_decision",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/expert_decisions",
+          "value": [
+            {
+              "decision_id": "D-NEG",
+              "state": "pending",
+              "authority": "Synthetic independent reviewer",
+              "scope": "All-class negative screening (synthetic)",
+              "references": [
+                {
+                  "source_id": "adr2025_vol1_en",
+                  "clause": "2.1.2.1"
+                }
+              ],
+              "verification_state": "unverified",
+              "approval_id": "SYNTHETIC-ONLY"
+            }
+          ]
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "EXPERT_DECISION_UNRESOLVED"
+    },
+    {
+      "id": "bad_contract_version",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/contract_version",
+          "value": "0.2.0"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "INVALID_PACKET"
+    },
+    {
+      "id": "schema_rejects_unsupported_clp_field",
+      "patches": [
+        {
+          "op": "add",
+          "path": "/class_evaluations/0/clp_transport_conversion",
+          "value": true
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "INVALID_PACKET"
+    },
+    {
+      "id": "not_applicable_requires_rationale",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/evidence/1/state",
+          "value": "not_applicable"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "INVALID_PACKET"
+    },
+    {
+      "id": "release_rejected",
+      "patches": [
+        {
+          "op": "replace",
+          "path": "/precedence/state",
+          "value": "not_required"
+        },
+        {
+          "op": "replace",
+          "path": "/precedence/primary_candidate_id",
+          "value": "C3"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment",
+          "value": {
+            "state": "table_a_verified",
+            "candidate_set_complete": true,
+            "table_a_row_id": "SYNTHETIC-ROW-1",
+            "un_number": "0000",
+            "proper_shipping_name": "SYNTHETIC PLACEHOLDER, NOT REAL DANGEROUS GOODS",
+            "assigned_class": "3",
+            "row_source_reference": {
+              "source_id": "adr2025_vol1_en",
+              "clause": "3.2.1"
+            },
+            "packing_group_consistency": "matched",
+            "selected_packing_group": "II",
+            "special_provision_assessment": "incomplete",
+            "special_provision_outcomes": [
+              {
+                "sp_id": "SYNTHETIC-SP",
+                "state": "unresolved",
+                "references": [
+                  {
+                    "source_id": "adr2025_vol1_en",
+                    "clause": "3.3.1"
+                  }
+                ]
+              }
+            ],
+            "named_entry_screening": "complete"
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/special_provision_assessment",
+          "value": "complete"
+        },
+        {
+          "op": "replace",
+          "path": "/assignment/special_provision_outcomes/0/state",
+          "value": "does_not_apply"
+        },
+        {
+          "op": "replace",
+          "path": "/release_checks/regulatory_review",
+          "value": "rejected"
+        }
+      ],
+      "expect": "BLOCKED",
+      "issue": "RELEASE_REVIEW_REJECTED"
+    }
+  ]
+}

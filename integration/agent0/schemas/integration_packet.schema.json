@@ -109,6 +109,55 @@
             "reviewed",
             "rejected"
           ]
+        },
+        "source_documents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "document_id",
+              "kind",
+              "locator",
+              "sha256",
+              "issuer"
+            ],
+            "properties": {
+              "document_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "laboratory_report",
+                  "test_result",
+                  "composition_record",
+                  "competent_authority_document",
+                  "expert_report",
+                  "other"
+                ]
+              },
+              "locator": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "issuer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "authenticated": {
+                "type": "boolean"
+              },
+              "document_date": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
         }
       },
       "allOf": [
@@ -129,10 +178,14 @@
           "then": {
             "required": [
               "value",
-              "sample_id"
+              "sample_id",
+              "source_documents"
             ],
             "properties": {
               "references": {
+                "minItems": 1
+              },
+              "source_documents": {
                 "minItems": 1
               }
             }
