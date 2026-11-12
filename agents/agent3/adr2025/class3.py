@@ -256,6 +256,9 @@ def evaluate(e):
     if type(e.get('carried_at_or_above_flash_point')) is not bool:
         return failure('ADR25-C3-HEATED',['2.2.3.1.1'], 'carried_at_or_above_flash_point')
     heated=e['carried_at_or_above_flash_point']
+    if heated and (not num(e.get('carriage_temperature_c')) or e['carriage_temperature_c']<fp):
+        return failure('ADR25-C3-HEATED',['2.2.3.1.1'],
+                       'carriage_temperature_c_at_or_above_flash_point')
     if type(e.get('diesel_gasoil_light_heating_oil')) is not bool:
         return failure('ADR25-C3-DIESEL',['2.2.3.1.1 NOTE 2'], 'diesel_gasoil_light_heating_oil')
     state_err=_liquid_state(e, molten_heated=(heated and fp>60))
