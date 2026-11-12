@@ -30,7 +30,15 @@ const mean = a => a.reduce((v,n) => v+n, 0) / a.length;
 const refs = (...r) => r;
 function evaluateClass51(input) {
   const result = {
-    status: "insufficient_evidence", classCandidate: null, pgCandidate: null,
+    schema_version: "agent7.adr2025.class51.finding.v0.1",
+    assessment_id: typeof input?.assessmentId === "string" ? input.assessmentId : null,
+    regime: "ADR", edition: "2025", class: "5.1", rule_id: "51-001",
+    status: "indeterminate", specialistStatus: "insufficient_evidence",
+    primary_class_candidates: [], subsidiary_risks: [], packing_group_candidates: [],
+    exclusions: [], unresolved_evidence: [], expert_decisions: [],
+    table_a_candidates: [], special_provision_outcomes: [], evidence_refs: [],
+    clause_refs: [], assignment_permitted: false, requires_independent_review: true,
+    classCandidate: null, pgCandidate: null,
     finalPackingGroup: null, finalUNNumber: null, tableARowId: null,
     evidenceUsed: [], missingEvidence: [], issues: [], subsidiaryCandidates: [],
     dependencies: ["ADR 2025 Chapter 3.2 Table A row/PG column (4)",
@@ -41,9 +49,51 @@ function evaluateClass51(input) {
   };
   const issue = (code, clause, detail) => result.issues.push({code, clause, detail});
   const missing = (...keys) => { for (const k of keys) if (!result.missingEvidence.includes(k)) result.missingEvidence.push(k); };
-  const stop = status => {result.status = status; return result;};
+  const stop = status => {
+    result.specialistStatus = status;
+    const code = result.issues.length ? result.issues[0].code : null;
+    result.status = status === "not_accepted_for_carriage" ? "prohibited_for_carriage"
+      : status === "insufficient_evidence" ? "indeterminate"
+      : status === "requires_expert_review" ?
+          (["FERTILIZER_AUTHORITY_EXCEPTION","FERTILIZER_AUTHORITY_EXIT"].includes(code)
+            ? "authority_required"
+          : ["EXPERIENCE_CONFLICT","INVALID_REFERENCE_ORDER",
+              "FERTILIZER_EXIT_OUTCOME_MISMATCH"].includes(code) ? "conflict"
+          : ["UNSUPPORTED_METHOD","EDITION_UNSUPPORTED","ARTICLE_ENTRY_REQUIRED",
+              "ARTICLE_OR_STATE_UNSUPPORTED","FERTILIZER_NONTERMINAL_OR_UNKNOWN_BOX",
+              "GHS_SHORTCUT_REJECTED"].includes(code) ? "unsupported"
+          : "indeterminate") : status;
+    const method = input?.test?.method;
+    const pg = result.pgCandidate;
+    const ruleSet = {
+      "O.1": {I:"51-009",II:"51-010",III:"51-011",default:"51-006"},
+      "O.3": {I:"51-012",II:"51-013",III:"51-014",default:"51-007"},
+      "O.2": {I:"51-016",II:"51-017",III:"51-018",default:"51-015"}
+    };
+    result.rule_id = input?.composition?.isSolidAmmoniumNitrateFertilizer === true
+      ? (code === "FERTILIZER_AUTHORITY_EXIT" || code === "FERTILIZER_PROHIBITED_EXIT"
+          ? "51-023" : "51-008")
+      : code === "UNSTABLE_UNACCEPTABLE" ? "51-019"
+      : code === "COMBINED_51_SOLID_RESTRICTED" ? "51-020"
+      : code && /PROHIBITED|HALOGENATED|AMMONIUM_NITRATE/.test(code) ? "51-021"
+      : ruleSet[method] ? (ruleSet[method][pg] || ruleSet[method].default) : "51-001";
+    result.primary_class_candidates = result.classCandidate
+      ? [{class:"5.1",classification_code:null,division:null,compatibility_group:null,
+          packing_group:null,evidence_ids:result.evidenceUsed.map(x=>x.reportId||x.recordId).filter(Boolean),
+          authority_decision_id:null,status:result.status}] : [];
+    result.subsidiary_risks = result.subsidiaryCandidates.map(c=>({
+      class:c,evidence_ids:[],status:"indeterminate"}));
+    result.packing_group_candidates = pg ? [{value:pg,
+      evidence_ids:result.evidenceUsed.map(x=>x.reportId||x.recordId).filter(Boolean),
+      status:"provisional_not_table_a_verified"}] : [];
+    result.unresolved_evidence = result.missingEvidence.map(key=>({
+      id:key,reason:"Required verified Class 5.1 evidence not supplied",blocks_assignment:true}));
+    result.evidence_refs = result.evidenceUsed.map(x=>x.reportId||x.recordId).filter(Boolean);
+    result.clause_refs = [...new Set(result.issues.flatMap(x=>x.clause.split(";").map(z=>z.trim())))];
+    return result;
+  };
   if (!input || typeof input !== "object" || Array.isArray(input))
-    { missing("material evidence object"); return result; }
+    { missing("material evidence object"); return stop("insufficient_evidence"); }
   const p = input.composition || {};
   const hazards = input.otherHazards || {};
   for (const [k,code] of [["toxic","6.1"],["corrosive","8"],["flammableSolid","4.1"],
@@ -136,7 +186,7 @@ function evaluateClass51(input) {
     return stop("insufficient_evidence");
   }
   const t = input.test;
-  if (!t || typeof t !== "object") {missing("test report: O.1/O.2/O.3"); return result;}
+  if (!t || typeof t !== "object") {missing("test report: O.1/O.2/O.3"); return stop("insufficient_evidence");}
   if (!Object.hasOwn(TEST_METHODS,t.method) || TEST_METHODS[t.method].state !== input.physicalState) {
     issue("UNSUPPORTED_METHOD","2.2.51.1.6; 2.2.51.1.9; MTC 34.4",
       "Exact supported method and physical state needed; authority/expert review.");
