@@ -48,14 +48,17 @@ function physical(d,s){
   const f=d.form;
   if(f==="compressed"||f==="liquefied"){
     const t=read(d,"critical_temperature_c","degC",null,s);
-    if(t===undefined){need(s,"critical_temperature_c");return null;}
     if(f==="compressed"){
       const g=read(d,"entirely_gaseous_at_minus50","boolean",null,s);
-      if(t<=-50&&g!==false)return {name:f,code_prefix:"1"};
-      if(t<=-50&&g===false)s.blockers.push("conflicting_phase_evidence");
-      else s.blockers.push("compressed_requires_critical_temp_lte_minus50");
+      if(g===true||(t!==undefined&&t<=-50&&g!==false))return {name:f,code_prefix:"1"};
+      if(g===false)s.blockers.push("not_entirely_gaseous_at_minus50");
+      else {
+        if(t===undefined)need(s,"critical_temperature_c");
+        need(s,"entirely_gaseous_at_minus50");
+      }
       return null;
     }
+    if(t===undefined){need(s,"critical_temperature_c");return null;}
     const part=read(d,"partially_liquid_above_minus50","boolean",null,s);
     if(part===undefined)need(s,"partially_liquid_above_minus50");
     if(t<=-50)s.blockers.push("liquefied_requires_temp_gt_minus50");
