@@ -32,7 +32,9 @@
   "classification_use_authorized": false,
   "extracted_data_published_in_git": false,
   "reason_not_published": "Public repository; underlying UN publication states all rights reserved. Bulk source extraction retained as review artifact only pending rights assessment.",
-  "ci_evidence_url": "https://github.com/ConorTttttt/DGR/actions/runs/43132198960",
-  "ci_artifact_url": "https://github.com/ConorTttttt/DGR/actions/runs/43132198960/artifacts/13905014131",
-  "note": "Success indicates structural extraction only, not correct classification, exact legal edition equivalence, or compliance approval."
+  "ci_evidence_url": "https://github.com/ConorTttttt/DGR/actions/runs/43132460587",
+  "ci_artifact_url": "https://github.com/ConorTttttt/DGR/actions/runs/43132460587/artifacts/13905712639",
+  "note": "Success indicates structural extraction only, not correct classification, exact legal edition equivalence, or compliance approval.",
+  "independent_structural_output_integrity_check": "pass",
+  "independent_structural_output_integrity_check_note": "Separate programmatic consistency validation, not an independent regulatory review"
 }
