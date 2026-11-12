@@ -1,0 +1,282 @@
+[
+  {
+    "id": "E01",
+    "case": "N2 non-powdery solid",
+    "decision": "unsupported",
+    "references": "MTC 33.4.4.3",
+    "required_action": "N.2 pouring procedure not demonstrated applicable; qualified alternate assessment required",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E02",
+    "case": "N4 non-powder/non-granular or article",
+    "decision": "unsupported",
+    "references": "MTC 33.4.6.3; ADR 2.2.42.1.2",
+    "required_action": "Article/equipment and unusual physical forms need actual entry and expert evidence",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E03",
+    "case": "N2 less than 6 negatives",
+    "decision": "indeterminate",
+    "references": "MTC 33.4.4.3",
+    "required_action": "No implied non-pyrophoric conclusion",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E04",
+    "case": "N3 no full filter sequence after six carrier negatives",
+    "decision": "indeterminate",
+    "references": "MTC 33.4.5.3.1–.3.2",
+    "required_action": "No implied non-pyrophoric conclusion",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E05",
+    "case": "N3 first-stage positive and second-stage data",
+    "decision": "conflict",
+    "references": "MTC 33.4.5.3.1",
+    "required_action": "Unsupported sequence, manual adjudication",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E06",
+    "case": "N4 100@140 positive, 25@140 missing",
+    "decision": "indeterminate",
+    "references": "ADR 2.2.42.1.8(b)-(c)",
+    "required_action": "No PG II/III determination",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E07",
+    "case": "N4 100@140 positive 25@140 negative, package volume missing",
+    "decision": "indeterminate",
+    "references": "ADR 2.2.42.1.5(c) Notes 1-2",
+    "required_action": "Cannot determine package-conditioned exemption",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E08",
+    "case": "Package volume 450 or 3000 L threshold",
+    "decision": "implemented",
+    "references": "ADR 2.2.42.1.5(c) Notes 1-2",
+    "required_action": "Include exactly 450/3000 L; above each threshold different path",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E09",
+    "case": "N4 missing 100@100 for <=450 L, without 120 negative",
+    "decision": "indeterminate",
+    "references": "MTC 33.4.6.4.2(c)",
+    "required_action": "PGIII versus exemption unresolved",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E10",
+    "case": "N4 missing 100@120 for 450-3000 L",
+    "decision": "indeterminate",
+    "references": "MTC 33.4.6.4.2(b)",
+    "required_action": "PGIII versus exemption unresolved",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E11",
+    "case": "N4 actual oven+60 versus ADR nominal cutoff disagree",
+    "decision": "conflict",
+    "references": "ADR 2.2.42.1.5(c); MTC 33.4.6.4.1",
+    "required_action": "Do not resolve via rounding; expert interpretation",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E12",
+    "case": "N4 inverted cube or lower-temperature outcomes",
+    "decision": "conflict",
+    "references": "MTC 33.4.6.3–.4",
+    "required_action": "Repeat/review underlying thermograms",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E13",
+    "case": "N4 repeat test contradictions",
+    "decision": "conflict",
+    "references": "MTC 33.4.6.4",
+    "required_action": "Sample variability, experimental integrity and regulatory interpretation",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E14",
+    "case": "Named-entry test negative",
+    "decision": "indeterminate",
+    "references": "ADR 2.2.42.1.7",
+    "required_action": "Named substances may be released from this class only with reviewed evidence and Table A scope",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E15",
+    "case": "N.O.S. experience more severe than lab screening",
+    "decision": "conflict",
+    "references": "ADR 2.2.42.1.4",
+    "required_action": "Experience must be taken into account for stricter hazard classification",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E16",
+    "case": "Mixture/diluent concentration not verified",
+    "decision": "indeterminate",
+    "references": "ADR 2.2.42.1.6; 2.1.3",
+    "required_action": "No inference from ingredients, CLP or generic SDS prose",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E17",
+    "case": "Organometallic flowchart not complete",
+    "decision": "handoff",
+    "references": "ADR 2.3.5 Figure 2.3.5",
+    "required_action": "Refer N.1, N.5, 4.3 and 3 outcomes, no UN number here",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E18",
+    "case": "Class 4.1 / 4.3 / 5.1 competitors",
+    "decision": "handoff",
+    "references": "ADR 2.1.3.10; 2.3.5",
+    "required_action": "Lead must decide precedence and subsidiary labels",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E19",
+    "case": "Named-entry UN 3255",
+    "decision": "prohibited_for_carriage",
+    "references": "ADR 2.2.42.2",
+    "required_action": "Exact verified named entry: not accepted for carriage",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E20",
+    "case": "Self-heating oxidizing solid UN 3127",
+    "decision": "prohibited_for_carriage_or_authority_required",
+    "references": "ADR 2.2.42.2; 2.1.3.7",
+    "required_action": "Not accepted unless Class1 requirements; external Class1 decision required",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E21",
+    "case": "27 m3 spontaneous-combustion temperature >50°C",
+    "decision": "external_expert",
+    "references": "ADR 2.2.42.1.5(c)",
+    "required_action": "Not derived from ordinary N.4 cubes; scale-up justification unavailable",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E22",
+    "case": "450 L spontaneous-combustion temperature >50°C",
+    "decision": "external_expert",
+    "references": "ADR 2.2.42.1.8(b)",
+    "required_action": "Cannot use N.4 25mm results alone to verify this exception",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E23",
+    "case": "Exact named entry and all Table A PG/SP checks",
+    "decision": "handoff",
+    "references": "ADR 3.2.1; 3.3.1",
+    "required_action": "Never finalise UN, PG, carriage acceptance or SDS 14 in this module",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E24",
+    "case": "ADR 2025 English Corr.1/Corr.2 not reconciled",
+    "decision": "unsupported_release",
+    "references": "ADR 2025 edition metadata",
+    "required_action": "Independent source and corrigenda verification required before approval",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E25",
+    "case": "N.4 oven/protocol attestation untrusted",
+    "decision": "indeterminate",
+    "references": "MTC 33.4.6.2–.3",
+    "required_action": "Actual test hardware, thermocouple calibration and continuous records reviewed upstream",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E26",
+    "case": "No sample-specific validation of chemical instability, shipping conditions",
+    "decision": "unsupported_release",
+    "references": "ADR 2.1.3 and 2.2.42.1.4",
+    "required_action": "Reassess changed formulation, stabilization, packaging and temperature",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E27",
+    "case": "Tests physically impracticable",
+    "decision": "unsupported",
+    "references": "MTC 33.4.2.1",
+    "required_action": "Do not assume negative; require competent method and expert evidence",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  },
+  {
+    "id": "E28",
+    "case": "N.3 verified filter stages without required 0.5 mL carrier volume data",
+    "decision": "protocol_attestation",
+    "references": "MTC 33.4.5.3.1–.3.2",
+    "required_action": "Protocol_conformant flag must originate from authentic source report, not auto-assumed",
+    "owner": "Lead/integrator or independent regulatory reviewer",
+    "resolved": false,
+    "release_blocking": true
+  }
+]
