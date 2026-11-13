@@ -846,8 +846,8 @@ const fixtures = [
     {
       "mode": "ADR_ROAD",
       "kind": "medical_waste",
-      "pathogen_state": "known",
-      "category_a_assessment": "met",
+      "pathogen_state": "unknown",
+      "category_a_assessment": "unknown",
       "affects_humans": true,
       "evidence_refs": [
         "medical diagnosis"
