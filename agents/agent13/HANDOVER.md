@@ -6,7 +6,7 @@
 
 - `class9.py`: standalone deterministic Class 9 candidate evaluator, separate from Agent 3-owned prototype, with three family pathways and environmental/primary separation.
 - `rules.json`: machine-readable rule and clause register, source editions, measured units, exception paths, M-factor and summation/additivity formulas.
-- `tests/test_class9.py`: 36 locally passing `unittest` cases, including repeated threshold subcases; `README.md`; `UNSUPPORTED.md`.
+- `tests/test_class9.py`: 41 locally passing `unittest` cases, including repeated threshold subcases; `README.md`; `UNSUPPORTED.md`.
 - Draft PR opened against `main` from `agent13/adr2025-class9-audit`, referencing but not editing PR #2. Integrate only under Lead permission.
 
 ## 2. Regulatory material examined
@@ -43,7 +43,7 @@
 
 ## 6. Tests run
 
-`python -m unittest discover -s tests -v` — **36 test methods passed** locally (multiple boundary subcases); `python -m py_compile class9.py` and `python -m json.tool rules.json` passed. Tests include Acute/Chronic summation and M-factor boundaries, additivity, unlisted constituents, unknown evidence, CLP-only evidence rejection, physical state, PG Table A checks, 100/240°C cutoffs, PCB 50 mg/kg, polymer 55°C and lithium/sodium battery type/SP gates. These are **implementation behavior tests only**; no external conformance study or independent validation was performed.
+`python -m unittest discover -s tests -v` — **41 test methods passed** locally (multiple boundary subcases); `python -m py_compile class9.py` and `python -m json.tool rules.json` passed. Tests include Acute/Chronic summation and M-factor boundaries, additivity, unlisted constituents, unknown evidence, CLP-only evidence rejection, physical state, PG Table A checks, 100/240°C cutoffs, PCB 50 mg/kg, polymer 55°C and lithium/sodium battery type/SP gates. These are **implementation behavior tests only**; no external conformance study or independent validation was performed.
 
 ## 7. Required handoffs and next actions
 
