@@ -975,7 +975,8 @@ const fixtures = [
         "construction_6_1_4_or_6_6_4": true,
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
-        "mark": "USED MEDICAL EQUIPMENT"
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
       }
     },
     "limited_provisions_exemption",
@@ -997,7 +998,8 @@ const fixtures = [
         "construction_6_1_4_or_6_6_4": true,
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": false,
-        "mark": "USED MEDICAL EQUIPMENT"
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
       }
     },
     "insufficient_evidence",
@@ -1019,7 +1021,8 @@ const fixtures = [
         "construction_6_1_4_or_6_6_4": true,
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
-        "mark": "USED MEDICAL EQUIPMENT"
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
       }
     },
     "named_entry_review_required",
@@ -1041,7 +1044,8 @@ const fixtures = [
         "construction_6_1_4_or_6_6_4": true,
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
-        "mark": "USED MEDICAL EQUIPMENT"
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
       }
     },
     "referred_to_other_class",
@@ -1063,7 +1067,8 @@ const fixtures = [
         "construction_6_1_4_or_6_6_4": true,
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
-        "mark": "USED MEDICAL EQUIPMENT"
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
       }
     },
     "requires_expert_review",
@@ -1085,7 +1090,8 @@ const fixtures = [
         "construction_6_1_4_or_6_6_4": true,
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
-        "mark": "USED MEDICAL EQUIPMENT"
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
       },
       "drained_of_free_liquid": true
     },
@@ -1278,6 +1284,125 @@ const fixtures = [
       "mode": "ADR_ROAD",
       "kind": "substance",
       "clp_classification": "Acute Tox. 2"
+    },
+    "insufficient_evidence",
+    []
+  ],
+  [
+    "Medical waste contradictory low probability and Category A",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_waste",
+      "pathogen_state": "known",
+      "category_a_assessment": "met",
+      "affects_humans": true,
+      "evidence_refs": [
+        "medical diagnosis"
+      ],
+      "waste_state": "solid",
+      "waste_origin": "human_medical_treatment",
+      "waste_carriage_purpose": "disposal",
+      "waste_low_probability": true
+    },
+    "requires_expert_review",
+    []
+  ],
+  [
+    "Medical waste contradictory exemption code and Category A",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_waste",
+      "pathogen_state": "known",
+      "category_a_assessment": "met",
+      "affects_humans": true,
+      "evidence_refs": [
+        "medical diagnosis"
+      ],
+      "waste_state": "solid",
+      "waste_origin": "human_medical_treatment",
+      "waste_carriage_purpose": "disposal",
+      "waste_catalogue_code": "18 01 04",
+      "waste_catalogue_verified": true
+    },
+    "requires_expert_review",
+    []
+  ],
+  [
+    "Patient specimen contradictory Category A and minimal likelihood",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "patient_specimen",
+      "minimal_pathogen_likelihood": true,
+      "professional_judgement": {
+        "record_ref": "clinical-pro-123",
+        "basis": "known medical history, symptoms, circumstances and endemic conditions"
+      },
+      "specimen_species": "human",
+      "specimen_is_liquid": true,
+      "multiple_fragile_primaries": true,
+      "evidence_refs": [
+        "patient evaluation"
+      ],
+      "specimen_packaging": {
+        "method": "tripack",
+        "primary_leakproof": true,
+        "secondary_leakproof": true,
+        "outer_adequate": true,
+        "packaging_verified": true,
+        "outer_width_mm": 100,
+        "outer_height_mm": 100,
+        "mark": "Exempt human specimen",
+        "absorbent_all_contents": true,
+        "fragile_separated": true
+      },
+      "pathogen_state": "known",
+      "category_a_assessment": "met"
+    },
+    "requires_expert_review",
+    []
+  ],
+  [
+    "Device drop boundary at 1.20m",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_device",
+      "device_category_a": false,
+      "device_other_class_dangerous": false,
+      "device_carriage_purpose": "repair",
+      "evidence_refs": [
+        "equipment log"
+      ],
+      "device_packaging": {
+        "protects_against_breakage_puncture_leak": true,
+        "construction_6_1_4_or_6_6_4": true,
+        "general_4_1_1_1_and_4_1_1_2": true,
+        "retains_on_1_2m_drop": true,
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2
+      }
+    },
+    "limited_provisions_exemption",
+    []
+  ],
+  [
+    "Device drop boundary below 1.20m",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_device",
+      "device_category_a": false,
+      "device_other_class_dangerous": false,
+      "device_carriage_purpose": "repair",
+      "evidence_refs": [
+        "equipment log"
+      ],
+      "device_packaging": {
+        "protects_against_breakage_puncture_leak": true,
+        "construction_6_1_4_or_6_6_4": true,
+        "general_4_1_1_1_and_4_1_1_2": true,
+        "retains_on_1_2m_drop": true,
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.19
+      }
     },
     "insufficient_evidence",
     []
