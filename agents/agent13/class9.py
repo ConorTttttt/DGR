@@ -23,6 +23,17 @@ def num(v, *, zero=False):
         return None
 
 
+def signed_num(v):
+    """Finite signed numeric measurement (e.g. a legitimate negative flash point)."""
+    if isinstance(v, bool) or not isinstance(v, (int, float, Decimal)):
+        return None
+    try:
+        d = Decimal(str(v))
+        return d if d.is_finite() else None
+    except (InvalidOperation, ValueError):
+        return None
+
+
 def result(rule, status="indeterminate", *, clauses=(), missing=(), categories=(), data=None, notes=(), pg=None):
     assert status in ("indeterminate", "criteria_met", "criteria_not_met")
     return {"hazard_class": "9", "status": status, "rule_id": rule,
@@ -80,6 +91,10 @@ def _mix_summation(e):
         missing.add("whole_mixture_data_available=False")
     if e.get("bridging_data_available") is not False:
         missing.add("bridging_data_available=False")
+    # This is a method-selection gate, not an aquatic threshold. If whole-mixture
+    # data or eligible bridging may apply, the lower-priority summation method
+    # cannot independently establish a classification.
+    method_hierarchy_blocked = bool(missing)
     cs = e.get("constituents")
     if not isinstance(cs, list) or not cs:
         return result("C9-AQ-SUM", clauses=clauses, missing=["constituents"])
@@ -134,7 +149,7 @@ def _mix_summation(e):
         cats.append("Chronic 2")
     # Never generate definitive negative where evidence is missing; preserve known positives as provisional.
     valid = not any("valid" in x or "must_not" in x or "matches_toxicity" in x for x in missing)
-    status = "criteria_met" if cats and valid else "indeterminate" if (missing or unknown) else "criteria_not_met"
+    status = "indeterminate" if method_hierarchy_blocked else ("criteria_met" if cats and valid else "indeterminate" if (missing or unknown) else "criteria_not_met")
     return result("C9-AQ-SUM", status, clauses=clauses, missing=missing, categories=cats,
                   data={"weighted_acute_1_pct": str(a), "weighted_chronic_1_pct": str(c1),
                         "chronic_2_pct": str(c2), "composition_reported_pct": str(pct_sum),
@@ -210,19 +225,25 @@ def _whole(e, *, mixture):
         missing.append("acute_l_ec50_mg_l_or_endpoint_clearance")
     if chronic is not None:
         if mixture:
-            rd = e.get("all_relevant_ingredients_rapidly_degradable") is True
+            rd = e.get("all_relevant_ingredients_rapidly_degradable")
+            if type(rd) is not bool:
+                missing.append("all_relevant_ingredients_rapidly_degradable")
+                rd = None
         else:
             rd = e.get("rapidly_degradable")
             if rd is None and e.get("degradation_data_absent") is True:
                 rd = False  # Table 2.2.9.1.10.3.1 Note 4: no useful data -> not rapidly degradable
-            if rd is not True and rd is not False:
+            if type(rd) is not bool:
                 missing.append("rapid_degradation_evaluation")
-                rd = False  # conservative only: does not produce a negative classification
-        c1, c2 = (Decimal("0.01"), Decimal("0.1")) if rd else (Decimal("0.1"), Decimal("1"))
-        if chronic <= c1:
-            cats.append("Chronic 1")
-        elif chronic <= c2:
-            cats.append("Chronic 2")
+                rd = None
+        # A missing RD conclusion cannot be silently interpreted as NRD.
+        # Only a documented lack of degradation data invokes the ADR Note 4 default.
+        if rd is not None:
+            c1, c2 = (Decimal("0.01"), Decimal("0.1")) if rd else (Decimal("0.1"), Decimal("1"))
+            if chronic <= c1:
+                cats.append("Chronic 1")
+            elif chronic <= c2:
+                cats.append("Chronic 2")
     elif not mixture and e.get("adequate_chronic_data") is False and acute is not None:
         # Table 2.2.9.1.10.3.1(b)(iii); no-data degradability defaults to NRD (Note 4).
         rd = e.get("rapidly_degradable")
@@ -335,7 +356,7 @@ def elevated(e):
         return result("C9-TEMP", "criteria_not_met", clauses=clauses,
                       notes=["Only elevated-temperature criterion excluded"])
     if state == "liquid":
-        fp = num(e.get("flash_point_c"), zero=True)
+        fp = signed_num(e.get("flash_point_c"))
         if fp is None and e.get("flash_point_absent_evidence_ref") is None:
             return result("C9-TEMP", clauses=clauses, missing=["flash_point_c_or_verified_absence"])
         if fp is not None and t >= fp:
@@ -380,7 +401,7 @@ def subclass(e):
             missing.append("material_scope")
         data["candidate_code"] = "M2"
     elif kind == "polymer_vapour":
-        fp = num(e.get("contained_flammable_liquid_flash_point_c"), zero=True)
+        fp = signed_num(e.get("contained_flammable_liquid_flash_point_c"))
         if e.get("polymer_contains_flammable_liquid") is not True or fp is None:
             missing.append("verified_polymer_and_flash_point")
         elif fp > 55 and not missing:
