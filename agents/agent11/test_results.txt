@@ -1,0 +1,9 @@
+Agent 11 Class 7 prototype, 2026-11-13 (developer-run, NOT independent regulatory validation)
+Command: python -m unittest discover -s agents/agent11/tests -q
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.001s
+
+OK
+
+Coverage: positive/negative strict Class 7 definition; exact concentration/consignment boundaries; 2-component mixture reciprocal limit; dated sources/unsupported radionuclides; contamination SCO-I/SCO-II thresholds; LSA-I, LSA-II; fissile 0.25g boundary; Type A/excepted activity-only screen; TI/category arithmetic; never emits UN/packing group/transport non-regulated. Cs-137 footnote without evidence is intentionally INDETERMINATE. All fixture results are artificial developer cases.

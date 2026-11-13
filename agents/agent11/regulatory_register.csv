@@ -1,0 +1,28 @@
+rule_id,source_edition,exact_clause_or_table,subsystem,implemented_status,review_requirement
+C7-001,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.1.1,definition gate,executable_provisional,verified radionuclide inventory and mass
+C7-002,ADR 2025 ECE/TRANS/352 Vol.I,Table 2.2.7.2.2.1,nuclide reference values,curated_8_rows_only,full table and footnote independent audit
+C7-003,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.2.4,mixture reciprocal formula,executable_provisional,equilibrium and homogeneous composition
+C7-004,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.2.2(a) and Table 2.2.7.2.2.2,unlisted nuclides and fallback,blocked,expert confirmation and multilateral approval where applicable
+C7-004b,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.2.2(b),alternate instrument exempt limits,blocked,multilateral approval
+C7-004c,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.2.3,decay chains,blocked,expert equilibrium calculation
+C7-004d,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.2.5-2.2.7.2.2.6,grouped or missing isotopic activities,blocked,expert grouping and Table 2.2.7.2.2.2
+C7-005,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.1.3 fissile definition and exclusions,definition mass gate,provisional_candidate,identity and other material evidence
+C7-006,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.5(a)-(f) and 2.2.7.2.3.6,fissile exception route,blocked,criticality CV33 and approval
+C7-007,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.1.2(a)(i)-(iv),LSA-I characteristics,candidate,4.1.9.2 and CV33
+C7-008,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.1.2(b)(i)-(ii),LSA-II characteristics,candidate,4.1.9.2 and CV33
+C7-009,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.1.2(c)(i)-(ii),LSA-III characteristics,candidate,4.1.9.2 and CV33
+C7-010,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.1.2 and 2.2.7.2.3.2(a)-(b),SCO-I and SCO-II,provisional_candidate,300cm2 methodology and surface surveys
+C7-011,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.2(c),SCO-III,blocked,multilateral approval and transport plan
+C7-012,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.3.1-2.2.7.2.3.3.8,special form,blocked,ISO 2919 ISO 9978 test and unilateral approval
+C7-013,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.3.4.1-2.2.7.2.3.4.4,low dispersible,blocked,6.4.20 tests and multilateral approval
+C7-014,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.4.4,Type A activity limit,screen_only,package construction and all other requirements
+C7-015,ADR 2025 ECE/TRANS/352 Vol.I,2.2.7.2.4.1.1-2.2.7.2.4.1.7 and Table 2.2.7.2.4.1.2,excepted package routes,partial_screen_only,dose closure marks geometry and fissile checks
+C7-016,ADR 2025 ECE/TRANS/352 Vol.II,5.1.5.3.1-5.1.5.3.4 and Table 5.1.5.3.4,transport index and categories,package_geometry_only,approval and exclusive use
+C7-017,ADR 2025 ECE/TRANS/352 Vol.I,Table 2.2.7.2.1.1 and 2.2.7.2.4.5-2.2.7.2.4.6 and 2.2.7.2.5,UN assignments and UF6/Type B/C,blocked,Table A certificate special arrangement
+C7-017a,ADR 2025 ECE/TRANS/352 Vol.I,3.3.1 SP 290 and 369,other dangerous properties and UF6,downstream,Lead Agent named-entry precedence
+C7-018,ADR 2025 ECE/TRANS/352 Vol.I,1.7.1.4(a)-(g) and 1.7.5,transport applicability and other hazards,flag_only,other agents and jurisdiction
+C7-019,ADR 2025 ECE/TRANS/352 Vol.II,4.1.9.2.1-4.1.9.2.5 and Table 4.1.9.2.5,LSA/SCO carriage/package type,downstream,packaging agent
+C7-020,ADR 2025 ECE/TRANS/352 Vol.II,5.1.5.1.2-5.1.5.1.4 and 5.1.5.2.1-5.1.5.2.3,approvals notifications,downstream,competent-authority verification
+C7-021,ADR 2025 ECE/TRANS/352 Vol.II,6.4.11-6.4.12 and 6.4.20 and 6.4.23,design/testing/certificates,downstream,competent-authority verification
+C7-022,ADR 2025 ECE/TRANS/352 Vol.II,7.5.11 CV33(2)-(4),radioactive carriage and fissile consignment limits,downstream,consignment agent
+C7-023,UN MTC Rev.8 ST/SG/AC.10/11/Rev.8 and Amendment 1 ST/SG/AC.10/11/Rev.8/Amend.1,no standalone Class 7 radioactive test thresholds,not_used,ADR Chapter 2.2.7 and Chapter 6.4 govern these routes

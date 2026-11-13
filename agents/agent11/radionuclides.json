@@ -1,0 +1,21 @@
+{
+  "edition": "ADR 2025 ECE/TRANS/352 Vol.I",
+  "table": "2.2.7.2.2.1",
+  "status": "curated_subset_only_pending_independent_table_audit",
+  "units": {"A1": "TBq", "A2": "TBq", "exempt_concentration": "Bq/g", "exempt_consignment": "Bq"},
+  "values": {
+    "Am-241": {"A1": "10", "A2": "0.001", "exempt_concentration": "1", "exempt_consignment": "10000", "notes": []},
+    "C-14": {"A1": "40", "A2": "3", "exempt_concentration": "10000", "exempt_consignment": "10000000", "notes": []},
+    "Co-60": {"A1": "0.4", "A2": "0.4", "exempt_concentration": "10", "exempt_consignment": "100000", "notes": []},
+    "Cs-137": {"A1": "2", "A2": "0.6", "exempt_concentration": "10", "exempt_consignment": "10000", "notes": ["a: decay progeny", "b: daughter secular equilibrium"]},
+    "I-131": {"A1": "3", "A2": "0.7", "exempt_concentration": "100", "exempt_consignment": "1000000", "notes": []},
+    "Pu-239": {"A1": "10", "A2": "0.001", "exempt_concentration": "1", "exempt_consignment": "10000", "notes": []},
+    "T(H-3)": {"A1": "40", "A2": "40", "exempt_concentration": "1000000", "exempt_consignment": "1000000000", "notes": []},
+    "Tc-99m": {"A1": "10", "A2": "4", "exempt_concentration": "100", "exempt_consignment": "10000000", "notes": []}
+  },
+  "fallback_table_2_2_7_2_2_2": {
+    "only_beta_gamma": {"A1": "0.1", "A2": "0.02", "exempt_concentration": "10", "exempt_consignment": "10000"},
+    "alpha_without_neutron": {"A1": "0.2", "A2": "0.00009", "exempt_concentration": "0.1", "exempt_consignment": "1000"},
+    "neutron_or_no_relevant_data": {"A1": "0.001", "A2": "0.00009", "exempt_concentration": "0.1", "exempt_consignment": "1000"}
+  }
+}

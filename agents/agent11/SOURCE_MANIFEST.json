@@ -1,0 +1,15 @@
+{
+  "module": "agent11_class7", "generated_on": "2026-11-13", "status": "provisional_not_validated",
+  "primary_sources": [
+    {"id":"adr2025_vol1_en", "title":"ADR 2025 ECE/TRANS/352 Vol.I English", "edition":"2025", "effective_from":"2025-01-01", "year_published":"2024", "local_filename":"2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf", "url":"https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf", "relevant":"1.7, 2.2.7, 3.2 and 3.3"},
+    {"id":"adr2025_vol2_en", "title":"ADR 2025 ECE/TRANS/352 Vol.II English", "edition":"2025", "effective_from":"2025-01-01", "year_published":"2024", "local_filename":"2412010_E_ECE_TRANS_352_Vol.II_WEB.pdf", "url":"https://unece.org/transport/documents/2025/01/standards/adr-2025-volume-2", "relevant":"4.1.9, 5.1.5, 5.2.2, 6.4, 7.5.11"}
+  ],
+  "related_sources": [
+    {"id":"un_mtc_rev8", "title":"UN Manual of Tests and Criteria Rev.8", "year_published":"2023", "local_filename":"ST_SG_AC.10_11_Rev.8e_WEB.pdf", "usage":"No independent Class 7 radionuclide activity limits taken from this manual"},
+    {"id":"un_mtc_rev8_amend1", "title":"UN Manual of Tests and Criteria Rev.8 Amendment 1", "year_published":"2025", "local_filename":"ST-SG-AC10-11-Rev8-Amend1e(1).pdf", "usage":"No replacement for ADR 2.2.7 tests/approval routes"},
+    {"id":"adr2025_corr2", "title":"ECE/TRANS/352/Corr.2", "year_published":"2025", "url":"https://unece.org/transport/documents/2025/10/post-session-documents/adr-2025-corrigendum-2", "usage":"Public corrigendum checked; no identified 2.2.7 correction; independent reconciliation still required"}
+  ],
+  "reviewed_examples": ["Am-241", "C-14", "Co-60", "Cs-137", "I-131", "Pu-239", "T(H-3)", "Tc-99m"],
+  "table_completeness": "NO: only eight of many radionuclides curated, not a full Table 2.2.7.2.2.1 transcription",
+  "approval_required": true
+}
