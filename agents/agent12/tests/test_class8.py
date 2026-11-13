@@ -10,7 +10,7 @@ evaluate = mod.evaluate
 
 
 def base(**overrides):
-    p = dict(material_scope='substance',
+    p = dict(material_scope='substance', physical_state='liquid',
              human_evidence=dict(status='none', review_complete=True, evidence_id='HUM-REVIEW-1'),
              skin_test=dict(status='corrosive', valid=True, method='OECD_404',
                             evidence_id='STUDY-1', exposure_minutes=3, observation_minutes=60))
@@ -120,6 +120,16 @@ class Class8Cases(unittest.TestCase):
         self.assertEqual((r['status'],r['calculated_packing_group']),('criteria_met','III'))
         local['local_corrosion_assessed']=False
         self.assertEqual(evaluate(base(skin_test=negative_skin(),metal_tests={'aluminium':local}))['status'],'indeterminate')
+
+    def test_metal_physical_state_scope(self):
+        st=metal('steel',rate_mm_year=6.251)
+        self.assertEqual(evaluate(base(skin_test=negative_skin(),physical_state='solid',
+           metal_tests={'steel':st}))['status'],'indeterminate')
+        r=evaluate(base(skin_test=negative_skin(),physical_state='solid',
+          may_become_liquid_during_carriage=True,metal_tests={'steel':st}))
+        self.assertEqual(r['calculated_packing_group'],'III')
+        self.assertEqual(evaluate(base(skin_test=negative_skin(),physical_state='gas',
+          metal_tests={'steel':st}))['status'],'indeterminate')
 
     def test_metal_conditions_boundaries(self):
         for kw in [dict(temperature_min_c=53.99), dict(temperature_max_c=56.01),
