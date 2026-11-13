@@ -187,7 +187,7 @@
         "certified C.1 protocol"
       ],
       "exceptions": [
-        "solid must be capable of becoming liquid in carriage before metal pathway; integration gate outstanding",
+        "liquid or explicitly verified solid capable of becoming liquid during carriage required for metal pathway",
         "no average corrosion-only negative if localised corrosion unassessed"
       ],
       "status": "partial_protocol_attestation"
@@ -327,7 +327,7 @@
   "unsupported_cases": [
     "specific concentration limit calculations",
     "source data with unknown study or metal C1 protocol",
-    "metal-corrosion solid state gating",
+    "physical-state evidence for solids becoming liquid during carriage",
     "aqueous reactivity/corrosive vapours",
     "named entries and Table A PG",
     "special provisions",
@@ -338,7 +338,7 @@
     "non-transport CLP/GHS classifications"
   ],
   "test_evidence": {
-    "local_unittest_methods": 18,
+    "local_unittest_methods": 19,
     "local_status": "passed",
     "independent_validation": false,
     "CI_status": "not_run",
