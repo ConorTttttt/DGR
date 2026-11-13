@@ -132,6 +132,10 @@ def _metal(t, metal):
 
 
 def _metals(e):
+    if e.get('physical_state') not in ('liquid', 'solid'):
+        return blocked('ADR25-C8-MET', ['2.2.8.1.3'], 'physical_state_for_metal_pathway')
+    if e['physical_state'] == 'solid' and e.get('may_become_liquid_during_carriage') is not True:
+        return blocked('ADR25-C8-MET', ['2.2.8.1.3'], 'solid_may_become_liquid_during_carriage')
     tests = e.get('metal_tests', {})
     if not isinstance(tests, dict):
         return blocked('ADR25-C8-MET', ['2.2.8.1.5.3(c)(ii)', 'MTC 37.4.1'], 'metal_tests')
