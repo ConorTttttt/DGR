@@ -45,7 +45,7 @@ The standalone evaluator returns status criteria_met, criteria_not_met, or indet
 
 ## Tests and reproducibility
 
-The exact-source Python implementation and exact-source test file were locally verified against matching Git blob hashes on the Agent 12 branch. 17 unittest methods passed, with numerous subtests for 3/60/240-minute skin thresholds, 14-day observation limits, 6.25 mm/year metal rate, local and uniform corrosion, 54/56°C, C.1 inputs, five bridging scenarios, mixture 1%/5% edges, human-animal disagreements and missing data. Python compilation passed. No remote CI, external benchmarks, laboratory evidence audits or independent regulatory QA have been performed.
+The exact-source Python implementation and exact-source test file were locally verified against matching Git blob hashes on the Agent 12 branch. 18 unittest methods passed, with numerous subtests for 3/60/240-minute skin thresholds, 14-day observation limits, 6.25 mm/year metal rate, local and uniform corrosion, 54/56°C, C.1 inputs, five bridging scenarios, mixture 1%/5% edges, human-animal disagreements and missing data. Python compilation passed. No remote CI, external benchmarks, laboratory evidence audits or independent regulatory QA have been performed.
 
 ## Unsupported-case and exception register / blockers
 
