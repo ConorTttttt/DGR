@@ -118,11 +118,13 @@ def _metal(t, metal):
         return None, f'valid_{metal}_mass_loss_pct'
     if depth is not None and not num(depth):
         return None, f'valid_{metal}_intrusion_um'
-    if rate is None and loss is None:
+    if rate is None and loss is None and (depth is None or depth <= INTRUSION[d]):
         return None, f'{metal}_uniform_corrosion_assessment'
     if (rate is not None and rate > 6.25) or (loss is not None and loss > LOSS[d]):
         return True, None
     if depth is not None and depth > INTRUSION[d]:
+        if t.get('local_corrosion_assessed') is not True:
+            return None, f'{metal}_localised_corrosion_assessment'
         return True, None
     if depth is None or t.get('local_corrosion_assessed') is not True:
         return None, f'{metal}_localised_corrosion_excluded'
