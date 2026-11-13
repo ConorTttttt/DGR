@@ -1,21 +1,30 @@
 # Agent 14 synthetic test report — ADR 2025 precedence
 
-**Regulatory review status:** NOT INDEPENDENTLY VALIDATED. Tests are mock/synthetic engineering assertions, not a class- or UN-number classification authority.
+**Status:** 34/34 GitHub Actions synthetic tests PASS; Python compilation PASS. **Regulatory review: NOT INDEPENDENTLY VALIDATED.** No real dangerous-goods classification is approved.
 
-## Test inventory
+## Reproducible committed-code result
 
-- File: agents/agent14/test_precedence.py
-- 34 named unittest test methods committed, using one shared synthetic packet fixture with all 13 class findings.
-- Positive, class-scoped negative, incomplete, conflicting candidate PG, missing source evidence, unconditional priority Classes 1/2/5.2/7, Class 7 excepted package with SP290, toxic inhalation/Class 8 carveout, physical form SOL/LIQ boundary, pesticide footnote, three-hazard precedence, missing toxicity route, oxidizer/Class 1 gate, Table A row and PG, classification label, SP codes, and named vs generic exception.
-- Test fixture intentionally uses UN '9999' and MOCK row identity: no actual ADR shipping-name selection implied.
-- Code: agents/agent14/precedence.py. Matrix data: 198 occupied cells, 22 row keys x 18 columns.
-- Command: python -m unittest discover -s agents/agent14 -p 'test_*.py' -v
-- Compile: python -m py_compile agents/agent14/precedence.py agents/agent14/test_precedence.py
+- Repository: ConorTttttt/DGR, draft PR #34
+- Branch: agent14/adr2025-cross-class-precedence
+- Tested PR merge ref based on code commit: 3bfc7c5ac07089a3af11842aca2cfb14dd299b28
+- Workflow run ID: 43341951125
+- Workflow link: https://github.com/ConorTttttt/DGR/actions/runs/43341951125
+- Job ID: 131612121729
+- Job conclusion: success
+- Python version: 3.12.16
+- Test invocation: python -m unittest discover -s agents/agent14 -p 'test_*.py' -v
+- Results: Ran 34 tests in 0.016s. OK. 34 passed, 0 failures, 0 errors.
+- Compilation invocation: python -m py_compile agents/agent14/precedence.py agents/agent14/test_precedence.py
+- Compile result: success.
 
-## Execution provenance
+## Synthetic coverage
 
-A related **local preliminary prototype** passed 30/30 tests earlier in development; that prototype was not byte-identical to the GitHub-committed code. **Do not treat the local result as proof that these 34 committed test methods passed.** GitHub Actions on the draft PR is the intended source of truth for the committed version. CI outcome: PENDING at this report revision; update it only after inspecting the actual workflow run.
+Tests assert explicit positives, 13-class scope and class-scoped negative, incomplete/unknown evidence, conflicting PG candidates, conditional SOL/LIQ source cells, Class6.1 route and pesticide footnote, three-way precedence, absolute priorities including Class7 excepted SP290 and 6.1 inhalation/Class8 carveout, oxidizer explosive gate, unique named vs generic row exception, incorrect class/PG/column5 labels, unverified row/corrigenda and missing/valid SP set.
 
-No independent golden-case validation, no class-scoped laboratory/UN-specific regulatory cross-check, no complete 198-cell independent audit, and no end-to-end integration with Agent0/Agent1/Agent4 was performed.
+Fixtures use a purposely **fictional** UN '9999' and mock source row; no real Table A entry or SDS material was classified. The normalized 198 matrix entries have not been independently double-checked against the official ADR PDF. The local preliminary 30-test prototype was not byte-identical to this commit; only this GitHub run is used to claim the above committed-code result.
 
-Release invariants: publishable=false and assignment_permitted=false for both blocked and reconciled-provisional returns. Module remains provisional regardless of CI success.
+## Non-merge blockers
+
+No independent legal/regulatory sign-off, no source-authenticated Table A/SP integration, no actual Agent0/Agent1/Agent4 end-to-end test, no external expert golden cases, no full hazard/PG/labeling authority review, no complete English Corr.1/2 reconciliation, and no authenticated release/signature service.
+
+Every result, even when successfully reconciled, has publishable=false and assignment_permitted=false. Provisional only.
