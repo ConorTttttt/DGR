@@ -1,0 +1,164 @@
+{
+  "id": "ADR2025_CLASS7_AGENT11",
+  "version": "0.1.0-provisional",
+  "validated": false,
+  "edition": "ADR 2025 ECE/TRANS/352 Vol.I and Vol.II, English",
+  "decision_states": [
+    "CLASS7_RADIOACTIVE_MATERIAL_CRITERIA_MET",
+    "CLASS7_DEFINITION_NOT_MET_FOR_ASSESSED_MATERIAL",
+    "INDETERMINATE"
+  ],
+  "global_invariants": [
+    "Never infer Class 7 from CLP/GHS",
+    "No final UN or PG",
+    "No not-regulated conclusion",
+    "No missing-as-negative",
+    "External approval and Table A checks before consignment"
+  ],
+  "rules": [
+    {
+      "id": "C7-001",
+      "ref": "2.2.7.1.1",
+      "predicate": "both concentration and whole-consignment activity STRICTLY exceed respective limits",
+      "implementation": "classify",
+      "status": "executable_provisional",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-002",
+      "ref": "2.2.7.2.2.1 Table 2.2.7.2.2.1",
+      "predicate": "all radionuclides identified in manually curated lookup with table notes",
+      "implementation": "radionuclides.json",
+      "status": "curated_subset_only",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-003",
+      "ref": "2.2.7.2.2.4",
+      "predicate": "Xm=1/sum_i(f_i/Xi) for each of four tabulated basic values",
+      "implementation": "_mixture_limit",
+      "status": "executable_provisional",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-004",
+      "ref": "2.2.7.2.2.2-2.2.7.2.2.6;Table 2.2.7.2.2.2",
+      "predicate": "unlisted radionuclide/unknown fractions/decay chains require expert decision",
+      "implementation": "blocked",
+      "status": "not_automated",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-005",
+      "ref": "2.2.7.1.3 fissile definition/exclusions",
+      "predicate": "sum identified fissile masses <0.25 g and no other fissile material package or consignment",
+      "implementation": "_fissile",
+      "status": "candidate_only",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-006",
+      "ref": "2.2.7.2.3.5(a)-(f);2.2.7.2.3.6;7.5.11 CV33(4.3)",
+      "predicate": "all enrichment chemical form mass lattice consignment and authority conditions",
+      "implementation": "blocked",
+      "status": "not_automated",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-007",
+      "ref": "2.2.7.2.3.1.2(a)(i)-(iv)",
+      "predicate": "LSA-I ore;unirradiated U/Th; unlimited A2; or distributed avg <=30x exemption concentration",
+      "implementation": "assess_lsa",
+      "status": "material_candidate_partial",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-008",
+      "ref": "2.2.7.2.3.1.2(b)(i)-(ii)",
+      "predicate": "LSA-II tritiated water <=0.8 TBq/l or distributed avg <=1e-4 A2/g solid/gas; <=1e-5 A2/g liquid",
+      "implementation": "assess_lsa",
+      "status": "material_candidate_partial",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-009",
+      "ref": "2.2.7.2.3.1.2(c)(i)-(ii)",
+      "predicate": "LSA-III nonpowder solid distribution and avg <=2e-3 A2/g",
+      "implementation": "assess_lsa",
+      "status": "material_candidate_partial",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-010",
+      "ref": "2.2.7.1.2;2.2.7.2.3.2(a)-(b)",
+      "predicate": "SCO-I/II 300cm2 accessible/inaccessible fixed/nonfixed dual emitter bands",
+      "implementation": "assess_sco",
+      "status": "material_candidate_partial",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-011",
+      "ref": "2.2.7.2.3.2(c);4.1.9.2.4(e);5.1.5.1.2(e)",
+      "predicate": "SCO-III large object shipping plan and multilateral approval",
+      "implementation": "blocked",
+      "status": "not_automated",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-012",
+      "ref": "2.2.7.2.3.3.1-.8;6.4.12;5.1.5.2.1(a)(i)",
+      "predicate": "special form test suite ISO alternatives and unilateral approval",
+      "implementation": "blocked",
+      "status": "not_automated",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-013",
+      "ref": "2.2.7.2.3.4.1-.4;6.4.20;5.1.5.2.1(a)(ii)",
+      "predicate": "low dispersible dose release leach design and multilateral approval",
+      "implementation": "blocked",
+      "status": "not_automated",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-014",
+      "ref": "2.2.7.2.4.4",
+      "predicate": "Type A sum(activity_special/A1+activity_other/A2)<=1;not package approval",
+      "implementation": "assess_package",
+      "status": "numeric_screen_only",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-015",
+      "ref": "Table 2.2.7.2.4.1.2 column (4);2.2.7.2.4.1.1-.7",
+      "predicate": "excepted material activity fraction and separate <5 uSv/h surface plus other conditions",
+      "implementation": "assess_package",
+      "status": "numeric_screen_only",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-016",
+      "ref": "5.1.5.3.1;Table 5.1.5.3.4",
+      "predicate": "single package TI rounded UP and category higher of TI and surface dose",
+      "implementation": "assess_package",
+      "status": "numeric_screen_only",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-017",
+      "ref": "Table 2.2.7.2.1.1;2.2.7.2.4-.5;Chapter 3.2 Table A;SP 290/369",
+      "predicate": "no independent UN assignment; package certificate and named-entry integration",
+      "implementation": "never_assign",
+      "status": "downstream_integration",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    },
+    {
+      "id": "C7-018",
+      "ref": "1.7.1.4;1.7.5",
+      "predicate": "Part 1 transport exclusions and subsidiary chemical/physical hazard review",
+      "implementation": "flag_only",
+      "status": "downstream_integration",
+      "when_evidence_missing": "INDETERMINATE_OR_EXPERT_REVIEW"
+    }
+  ]
+}
