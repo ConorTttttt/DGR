@@ -1,0 +1,442 @@
+{
+  "schema_version": "0.1.0",
+  "edition": "ADR 2025",
+  "source": "ECE/TRANS/352 (Vol.I), 2.2.62.1.4.1 indicative table, printed pp.200-201",
+  "table_role": "Nonexhaustive indicative Category A evidence and named-pathogen context, not an automatic name->UN assignment",
+  "automatic_classification_from_name": false,
+  "notes": [
+    "New or emerging pathogens not in table can be Category A",
+    "For entries marked cultures only, other forms are not automatically Category A on the name alone",
+    "Footnote a permits certain diagnostic/clinical cultures to be Category B; this is discretionary, not universally exempt",
+    "Even with indicative pathogen identity, exposure form and severity evidence and 2.2.62.1.4.1(b) medical/source judgement must be considered"
+  ],
+  "examples": [
+    {
+      "source_name": "Bacillus anthracis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Brucella abortus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Brucella melitensis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Brucella suis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Burkholderia mallei - Pseudomonas mallei – Glanders",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Burkholderia pseudomallei – Pseudomonas pseudomallei",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Chlamydia psittaci - avian strains",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Clostridium botulinum",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Coccidioides immitis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Coxiella burnetii",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Crimean-Congo haemorrhagic fever virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Dengue virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Eastern equine encephalitis virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Escherichia coli, verotoxigenic",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": true
+    },
+    {
+      "source_name": "Ebola virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Flexal virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Francisella tularensis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Guanarito virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Hantaan virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Hantavirus causing haemorrhagic fever with renal syndrome",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Hendra virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Hepatitis B virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Herpes B virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Human immunodeficiency virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Highly pathogenic avian influenza virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Japanese Encephalitis virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Junin virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Kyasanur Forest disease virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Lassa virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Machupo virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Marburg virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Monkeypox virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Mycobacterium tuberculosis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": true
+    },
+    {
+      "source_name": "Nipah virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Omsk haemorrhagic fever virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Poliovirus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Rabies virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Rickettsia prowazekii",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Rickettsia rickettsii",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Rift Valley fever virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Russian spring-summer encephalitis virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Sabia virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Shigella dysenteriae type 1",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": true
+    },
+    {
+      "source_name": "Tick-borne encephalitis virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Variola virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": false,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Venezuelan equine encephalitis virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "West Nile virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Yellow fever virus",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Yersinia pestis",
+      "source_target_group": "humans_or_both",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "African swine fever virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Avian paramyxovirus Type 1 - Velogenic Newcastle disease virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Classical swine fever virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Foot and mouth disease virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Lumpy skin disease virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Mycoplasma mycoides - Contagious bovine pleuropneumonia",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Peste des petits ruminants virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Rinderpest virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Sheep-pox virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Goatpox virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Swine vesicular disease virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    },
+    {
+      "source_name": "Vesicular stomatitis virus",
+      "source_target_group": "animals_only",
+      "indicative_category": "A",
+      "category_a_only_when_culture": true,
+      "diagnostic_or_clinical_culture_may_be_category_b": false
+    }
+  ]
+}

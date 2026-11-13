@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "module": "Agent 10 Class 6.2",
+  "edition": "2025",
+  "applicability_from": "2025-01-01",
+  "status": "PROVISIONAL_PENDING_INDEPENDENT_REVIEW",
+  "language": "en",
+  "sources": [
+    {
+      "symbol": "ECE/TRANS/352 (Vol.I)",
+      "role": "binding ADR classification, Table A, SP 318/319/395/565/601",
+      "local_filename": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+      "url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf"
+    },
+    {
+      "symbol": "ECE/TRANS/352 (Vol.II)",
+      "role": "referenced packing instructions P620/P621/P622/P650 and Part 4 follow-up",
+      "local_filename": "2412010_E_ECE_TRANS_352_Vol.II_WEB.pdf"
+    },
+    {
+      "symbol": "ST/SG/AC.10/11/Rev.8",
+      "role": "UN Manual of Tests and Criteria provided; no independent Class6.2 quantitative test derived in this module",
+      "local_filename": "ST_SG_AC.10_11_Rev.8e_WEB.pdf"
+    },
+    {
+      "symbol": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "role": "provided; cross-manual revision reconciliation pending",
+      "local_filename": "ST-SG-AC10-11-Rev8-Amend1e(1).pdf"
+    }
+  ],
+  "corrigenda": {
+    "adr2025_corr1": "not_reconciled",
+    "adr2025_corr2": "not_reconciled"
+  },
+  "non_current_edition_warning": "Do not silently apply as ADR 2027, RID, IMDG, ICAO TI or IATA DGR",
+  "source_security_note": "Paraphrases and page references only; authoritative regulations must be independently verified."
+}

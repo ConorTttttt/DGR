@@ -1,0 +1,107 @@
+{
+  "schema_version": "0.1.0",
+  "status": "provisional_verified_locally_against_user_supplied_volI_not_peer_reviewed",
+  "edition": "ADR 2025",
+  "source": "ECE/TRANS/352 (Vol.I), 3.2.1 Table A columns (1)-(8) and §3.3.1",
+  "entries": [
+    {
+      "un": "2814",
+      "name": "INFECTIOUS SUBSTANCE, AFFECTING HUMANS",
+      "class": "6.2",
+      "code": "I1",
+      "pg_column4": null,
+      "pg_note": "blank",
+      "special_provisions": [
+        "318"
+      ],
+      "packing_instruction": "P620",
+      "table_a_pdf_page": 468,
+      "table_a_printed_page": 448,
+      "variants": [
+        "ordinary",
+        "refrigerated liquid nitrogen (+2.2 label)",
+        "animal material only"
+      ]
+    },
+    {
+      "un": "2900",
+      "name": "INFECTIOUS SUBSTANCE, AFFECTING ANIMALS only",
+      "class": "6.2",
+      "code": "I2",
+      "pg_column4": null,
+      "pg_note": "blank",
+      "special_provisions": [
+        "318"
+      ],
+      "packing_instruction": "P620",
+      "table_a_pdf_page": 472,
+      "table_a_printed_page": 452,
+      "variants": [
+        "ordinary",
+        "refrigerated liquid nitrogen (+2.2 label)",
+        "animal material only"
+      ]
+    },
+    {
+      "un": "3291",
+      "name": "CLINICAL WASTE, UNSPECIFIED, N.O.S. or (BIO) MEDICAL WASTE, N.O.S. or REGULATED MEDICAL WASTE, N.O.S.",
+      "class": "6.2",
+      "code": "I3",
+      "pg_column4": null,
+      "pg_note": "blank",
+      "special_provisions": [
+        "565"
+      ],
+      "packing_instruction": "P621",
+      "table_a_pdf_page": 516,
+      "table_a_printed_page": 496,
+      "variants": [
+        "ordinary",
+        "refrigerated liquid nitrogen (+2.2 label)"
+      ]
+    },
+    {
+      "un": "3373",
+      "name": "BIOLOGICAL SUBSTANCE, CATEGORY B",
+      "class": "6.2",
+      "code": "I4",
+      "pg_column4": null,
+      "pg_note": "blank",
+      "special_provisions": [
+        "319"
+      ],
+      "packing_instruction": "P650",
+      "table_a_pdf_page": 526,
+      "table_a_printed_page": 506,
+      "variants": [
+        "ordinary",
+        "animal material only"
+      ]
+    },
+    {
+      "un": "3549",
+      "name": "MEDICAL WASTE, CATEGORY A, AFFECTING HUMANS, solid or MEDICAL WASTE, CATEGORY A, AFFECTING ANIMALS only, solid",
+      "class": "6.2",
+      "code": "I3",
+      "pg_column4": null,
+      "pg_note": "blank",
+      "special_provisions": [
+        "395"
+      ],
+      "packing_instruction": "P622",
+      "table_a_pdf_page": 548,
+      "table_a_printed_page": 528,
+      "variants": [
+        "solid medical waste for disposal only"
+      ]
+    }
+  ],
+  "gates": [
+    "Table A complete authoritative variant/row selection still required",
+    "SP318 technical name and suspected pathogen documentation",
+    "SP319 proof of P650 packing and marking before relief",
+    "SP395 solid-disposal eligibility",
+    "SP565 qualifying waste origin and low probability",
+    "Part 4 packing instructions and other carriage obligations belong to integration"
+  ]
+}
