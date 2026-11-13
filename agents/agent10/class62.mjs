@@ -115,6 +115,20 @@ export const classifyClass62 = function classifyClass62(input) {
     missing("kind: substance | culture | patient_specimen | biological_product | medical_waste | medical_device | live_animal | gmo | toxin");
     return done("insufficient_evidence","incomplete");
   }
+  // Conflicting high-risk and exemption assertions must be adjudicated, not silently prioritised.
+  if(f.kind==="medical_waste" && f.category_a_assessment==="met" &&
+     ["known","reasonably_expected"].includes(f.pathogen_state) &&
+     (f.waste_low_probability===true || (["18 01 04","18 02 03"].includes(f.waste_catalogue_code) && f.waste_catalogue_verified===true))) {
+    rule("62-CONFLICT-WASTE","2.2.62.1.11.1-2");
+    gate("Reconcile Category A evidence against low-probability or exempt waste-catalogue assertion");
+    return done("requires_expert_review","contradictory_evidence");
+  }
+  if(f.kind==="patient_specimen" && f.minimal_pathogen_likelihood===true &&
+     f.category_a_assessment==="met" && ["known","reasonably_expected"].includes(f.pathogen_state)) {
+    rule("62-CONFLICT-SPECIMEN","2.2.62.1.4.1;2.2.62.1.5.8");
+    gate("Reconcile Category A evidence against claimed minimal likelihood before specimen exemption");
+    return done("requires_expert_review","contradictory_evidence");
+  }
   if(f.kind==="live_animal") {
     if(f.infection_origin==="natural_or_unintentional") {
       rule("62-LIVE-NATURAL","2.2.62.1.1 Note 1");
@@ -198,6 +212,7 @@ export const classifyClass62 = function classifyClass62(input) {
     }
     const p=f.device_packaging||{};
     for(const key of ["protects_against_breakage_puncture_leak","construction_6_1_4_or_6_6_4","general_4_1_1_1_and_4_1_1_2","retains_on_1_2m_drop"]) if(p[key]!==true)missing("device_packaging."+key);
+    if(!(typeof p.drop_height_m==="number" && p.drop_height_m>=1.2))missing("device_packaging.drop_height_m >= 1.2");
     if(!["USED MEDICAL DEVICE","USED MEDICAL EQUIPMENT"].includes(p.mark))missing("device_packaging.mark");
     if(p.overpack_used===true && p.mark_visible!==true && p.overpack_marked!==true)missing("device_packaging.overpack_marked_or_mark_visible");
     if(!evidence())missing("evidence_refs verifying device and packaging conditions");
