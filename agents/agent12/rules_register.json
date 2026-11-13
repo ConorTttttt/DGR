@@ -338,7 +338,7 @@
     "non-transport CLP/GHS classifications"
   ],
   "test_evidence": {
-    "local_unittest_methods": 17,
+    "local_unittest_methods": 18,
     "local_status": "passed",
     "independent_validation": false,
     "CI_status": "not_run",
