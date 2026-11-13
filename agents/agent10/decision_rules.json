@@ -464,6 +464,17 @@
       "limit": "No combined multimodal transport output",
       "edition": "2025",
       "document": "ECE/TRANS/352 Vol.I"
+    },
+    {
+      "priority": 41,
+      "id": "62-DEVICE-WASTE-EXCLUDED",
+      "citation": "2.2.62.1.5.9(a)",
+      "condition_description": "Medical waste UN3291/UN3549 excluded from used medical device relief",
+      "evidence_requirements": "device_is_medical_waste explicitly false",
+      "effect": "named-entry review if waste; require expert review if unknown",
+      "limit": "Do not bypass waste requirements",
+      "edition": "2025",
+      "document": "ECE/TRANS/352 Vol.I"
     }
   ],
   "numeric_conditions": [

@@ -19,3 +19,5 @@
 "U18","ADR corrigenda, later editions and UN test manual amendment","independent_review_required","Reconcile Corr.1 and Corr.2 and supporting test manuals","Regulatory lead"
 "U19","Global not-regulated / full SDS Section14","integration_required","ADR scope, other classes, named entries, SPs and TableA","Lead agent"
 "U20","CLP/GHS-only safety data","insufficient_evidence","Independent ADR infectious hazard evidence","SDS data owner"
+"U21","Medical device may itself constitute Class 6.2 clinical waste","named_entry_review_required","Explicit waste status and medical diagnosis; do not apply §2.2.62.1.5.9","Lead and waste classification agent"
+"U22","Specimen liquid or fragile primary status unknown","insufficient_evidence","Declare explicit booleans and verify all appropriate 2.2.62.1.5.8 packaging conditions","Consignor"

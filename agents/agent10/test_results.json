@@ -3,8 +3,8 @@
   "branch": "agent10/class-6-2-adr2025",
   "test_file": "agents/agent10/class62.test.mjs",
   "implementation": "agents/agent10/class62.mjs",
-  "number_of_cases": 70,
-  "passed": 70,
+  "number_of_cases": 77,
+  "passed": 77,
   "failed": 0,
   "method": "GitHub-fetched implementation dynamically executed in V8 JavaScript environment; JSON fixtures read from GitHub-fetched node:test file; assertions evaluated for status, UN candidate set, null PG and prohibition of final Section14 assignment",
   "node_test_runner_executed": false,
@@ -24,6 +24,10 @@
     "infected animals approval",
     "toxin and GMO referral",
     "other transport modes",
-    "contradictory Cat A and low-risk evidence"
+    "contradictory Cat A and low-risk evidence",
+    "Medical device itself as excluded medical waste",
+    "SP318 unknown suspected identity documentation flag",
+    "Unknown specimen liquid/fragile state",
+    "Overpack mark and visibility"
   ]
 }
