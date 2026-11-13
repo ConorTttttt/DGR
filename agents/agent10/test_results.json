@@ -1,0 +1,29 @@
+{
+  "module": "Agent 10 Class 6.2",
+  "branch": "agent10/class-6-2-adr2025",
+  "test_file": "agents/agent10/class62.test.mjs",
+  "implementation": "agents/agent10/class62.mjs",
+  "number_of_cases": 70,
+  "passed": 70,
+  "failed": 0,
+  "method": "GitHub-fetched implementation dynamically executed in V8 JavaScript environment; JSON fixtures read from GitHub-fetched node:test file; assertions evaluated for status, UN candidate set, null PG and prohibition of final Section14 assignment",
+  "node_test_runner_executed": false,
+  "ci_executed": false,
+  "legal_validation": false,
+  "coverage_themes": [
+    "A/B",
+    "source evidence missing",
+    "genuine A doubt",
+    "host species",
+    "clinical specimens and blood exclusions",
+    "triple package 99/100mm",
+    "medical equipment drop 1.19/1.20m",
+    "Category A waste solid/liquid/bio-research/disposal",
+    "medical catalogue code",
+    "Biological product group a and b",
+    "infected animals approval",
+    "toxin and GMO referral",
+    "other transport modes",
+    "contradictory Cat A and low-risk evidence"
+  ]
+}
