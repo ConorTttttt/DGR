@@ -38,21 +38,21 @@ The standalone evaluator returns status criteria_met, criteria_not_met, or indet
 
 - Structured human evidence and human/animal disagreement gating.
 - Qualified OECD 404 exposure/observation cutoffs, OECD 439 non-corrosive support and the two documented non-discriminating fallbacks.
-- Metal C.1 rate, mass loss and local intrusion test thresholds; one-positive/two-negative metal logic; mandatory C.1 report/protocol fields.
+- Metal C.1 rate, mass loss and local intrusion test thresholds; one-positive/two-negative metal logic; mandatory C.1 report/protocol and physical-state fields.
 - Five conditional mixture bridging principles with tested-source evidence IDs and condition-specific attestations.
 - Generic untested-mixture calculation: PG I sum >=5% -> I; otherwise PG I sum >=1%, or PG I+II >=5%, -> II; otherwise sum PG I+II+III >=5% -> III. Other outcomes are scoped negative/indeterminate, never overall transport exclusion.
 - Guards for absence of human review, missing study detail, sub-1% relevance, missing composition/SCL lookup, synergistic mixtures, conflicting reports and invalid measurement units.
 
 ## Tests and reproducibility
 
-The exact-source Python implementation and exact-source test file were locally verified against matching Git blob hashes on the Agent 12 branch. 18 unittest methods passed, with numerous subtests for 3/60/240-minute skin thresholds, 14-day observation limits, 6.25 mm/year metal rate, local and uniform corrosion, 54/56°C, C.1 inputs, five bridging scenarios, mixture 1%/5% edges, human-animal disagreements and missing data. Python compilation passed. No remote CI, external benchmarks, laboratory evidence audits or independent regulatory QA have been performed.
+The exact-source Python implementation and exact-source test file were locally verified against matching Git blob hashes on the Agent 12 branch. 19 unittest methods passed, with numerous subtests for 3/60/240-minute skin thresholds, 14-day observation limits, 6.25 mm/year metal rate, local and uniform corrosion, 54/56°C, C.1 inputs, five bridging scenarios, mixture 1%/5% edges, human-animal disagreements and missing data. Python compilation passed. No remote CI, external benchmarks, laboratory evidence audits or independent regulatory QA have been performed.
 
 ## Unsupported-case and exception register / blockers
 
 1. SCL mixture calculations: ADR §§2.2.8.1.6.3.4–.5 override generic thresholds and require a weighted specific-limit calculation. All such cases BLOCK (indeterminate) until Agent 1 provides authoritative DGL/special-provision limit sources and the Lead approves the combined PG 1%/5% interpretation. Do not substitute generic thresholds.
 2. Human review: existence of human experience and accidental exposure evidence is an input attestation. Conflicting human/animal grades need qualified adjudication; the evaluator does not infer a PG from generic GHS category labels.
 3. Test C.1: protocol_confirmed and other attestation flags must be backed by a qualified laboratory report. The code checks major metadata, but does not independently verify all procedural steps such as cleaning, separate receptacles, specimen weighing, and chemical stability; these are release blockers.
-4. Solids: the metal branch presently does not require affirmative evidence that a solid can become liquid in carriage. This scope check must be inserted before production use.
+4. Solids: the metal branch now requires an explicit confirmed solid-becomes-liquid-during-carriage assertion under §2.2.8.1.3; its provenance and transport-state definition must be independently reviewed before production use.
 5. Bridging: source PG, same-mixture identity, concentrations and lack of enhanced corrosion must be checked against source study records, not accepted solely from booleans. Synergistic interaction blocks generic PG II/III and negative mixture results.
 6. Other Class 8 pathways: wet-air corrosive vapours and reactive-to-water corrosion, chemically unstable materials, and prohibited-for-carriage scenarios are not implemented.
 7. Named-entry gates: Chapter 3.2 Table A, special provisions Chapter 3.3, exemptions, named mixtures §§2.2.8.1.7–.8, classification code, DGL PG and actual UN selection remain to Lead/Agent 1. No final PG has been assigned.
