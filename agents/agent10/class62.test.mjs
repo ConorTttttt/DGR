@@ -976,8 +976,10 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
-      }
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
     },
     "limited_provisions_exemption",
     []
@@ -999,8 +1001,10 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": false,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
-      }
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
     },
     "insufficient_evidence",
     []
@@ -1022,8 +1026,10 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
-      }
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
     },
     "named_entry_review_required",
     []
@@ -1045,8 +1051,10 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
-      }
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
     },
     "referred_to_other_class",
     []
@@ -1068,8 +1076,10 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
-      }
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
     },
     "requires_expert_review",
     []
@@ -1091,9 +1101,11 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
+        "drop_height_m": 1.2,
+        "overpack_used": false
       },
-      "drained_of_free_liquid": true
+      "drained_of_free_liquid": true,
+      "device_is_medical_waste": false
     },
     "conditional_adr_non_subject",
     []
@@ -1378,8 +1390,10 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.2
-      }
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
     },
     "limited_provisions_exemption",
     []
@@ -1401,11 +1415,197 @@ const fixtures = [
         "general_4_1_1_1_and_4_1_1_2": true,
         "retains_on_1_2m_drop": true,
         "mark": "USED MEDICAL EQUIPMENT",
-        "drop_height_m": 1.19
+        "drop_height_m": 1.19,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": false
+    },
+    "insufficient_evidence",
+    []
+  ],
+  [
+    "Medical device is waste; exception blocked",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_device",
+      "device_category_a": false,
+      "device_other_class_dangerous": false,
+      "device_carriage_purpose": "repair",
+      "evidence_refs": [
+        "equipment log"
+      ],
+      "device_packaging": {
+        "protects_against_breakage_puncture_leak": true,
+        "construction_6_1_4_or_6_6_4": true,
+        "general_4_1_1_1_and_4_1_1_2": true,
+        "retains_on_1_2m_drop": true,
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": true
+    },
+    "named_entry_review_required",
+    []
+  ],
+  [
+    "Medical device waste status missing",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_device",
+      "device_category_a": false,
+      "device_other_class_dangerous": false,
+      "device_carriage_purpose": "repair",
+      "evidence_refs": [
+        "equipment log"
+      ],
+      "device_packaging": {
+        "protects_against_breakage_puncture_leak": true,
+        "construction_6_1_4_or_6_6_4": true,
+        "general_4_1_1_1_and_4_1_1_2": true,
+        "retains_on_1_2m_drop": true,
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2,
+        "overpack_used": false
+      },
+      "device_is_medical_waste": null
+    },
+    "requires_expert_review",
+    []
+  ],
+  [
+    "Device overpack unmarked and inner mark hidden",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_device",
+      "device_category_a": false,
+      "device_other_class_dangerous": false,
+      "device_carriage_purpose": "repair",
+      "evidence_refs": [
+        "equipment log"
+      ],
+      "device_packaging": {
+        "protects_against_breakage_puncture_leak": true,
+        "construction_6_1_4_or_6_6_4": true,
+        "general_4_1_1_1_and_4_1_1_2": true,
+        "retains_on_1_2m_drop": true,
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2,
+        "overpack_used": true,
+        "mark_visible": false,
+        "overpack_marked": false
+      },
+      "device_is_medical_waste": false
+    },
+    "insufficient_evidence",
+    []
+  ],
+  [
+    "Device overpack marked",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "medical_device",
+      "device_category_a": false,
+      "device_other_class_dangerous": false,
+      "device_carriage_purpose": "repair",
+      "evidence_refs": [
+        "equipment log"
+      ],
+      "device_packaging": {
+        "protects_against_breakage_puncture_leak": true,
+        "construction_6_1_4_or_6_6_4": true,
+        "general_4_1_1_1_and_4_1_1_2": true,
+        "retains_on_1_2m_drop": true,
+        "mark": "USED MEDICAL EQUIPMENT",
+        "drop_height_m": 1.2,
+        "overpack_used": true,
+        "mark_visible": false,
+        "overpack_marked": true
+      },
+      "device_is_medical_waste": false
+    },
+    "limited_provisions_exemption",
+    []
+  ],
+  [
+    "Minimal-risk specimen liquid state missing",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "patient_specimen",
+      "minimal_pathogen_likelihood": true,
+      "professional_judgement": {
+        "record_ref": "clinical-pro-123",
+        "basis": "known medical history, symptoms, circumstances and endemic conditions"
+      },
+      "specimen_species": "human",
+      "multiple_fragile_primaries": true,
+      "evidence_refs": [
+        "patient evaluation"
+      ],
+      "specimen_packaging": {
+        "method": "tripack",
+        "primary_leakproof": true,
+        "secondary_leakproof": true,
+        "outer_adequate": true,
+        "packaging_verified": true,
+        "outer_width_mm": 100,
+        "outer_height_mm": 100,
+        "mark": "Exempt human specimen",
+        "absorbent_all_contents": true,
+        "fragile_separated": true
       }
     },
     "insufficient_evidence",
     []
+  ],
+  [
+    "Minimal-risk specimen fragile state missing",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "patient_specimen",
+      "minimal_pathogen_likelihood": true,
+      "professional_judgement": {
+        "record_ref": "clinical-pro-123",
+        "basis": "known medical history, symptoms, circumstances and endemic conditions"
+      },
+      "specimen_species": "human",
+      "specimen_is_liquid": true,
+      "evidence_refs": [
+        "patient evaluation"
+      ],
+      "specimen_packaging": {
+        "method": "tripack",
+        "primary_leakproof": true,
+        "secondary_leakproof": true,
+        "outer_adequate": true,
+        "packaging_verified": true,
+        "outer_width_mm": 100,
+        "outer_height_mm": 100,
+        "mark": "Exempt human specimen",
+        "absorbent_all_contents": true,
+        "fragile_separated": true
+      }
+    },
+    "insufficient_evidence",
+    []
+  ],
+  [
+    "Cat A unknown pathogen identity for SP318",
+    {
+      "mode": "ADR_ROAD",
+      "kind": "substance",
+      "pathogen_state": "known",
+      "category_a_assessment": "met",
+      "affects_humans": true,
+      "evidence_refs": [
+        "clinical report"
+      ],
+      "pathogen_identity_known": false
+    },
+    "class62_candidate",
+    [
+      "2814"
+    ]
   ]
 ];
 for (const [name, input, decision, unEntries] of fixtures) {
