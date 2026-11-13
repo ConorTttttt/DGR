@@ -1,0 +1,34 @@
+{
+  "primary": {
+    "name": "ADR 2025",
+    "reference": "ECE/TRANS/352",
+    "volume": "I",
+    "published": 2024,
+    "effective": "2025-01-01",
+    "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+    "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+    "review_status": "source text checked; not independently reviewed"
+  },
+  "supporting": [
+    {
+      "name": "ADR 2025 Volume II",
+      "reference": "ECE/TRANS/352 Vol II",
+      "sha256": "702d0ae5737d3bd228e0b332352deda626018ac9841339c0eca67e4209953f4b",
+      "role": "carriage implementation dependencies"
+    },
+    {
+      "name": "UN Manual Tests Criteria Rev 8",
+      "reference": "ST/SG/AC.10/11/Rev.8",
+      "sha256": "d892df851727dd1cd06cf87ff02811f5b66e1f2133524e51a7c9873e65c6d533",
+      "role": "no Class 6.1 LD50/LC50 method replaced by this manual"
+    },
+    {
+      "name": "UN Manual Tests Criteria Rev 8 Amendment 1",
+      "reference": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "sha256": "534abc4b5ecdd56d615e0fa16fb38bccfc580129772f71443a2a2c892188a0db",
+      "role": "scanned; no clause-specific toxic substance change found; independent check required"
+    }
+  ],
+  "ADR_corrigenda_status": "not independently reconciled",
+  "no_regulatory_signoff": true
+}

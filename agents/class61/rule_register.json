@@ -1,0 +1,585 @@
+{
+  "module": "agent9-class61",
+  "version": "0.1.0-provisional",
+  "source": {
+    "name": "ADR 2025",
+    "reference": "ECE/TRANS/352",
+    "volume": "I",
+    "published": 2024,
+    "effective": "2025-01-01",
+    "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+    "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+    "review_status": "source text checked; not independently reviewed"
+  },
+  "rules": [
+    {
+      "id": "ADR25-C61-001",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.1; 2.2.61.1.2",
+      "condition": "Class 6.1 single/short exposure and subdivisions T, TF, TS, TW, TO, TC, TFC, TFW",
+      "implementation": "scope_and_integration",
+      "required_evidence": "physical state, exposure and hazard screening",
+      "notes": "No classification-code assignment; verify articles and GMO organism status",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-002",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.3",
+      "condition": "Oral LD50 rat, 14 d; dermal LD50 rabbit, 24 h and 14 d; LC50 male/female rat, 1 h and 14 d",
+      "implementation": "implemented",
+      "required_evidence": "oral/dermal study provenance, species, contact/exposure, observation",
+      "notes": "1h preferred over 4h fallback; routes must use tested carried material or ADR mixture methods",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-003",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.3",
+      "condition": "Dust test if >=10% by mass likely respirable (<=10 um); liquid test if mist likely on leakage; >90% respirable test specimen",
+      "implementation": "implemented_with_expert_screen",
+      "required_evidence": "mass fractions, aerosol form, particle size, evidence ID",
+      "notes": "Exactly 10% triggers dust test; exactly 90% test specimen insufficient",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-004",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.4; 2.2.61.1.5",
+      "condition": "PG I highly toxic, II toxic, III slightly toxic; named entry priority and Ch 2.1 assignment",
+      "implementation": "implemented_as_intrinsic_pg_only",
+      "required_evidence": "identity, Table A Col 4, name, SP and hazard assessment",
+      "notes": "Never final PG or UN",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-005",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.6",
+      "condition": "Consider accidental human poisoning, liquid form, volatility, skin absorption and special biological effects",
+      "implementation": "expert_referral",
+      "required_evidence": "documented human review and positive evidence",
+      "notes": "Human positive/conflict stops numeric-only automatic decision",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-006",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7 Table",
+      "condition": "Oral PG I <=5, II (5,50], III (50,300] mg/kg",
+      "implementation": "implemented",
+      "required_evidence": "valid oral LD50 mg/kg",
+      "notes": "",
+      "decision_logic": {
+        "units": "mg/kg",
+        "I": "x<=5",
+        "II": "5<x<=50",
+        "III": "50<x<=300"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-007",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7 Table",
+      "condition": "Dermal PG I <=50, II (50,200], III (200,1000] mg/kg",
+      "implementation": "implemented",
+      "required_evidence": "valid dermal LD50 mg/kg",
+      "notes": "",
+      "decision_logic": {
+        "units": "mg/kg",
+        "I": "x<=50",
+        "II": "50<x<=200",
+        "III": "200<x<=1000"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-008",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7 Table",
+      "condition": "Dust/mist 1h PG I <=0.2, II (0.2,2], III (2,4] mg/L",
+      "implementation": "implemented",
+      "required_evidence": "LC50 mg/L, aerosol form, specimen and species",
+      "notes": "",
+      "decision_logic": {
+        "units": "mg/L",
+        "I": "x<=0.2",
+        "II": "0.2<x<=2",
+        "III": "2<x<=4"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-009",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7 Table footnote; 2.2.61.1.8 footnote",
+      "condition": "Tear gas must be at least PG II even if numeric PG III",
+      "implementation": "implemented",
+      "required_evidence": "tear gas identity evidence",
+      "notes": "PG II floor, not automatically final PG",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-010",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7.1",
+      "condition": "Where exposure routes produce differing severities apply highest degree",
+      "implementation": "implemented",
+      "required_evidence": "complete relevant routes or proven PG I",
+      "notes": "Do not treat missing route as negative",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-011",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7.2; 2.1.3.5.3(h); 2.2.8.1.4.5",
+      "condition": "If Class 8 criteria and dust/mist PG I, Class 6.1 permitted only with oral/dermal >=PG II toxicity",
+      "implementation": "referral",
+      "required_evidence": "Class 8 candidate and oral/dermal evidence",
+      "notes": "Never select final precedence in this module",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-012",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.7.3",
+      "condition": "Dust/mist: use 1h LC50 when available; if only 4h multiply by four",
+      "implementation": "implemented",
+      "required_evidence": "LC50 time basis",
+      "notes": "",
+      "decision_logic": {
+        "if": "1h available use 1h",
+        "else": "4h*4"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-013",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.8 Table",
+      "condition": "Toxic vapours from liquids, V saturated ppm at 20C/101.3kPa; I if V>=10L and L<=1000; II V>=L and L<=3000; III V>=0.2L and L<=5000",
+      "implementation": "implemented",
+      "required_evidence": "1h LC50 ppm and saturated vapour ppm at 20C/101.3kPa",
+      "notes": "",
+      "decision_logic": {
+        "I": "V>=10*LC50 and LC50<=1000",
+        "II": "V>=LC50 and LC50<=3000 and not I",
+        "III": "V>=LC50/5 and LC50<=5000 and not I/II"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-014",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.8",
+      "condition": "Vapour: prefer 1h LC50; only 4h -> 1h comparator by x2",
+      "implementation": "implemented",
+      "required_evidence": "inhalation duration and ppm",
+      "notes": "",
+      "decision_logic": {
+        "if": "1h available use 1h",
+        "else": "4h*2"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-015",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.9.1(a)-(d)",
+      "condition": "Vapour liquid mixtures: LCmix=1/sum(fi/LCi), Vi=Pi*1e6/101.3, R=sum(Vi/LCi); I R>=10,L<=1000; II R>=1,L<=3000; III R>=1/5,L<=5000",
+      "implementation": "implemented",
+      "required_evidence": "complete constituent molar fractions, partial pressures at 20C in kPa, LC50 ppm, provenance",
+      "notes": "Must have LC50 for each toxic constituent",
+      "decision_logic": {
+        "L": "1/sum(f_i/L_i)",
+        "V_i": "P_i*1000000/101.3",
+        "R": "sum(V_i/L_i)"
+      },
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-016",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.9.2-2.2.61.1.9.5",
+      "condition": "When constituents LC50 unknown: prescribed tier-specific dual animal threshold studies; 10 rats 5+5, 1h, 14d, >=5 deaths",
+      "implementation": "implemented_with_provenance",
+      "required_evidence": "PG I 1000 ppm + equilibrium diluted 9 air vols; PG II 3000 ppm + equilibrium; PG III 5000 ppm + measured V>=1000 ppm",
+      "notes": "Highest more restrictive PG first",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-017",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.10.1",
+      "condition": "One active ingredient mixture, no reliable whole-mixture study: LDpreparation=LDactive*100/mass_pct",
+      "implementation": "implemented",
+      "required_evidence": "known single-active LD50 mg/kg, mass percent, route and provenance",
+      "notes": "",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-018",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.10.2(a)",
+      "condition": "Multi-active mixture may be assessed using most hazardous constituent at total active %",
+      "implementation": "implemented",
+      "required_evidence": "all active ingredients and their mass % and LD50",
+      "notes": "Direct whole-mixture test is preferred",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-019",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.10.2(b)",
+      "condition": "Multi-active LDmixture=100/sum(C_i/T_i); dermal same species only; potentiation not modeled",
+      "implementation": "implemented",
+      "required_evidence": "complete composition, oral/dermal constituent LD50, dermal species",
+      "notes": "Toxic synergy/protection unresolved => expert review",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-020",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.11; 2.2.61.1.11.1",
+      "condition": "Pesticide active substances/preparations use ADR PG routes, LD for prep via 1.10 if necessary",
+      "implementation": "implemented_as_referral",
+      "required_evidence": "pesticide identity, form, composition, hazard routes",
+      "notes": "WHO pesticide classifications cannot replace ADR classification",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-021",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.11.2; 3.1.2",
+      "condition": "Pesticide PSN depends on active ingredient, physical state, subsidiary hazards",
+      "implementation": "delegated_to_named_entry_agent",
+      "required_evidence": "verified active, physical state and subsidiary hazards",
+      "notes": "No automated PSN/UN assignment",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-022",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.12-2.2.61.1.13; 2.1.3",
+      "condition": "Mixtures of named substances may shift categories; actual dangerous degree and named-entry rules control",
+      "implementation": "delegated",
+      "required_evidence": "named entry, admixture formulation, actual hazards",
+      "notes": "No automatic not-DG conclusion",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-023",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.1.14",
+      "condition": "Non-pesticides outside CLP acute cat 1/2/3 MAY be considered outside Class 6.1",
+      "implementation": "manual_only_due_to_project_policy",
+      "required_evidence": "expert-reviewed CLP identity and ADR analysis",
+      "notes": "Project forbids automatic CLP/GHS-to-transport derivation",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-024",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.2.1; SP 386",
+      "condition": "Chemical instability prohibited absent precautions against decomposition/polymerization",
+      "implementation": "screen_and_referral",
+      "required_evidence": "stability, prevention, container/tank interactions",
+      "notes": "No carriage acceptance decision",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-025",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.2.2",
+      "condition": "Selected HCN forms, certain metal carbonyls, TCDD highly toxic, UN2249, uninhibited phosphides not accepted",
+      "implementation": "screen_and_referral",
+      "required_evidence": "chemical identity, composition, flash point, named entry and additive status",
+      "notes": "Expert transport prohibition assessment",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-026",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.2.61.3; 3.2.1 Table A Columns 2,3a,3b,4,6; 3.3.1",
+      "condition": "Named/collective entries and special provisions, pesticides, subsidiary hazards, articles and carriage gates",
+      "implementation": "delegated_to_integration",
+      "required_evidence": "exact UN/PSN and Table A lookup, SP results",
+      "notes": "Never assign final PG/UN without lookup",
+      "decision_logic": {},
+      "validation": "provisional"
+    },
+    {
+      "id": "ADR25-C61-027",
+      "source": {
+        "name": "ADR 2025",
+        "reference": "ECE/TRANS/352",
+        "volume": "I",
+        "published": 2024,
+        "effective": "2025-01-01",
+        "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+        "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+        "review_status": "source text checked; not independently reviewed"
+      },
+      "clause": "2.1.3.5.3; 2.1.3.10",
+      "condition": "Multi-hazard selection including Class 8 competition and Class 6.1 PG I inhalation precedence",
+      "implementation": "delegated_to_precedence",
+      "required_evidence": "other hazards full assessments, table precedence",
+      "notes": "No primary hazard selected",
+      "decision_logic": {},
+      "validation": "provisional"
+    }
+  ]
+}
