@@ -4,7 +4,7 @@
 
 Files:
 - class8.py — evidence-scoped evaluator for skin tests, human evidence, UN MTC C.1 metal tests, mixture bridging and generic concentration decisions.
-- tests/test_class8.py — 18 local unittest methods, including threshold and missing-evidence subcases.
+- tests/test_class8.py — 19 local unittest methods, including threshold and missing-evidence subcases.
 - rules_register.json — 10 machine-readable, edition-pinned rules, inputs, thresholds, exceptions, and unsupported statuses.
 - HANDOVER.md — source clause register, existing PR #2 audit, limitations, tests, and lead handover.
 
