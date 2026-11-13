@@ -1,0 +1,161 @@
+{
+  "status": "provisional",
+  "cases": [
+    {
+      "id": "HUM-01",
+      "issue": "Human poisoning or adverse effects recorded; numeric tests do not automatically override human experience",
+      "reference": "2.2.61.1.6",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "FORM-01",
+      "issue": "Potential dust inhalation with respirable mass fraction uncertain, or aerosol specimen <=90% respirable",
+      "reference": "2.2.61.1.3",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "FORM-02",
+      "issue": "Potential mist in leakage uncertain",
+      "reference": "2.2.61.1.3",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "FORM-03",
+      "issue": "Non-liquid vapour method or unsupported 2-hour/6-hour LC50 observations",
+      "reference": "2.2.61.1.8",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "FORM-04",
+      "issue": "Need better evidence for 1h vs 4h contradictory results",
+      "reference": "2.2.61.1.7.3; 2.2.61.1.8",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "MIX-01",
+      "issue": "Composition unverified/active constituent missing or incompatible test species",
+      "reference": "2.2.61.1.10.2",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "MIX-02",
+      "issue": "Synergism/antagonism makes reciprocal-sum approximation unreliable",
+      "reference": "2.2.61.1.10.2 Note",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "MIX-03",
+      "issue": "Aerosol mixtures do not have a separate constituent-based dust/mist algorithm in 2.2.61.1.10",
+      "reference": "2.2.61.1.7; 2.2.61.1.10",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "MIX-04",
+      "issue": "Vapour mixture nonideal partition/partial pressure not validated",
+      "reference": "2.2.61.1.9.1",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "MIX-05",
+      "issue": "Unperformed/insufficient tier threshold animal tests cannot exclude higher PG",
+      "reference": "2.2.61.1.9.2-9.5",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "CLASS8-01",
+      "issue": "Class 8 plus dust/mist PG I requires oral/dermal >=PG II gate and separate precedence agent",
+      "reference": "2.2.61.1.7.2",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "CLASS8-02",
+      "issue": "Class 8 competition, other hazards not adjudicated, special PG I inhalation precedence",
+      "reference": "2.1.3.5.3(h); 2.1.3.10",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "NAMED-01",
+      "issue": "Named entry/collective list, Table A PG or SP may override intrinsic candidate",
+      "reference": "2.2.61.1.5; 2.2.61.3; 3.2.1",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "PST-01",
+      "issue": "Pesticide PSN depends on active ingredient/form/subsidiary hazards",
+      "reference": "2.2.61.1.11.2",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "PST-02",
+      "issue": "WHO pesticide hazard category may not be reused for ADR transport classification",
+      "reference": "2.2.61.1.11.1 Note",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "CLP-01",
+      "issue": "2.2.61.1.14 permissive CLP exclusion is disabled for automation under project policy",
+      "reference": "2.2.61.1.14",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "BANNED-01",
+      "issue": "Chemical instability precautions incomplete",
+      "reference": "2.2.61.2.1",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "BANNED-02",
+      "issue": "Prohibited list, HCN, metal carbonyl, TCDD, UN2249, phosphides",
+      "reference": "2.2.61.2.2",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "ARTICLE-01",
+      "issue": "T10/TF4/TC5 and other articles require entry-specific handling not animal-substance LD formula",
+      "reference": "2.2.61.1.2; 2.2.61.3",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "GMO-01",
+      "issue": "Genetically modified organisms meeting criteria may be assigned Class 6.1, not resolved here",
+      "reference": "2.2.61.1.1 Note",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "WASTE-01",
+      "issue": "Unknown-composition wastes under 2.1.3.5.5 need dedicated conditions",
+      "reference": "2.1.3.5.5",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "HAZ-01",
+      "issue": "Flammable, self-heating, water-reactive, oxidizing and corrosive subsidiaries not calculated",
+      "reference": "2.2.61.1.2; 2.1.3.10",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "OTHER-01",
+      "issue": "Hazard evidence cannot be reconstructed solely from CLP/GHS/SDS categories",
+      "reference": "Project restriction",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "OTHER-02",
+      "issue": "Legacy Agent3 PR2 adapter differs from Lead schema; merge conflict requires mapping",
+      "reference": "Agent 3 PR #2",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "OTHER-03",
+      "issue": "ADR 2025 corrigenda 1/2 and MTC Rev8 Amend.1 need independent reconciliation",
+      "reference": "UNECE ADR 2025 portal",
+      "action": "block_or_refer_to_expert_or_lead"
+    },
+    {
+      "id": "OTHER-04",
+      "issue": "No final transport assignment, SDS Section14, package-group approval or carriage acceptance",
+      "reference": "3.2.1 Table A; 3.3.1",
+      "action": "block_or_refer_to_expert_or_lead"
+    }
+  ]
+}
