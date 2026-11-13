@@ -20,7 +20,7 @@ function classify(e) {
   if(f.composition_complete===true&&Array.isArray(f.peroxides)&&f.hydrogen_peroxide_mass_percent!==undefined){
     try{
       const h=dec(f.hydrogen_peroxide_mass_percent);let available=[0n,1n],concentrations=[0n,1n];
-      if(!le(h,dec(100)))throw Error("H2O2 >100%");
+      if(f.peroxides.length===0)throw Error("Complete organic peroxide formula has no peroxide component");if(!le(h,dec(100)))throw Error("H2O2 >100%");
       for(const p of f.peroxides){
         if(!Number.isSafeInteger(p.peroxygen_groups)||p.peroxygen_groups<1)throw Error("peroxygen group count");
         const c=dec(p.concentration_mass_percent),m=dec(p.molecular_mass_g_mol);
@@ -29,7 +29,7 @@ function classify(e) {
         available=sum(available,divide(mul(dec(16*p.peroxygen_groups),c),m));
       }
       if(!le(sum(concentrations,h),dec(100)))throw Error("mass balance >100%");
-      r.available_oxygen_percent=Number((Number(available[0])/Number(available[1])).toFixed(10));
+      r.available_oxygen_percent=Number(available[0])/Number(available[1]);
       const exempt=(le(h,dec(1))&&le(available,dec(1)))||(!le(h,dec(1))&&le(h,dec(7))&&le(available,dec("0.5")));
       if(exempt){
         if(e.route==="listed"&&e.listing&&e.listing.verified_formulation_match===true&&e.listing.exempt!==true){need("listing_conflict","Verified oxygen exception contradicts claimed dangerous listed formulation");return end("conflict","OP52-OXY-CONFLICT","2.2.52.1.5","2.2.52.4");}
@@ -41,10 +41,10 @@ function classify(e) {
   if(f.desensitizer_review_complete!==true){need("desensitization","Complete compatibility and spillage evaluation missing");return end("indeterminate","OP52-DILUENT-REVIEW","2.2.52.1.10","2.2.52.1.14");}
   for(const d of f.desensitizers||[]){
     if(d.compatible!==true){need("compatibility","Incompatible or unverified diluent/solid");return end(d.compatible===false?"conflict":"indeterminate","OP52-COMPATIBILITY","2.2.52.1.14");}
-    if(d.kind==="A"){if(!n(d.boiling_point_c)){need("A_BP","Type A boiling point missing");return end("indeterminate","OP52-A-MISSING","2.2.52.1.11");}if(d.boiling_point_c<150)return end("conflict","OP52-A-INVALID","2.2.52.1.11");}
-    else if(d.kind==="B"){if(!n(d.boiling_point_c)||!n(d.flash_point_c)||!n(e.sadt_50kg_c)){need("B_diluent","Type B boiling point/flashpoint/50kg SADT missing");return end("indeterminate","OP52-B-MISSING","2.2.52.1.11");}if(!(d.boiling_point_c>=60&&d.boiling_point_c<150&&d.flash_point_c>=5&&d.boiling_point_c-e.sadt_50kg_c>=60))return end("conflict","OP52-B-INVALID","2.2.52.1.11");}
+    if(d.kind==="A"){if(d.organic_liquid_verified!==true){need("organic_liquid","A/B diluent must be verified organic liquid");return end("indeterminate","OP52-DILUENT-LIQUID","2.2.52.1.11");}if(!n(d.boiling_point_c)){need("A_BP","Type A boiling point missing");return end("indeterminate","OP52-A-MISSING","2.2.52.1.11");}if(d.boiling_point_c<150)return end("conflict","OP52-A-INVALID","2.2.52.1.11");}
+    else if(d.kind==="B"){if(d.organic_liquid_verified!==true){need("organic_liquid","A/B diluent must be verified organic liquid");return end("indeterminate","OP52-DILUENT-LIQUID","2.2.52.1.11");}if(!n(d.boiling_point_c)||!n(d.flash_point_c)||!n(e.sadt_50kg_c)){need("B_diluent","Type B boiling point/flashpoint/50kg SADT missing");return end("indeterminate","OP52-B-MISSING","2.2.52.1.11");}if(!(d.boiling_point_c>=60&&d.boiling_point_c<150&&d.flash_point_c>=5&&d.boiling_point_c-e.sadt_50kg_c>=60))return end("conflict","OP52-B-INVALID","2.2.52.1.11");}
     else if(d.kind==="water"){if(e.route!=="sample"&&d.authorized_with_water!==true&&d.authorized_stable_dispersion!==true){need("water","Water desensitization needs listed/authorized wording");return end("authority_required","OP52-WATER","2.2.52.1.13");}}
-    else if(d.kind==="other"){need("reassess_other_diluent","Different diluent requires acceptance reassessment");return end("authority_required","OP52-OTHER-DILUENT","2.2.52.1.12");}
+    else if(d.kind==="other"){if(d.replaces_type_A_or_B===true&&d.reassessment_verified!==true){need("reassessment","Replacing diluent A/B demands normal acceptance re-assessment");return end("authority_required","OP52-OTHER-DILUENT","2.2.52.1.12");}if(e.route!=="listed"&&d.approved_in_current_decision!==true){need("other_diluent","Other diluent in new formulation requires specialist verification");return end("authority_required","OP52-OTHER-DILUENT","2.2.52.1.12");}}
     else if(d.kind!=="solid"){need("diluent_kind","Unsupported diluent");return end("unsupported","OP52-DILUENT-KIND","2.2.52.1.10");}
   }
   let type=null,listTemp=null;
@@ -54,6 +54,7 @@ function classify(e) {
     if(listed.exempt===true){r.exclusions.push({class:"5.2",basis:"Exact verified listed 'Exempt' formulation; note review pending",evidence_ids:r.evidence_refs});return end("excluded_from_class","OP52-LIST-EXEMPT","2.2.52.4");}
     type=listed.listed_type;listTemp=listed.temperature_control_required;
     if(!["A","B","C","D","E","F"].includes(type)||typeof listTemp!=="boolean"){need("listing_type","Listed type and temperature-control decision required");return end("indeterminate","OP52-LIST-TYPE","2.2.52.1.7");}
+    const expectedPackage=listed.source==="IBC520"?"ibc":listed.source==="T23"?"tank":"single";if(e.package_category!==expectedPackage){need("listed_package","Source and receptacle mismatch");return end(e.package_category?"conflict":"indeterminate","OP52-LIST-PACK","2.2.52.1.7","4.1.4.2","4.2.5.2");}if((listed.source==="IBC520"||listed.source==="T23")&&type!=="F"){need("bulk_type","Collective bulk pathway not evidenced for other type");return end("unsupported","OP52-BULK-TYPE","3.2.1","4.1.4.2","4.2.5.2");}
   }else if(e.route==="sample"){
     const s=e.sample||{};
     if(s.no_more_dangerous_than_type_b!==true||s.op2_verified!==true||!n(s.kg_per_transport_unit)||s.kg_per_transport_unit<0||s.kg_per_transport_unit>10||s.safe_control_and_phase_separation!==true){need("sample","Must meet all type C sample conditions including OP2 and <=10kg/transport unit");return end("indeterminate","OP52-SAMPLE-GATE","2.2.52.1.9");}
@@ -62,7 +63,7 @@ function classify(e) {
     const c=e.listed_components||[];
     if(e.all_component_formulations_verified!==true||!c.length||c.some(v=>!["A","B","C","D","E","F"].includes(v.type))){need("mixture_parts","Every component's type/formulation requires verification");return end("indeterminate","OP52-MIX-COMP","2.2.52.1.7");}
     type=c.map(v=>v.type).sort((a,b)=>"ABCDEF".indexOf(a)-"ABCDEF".indexOf(b))[0];
-    if(!n(e.sadt_c)||e.sadt_measured_for_current_mixture!==true){need("mixture_sadt","Mixture SADT not determined for current mixture");return end("indeterminate","OP52-MIX-SADT","2.2.52.1.7","20.2.4");}
+    if(type==="A")return end("prohibited_for_carriage","OP52-A-PROHIBITED","2.2.52.2");if(!n(e.sadt_c)||e.sadt_measured_for_current_mixture!==true){need("mixture_sadt","Mixture SADT not determined for current mixture");return end("indeterminate","OP52-MIX-SADT","2.2.52.1.7","20.2.4");}if(e.mixture_significantly_different===true){need("new_mixture","Significantly different mixture requires new authority classification");return end("authority_required","OP52-MIX-NEW","2.2.52.1.8","20.2.3");}if(e.mixture_transport_conditions_verified!==true){need("mixture_conditions","Verified most-dangerous-component carriage conditions required");return end("indeterminate","OP52-MIX-CONDITIONS","2.2.52.1.7");}
   }else if(e.route==="unlisted"){
     const p=e.type_evidence||{},t=p.tests||{};
     if(p.complete_for_this_formulation!==true||p.mtc_part_ii_verified!==true||p.provenance_verified!==true){need("A_H_report","Complete applicable MTC series A-H results/waivers required");return end("indeterminate","OP52-TEST-MISSING","20.4.3","21-28");}
@@ -117,7 +118,7 @@ function classify(e) {
   if(type==="B")r.subsidiary_risks.push({class:"1",status:"candidate_requires_table_a_integration",evidence_ids:r.evidence_refs});
   for(const h of e.other_transport_hazard_candidates||[])if(h&&h.class)r.subsidiary_risks.push({class:String(h.class),status:"candidate_requires_precedence",evidence_ids:h.evidence_ids||[]});
   r.clause_refs.push("2.2.52.1.15","2.2.52.3","3.2.1","7.1.7.3.5");
-  if(e.route==="unlisted"||e.route==="mixture"){
+  if(e.route==="unlisted"){
     const a=e.authority||{};
     if(a.approved!==true||a.externally_verified!==true||a.current_formulation_covered!==true||a.conditions_documented!==true){r.expert_decisions.push({decision:"competent_authority_origin",status:"required",basis:"2.2.52.1.8"});return end("authority_required","OP52-AUTHORITY","2.2.52.1.8");}
     if(a.origin_non_adr===true&&a.first_adr_country_recognition_verified!==true){r.expert_decisions.push({decision:"first_adr_country_recognition",status:"required",basis:"2.2.52.1.8"});return end("authority_required","OP52-RECOGNITION","2.2.52.1.8");}

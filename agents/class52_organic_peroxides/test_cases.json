@@ -907,7 +907,8 @@
           {
             "kind": "A",
             "compatible": false,
-            "boiling_point_c": 170
+            "boiling_point_c": 170,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -957,7 +958,8 @@
           {
             "kind": "A",
             "compatible": true,
-            "boiling_point_c": 150
+            "boiling_point_c": 150,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1007,7 +1009,8 @@
           {
             "kind": "A",
             "compatible": true,
-            "boiling_point_c": 149.999
+            "boiling_point_c": 149.999,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1058,7 +1061,8 @@
             "kind": "B",
             "compatible": true,
             "boiling_point_c": 60,
-            "flash_point_c": 5
+            "flash_point_c": 5,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1110,7 +1114,8 @@
             "kind": "B",
             "compatible": true,
             "boiling_point_c": 60,
-            "flash_point_c": 5
+            "flash_point_c": 5,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1162,7 +1167,8 @@
             "kind": "B",
             "compatible": true,
             "boiling_point_c": 60,
-            "flash_point_c": 4.99
+            "flash_point_c": 4.99,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1214,7 +1220,8 @@
             "kind": "B",
             "compatible": true,
             "boiling_point_c": 150,
-            "flash_point_c": 5
+            "flash_point_c": 5,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1266,7 +1273,8 @@
             "kind": "B",
             "compatible": true,
             "boiling_point_c": 60,
-            "flash_point_c": 5
+            "flash_point_c": 5,
+            "organic_liquid_verified": true
           }
         ]
       },
@@ -1463,7 +1471,8 @@
         "desensitizers": [
           {
             "kind": "other",
-            "compatible": true
+            "compatible": true,
+            "replaces_type_A_or_B": true
           }
         ]
       },
@@ -2255,7 +2264,7 @@
       }
     },
     "expected_status": "indeterminate",
-    "expected_rule": "OP52-TEMP-DERIVATION",
+    "expected_rule": "OP52-LIST-PACK",
     "expected_temperature_control": null,
     "expected_control_c": null,
     "expected_emergency_c": null,
@@ -2512,7 +2521,7 @@
     "expected_un_candidate": null
   },
   {
-    "name": "Mixture most dangerous D but needs authority",
+    "name": "Mixture transport conditions absent",
     "input": {
       "assessment_id": "test",
       "identity_evidence_verified": true,
@@ -2559,8 +2568,8 @@
       "sadt_measured_for_current_mixture": true,
       "confinement_effect": "medium"
     },
-    "expected_status": "authority_required",
-    "expected_rule": "OP52-AUTHORITY",
+    "expected_status": "indeterminate",
+    "expected_rule": "OP52-MIX-CONDITIONS",
     "expected_temperature_control": null,
     "expected_control_c": null,
     "expected_emergency_c": null,
@@ -3427,6 +3436,387 @@
     },
     "expected_status": "conflict",
     "expected_rule": "OP52-TYPE-CONFLICT",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "Complete composition has no peroxide component",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": []
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      }
+    },
+    "expected_status": "conflict",
+    "expected_rule": "OP52-COMPOSITION",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "A diluent organic identity missing",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": [
+          {
+            "kind": "A",
+            "compatible": true,
+            "boiling_point_c": 150
+          }
+        ]
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      }
+    },
+    "expected_status": "indeterminate",
+    "expected_rule": "OP52-DILUENT-LIQUID",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "Compatible other diluent added to listed exact formula",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": [
+          {
+            "kind": "other",
+            "compatible": true
+          }
+        ]
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      }
+    },
+    "expected_status": "criteria_met",
+    "expected_rule": null,
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "IBC520 source vs single package conflict",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": []
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "IBC520",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      }
+    },
+    "expected_status": "conflict",
+    "expected_rule": "OP52-LIST-PACK",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "IBC520/F/IBC path candidate",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": []
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "ibc",
+      "listing": {
+        "source": "IBC520",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "F",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      }
+    },
+    "expected_status": "criteria_met",
+    "expected_rule": null,
+    "expected_temperature_control": false,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "T23/B/tank not automatically authorized",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": []
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "tank",
+      "listing": {
+        "source": "T23",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      }
+    },
+    "expected_status": "unsupported",
+    "expected_rule": "OP52-BULK-TYPE",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "Verified ordinary mixture no blanket authority gate",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": []
+      },
+      "route": "mixture",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      },
+      "listed_components": [
+        {
+          "type": "D"
+        },
+        {
+          "type": "F"
+        }
+      ],
+      "all_component_formulations_verified": true,
+      "sadt_measured_for_current_mixture": true,
+      "mixture_transport_conditions_verified": true,
+      "confinement_effect": "medium"
+    },
+    "expected_status": "criteria_met",
+    "expected_rule": null,
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "Significantly different mixture needs authority",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": []
+      },
+      "route": "mixture",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      },
+      "listed_components": [
+        {
+          "type": "D"
+        },
+        {
+          "type": "F"
+        }
+      ],
+      "all_component_formulations_verified": true,
+      "sadt_measured_for_current_mixture": true,
+      "mixture_significantly_different": true,
+      "confinement_effect": "medium"
+    },
+    "expected_status": "authority_required",
+    "expected_rule": "OP52-MIX-NEW",
     "expected_temperature_control": null,
     "expected_control_c": null,
     "expected_emergency_c": null,

@@ -1,8 +1,9 @@
 {
   "date": "2026-11-13",
-  "runner": "inline V8, exact fetched GitHub classify.js; Node CLI/CI not run",
-  "tests": 71,
-  "passed": 71,
+  "runner": "inline V8, proposed exact revised GitHub source",
+  "tests": 79,
+  "passed": 79,
   "failed": 0,
+  "node_cli_run": false,
   "independent_regulatory_review": false
 }

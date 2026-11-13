@@ -12,3 +12,6 @@ Threshold handling: oxygen uses **exact decimal fractions**; SADT <=50 and <=45 
 ADR §2.2.52.3 permits Type B–F liquid/solid generic references UN 3101–3120. The relevant ADR 2025 Table A column (4) is **blank**, hence no PG, but exact `row_id` remains `null` and final UN assignment is **not** made. Type B class-1 subsidiary is candidate only. Article UN3545 is unsupported. SP 122,181,274 and P520/IBC520/T23 require external checks.
 
 **Run tests:** `node --test agents/class52_organic_peroxides/classify.test.js`. Synthetic inline V8 test report in test_results.json; Node CLI/CI and independent regulatory review are pending. Source SHA256 metadata in sources.json. See HANDOVER.md and exceptions.json.
+
+## Refinement to the decision gates
+Complete composition must contain an organic peroxide component; A/B diluents must be verified organic liquids. IBC520 and T23 listing paths must match IBC/tank receptacles and verified type. Compatible other-diluent addition must be distinguished from replacement of type A/B requiring re-assessment. Under §2.2.52.1.7, a verified mixture of listed components may be evaluated under the most dangerous component's carriage conditions with measured SADT without inventing a blanket competent-authority approval; significantly different new mixtures require independent new-classification/approval review.

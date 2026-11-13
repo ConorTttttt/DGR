@@ -23,3 +23,6 @@ Candidate UN 3101–3120 from §2.2.52.3 and Table A (blank PG col.4) does NOT c
 6. Independently execute the committed Node test suite, add real validated gold cases, complete regulatory/security/CI integration review with rollback; do not merge or release beforehand.
 
 **Important nuance:** Listed exact formulations with externally verified listed thermal status can yield a candidate without a new SADT input if the formula is unchanged; this assumption is subject to independent review. Mixtures always require an actual measured SADT. Missing results always block, never mean not-dangerous.
+
+## Post-draft review correction
+The initial strict mixture route was refined: existing verified listed-component mixtures under §2.2.52.1.7 require actual SADT and verified most-dangerous-component carriage conditions, while significantly different/new mixtures require §2.2.52.1.8 authority. Complete-component, organic-liquid and IBC/T23 receptacle checks were tightened. Re-tested on revised source with synthetic V8 fixtures. Independently review these interpretations before merge.
