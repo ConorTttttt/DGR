@@ -26,3 +26,6 @@ Candidate UN 3101–3120 from §2.2.52.3 and Table A (blank PG col.4) does NOT c
 
 ## Post-draft review correction
 The initial strict mixture route was refined: existing verified listed-component mixtures under §2.2.52.1.7 require actual SADT and verified most-dangerous-component carriage conditions, while significantly different/new mixtures require §2.2.52.1.8 authority. Complete-component, organic-liquid and IBC/T23 receptacle checks were tightened. Re-tested on revised source with synthetic V8 fixtures. Independently review these interpretations before merge.
+
+## Precision/evidence schema addition
+Added JSON Schema Draft 2020-12 with route-specific positive evidence prerequisites while permitting incomplete evidence for explicit status reporting. The B diluent BP−SADT(50kg) >=60°C threshold now uses exact signed decimal comparison, including 70.1−10.1 boundary cases. Synthetic tests increased to 82; independent lab and regulatory approval remain outstanding.

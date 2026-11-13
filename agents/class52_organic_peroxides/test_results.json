@@ -1,9 +1,8 @@
 {
   "date": "2026-11-13",
-  "runner": "inline V8, proposed exact revised GitHub source",
-  "tests": 79,
-  "passed": 79,
+  "runner": "inline V8 on exact proposed source, node CLI/CI not run",
+  "tests": 82,
+  "passed": 82,
   "failed": 0,
-  "node_cli_run": false,
-  "independent_regulatory_review": false
+  "independently_regulatory_validated": false
 }

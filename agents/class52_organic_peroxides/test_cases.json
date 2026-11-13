@@ -3821,5 +3821,164 @@
     "expected_control_c": null,
     "expected_emergency_c": null,
     "expected_un_candidate": null
+  },
+  {
+    "name": "B diluent exact decimal gap 70.1 minus 10.1 equals 60",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": [
+          {
+            "kind": "B",
+            "compatible": true,
+            "organic_liquid_verified": true,
+            "boiling_point_c": 70.1,
+            "flash_point_c": 5
+          }
+        ]
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      },
+      "sadt_50kg_c": 10.1
+    },
+    "expected_status": "criteria_met",
+    "expected_rule": null,
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "B diluent gap 70.0999 minus 10.1 <60",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": [
+          {
+            "kind": "B",
+            "compatible": true,
+            "organic_liquid_verified": true,
+            "boiling_point_c": 70.0999,
+            "flash_point_c": 5
+          }
+        ]
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      },
+      "sadt_50kg_c": 10.1
+    },
+    "expected_status": "conflict",
+    "expected_rule": "OP52-B-INVALID",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
+  },
+  {
+    "name": "B diluent negative 50 kg SADT exactly 60 gap",
+    "input": {
+      "assessment_id": "test",
+      "identity_evidence_verified": true,
+      "is_organic_peroxide": true,
+      "formulation": {
+        "current_revision_attested": true,
+        "composition_complete": true,
+        "peroxides": [
+          {
+            "peroxygen_groups": 1,
+            "concentration_mass_percent": 50,
+            "molecular_mass_g_mol": 100
+          }
+        ],
+        "hydrogen_peroxide_mass_percent": 0,
+        "desensitizer_review_complete": true,
+        "desensitizers": [
+          {
+            "kind": "B",
+            "compatible": true,
+            "organic_liquid_verified": true,
+            "boiling_point_c": 49.9,
+            "flash_point_c": 5
+          }
+        ]
+      },
+      "route": "listed",
+      "physical_state": "liquid",
+      "sadt_c": 51,
+      "sadt_verified_as_offered": true,
+      "phase_separation_safe": true,
+      "package_category": "single",
+      "listing": {
+        "source": "2.2.52.4",
+        "verified_formulation_match": true,
+        "source_row_verified": true,
+        "conditions_verified": true,
+        "revision_matches_current": true,
+        "listed_type": "B",
+        "listed_physical_state": "liquid",
+        "temperature_control_required": false
+      },
+      "sadt_50kg_c": -10.1
+    },
+    "expected_status": "conflict",
+    "expected_rule": "OP52-B-INVALID",
+    "expected_temperature_control": null,
+    "expected_control_c": null,
+    "expected_emergency_c": null,
+    "expected_un_candidate": null
   }
 ]
