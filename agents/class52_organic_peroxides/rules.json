@@ -1,0 +1,302 @@
+{
+  "edition": "ADR 2025 English / UN MTC Rev8 Amend1",
+  "independently_reviewed": false,
+  "rules": [
+    {
+      "rule_id": "OP52-R01",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.1-1.4",
+      "requirement": "scope, definitions, thermal/reactive hazards",
+      "implementation": "evidence_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R02",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.5",
+      "requirement": "available oxygen formula and hydrogen peroxide exception inclusive thresholds",
+      "implementation": "implemented",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R03",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.6",
+      "requirement": "types A–G and maximum packaging relationships",
+      "implementation": "implemented_candidate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R04",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.7",
+      "requirement": "verified listed packagings, IBC520, T23, formulations and mixture SADT",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R05",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.8",
+      "requirement": "unlisted authority decision plus first ADR party recognition when non-ADR origin",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R06",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.9",
+      "requirement": "sample route <=type B danger, OP2, <=10 kg per unit, temperature and phase",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R07",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.10",
+      "requirement": "desensitizer mass percent; spill must not dangerously concentrate",
+      "implementation": "expert_review",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R08",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.11",
+      "requirement": "type A BP >=150C; B BP >=60C and <150C, FP>=5C, BP>=SADT50kg+60C",
+      "implementation": "implemented",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R09",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.12",
+      "requirement": "changed diluent requires normal acceptance re-assessment",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R10",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.13",
+      "requirement": "water only approved 'with water'/stable dispersion or qualifying sample",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R11",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.14",
+      "requirement": "compatible desensitizing solid/liquid no detrimental thermal/type effects",
+      "implementation": "implemented_evidence_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R12",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.15",
+      "requirement": "temperature control limits by B/C,D-medium,D-low/no,E/F",
+      "implementation": "implemented",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R13",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.1.16",
+      "requirement": "control/emergency listed temperatures; avoid phase separation",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R14",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.2",
+      "requirement": "type A prohibited carriage",
+      "implementation": "implemented",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R15",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.3",
+      "requirement": "collective UN generic B-F solid/liquid P1/P2, articles UN3545 excluded from this module",
+      "implementation": "candidate_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R16",
+      "source": "ADR2025_VOLI",
+      "clause": "2.2.52.4",
+      "requirement": "currently assigned formulations concentration/diluents/OP/remarks and Exempt rows",
+      "implementation": "external_exact_row",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R17",
+      "source": "ADR2025_VOLI",
+      "clause": "3.2.1 Table A (1),(2),(3),(4),(5),(6),(8)",
+      "requirement": "UN3101-3120 PG col(4) blank, exact row and SP unresolved",
+      "implementation": "candidate_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R18",
+      "source": "ADR2025_VOLI",
+      "clause": "3.3.1 SP122;181;274",
+      "requirement": "specific generic entry special provisions requiring integration",
+      "implementation": "integration_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R19",
+      "source": "ADR2025_VOLII",
+      "clause": "4.1.4.1 P520",
+      "requirement": "actual packing method, max quantity, exclusions",
+      "implementation": "integration_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R20",
+      "source": "ADR2025_VOLII",
+      "clause": "4.1.4.2 IBC520",
+      "requirement": "IBC listed formulations only",
+      "implementation": "integration_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R21",
+      "source": "ADR2025_VOLII",
+      "clause": "4.2.5.2 T23",
+      "requirement": "tank listed formulations only",
+      "implementation": "integration_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R22",
+      "source": "ADR2025_VOLII",
+      "clause": "7.1.7.1-7.1.7.4",
+      "requirement": "thermal protection, transport temperature controls, refrigerating/monitoring",
+      "implementation": "integration_only",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R23",
+      "source": "ADR2025_VOLII",
+      "clause": "7.1.7.3.5-7.1.7.3.6",
+      "requirement": "derive safe control/emergency from SADT as packaged, receptacle",
+      "implementation": "implemented",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R24",
+      "source": "MTC_REV8",
+      "clause": "20.2.2-20.2.4",
+      "requirement": "new organic peroxides, significant changes and mixtures",
+      "implementation": "implemented_gate",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R25",
+      "source": "MTC_REV8",
+      "clause": "20.3.1-20.3.4",
+      "requirement": "preliminary tests and thermal stability sample scheme",
+      "implementation": "expert_test_lab",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R26",
+      "source": "MTC_REV8",
+      "clause": "20.4.1;20.4.3(a)-(g)",
+      "requirement": "types A-G, source Type B paragraph incomplete in supplied English text",
+      "implementation": "implemented_provisionally",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R27",
+      "source": "MTC_REV8",
+      "clause": "20.4.6",
+      "requirement": "test order/valid exemptions and package test dependencies",
+      "implementation": "expert_test_lab",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R28",
+      "source": "MTC_REV8",
+      "clause": "21",
+      "requirement": "test series A laboratory detonation",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R29",
+      "source": "MTC_REV8",
+      "clause": "22",
+      "requirement": "test series B detonation as packaged",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R30",
+      "source": "MTC_REV8",
+      "clause": "23",
+      "requirement": "test series C deflagration",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R31",
+      "source": "MTC_REV8",
+      "clause": "24",
+      "requirement": "test series D rapid deflagration as packaged",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R32",
+      "source": "MTC_REV8",
+      "clause": "25",
+      "requirement": "test series E heat under confinement",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R33",
+      "source": "MTC_REV8",
+      "clause": "26",
+      "requirement": "test series F explosive power",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R34",
+      "source": "MTC_REV8",
+      "clause": "27",
+      "requirement": "test series G thermal explosion as packaged",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R35",
+      "source": "MTC_REV8",
+      "clause": "28",
+      "requirement": "test series H SADT and 50kg criteria",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R36",
+      "source": "MTC_REV8_AMEND1",
+      "clause": "25.4.1.2.1",
+      "requirement": "test tube procedure and pressure/mass amendment",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    },
+    {
+      "rule_id": "OP52-R37",
+      "source": "MTC_REV8_AMEND1",
+      "clause": "28.4.2.2.2.3",
+      "requirement": "replace weight with mass in English",
+      "implementation": "external_results",
+      "independently_reviewed": false
+    }
+  ]
+}

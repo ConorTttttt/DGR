@@ -1,0 +1,457 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ConorTttttt/DGR/blob/agent8/adr2025-class52-organic-peroxides/agents/class52_organic_peroxides/evidence.schema.json",
+  "title": "Agent 8 Class 5.2 transport evidence, provisional",
+  "description": "Allows incomplete evidence so the evaluator can emit indeterminate/authority_required instead of missing=negative. Complete positive-outcome requirements are defined under x-positive-evidence-gates.",
+  "type": "object",
+  "properties": {
+    "assessment_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Immutable reports/test/authority evidence identifiers; attest provenance externally"
+    },
+    "identity_evidence_verified": {
+      "type": "boolean"
+    },
+    "is_organic_peroxide": {
+      "type": "boolean"
+    },
+    "is_article": {
+      "type": "boolean"
+    },
+    "route": {
+      "enum": [
+        "listed",
+        "unlisted",
+        "sample",
+        "mixture"
+      ]
+    },
+    "physical_state": {
+      "enum": [
+        "liquid",
+        "solid"
+      ]
+    },
+    "formulation": {
+      "type": "object",
+      "properties": {
+        "current_revision_attested": {
+          "type": "boolean"
+        },
+        "changed_since_reference": {
+          "type": "boolean"
+        },
+        "composition_complete": {
+          "type": "boolean"
+        },
+        "hydrogen_peroxide_mass_percent": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d+(?:\\.\\d{1,12})?$"
+            }
+          ]
+        },
+        "peroxides": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "peroxygen_groups",
+              "concentration_mass_percent",
+              "molecular_mass_g_mol"
+            ],
+            "properties": {
+              "peroxygen_groups": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "concentration_mass_percent": {
+                "oneOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^\\d+(?:\\.\\d{1,12})?$"
+                  }
+                ]
+              },
+              "molecular_mass_g_mol": {
+                "oneOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^\\d+(?:\\.\\d{1,12})?$"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "desensitizer_review_complete": {
+          "type": "boolean"
+        },
+        "desensitizers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "A",
+                  "B",
+                  "water",
+                  "solid",
+                  "other"
+                ]
+              },
+              "compatible": {
+                "type": "boolean"
+              },
+              "organic_liquid_verified": {
+                "type": "boolean"
+              },
+              "boiling_point_c": {
+                "type": "number",
+                "description": "Temperature in degrees Celsius including negative values"
+              },
+              "flash_point_c": {
+                "type": "number",
+                "description": "Temperature in degrees Celsius including negative values"
+              },
+              "authorized_with_water": {
+                "type": "boolean"
+              },
+              "authorized_stable_dispersion": {
+                "type": "boolean"
+              },
+              "replaces_type_A_or_B": {
+                "type": "boolean"
+              },
+              "reassessment_verified": {
+                "type": "boolean"
+              },
+              "approved_in_current_decision": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "sadt_c": {
+      "type": "number",
+      "description": "Temperature in degrees Celsius including negative values"
+    },
+    "sadt_50kg_c": {
+      "type": "number",
+      "description": "Temperature in degrees Celsius including negative values"
+    },
+    "sadt_verified_as_offered": {
+      "type": "boolean"
+    },
+    "confinement_effect": {
+      "enum": [
+        "medium",
+        "low",
+        "none",
+        "violent"
+      ]
+    },
+    "package_category": {
+      "enum": [
+        "single",
+        "ibc",
+        "tank"
+      ]
+    },
+    "phase_separation_safe": {
+      "type": "boolean"
+    },
+    "listing": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "enum": [
+            "2.2.52.4",
+            "IBC520",
+            "T23"
+          ]
+        },
+        "source_row_verified": {
+          "type": "boolean"
+        },
+        "verified_formulation_match": {
+          "type": "boolean"
+        },
+        "conditions_verified": {
+          "type": "boolean"
+        },
+        "revision_matches_current": {
+          "type": "boolean"
+        },
+        "listed_type": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ]
+        },
+        "listed_physical_state": {
+          "enum": [
+            "liquid",
+            "solid"
+          ]
+        },
+        "temperature_control_required": {
+          "type": "boolean"
+        },
+        "control_temperature_c": {
+          "type": "number",
+          "description": "Temperature in degrees Celsius including negative values"
+        },
+        "emergency_temperature_c": {
+          "type": "number",
+          "description": "Temperature in degrees Celsius including negative values"
+        },
+        "exempt": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "sample": {
+      "type": "object",
+      "properties": {
+        "no_more_dangerous_than_type_b": {
+          "type": "boolean"
+        },
+        "op2_verified": {
+          "type": "boolean"
+        },
+        "kg_per_transport_unit": {
+          "type": "number",
+          "minimum": 0
+        },
+        "safe_control_and_phase_separation": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "listed_components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    },
+    "all_component_formulations_verified": {
+      "type": "boolean"
+    },
+    "sadt_measured_for_current_mixture": {
+      "type": "boolean"
+    },
+    "mixture_transport_conditions_verified": {
+      "type": "boolean"
+    },
+    "mixture_significantly_different": {
+      "type": "boolean"
+    },
+    "type_evidence": {
+      "type": "object",
+      "properties": {
+        "complete_for_this_formulation": {
+          "type": "boolean"
+        },
+        "mtc_part_ii_verified": {
+          "type": "boolean"
+        },
+        "provenance_verified": {
+          "type": "boolean"
+        },
+        "tests": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "is_liquid_mixture": {
+      "type": "boolean"
+    },
+    "g_liquid_diluent_bp_c": {
+      "type": "number",
+      "description": "Temperature in degrees Celsius including negative values"
+    },
+    "claimed_type": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "properties": {
+        "decision_id": {
+          "type": "string"
+        },
+        "approved": {
+          "type": "boolean"
+        },
+        "externally_verified": {
+          "type": "boolean"
+        },
+        "current_formulation_covered": {
+          "type": "boolean"
+        },
+        "conditions_documented": {
+          "type": "boolean"
+        },
+        "origin_non_adr": {
+          "type": "boolean"
+        },
+        "first_adr_country_recognition_verified": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "other_transport_hazard_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "class": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "class"
+        ]
+      }
+    }
+  },
+  "additionalProperties": true,
+  "x-positive-evidence-gates": {
+    "all_routes": [
+      "identity_evidence_verified",
+      "is_organic_peroxide",
+      "formulation.current_revision_attested",
+      "formulation.desensitizer_review_complete",
+      "physical_state",
+      "route"
+    ],
+    "oxygen_exception": [
+      "formulation.composition_complete",
+      "formulation.peroxides[*].peroxygen_groups",
+      "formulation.peroxides[*].concentration_mass_percent",
+      "formulation.peroxides[*].molecular_mass_g_mol",
+      "formulation.hydrogen_peroxide_mass_percent"
+    ],
+    "listed": [
+      "listing.source",
+      "listing.source_row_verified",
+      "listing.verified_formulation_match",
+      "listing.conditions_verified",
+      "listing.revision_matches_current",
+      "listing.listed_type",
+      "listing.listed_physical_state",
+      "listing.temperature_control_required",
+      "package_category"
+    ],
+    "unlisted": [
+      "type_evidence.complete_for_this_formulation",
+      "type_evidence.mtc_part_ii_verified",
+      "type_evidence.provenance_verified",
+      "type_evidence.tests",
+      "authority.approved",
+      "authority.externally_verified",
+      "authority.current_formulation_covered",
+      "authority.conditions_documented"
+    ],
+    "sample": [
+      "sample.no_more_dangerous_than_type_b",
+      "sample.op2_verified",
+      "sample.kg_per_transport_unit",
+      "sample.safe_control_and_phase_separation"
+    ],
+    "mixture": [
+      "all_component_formulations_verified",
+      "listed_components[*].type",
+      "sadt_measured_for_current_mixture",
+      "sadt_c",
+      "mixture_transport_conditions_verified"
+    ],
+    "controlled": [
+      "sadt_c or exact listed control/emergency temperatures",
+      "package_category",
+      "phase_separation_safe"
+    ],
+    "diluent_B": [
+      "desensitizers[*].organic_liquid_verified",
+      "desensitizers[*].boiling_point_c",
+      "desensitizers[*].flash_point_c",
+      "sadt_50kg_c"
+    ]
+  },
+  "x-transport-integration": {
+    "final_un_assignment_allowed": false,
+    "packing_group_assignment_allowed": false,
+    "needs_exact_table_a_row": true,
+    "special_provision_review": true,
+    "independent_review": true
+  }
+}
