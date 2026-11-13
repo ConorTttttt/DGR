@@ -1,0 +1,67 @@
+{
+  "manifest_version": "0.1.0",
+  "status": "provisional_unapproved",
+  "owner": "Agent14",
+  "engine_edition": "ADR-2025-EN",
+  "regulatory_context": {
+    "regime": "ADR",
+    "language": "en",
+    "applicability": "ADR 2025 only",
+    "primary_document": "ECE/TRANS/352 Volume I",
+    "source_pdf_filename": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+    "source_sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+    "source_url": "https://unece.org/sites/default/files/2025-01/2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+    "relevant_clauses": [
+      "2.1.1.1",
+      "2.1.1.2",
+      "2.1.1.3",
+      "2.1.2",
+      "2.1.3.3",
+      "2.1.3.4",
+      "2.1.3.5.1",
+      "2.1.3.5.2",
+      "2.1.3.5.3",
+      "2.1.3.5.4",
+      "2.1.3.5.5",
+      "2.1.3.6",
+      "2.1.3.7",
+      "2.1.3.8",
+      "2.1.3.9",
+      "2.1.3.10",
+      "2.1.5.5",
+      "3.2.1",
+      "3.3.1"
+    ],
+    "precedence_table_pdf_page_1_indexed": 127,
+    "precedence_table_printed_page": 107
+  },
+  "external_reference_documents": [
+    {
+      "symbol": "ECE/TRANS/352",
+      "volume": "II",
+      "use": "Specific packing and carriage only; not precedence source"
+    },
+    {
+      "symbol": "ST/SG/AC.10/11/Rev.8",
+      "use": "Specialist test methods only; this integration layer contains no test thresholds"
+    },
+    {
+      "symbol": "ST/SG/AC.10/11/Rev.8/Amend.1",
+      "use": "Specialist test-method amendments; verify at class module"
+    },
+    {
+      "symbol": "ECE/TRANS/352/Corr.1",
+      "status": "pending complete legal cross-check"
+    },
+    {
+      "symbol": "ECE/TRANS/352/Corr.2",
+      "status": "mapped preliminary",
+      "known_change": "2.1.3.10 Note 2 illustrative UN1921 wording changed from INHIBITED to STABILIZED; no matrix cell update claimed"
+    }
+  ],
+  "table_a_source": "Agent1 exact verified row supplied externally; no UN data embedded; no final assignment",
+  "selector_source": "Agent4 selection contract supplied externally; module does not overwrite",
+  "source_set_id": "adr2025-en-provisional-v1",
+  "regulatory_validation": "not_performed",
+  "review_required": true
+}

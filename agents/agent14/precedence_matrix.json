@@ -1,0 +1,442 @@
+{
+  "matrix_id": "ADR25-2.1.3.10-VOL1-P107-PDF127",
+  "edition": "ADR-2025-EN",
+  "source_set_id": "adr2025-en-provisional-v1",
+  "document": "ECE/TRANS/352 (Vol.I)",
+  "source_pdf_page": 127,
+  "printed_page": 107,
+  "clause": "2.1.3.10",
+  "source_shafile_sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65",
+  "review_status": "transcribed_from_supplied_pdf_not_independently_approved",
+  "copyright_note": "Normalised factual cell outcomes for internal deterministic checks; not the source legal text.",
+  "footnote": "* Class 6.1 for pesticides; row 3/III x column 6.1/III.",
+  "columns": [
+    "4.1/II",
+    "4.1/III",
+    "4.2/II",
+    "4.2/III",
+    "4.3/I",
+    "4.3/II",
+    "4.3/III",
+    "5.1/I",
+    "5.1/II",
+    "5.1/III",
+    "6.1/I/DERMAL",
+    "6.1/I/ORAL",
+    "6.1/II",
+    "6.1/III",
+    "8/I",
+    "8/II",
+    "8/III",
+    "9/NA"
+  ],
+  "rows": {
+    "3/I": {
+      "start": 0,
+      "values": [
+        {
+          "SOL": "4.1",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "4.1",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "4.2",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "4.2",
+          "LIQ": "3, I"
+        },
+        "4.3, I",
+        "4.3, I",
+        "4.3, I",
+        {
+          "SOL": "5.1, I",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "5.1, I",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "5.1, I",
+          "LIQ": "3, I"
+        },
+        "3, I",
+        "3, I",
+        "3, I",
+        "3, I",
+        "3, I",
+        "3, I",
+        "3, I",
+        "3, I"
+      ]
+    },
+    "3/II": {
+      "start": 0,
+      "values": [
+        {
+          "SOL": "4.1",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "4.1",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "4.2",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "4.2",
+          "LIQ": "3, II"
+        },
+        "4.3, I",
+        "4.3, II",
+        "4.3, II",
+        {
+          "SOL": "5.1, I",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "5.1, II",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "5.1, II",
+          "LIQ": "3, II"
+        },
+        "3, I",
+        "3, I",
+        "3, II",
+        "3, II",
+        "8, I",
+        "3, II",
+        "3, II",
+        "3, II"
+      ]
+    },
+    "3/III": {
+      "start": 0,
+      "values": [
+        {
+          "SOL": "4.1",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "4.1",
+          "LIQ": "3, III"
+        },
+        {
+          "SOL": "4.2",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "4.2",
+          "LIQ": "3, III"
+        },
+        "4.3, I",
+        "4.3, II",
+        "4.3, III",
+        {
+          "SOL": "5.1, I",
+          "LIQ": "3, I"
+        },
+        {
+          "SOL": "5.1, II",
+          "LIQ": "3, II"
+        },
+        {
+          "SOL": "5.1, III",
+          "LIQ": "3, III"
+        },
+        "6.1, I",
+        "6.1, I",
+        "6.1, II",
+        "3, III*",
+        "8, I",
+        "8, II",
+        "3, III",
+        "3, III"
+      ]
+    },
+    "4.1/II": {
+      "start": 2,
+      "values": [
+        "4.2, II",
+        "4.2, II",
+        "4.3, I",
+        "4.3, II",
+        "4.3, II",
+        "5.1, I",
+        "4.1, II",
+        "4.1, II",
+        "6.1, I",
+        "6.1, I",
+        {
+          "SOL": "4.1, II",
+          "LIQ": "6.1, II"
+        },
+        {
+          "SOL": "4.1, II",
+          "LIQ": "6.1, II"
+        },
+        "8, I",
+        {
+          "SOL": "4.1, II",
+          "LIQ": "8, II"
+        },
+        {
+          "SOL": "4.1, II",
+          "LIQ": "8, II"
+        },
+        "4.1, II"
+      ]
+    },
+    "4.1/III": {
+      "start": 2,
+      "values": [
+        "4.2, II",
+        "4.2, III",
+        "4.3, I",
+        "4.3, II",
+        "4.3, III",
+        "5.1, I",
+        "4.1, II",
+        "4.1, III",
+        "6.1, I",
+        "6.1, I",
+        "6.1, II",
+        {
+          "SOL": "4.1, III",
+          "LIQ": "6.1, III"
+        },
+        "8, I",
+        "8, II",
+        {
+          "SOL": "4.1, III",
+          "LIQ": "8, III"
+        },
+        "4.1, III"
+      ]
+    },
+    "4.2/II": {
+      "start": 4,
+      "values": [
+        "4.3, I",
+        "4.3, II",
+        "4.3, II",
+        "5.1, I",
+        "4.2, II",
+        "4.2, II",
+        "6.1, I",
+        "6.1, I",
+        "4.2, II",
+        "4.2, II",
+        "8, I",
+        "4.2, II",
+        "4.2, II",
+        "4.2, II"
+      ]
+    },
+    "4.2/III": {
+      "start": 4,
+      "values": [
+        "4.3, I",
+        "4.3, II",
+        "4.3, III",
+        "5.1, I",
+        "5.1, II",
+        "4.2, III",
+        "6.1, I",
+        "6.1, I",
+        "6.1, II",
+        "4.2, III",
+        "8, I",
+        "8, II",
+        "4.2, III",
+        "4.2, III"
+      ]
+    },
+    "4.3/I": {
+      "start": 7,
+      "values": [
+        "5.1, I",
+        "4.3, I",
+        "4.3, I",
+        "6.1, I",
+        "4.3, I",
+        "4.3, I",
+        "4.3, I",
+        "4.3, I",
+        "4.3, I",
+        "4.3, I",
+        "4.3, I"
+      ]
+    },
+    "4.3/II": {
+      "start": 7,
+      "values": [
+        "5.1, I",
+        "4.3, II",
+        "4.3, II",
+        "6.1, I",
+        "4.3, I",
+        "4.3, II",
+        "4.3, II",
+        "8, I",
+        "4.3, II",
+        "4.3, II",
+        "4.3, II"
+      ]
+    },
+    "4.3/III": {
+      "start": 7,
+      "values": [
+        "5.1, I",
+        "5.1, II",
+        "4.3, III",
+        "6.1, I",
+        "6.1, I",
+        "6.1, II",
+        "4.3, III",
+        "8, I",
+        "8, II",
+        "4.3, III",
+        "4.3, III"
+      ]
+    },
+    "5.1/I": {
+      "start": 10,
+      "values": [
+        "5.1, I",
+        "5.1, I",
+        "5.1, I",
+        "5.1, I",
+        "5.1, I",
+        "5.1, I",
+        "5.1, I",
+        "5.1, I"
+      ]
+    },
+    "5.1/II": {
+      "start": 10,
+      "values": [
+        "6.1, I",
+        "5.1, I",
+        "5.1, II",
+        "5.1, II",
+        "8, I",
+        "5.1, II",
+        "5.1, II",
+        "5.1, II"
+      ]
+    },
+    "5.1/III": {
+      "start": 10,
+      "values": [
+        "6.1, I",
+        "6.1, I",
+        "6.1, II",
+        "5.1, III",
+        "8, I",
+        "8, II",
+        "5.1, III",
+        "5.1, III"
+      ]
+    },
+    "6.1/I/DERMAL": {
+      "start": 14,
+      "values": [
+        {
+          "SOL": "6.1, I",
+          "LIQ": "8, I"
+        },
+        "6.1, I",
+        "6.1, I",
+        "6.1, I"
+      ]
+    },
+    "6.1/I/ORAL": {
+      "start": 14,
+      "values": [
+        {
+          "SOL": "6.1, I",
+          "LIQ": "8, I"
+        },
+        "6.1, I",
+        "6.1, I",
+        "6.1, I"
+      ]
+    },
+    "6.1/II/INHAL": {
+      "start": 14,
+      "values": [
+        {
+          "SOL": "6.1, I",
+          "LIQ": "8, I"
+        },
+        "6.1, II",
+        "6.1, II",
+        "6.1, II"
+      ]
+    },
+    "6.1/II/DERMAL": {
+      "start": 14,
+      "values": [
+        {
+          "SOL": "6.1, I",
+          "LIQ": "8, I"
+        },
+        {
+          "SOL": "6.1, II",
+          "LIQ": "8, II"
+        },
+        "6.1, II",
+        "6.1, II"
+      ]
+    },
+    "6.1/II/ORAL": {
+      "start": 14,
+      "values": [
+        "8, I",
+        {
+          "SOL": "6.1, II",
+          "LIQ": "8, II"
+        },
+        "6.1, II",
+        "6.1, II"
+      ]
+    },
+    "6.1/III": {
+      "start": 14,
+      "values": [
+        "8, I",
+        "8, II",
+        "8, III",
+        "6.1, III"
+      ]
+    },
+    "8/I": {
+      "start": 17,
+      "values": [
+        "8, I"
+      ]
+    },
+    "8/II": {
+      "start": 17,
+      "values": [
+        "8, II"
+      ]
+    },
+    "8/III": {
+      "start": 17,
+      "values": [
+        "8, III"
+      ]
+    }
+  }
+}

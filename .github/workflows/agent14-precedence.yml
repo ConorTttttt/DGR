@@ -1,0 +1,28 @@
+name: Agent 14 ADR 2025 precedence synthetic tests
+on:
+  pull_request:
+    paths:
+      - 'agents/agent14/**'
+      - '.github/workflows/agent14-precedence.yml'
+  push:
+    branches:
+      - agent14/adr2025-cross-class-precedence
+    paths:
+      - 'agents/agent14/**'
+      - '.github/workflows/agent14-precedence.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-precedence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile module
+        run: python -m py_compile agents/agent14/precedence.py agents/agent14/test_precedence.py
+      - name: Run synthetic-only tests
+        run: python -m unittest discover -s agents/agent14 -p 'test_*.py' -v
