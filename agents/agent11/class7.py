@@ -230,6 +230,8 @@ def classify(data: dict) -> dict:
                 raise ValueError(f"{name}: not in independently checked curated register; refer to 2.2.7.2.2.1-2.2.7.2.2.6")
             if name in activities:
                 raise ValueError(f"duplicate radionuclide {name}")
+            if DATA["values"][name]["notes"] and item.get("table_footnotes_reviewed") is not True:
+                raise ValueError(f"{name}: nuclide footnotes/daughter equilibrium require independent evidence review")
             activities[name] = _quantity(item.get("activity"), ACTIVITY_UNITS, name)
             source_dates.add(item["activity"]["measured_on"])
         if source_dates != {reference_date}:
