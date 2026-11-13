@@ -103,6 +103,7 @@ class TestClass7Scope(unittest.TestCase):
         r = mod.classify(sample(nuclide="Cs-137", activity="10001"))
         self.assertIn("Cs-137", mod.DATA["values"])
         self.assertTrue(mod.DATA["values"]["Cs-137"]["notes"])
+        self.assertEqual(r["scope"], "INDETERMINATE")
         self.assertTrue(r["requires_independent_review"])
 
     def test_fissile_missing_mass_not_excluded(self):
