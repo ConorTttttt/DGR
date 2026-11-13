@@ -1,0 +1,347 @@
+{
+  "module": "agent12_class8",
+  "implementation_version": "0.1.0-provisional",
+  "regulatory_edition": "ADR 2025",
+  "regulatory_document": "ECE/TRANS/352 (Vol. I)",
+  "regulatory_publication_year": 2024,
+  "supporting_test_document": "ST/SG/AC.10/11/Rev.8 (2023)",
+  "supporting_amendment": "ST/SG/AC.10/11/Rev.8/Amend.1 (English §37.4.1.3/37.4.1.4.1 unaffected)",
+  "source_url": "https://unece.org/adr-2025-files",
+  "review_status": "PROVISIONAL_NOT_INDEPENDENTLY_VALIDATED",
+  "base_prototype": "ConorTttttt/DGR PR #2 agents/agent3/adr2025/class8.py blob 630d07742ac3fc1fa5bff3adee77c24628c674b0",
+  "output_contract": {
+    "status": [
+      "criteria_met",
+      "criteria_not_met",
+      "indeterminate"
+    ],
+    "calculated_pg": [
+      "I",
+      "II",
+      "III",
+      null
+    ],
+    "dgl_packing_group": null,
+    "requires_precedence_review": true,
+    "requires_named_entry_resolution": true,
+    "is_final_section_14_classification": false
+  },
+  "general_evidence": "Documented material scope, complete human experience review and study/composition provenance; no CLP/GHS inference.",
+  "rule_register": [
+    {
+      "id": "ADR25-C8-SCOPE",
+      "source_clauses": [
+        "2.2.8.1.1",
+        "2.2.8.1.2",
+        "2.2.8.1.3",
+        "2.2.8.1.4.1",
+        "2.2.8.1.4.2",
+        "2.2.8.1.4.3",
+        "2.2.8.1.4.4"
+      ],
+      "inputs": [
+        "material_scope"
+      ],
+      "logic": "substance or whole_mixture_tested -> primary data; untested_mixture -> §2.2.8.1.6 hierarchy",
+      "exceptions": [
+        "water reactive, corrosive gas/vapour Class 8 scope may require separate evaluation"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "ADR25-C8-HUM",
+      "source_clauses": [
+        "2.2.8.1.5.1",
+        "2.2.8.1.5.2"
+      ],
+      "inputs": [
+        "human_evidence.review_complete",
+        "human_evidence.evidence_id",
+        "human_evidence.status",
+        "human_evidence.candidate_pg",
+        "human_evidence.expert_pg_basis_confirmed"
+      ],
+      "logic": "existing human/animal data first; human-experience conflict or unsupported human PG -> indeterminate; expert-certified human PG may become calculated candidate",
+      "exceptions": [
+        "documented absence of human evidence is not a negative skin finding"
+      ],
+      "status": "partial_evidence_attestation"
+    },
+    {
+      "id": "ADR25-C8-SKIN",
+      "source_clauses": [
+        "2.2.8.1.5.2",
+        "2.2.8.1.5.3(a)",
+        "2.2.8.1.5.3(b)",
+        "2.2.8.1.5.3(c)(i)",
+        "Table 2.2.8.1.5.3"
+      ],
+      "inputs": [
+        "skin_test.method",
+        "skin_test.evidence_id",
+        "skin_test.valid",
+        "skin_test.status",
+        "skin_test.exposure_minutes",
+        "skin_test.observation_minutes"
+      ],
+      "method_ids": [
+        "OECD_404",
+        "OECD_435",
+        "OECD_431",
+        "OECD_430",
+        "OECD_439"
+      ],
+      "logic": [
+        {
+          "if": "OECD_404 + corrosive + 0 < exposure_min <= 3 + observation_min <= 60",
+          "pg": "I"
+        },
+        {
+          "if": "OECD_404 + corrosive + 3 < exposure_min <= 60 + observation_min <= 20160",
+          "pg": "II"
+        },
+        {
+          "if": "OECD_404 + corrosive + 60 < exposure_min <= 240 + observation_min <= 20160",
+          "pg": "III"
+        },
+        {
+          "if": "valid OECD_439 non-classified",
+          "skin_result": "non_corrosive_only"
+        }
+      ],
+      "exceptions": [
+        "uncertain study timing or observed effect -> indeterminate",
+        "OECD 439 cannot prove positive corrosion"
+      ],
+      "status": "implemented_provisional"
+    },
+    {
+      "id": "ADR25-C8-TIER-FALLBACK",
+      "source_clauses": [
+        "2.2.8.1.5.2"
+      ],
+      "inputs": [
+        "skin_test.tier_discrimination",
+        "skin_test.valid_PGI_exclusion",
+        "skin_test.no_other_test_indicates_other_pg",
+        "skin_test.evidence_id"
+      ],
+      "logic": [
+        {
+          "if": "test corrosive, validly excludes PGI, cannot distinguish II/III",
+          "pg": "II"
+        },
+        {
+          "if": "test corrosive, cannot distinguish any PG, no other tests indicate different PG",
+          "pg": "I"
+        }
+      ],
+      "exceptions": [
+        "valid method and supporting report required"
+      ],
+      "status": "implemented_provisional"
+    },
+    {
+      "id": "ADR25-C8-MET",
+      "source_clauses": [
+        "2.2.8.1.3",
+        "2.2.8.1.5.3(c)(ii)",
+        "2.2.8.1.5.3(c)(ii) NOTE"
+      ],
+      "test_clauses": [
+        "UN MTC Rev.8 §37.1.2",
+        "§37.4.1.2",
+        "§37.4.1.3",
+        "§37.4.1.4.1",
+        "§37.4.1.4.2",
+        "Table 37.4.1.1",
+        "Table 37.4.1.2"
+      ],
+      "inputs": [
+        "documented non-corrosive skin evidence",
+        "metal_tests.steel",
+        "metal_tests.aluminium",
+        "UN MTC Test C.1 evidence and protocol"
+      ],
+      "units": [
+        "mm/year at 55 C",
+        "mass loss percent",
+        "max intrusion micrometres",
+        "days"
+      ],
+      "logic": [
+        "rate_mm_year > 6.25 on either permitted steel or aluminium -> candidate PG III",
+        "uniform mass loss (%) > [13.5,26.5,39.2,51.5] for days [7,14,21,28] -> candidate PG III",
+        "local intrusion (micrometres) > [120,240,360,480] on same durations -> candidate PG III",
+        "one qualifying metal test proves metal pathway; both valid non-qualifying results needed for negative"
+      ],
+      "test_requirements": [
+        "steel S235JR+CR/S275J2G3+CR/ISO 3574/UNS G10200/SAE 1020",
+        "non-clad aluminium 7075-T6/AZ5GU-T6",
+        "2 mm plate",
+        "at least 3 specimen sets per metal",
+        "full/half/vapour exposure",
+        "55 +/- 1 C throughout",
+        "at least 1.5 l solution",
+        "supported 7/14/21/28-day results and verified exposure hours",
+        "certified C.1 protocol"
+      ],
+      "exceptions": [
+        "solid must be capable of becoming liquid in carriage before metal pathway; integration gate outstanding",
+        "no average corrosion-only negative if localised corrosion unassessed"
+      ],
+      "status": "partial_protocol_attestation"
+    },
+    {
+      "id": "ADR25-C8-BRIDGE",
+      "source_clauses": [
+        "2.2.8.1.6.1",
+        "2.2.8.1.6.2(a)",
+        "2.2.8.1.6.2(b)",
+        "2.2.8.1.6.2(c)",
+        "2.2.8.1.6.2(d)",
+        "2.2.8.1.6.2(e)"
+      ],
+      "inputs": [
+        "bridge.type",
+        "bridge.evidence_id",
+        "bridge.source_tested_pg",
+        "condition-specific attestations"
+      ],
+      "logic": [
+        "dilution of tested source with non-corrosive diluent, unchanged PG and no enhanced corrosion",
+        "equivalent same-product batch under same manufacturer's control with no important variation",
+        "concentration of tested PG I mixture -> PG I",
+        "interpolation of same corrosion-PG tested A/B with intermediate Class 8 concentrations",
+        "substantially similar A+B/C+B with matching B, matching A/C contents and equivalent effects"
+      ],
+      "exceptions": [
+        "missing analogous test data -> indeterminate",
+        "bridging flags must be cross-checked against experiments"
+      ],
+      "status": "partial_conditional_attestation"
+    },
+    {
+      "id": "ADR25-C8-CALC",
+      "source_clauses": [
+        "2.2.8.1.6.3.1",
+        "2.2.8.1.6.3.2",
+        "2.2.8.1.6.3.3",
+        "Figure 2.2.8.1.6.3"
+      ],
+      "inputs": [
+        "all_ingredients_identified",
+        "composition_evidence_id",
+        "specific_limits_checked_against_Table_A_and_SP",
+        "specific_limits_present=false",
+        "ingredients[].skin_corrosion_pg",
+        "ingredients[].concentration_pct",
+        "ingredients[].relevant_below_one_pct",
+        "no_synergistic_corrosion_effect"
+      ],
+      "logic": [
+        {
+          "if": "sum_PGI_pct >= 5",
+          "pg": "I"
+        },
+        {
+          "if": "sum_PGI_pct >= 1 OR sum_PGI_pct+sum_PGII_pct >= 5, and prior PGI branch not met",
+          "pg": "II"
+        },
+        {
+          "if": "sum_PGI_pct+sum_PGII_pct+sum_PGIII_pct >= 5, previous branches not met",
+          "pg": "III"
+        },
+        {
+          "if": "all branches negative and synergy excluded",
+          "status": "criteria_not_met_this_calculation_only"
+        }
+      ],
+      "exceptions": [
+        "consider all Class 8 ingredients >=1%, and lower ingredients if relevant",
+        "without absence of synergistic effects, PG II/III calculation blocked",
+        "when specific limits exist, block rather than apply GCL"
+      ],
+      "status": "implemented_generic_only"
+    },
+    {
+      "id": "ADR25-C8-SCL-GATE",
+      "source_clauses": [
+        "2.2.8.1.6.3.4",
+        "2.2.8.1.6.3.5",
+        "Figure 2.2.8.1.6.3",
+        "NOTE Examples 1-2"
+      ],
+      "inputs": [
+        "verified entry-specific concentration limits in Table A or special provisions"
+      ],
+      "logic": "specific limits replace generic limits in weighted summation; cases must be resolved by Agent 1 and independently reviewed before code enables",
+      "exceptions": [
+        "NO unsupported substitution of generic threshold when SCL present"
+      ],
+      "status": "unsupported_indeterminate"
+    },
+    {
+      "id": "ADR25-C8-NAMED-EXCEPTIONS",
+      "source_clauses": [
+        "2.2.8.1.4.3",
+        "2.2.8.1.7",
+        "2.2.8.1.8",
+        "2.2.8.2.1",
+        "2.2.8.2.2",
+        "2.1.3",
+        "3.2.1 Table A",
+        "3.3"
+      ],
+      "inputs": [
+        "named-entry identity",
+        "special provisions",
+        "carriage stability",
+        "UN assignment / DGL PG"
+      ],
+      "logic": "forward to Lead/Agent 1; never set dgl_packing_group or final transport status",
+      "exceptions": [
+        "UN 1798 and specified chemically unstable acids/prohibited carriage",
+        "wet-air corrosive gas formation",
+        "specific entries/exemptions including UN 1910/2812 note"
+      ],
+      "status": "unsupported_external_dependency"
+    },
+    {
+      "id": "ADR25-C8-PRECEDENCE",
+      "source_clauses": [
+        "2.2.8.1.4.5",
+        "2.2.61.1.7.2",
+        "2.1.3.10"
+      ],
+      "inputs": [
+        "other hazard class findings and constituent risk evidence"
+      ],
+      "logic": "return candidate to Agent 2; no final 6.1/3/4.3/5.1 precedence or subsidiary risk assignment",
+      "exceptions": [
+        "no Class 8 PG treated as final DGL PG"
+      ],
+      "status": "unsupported_external_dependency"
+    }
+  ],
+  "unsupported_cases": [
+    "specific concentration limit calculations",
+    "source data with unknown study or metal C1 protocol",
+    "metal-corrosion solid state gating",
+    "aqueous reactivity/corrosive vapours",
+    "named entries and Table A PG",
+    "special provisions",
+    "Class 6.1/3/4.3/5.1 precedence",
+    "chemical instability / not accepted for carriage",
+    "conflicting human/animal findings",
+    "unverified GCL synergy conclusion",
+    "non-transport CLP/GHS classifications"
+  ],
+  "test_evidence": {
+    "local_unittest_methods": 17,
+    "local_status": "passed",
+    "independent_validation": false,
+    "CI_status": "not_run",
+    "note": "Local exact-source test and implementation blobs matched GitHub before PR creation."
+  }
+}
