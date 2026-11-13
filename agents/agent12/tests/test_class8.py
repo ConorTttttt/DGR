@@ -114,6 +114,13 @@ class Class8Cases(unittest.TestCase):
                metal('aluminium',rate_mm_year=None,max_mass_loss_pct=13.501)}))['calculated_packing_group'],'III')
         self.assertEqual(evaluate(base(skin_test=negative_skin(),metal_tests={'aluminium':
                metal('aluminium',rate_mm_year=None,max_mass_loss_pct=13.5)}))['status'],'indeterminate')
+    def test_only_localised_corrosion_can_prove_positive(self):
+        local=metal('aluminium',rate_mm_year=None,max_local_intrusion_um=120.001)
+        r=evaluate(base(skin_test=negative_skin(),metal_tests={'aluminium':local}))
+        self.assertEqual((r['status'],r['calculated_packing_group']),('criteria_met','III'))
+        local['local_corrosion_assessed']=False
+        self.assertEqual(evaluate(base(skin_test=negative_skin(),metal_tests={'aluminium':local}))['status'],'indeterminate')
+
     def test_metal_conditions_boundaries(self):
         for kw in [dict(temperature_min_c=53.99), dict(temperature_max_c=56.01),
                    dict(solution_volume_l=1.49), dict(specimen_sets=2),
