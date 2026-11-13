@@ -110,14 +110,25 @@ class SummationTests(unittest.TestCase):
 
     def test_missing_whole_test_and_bridge_hierarchy_blocks(self):
         r = evaluate(mix([c("A", 25, acute="Acute 1", am=1)], whole_mixture_data_available=None))
+        self.assertEqual(r["status"], "indeterminate")
         self.assertFalse(r["candidate_data"]["categories_definitive"])
+
+    def test_hierarchy_blocks_known_positive_if_whole_test_available(self):
+        r = evaluate(mix([c("A", 30, acute="Acute 1", am=1)], whole_mixture_data_available=True))
+        self.assertEqual(r["status"], "indeterminate")
+        self.assertIn("Acute 1", r["aquatic_categories"])
+
+    def test_hierarchy_blocks_known_positive_if_bridge_available(self):
+        r = evaluate(mix([c("A", 30, acute="Acute 1", am=1)], bridging_data_available=True))
+        self.assertEqual(r["status"], "indeterminate")
 
 
 class WholeAndBridgingTests(unittest.TestCase):
     def base(self, **kw):
         x = dict(pathway="aquatic", material_scope="mixture", aquatic_method="whole_tested",
                  whole_mixture_test_adequate=True, test_evidence_ref="WHOLE-TEST-1",
-                 acute_l_ec50_mg_l=2, chronic_noec_ecx_mg_l=2)
+                 acute_l_ec50_mg_l=2, chronic_noec_ecx_mg_l=2,
+                 all_relevant_ingredients_rapidly_degradable=False)
         x.update(kw)
         return x
 
@@ -125,6 +136,20 @@ class WholeAndBridgingTests(unittest.TestCase):
         self.assertEqual(evaluate(self.base())["status"], "criteria_not_met")
         x = self.base(); x.pop("chronic_noec_ecx_mg_l")
         self.assertEqual(evaluate(x)["status"], "indeterminate")
+
+    def test_missing_rapid_degradation_blocks_chronic_only_positive(self):
+        r = self.base(chronic_noec_ecx_mg_l=0.05)
+        r.pop("all_relevant_ingredients_rapidly_degradable")
+        self.assertEqual(evaluate(r)["status"], "indeterminate")
+        self.assertNotIn("Chronic 1", evaluate(r)["aquatic_categories"])
+
+    def test_substance_missing_rd_no_silent_nrd_category(self):
+        d = dict(pathway="aquatic", material_scope="substance", acute_l_ec50_mg_l=2,
+                 chronic_noec_ecx_mg_l=0.05, test_evidence_ref="LAB",
+                 trophic_levels_adequately_assessed=True, algal_data_exception_reviewed=True)
+        self.assertEqual(evaluate(d)["status"], "indeterminate")
+        self.assertNotIn("Chronic 1", evaluate(d)["aquatic_categories"])
+        self.assertIn("Chronic 1", evaluate(dict(d, degradation_data_absent=True))["aquatic_categories"])
 
     def test_whole_tested_chronic_rapid_threshold(self):
         r = evaluate(self.base(chronic_noec_ecx_mg_l=0.1, all_relevant_ingredients_rapidly_degradable=True))
@@ -163,7 +188,7 @@ class WholeAndBridgingTests(unittest.TestCase):
         self.assertEqual(evaluate(d)["status"], "indeterminate")
 
     def test_additivity_requires_tested_fraction_and_taxonomic_evidence(self):
-        d = self.base(aquatic_method="additivity")
+        d = self.base(aquatic_method="additivity", whole_mixture_data_available=False, bridging_data_available=False)
         self.assertEqual(evaluate(d)["status"], "indeterminate")
         d["toxicity_constituents"] = [dict(id="A", concentration_pct=25,
             acute_l_ec50_mg_l=0.5, chronic_noec_mg_l=2,
@@ -179,7 +204,7 @@ class WholeAndBridgingTests(unittest.TestCase):
         self.assertEqual(r["candidate_data"]["tested_fraction_pct"], "25")
 
     def test_chronic_additivity_nrd_adjustment(self):
-        d = self.base(aquatic_method="additivity", taxonomic_endpoint_selection_ref="TAXA-2",
+        d = self.base(aquatic_method="additivity", whole_mixture_data_available=False, bridging_data_available=False, taxonomic_endpoint_selection_ref="TAXA-2",
             toxicity_constituents=[dict(id="NRD", concentration_pct=25,
                 acute_l_ec50_mg_l=2, chronic_noec_mg_l=0.1,
                 rapidly_degradable=False, test_evidence_ref="NRD-TEST")],
@@ -248,6 +273,16 @@ class TransportAndOtherTests(unittest.TestCase):
         self.assertEqual(evaluate(a)["status"], "criteria_not_met")
         self.assertEqual(evaluate(dict(a, pcb_pct_mg_kg=50.0001))["status"], "criteria_met")
         self.assertEqual(evaluate(dict(a, material_scope="article"))["status"], "criteria_met")
+
+    def test_signed_negative_flashpoint_handling(self):
+        p = dict(pathway="subclass", subclass="polymer_vapour", identity_evidence_ref="POLY",
+                 polymer_contains_flammable_liquid=True, contained_flammable_liquid_flash_point_c=-5)
+        self.assertEqual(evaluate(p)["status"], "criteria_met")
+        t = dict(pathway="elevated_temperature", physical_state="liquid",
+                 carriage_temperature_c=101, flash_point_c=-5,
+                 other_classes_excluded_review_ref="PRECEDENCE", named_entry_review_ref="DGL")
+        self.assertEqual(evaluate(t)["status"], "indeterminate")
+        self.assertEqual(evaluate(t)["candidate_data"]["candidate_other_class"], "3")
 
     def test_polymer_vapour_55_boundary(self):
         d = dict(pathway="subclass", subclass="polymer_vapour", identity_evidence_ref="POLY",
