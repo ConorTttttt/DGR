@@ -1,0 +1,179 @@
+{
+  "independently_reviewed": false,
+  "exceptions": [
+    {
+      "id": "TYPE_A_NOT_ACCEPTED",
+      "problem": "Carriage prohibited under 2.2.52.2",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "TYPE_G_NOT_GLOBAL_NON_DG",
+      "problem": "Excluded only from Class 5.2, other transport hazards still screened",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "LISTED_EXEMPT_ROWS",
+      "problem": "Exact formulation and remarks required for exempt rows",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "LISTED_NOT_AUTOMATIC",
+      "problem": "Verify current concentration, water, dilution, state and quantity",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "MIXTURE_THERMAL_UNSTABLE",
+      "problem": "SADT of mixtures mandatory even if each component stable",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "UNLISTED_AUTHORITY",
+      "problem": "Competent authority approval conditions mandatory",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "NON_ADR_ORIGIN",
+      "problem": "First ADR contracting party recognition required",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "SAMPLE_10KG_OP2",
+      "problem": "Sample route only if all conditions including phase are verified",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "DILUENT_B_MIN_BP",
+      "problem": "BP >=60C and <150C",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "DILUENT_B_MIN_FP",
+      "problem": "Flash point >=5C",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "DILUENT_B_50KG_SADT",
+      "problem": "BP >= 50kg SADT + 60C",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "DILUENT_OTHER_REASSESS",
+      "problem": "New diluent invalidates original determination",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "WATER_EXPLICIT_ONLY",
+      "problem": "Water requires specified authorization",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "COMPATIBILITY_SPILL",
+      "problem": "Thermal stability and spillage concentration review not automated",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "SOURCE_TYPE_B_AMBIGUITY",
+      "problem": "Supplied MTC Rev8 §20.4.3(b) English wording appears incomplete",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "TEST_SERIES_AH_SPECIALIST",
+      "problem": "Apparatus, validated test waivers and test sequence require expert review",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "THERMAL_STRESS_SAMPLE",
+      "problem": "MTC 20.3.4 special sample methodology not automated",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "PHASE_SEPARATION",
+      "problem": "Cooling may cause dangerous separation",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "PACKAGING_P520",
+      "problem": "OP methods/maximum quantity require verified row",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "IBC520_T23",
+      "problem": "Only listed approved formulations may use bulk",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "TABLE_A_ROW_ID_MISSING",
+      "problem": "UN candidate cannot become final assignment without exact row ID",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "SP122_181_274",
+      "problem": "Special provisions not resolved",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "ARTICLE_3545",
+      "problem": "Articles are outside formulation pathway",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "SUBSIDIARY_HAZARDS",
+      "problem": "Type B class1 label and other hazards require Lead precedence",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "ADR_CORRIGENDA_NOT_CHECKED",
+      "problem": "ADR English Corr.1 and Corr.2 independent verification pending",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "NO_PG",
+      "problem": "Organic peroxide A-G type not an ordinary packing group",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "REAL_LAB_EVIDENCE_MISSING",
+      "problem": "Synthetic test fixture not validation",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "TEMPERATURE_CONTROL_VEHICLE",
+      "problem": "Refrigeration, monitoring and Part 7 controls not evaluated",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    },
+    {
+      "id": "AUTHORITY_EXPIRY",
+      "problem": "Approval external trust/expiry/revocation must be attested by integration",
+      "disposition": "specialist/Lead review; block release",
+      "independently_reviewed": false
+    }
+  ]
+}

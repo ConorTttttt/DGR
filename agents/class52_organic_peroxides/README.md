@@ -1,0 +1,14 @@
+# Agent 8 — ADR 2025 Class 5.2 organic peroxides (PROVISIONAL)
+
+Deterministic **candidate-only** evaluator for organic peroxide formulations and evidence under ADR 2025. Uses Lead Agent draft response schema `1.0.0-rc1`; `assignment_permitted:false`, `requires_independent_review:true`, and `packing_group:null` are invariants. Missing evidence is **never** a negative finding. CLP/GHS are not used to assign transport classes.
+
+## Inputs and API
+`const {classify}=require('./classify.js'); classify(evidence);`
+
+Require verified structural identity; current formulation/revision; peroxide component mass % plus molecular mass (g/mol), peroxygen group count and hydrogen peroxide mass % (for available-oxygen exclusion); full desensitizer compatibility/spillage review. Routes: `listed` (exact official 2.2.52.4/IBC520/T23 source row and formulation), `unlisted` (complete applicable MTC A–H report and authority), `mixture` (verified components, actual measured mixture SADT and authority), and `sample` (2.2.52.1.9 sample evidence/OP2/<=10kg/thermal conditions). Add state liquid/solid, package-specific SADT °C, 50 kg SADT when needed, confinement category, package category and phase-separation evidence. See test_cases.json for synthetic examples.
+
+Threshold handling: oxygen uses **exact decimal fractions**; SADT <=50 and <=45 C as applicable; Type A prohibited, Type G Class 5.2-only exclusion. Diluent A boiling >=150 C; B boiling >=60 and <150 C, flash >=5 C and boiling >= SADT(50kg)+60 C; water only under approved wording or sample exception. Control/emergency temperatures derive from ADR 7.1.7.3.5 where not listed.
+
+ADR §2.2.52.3 permits Type B–F liquid/solid generic references UN 3101–3120. The relevant ADR 2025 Table A column (4) is **blank**, hence no PG, but exact `row_id` remains `null` and final UN assignment is **not** made. Type B class-1 subsidiary is candidate only. Article UN3545 is unsupported. SP 122,181,274 and P520/IBC520/T23 require external checks.
+
+**Run tests:** `node --test agents/class52_organic_peroxides/classify.test.js`. Synthetic inline V8 test report in test_results.json; Node CLI/CI and independent regulatory review are pending. Source SHA256 metadata in sources.json. See HANDOVER.md and exceptions.json.

@@ -1,0 +1,29 @@
+{
+  "sources": {
+    "ADR2025_VOLI": {
+      "file": "2412006_E_ECE_TRANS_352_Vol.I_WEB_0.pdf",
+      "edition": "ADR 2025 ECE/TRANS/352 Volume I English",
+      "sha256": "abb98cdaeadc2cbda6642e5123e38635a2ab23cd610776fb375fe8c76a130f65"
+    },
+    "ADR2025_VOLII": {
+      "file": "2412010_E_ECE_TRANS_352_Vol.II_WEB.pdf",
+      "edition": "ADR 2025 ECE/TRANS/352 Volume II English",
+      "sha256": "702d0ae5737d3bd228e0b332352deda626018ac9841339c0eca67e4209953f4b"
+    },
+    "MTC_REV8": {
+      "file": "ST_SG_AC.10_11_Rev.8e_WEB.pdf",
+      "edition": "UN Manual Tests Criteria Rev.8 English, Part II",
+      "sha256": "d892df851727dd1cd06cf87ff02811f5b66e1f2133524e51a7c9873e65c6d533"
+    },
+    "MTC_REV8_AMEND1": {
+      "file": "ST-SG-AC10-11-Rev8-Amend1e(1).pdf",
+      "edition": "UN MTC Rev.8 Amendment 1 English",
+      "sha256": "534abc4b5ecdd56d615e0fa16fb38bccfc580129772f71443a2a2c892188a0db"
+    }
+  },
+  "independent_review": false,
+  "source_issues": [
+    "MTC Rev8 §20.4.3(b) supplied text appears incomplete",
+    "ADR English Corr.1/2 not provided; external check needed"
+  ]
+}
