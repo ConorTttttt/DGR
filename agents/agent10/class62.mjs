@@ -25,6 +25,7 @@ export const classifyClass62 = function classifyClass62(input) {
     packing_group_status:"not_assigned",
     table_a_lookup_required:false,
     special_provision_dependencies:[],
+    documentation_flags:[],
     subsidiary_hazard_candidates:Array.isArray(f.other_hazard_cues) ? [...new Set(f.other_hazard_cues.filter(x=>typeof x==="string"))] : [],
     other_class_integration_required:true,
     final_sds_section14_assignment_permitted:false,
@@ -50,6 +51,13 @@ export const classifyClass62 = function classifyClass62(input) {
     out.category=category;
     out.classification_code_candidates=[...new Set(nums.map(n=>ENTRIES[n].code))];
     out.special_provision_dependencies=[...new Set(nums.flatMap(n=>ENTRIES[n].sp))];
+    if(nums.includes("2814")||nums.includes("2900")) {
+      out.documentation_flags.push("SP318: technical name documentation required; verify 3.1.2.8");
+      if(f.pathogen_identity_known===false)
+        out.documentation_flags.push("SP318: unknown substance suspected Category A must carry parenthetical wording in transport document");
+      else if(f.pathogen_identity_known!==true)
+        gate("Determine whether Category A infectious identity is unknown and SP318 suspected wording is needed");
+    }
     out.table_a_lookup_required=true;
     out.packing_group_status="verified_blank_in_adr2025_table_a_column_4_for_these_candidate_rows";
     gate("Independent Table A row selection, variants and column 6 special provisions");
@@ -157,6 +165,11 @@ export const classifyClass62 = function classifyClass62(input) {
     gate("Refer to ADR 2.2.9 genetic modification classification; no Class 9 assignment here");
     return done("referred_to_other_class","verified_not_class62_for_this_path");
   }
+  if(f.kind==="medical_device" && f.device_is_medical_waste===true) {
+    rule("62-DEVICE-WASTE-EXCLUDED","2.2.62.1.5.9(a)");
+    gate("Medical waste UN3291 or UN3549 is excluded from used-device relief; resolve waste entry");
+    return done("named_entry_review_required","medical_waste_device_exception_excluded");
+  }
   if(f.inactivation_verified===true) {
     if(!evidence()){missing("evidence_refs of validated pathogen neutralisation/inactivation and no remaining health risk");return done("insufficient_evidence","incomplete");}
     return excluded("62-INACTIVATED","2.2.62.1.5.3","Inactivation verified to remove health risk; remaining other classes not assessed.");
@@ -180,6 +193,8 @@ export const classifyClass62 = function classifyClass62(input) {
       if(!["human","animal"].includes(f.specimen_species)){missing("specimen_species");return done("insufficient_evidence","incomplete");}
       if(p.mark!==mark){missing("specimen_packaging.mark exact exempt specimen marking");return done("insufficient_evidence","packaging_unproven");}
       if(p.method==="tripack") {
+        if(typeof f.specimen_is_liquid!=="boolean")missing("specimen_is_liquid boolean required before absorbent-condition evaluation");
+        if(typeof f.multiple_fragile_primaries!=="boolean")missing("multiple_fragile_primaries boolean required before separation-condition evaluation");
         const checks=["primary_leakproof","secondary_leakproof","outer_adequate","packaging_verified"];
         for(const key of checks)if(p[key]!==true)missing("specimen_packaging."+key);
         if(!(typeof p.outer_width_mm==="number" && p.outer_width_mm>=100))missing("specimen_packaging.outer_width_mm >= 100");
@@ -200,6 +215,10 @@ export const classifyClass62 = function classifyClass62(input) {
   }
   if(f.kind==="medical_device") {
     rule("62-DEVICE","2.2.62.1.5.9");
+    if(f.device_is_medical_waste!==false){
+      missing("device_is_medical_waste explicitly assessed false");
+      return done("requires_expert_review","device_waste_exception_unresolved");
+    }
     if(f.device_category_a===true){gate("No §2.2.62.1.5.9 relief for devices containing Category A; verify applicable named entry");return done("named_entry_review_required","category_a_device");}
     if(f.device_other_class_dangerous===true){gate("No device relief when another dangerous goods class applies");return done("referred_to_other_class","other_class_device");}
     if(f.device_category_a!==false || f.device_other_class_dangerous!==false){
@@ -214,6 +233,7 @@ export const classifyClass62 = function classifyClass62(input) {
     for(const key of ["protects_against_breakage_puncture_leak","construction_6_1_4_or_6_6_4","general_4_1_1_1_and_4_1_1_2","retains_on_1_2m_drop"]) if(p[key]!==true)missing("device_packaging."+key);
     if(!(typeof p.drop_height_m==="number" && p.drop_height_m>=1.2))missing("device_packaging.drop_height_m >= 1.2");
     if(!["USED MEDICAL DEVICE","USED MEDICAL EQUIPMENT"].includes(p.mark))missing("device_packaging.mark");
+    if(typeof p.overpack_used!=="boolean")missing("device_packaging.overpack_used boolean");
     if(p.overpack_used===true && p.mark_visible!==true && p.overpack_marked!==true)missing("device_packaging.overpack_marked_or_mark_visible");
     if(!evidence())missing("evidence_refs verifying device and packaging conditions");
     if(out.missing_evidence.length)return done("insufficient_evidence","device_package_conditions_unproven");
