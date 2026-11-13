@@ -1,0 +1,350 @@
+{
+  "schema_version": "0.1.0",
+  "owner": "Agent14",
+  "edition": "ADR-2025-EN",
+  "source_document": "ECE/TRANS/352 (Vol. I)",
+  "source_set_id": "adr2025-en-provisional-v1",
+  "language": "en",
+  "status": "provisional_not_independently_validated",
+  "rule_engine": "agents/agent14/precedence.py",
+  "matrix_file": "agents/agent14/precedence_matrix.json",
+  "completeness_note": "Rule manifest covers this precedence boundary; specialist numerical thresholds and full entry/SP evaluation are explicitly delegated.",
+  "rules": [
+    {
+      "rule_id": "A14-SCREEN",
+      "clause": "2.1.2.1; 2.1.3.5.1",
+      "decision": "Require complete ADR class-scoped evidence for all 13 divisions/classes; separately retain positives, negatives, exceptions and unresolved data",
+      "if_unknown": "BLOCKED if any class is missing, conflicting or indeterminate",
+      "implementation": "implemented_engineering_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-7",
+      "clause": "2.1.3.5.3(a); 3.3.1 SP290",
+      "decision": "Class 7 priority; verified excepted-package/SP290 non-UN3507 case allows remaining hazards to be considered",
+      "if_unknown": "BLOCKED if exception status or conditions cannot be evidenced",
+      "implementation": "implemented_with_external_SP290_evidence",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-1",
+      "clause": "2.1.3.5.3(b)",
+      "decision": "Class 1 priority before ordinary matrix",
+      "if_unknown": "No automatic class 1 division/compatibility-group determination",
+      "implementation": "implemented_primary_only",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-2",
+      "clause": "2.1.3.5.3(c)",
+      "decision": "Class 2 priority before ordinary matrix",
+      "if_unknown": "No Class 2 subtype derivation",
+      "implementation": "implemented_primary_only",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-3",
+      "clause": "2.1.3.5.3(d)",
+      "decision": "Liquid desensitized explosives under Class 3 have absolute priority",
+      "if_unknown": "Only apply on verified specialist subtype assertion",
+      "implementation": "implemented_evidence_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-41",
+      "clause": "2.1.3.5.3(e)",
+      "decision": "Class 4.1 self-reactive substances and solid desensitized explosives have priority",
+      "if_unknown": "Only apply on verified specialist subtype assertion",
+      "implementation": "implemented_evidence_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-42",
+      "clause": "2.1.3.5.3(f)",
+      "decision": "Pyrophoric Class 4.2 priority",
+      "if_unknown": "Only apply on verified specialist subtype assertion",
+      "implementation": "implemented_evidence_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-52",
+      "clause": "2.1.3.5.3(g)",
+      "decision": "Class 5.2 priority",
+      "if_unknown": "PG generally not assigned to 5.2",
+      "implementation": "implemented_primary_only",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-61INH",
+      "clause": "2.1.3.5.3(h)",
+      "decision": "Class 6.1 inhalation toxicity PG I priority subject to stated corrosive carve-out",
+      "if_unknown": "Require verified route, LC50 evidence and carveout applicability external",
+      "implementation": "implemented_with_specialist_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ABS-62",
+      "clause": "2.1.3.5.3(i)",
+      "decision": "Class 6.2 priority",
+      "if_unknown": "PG not applicable to class 6.2",
+      "implementation": "implemented_primary_only",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-MATRIX",
+      "clause": "2.1.3.5.4; 2.1.3.10",
+      "decision": "When absolute exclusions do not decide, use source-coordinate-backed Table 2.1.3.10 intersections to select class and PG",
+      "if_unknown": "Require exact row/column, physical state, toxicity route, footnote, convergence",
+      "implementation": "implemented_provisional",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-PG",
+      "clause": "2.1.1.3; 2.1.2.1; 2.1.3.10",
+      "decision": "Treat class/PG matrix result as a candidate until selected Table A col4 verified",
+      "if_unknown": "No invented PG for blank row or no-PG class",
+      "implementation": "implemented",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-NAMED",
+      "clause": "2.1.2.2; 2.1.3.3; 2.1.3.4.1; 2.1.3.4.2; 2.1.3.4.3",
+      "decision": "Certain named solutions/mixtures/used articles require specific-entry handling instead of generic precedence",
+      "if_unknown": "Only accept externally verified exact named exception, no selection here",
+      "implementation": "external_selector_dependency",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-COLLECTIVE",
+      "clause": "2.1.2.5; 2.1.3.6",
+      "decision": "Prefer most-specific applicable collective entry in absence of proper named entry",
+      "if_unknown": "Agent4 checks A/B/C/D choice and candidate completeness",
+      "implementation": "external_selector_dependency",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-CA",
+      "clause": "2.1.2.8",
+      "decision": "Named-entry substance with new additional hazards requires competent-authority conditions",
+      "if_unknown": "Block pending authority evidence",
+      "implementation": "external_authority_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-TOX",
+      "clause": "2.1.3.10",
+      "decision": "Distinguish Class6.1 PGI oral, dermal and inhalation pathways as shown by axes",
+      "if_unknown": "Never use CLP/GHS route as ADR evidence",
+      "implementation": "implemented_route_dependency",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-FOOTNOTE",
+      "clause": "2.1.3.10 Table footnote a",
+      "decision": "Apply Class 6.1 PG III for pesticides at the starred table intersection",
+      "if_unknown": "Verified pesticide status mandatory",
+      "implementation": "implemented",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ARTICLES",
+      "clause": "2.1.5.5; 2.1.5.6",
+      "decision": "Dangerous articles subject to separate precedence rules, not ordinary substances matrix",
+      "if_unknown": "No article precedence automation yet",
+      "implementation": "unsupported_external",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-WASTE",
+      "clause": "2.1.3.5.2; 2.1.3.5.5; 2.1.3.9",
+      "decision": "Uncertain waste and Basel routes demand dedicated evidence/decision",
+      "if_unknown": "Do not infer composition or ordinary Table A cell",
+      "implementation": "unsupported_external",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-OXID",
+      "clause": "2.1.3.7",
+      "decision": "Oxidizing substance with explosive properties requires Class1 exclusion review before classification",
+      "if_unknown": "Requires dedicated specialist flag; no automatic explosive threshold inference",
+      "implementation": "implemented_manual_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ENV",
+      "clause": "2.1.3.8; 2.2.9.1.10",
+      "decision": "Environment hazard can be additional alongside other class hazards",
+      "if_unknown": "Requires reviewed 9/ENV labelling; do not automatically alter primary",
+      "implementation": "external_specialist_gate",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-ROW",
+      "clause": "3.2.1 Table A columns (3a),(3b),(4),(5),(6)",
+      "decision": "Reconcile class, classification code, PG, labels, SP codes with exactly one source-verified row",
+      "if_unknown": "All five raw column cells and row locator required",
+      "implementation": "implemented",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-SP",
+      "clause": "3.3.1",
+      "decision": "Require determinate, evidence-linked outcome for every SP listed in Table A column6",
+      "if_unknown": "Unknown/incomplete/collision blocks",
+      "implementation": "implemented_external_SP_evidence",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    },
+    {
+      "rule_id": "A14-PUBLISH",
+      "clause": "2.1.2.1; 3.2.1; 3.3.1",
+      "decision": "No module result is legal clearance without external integration and independent review",
+      "if_unknown": "publishable=false; assignment_permitted=false always",
+      "implementation": "engineering_policy",
+      "provenance": {
+        "document": "ECE/TRANS/352",
+        "volume": "I",
+        "edition": "2025",
+        "language": "en"
+      },
+      "review_state": "pending_independent_review"
+    }
+  ]
+}
