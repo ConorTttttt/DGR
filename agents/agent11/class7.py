@@ -55,7 +55,7 @@ def _mixture_limit(fractions: dict[str, Decimal], column: str) -> Decimal:
 def _fissile(payload: dict, names: set[str]) -> dict:
     if not (names & FISSILE_NUCLIDES):
         return {"state": "NO_FISSILE_NUCLIDES_IDENTIFIED", "ref": "2.2.7.1.3", "requires_review": True}
-    fissile = payload.get("fissile", {})
+    fissile = payload.get("fissile") if isinstance(payload.get("fissile"), dict) else {}
     if not fissile.get("complete_mass_inventory"):
         return {"state": "UNRESOLVED_FISSILE_MASS", "ref": "2.2.7.1.3;2.2.7.2.3.5", "requires_review": True}
     masses = fissile.get("nuclide_masses", {})
@@ -76,7 +76,7 @@ def _fissile(payload: dict, names: set[str]) -> dict:
 def assess_lsa(data: dict, concentration: Decimal, exempt_concentration: Decimal,
                a2_bq: Decimal, fissile_state: str) -> dict:
     """Material-characteristic *candidates*; 4.1.9.2 and CV33 not checked."""
-    mat = data.get("material", {})
+    mat = data.get("material") if isinstance(data.get("material"), dict) else {}
     phase = mat.get("phase")
     uniform = mat.get("activity_distributed_throughout") is True
     candidates: list[str] = []
@@ -116,7 +116,7 @@ def assess_sco(data: dict) -> dict:
         return {"status": "NOT_ASSESSED", "ref": "2.2.7.2.3.2"}
     if sco.get("solid_object_not_itself_radioactive") is not True or sco.get("area_averaging_verified") is not True:
         return {"status": "INSUFFICIENT_OBJECT_OR_300CM2_EVIDENCE", "ref": "2.2.7.1.3;2.2.7.2.3.2"}
-    measures = sco.get("measurements", {})
+    measures = sco.get("measurements") if isinstance(sco.get("measurements"), dict) else {}
     bands = {"beta_gamma_low_toxicity_alpha": (D("0.4"), (D(4), D(40000), D(40000)),
                                                  (D(400), D(800000), D(800000))),
              "other_alpha": (D("0.04"), (D("0.4"), D(4000), D(4000)),
@@ -227,7 +227,7 @@ def classify(data: dict) -> dict:
                 raise ValueError("radionuclide entry with id required")
             name = item["id"]
             if name not in DATA["values"]:
-                raise ValueError(f"{name}: not in independently checked curated register; refer to 2.2.7.2.2.1-2.2.7.2.2.6")
+                raise ValueError(f"{name}: not in curated register pending independent audit; refer to 2.2.7.2.2.1-2.2.7.2.2.6")
             if name in activities:
                 raise ValueError(f"duplicate radionuclide {name}")
             if DATA["values"][name]["notes"] and item.get("table_footnotes_reviewed") is not True:
